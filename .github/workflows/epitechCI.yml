@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  GH_PUB_KEY: |
+  GH_PUB_KEY:
     github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
 
 jobs: 
