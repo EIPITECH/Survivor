@@ -1,0 +1,58 @@
+name: EpitechCI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  GH_PUB_KEY: |
+    github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+
+jobs:
+  check_the_repository_state:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get branch name
+        id: branch-names
+        uses: tj-actions/branch-names@v8
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          ref: ${{ steps.branch-names.outputs.head_ref_branch }}
+
+  sync_repository:
+    needs: [check_the_repository_state]
+    if: ${{ !github.event.pull_request && github.ref_name == 'main' && vars.GH_TARGET_REPO }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.GH_SSH_PRIVATE_KEY }}
+          known_hosts: ${{ env.GH_PUB_KEY }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Add school repository
+        run: |
+          git remote add target "${{ vars.GH_TARGET_REPO }}"
+
+      - name: Synchronize main branch
+        run: |
+          git push target main:main
+
