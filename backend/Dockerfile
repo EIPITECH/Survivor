@@ -1,11 +1,12 @@
-FROM node:20
+FROM node:22
 
 WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app/package.json
 COPY package-lock.json /usr/src/app/package-lock.json
 
-RUN npm install
+RUN npm install 
+RUN npm i pg
 
 COPY . /usr/src/app
 
