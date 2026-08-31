@@ -24,7 +24,7 @@ export class UsersController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return "Normalement ça doit update";
+    return this.usersService.update(+id, updateUserDto);
   }
 
   @Delete(':id')
