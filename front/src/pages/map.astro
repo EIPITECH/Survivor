@@ -1,5 +1,5 @@
 ---
-import Calendar from '../components/calendar';
+import Map from '../components/Map';
 ---
 
 <a href="/">Home</a>
@@ -11,9 +11,13 @@ import Calendar from '../components/calendar';
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
+		 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+	 
 	</head>
-    <Calendar client:only="react" />
 	<body>
-		<h1>Map travail</h1>
+		<h1>Map travail</h1>	
+		<Map client:only/>
 	</body>
 </html>
