@@ -1,0 +1,10 @@
+.env
+
+# Frontend
+
+
+# Backend
+
+node_modules
+
+# Database

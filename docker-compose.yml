@@ -1,0 +1,33 @@
+services:
+  backend:
+    container_name: nest-backend
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - db
+    networks:
+      - db
+
+  db:
+    image: postgres:13
+    container_name: ${DB_HOST}
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - db
+
+volumes:
+  postgres-data:
+
+networks:
+  db:
