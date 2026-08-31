@@ -6,10 +6,10 @@ export class User {
   id: number;
 
   @Column()
-  FirstName: string;
+  firstName: string;
 
   @Column()
-  LastName: string;
+  lastName: string;
 
   @Column({ unique: true })
   email: string;
