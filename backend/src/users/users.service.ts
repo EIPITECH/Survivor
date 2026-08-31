@@ -28,5 +28,9 @@ export class UsersService {
   async remove(id: number) {
     return this.userRepo.delete({id});
   }
+
+  async update(id: number, updateUserDto: UpdateUserDto) {
+    return this.userRepo.update({id}, updateUserDto);
+  }
 }
 
