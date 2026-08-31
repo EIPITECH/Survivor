@@ -25,6 +25,8 @@ export class UsersService {
     return this.userRepo.findOneBy({id});
   }
 
-  // Ajouter les méthodes pour remove et update
+  async remove(id: number) {
+    return this.userRepo.delete({id});
+  }
 }
 
