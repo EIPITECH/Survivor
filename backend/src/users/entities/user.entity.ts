@@ -20,6 +20,15 @@ export class User {
   @Column()
   isConnected: boolean;
 
+  @Column()
+  skills: string[];
+
+  @Column()
+  experience: [string, number];
+  
+  @Column()
+  availability: boolean;
+  
   @CreateDateColumn()
   createdAt: Date;
 }
