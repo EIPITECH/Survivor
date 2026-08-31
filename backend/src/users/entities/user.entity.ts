@@ -17,6 +17,9 @@ export class User {
   @Column()
   password: string;
 
+  @Column()
+  isConnected: boolean;
+
   @CreateDateColumn()
   createdAt: Date;
 }
