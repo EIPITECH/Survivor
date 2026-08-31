@@ -5,20 +5,20 @@ services:
       context: ./backend
     ports:
       - "3000:3000"
+    env_file:
+      - .env
     depends_on:
       - db
-    environment:
-      DATABASE_URL: ${DATABASE_URL}
     networks:
       - db
 
   db:
     image: postgres:13
-    container_name: ${DATABASE_HOST}
+    container_name: ${DB_HOST}
     environment:
-      POSTGRES_USER: ${DATABASE_USER}
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
-      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     ports:
       - "5432:5432"
     volumes:
@@ -28,7 +28,6 @@ services:
 
 volumes:
   postgres-data:
-
 
 networks:
   db:
