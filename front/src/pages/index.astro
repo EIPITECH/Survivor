@@ -1,7 +1,8 @@
 ---
-
+import "../styles/global.css";
+import * as React from 'react';
+import ChooseDevice from "../components/ChooseDevice"
 ---
-<a href="/map/">map travail</a>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -12,7 +13,7 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
-		<h1 class="grid"> coucou </h1>
+		<a href="/map/">map travail</a>
+		<ChooseDevice client:only/>
 	</body>
 </html>
