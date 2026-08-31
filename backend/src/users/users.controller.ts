@@ -29,6 +29,6 @@ export class UsersController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return "Normalement ça delete";
+    return this.usersService.remove(+id);
   }
 }
