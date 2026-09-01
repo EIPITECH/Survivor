@@ -34,6 +34,11 @@ export class CreateUserDto {
 
     @IsNotEmpty()
     @IsEnum(UserRole, { message: 'Veuillez sélectionner votre profil candidat ou recruteur' })
+    @ApiProperty({
+        description: 'User role',
+        enum: UserRole,
+        example: UserRole.SEEKER,
+    })
     role: UserRole
 }
 
