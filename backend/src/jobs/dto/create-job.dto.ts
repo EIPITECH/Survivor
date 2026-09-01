@@ -37,6 +37,7 @@ export class CreateJobDto {
 
     @IsNotEmpty() 
     @IsNumber()
+    @IsOptional()
     @ApiProperty({
         description: 'Employer\'s Id who created the job',
         example: 123,
