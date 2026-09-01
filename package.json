@@ -1,5 +1,0 @@
-{
-  "dependencies": {
-    "@nestjs/passport": "^8.1.0"
-  }
-}
