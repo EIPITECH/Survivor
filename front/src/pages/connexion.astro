@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import * as React from 'react';
 import ChooseDevice from "../components/ChooseDevice"
+import ConnexionPcTemplate from "../components/templates/ConnexionPcTemplate"
 ---
 <html lang="en">
 	<head>
@@ -13,8 +14,6 @@ import ChooseDevice from "../components/ChooseDevice"
 		<title>Astro</title>
 	</head>
 	<body>
-		<a href="/map/" class="flex">map travail</a>
-		<a href="/connexion/">connexion</a>
-		<ChooseDevice client:only/>
+		<ConnexionPcTemplate/>
 	</body>
 </html>
