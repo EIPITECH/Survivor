@@ -24,6 +24,7 @@ export class UsersService {
     user.lastName = createUserDto.lastName;
     user.email = createUserDto.email;
     user.isConnected = false;
+    user.role = createUserDto.role;
     user.password = await this.hashString(createUserDto.password);
     return this.userRepo.save(user);
   }
