@@ -1,4 +1,5 @@
 import Button from "../buttons/Button";
+import SwitchLocation from "../toggleSwitchLoc";
 
 function HeaderPc() {
     return (
@@ -27,7 +28,7 @@ function HeaderPc() {
                 </svg>
             </div>
             <div className="grid grid-cols-3 gap-4 text-center">
-                <Button text="position refusée"/>
+                <SwitchLocation />
                 <Button text="mes candidatures" clickable={true}/>
                 <Button text="connexion" clickable={true} link="/connexion/"/>
             </div>

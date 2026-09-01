@@ -7,8 +7,8 @@ import iconPng from 'leaflet/dist/images/marker-icon-2x.png';
 export default function MarkerRed(pos: [number, number], setOpen: React.Dispatch<React.SetStateAction<boolean>>, description: string) {
     var redIcon = L.icon({
         iconUrl: iconPng.src,
-        iconSize:     [38, 95], // size of the icon
-        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        iconSize:     [38, 45], // size of the icon
+        iconAnchor:   [22, 64], // point of the icon which will correspond to marker's location
         popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
 
