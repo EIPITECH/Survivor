@@ -1,6 +1,6 @@
 import Button from "../buttons/Button";
 
-function Header() {
+function HeaderPc() {
     return (
         <header className="flex justify-between border-2 px-10 py-2 bg-[#1B3A6B]">
             <div>
@@ -15,4 +15,4 @@ function Header() {
     )
 }
 
-export default Header;
+export default HeaderPc;
