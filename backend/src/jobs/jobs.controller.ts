@@ -12,7 +12,8 @@ export class JobsController {
   @ApiBearerAuth()
   @Post()
   @ApiOperation({summary: 'Créer un nouvelle offre de job (authentification requise)'})
-  create(@Body() createJobDto: CreateJobDto) {
+  create(@Body() createJobDto: CreateJobDto, @Request() req: any) {
+    createJobDto.employerId = req.user.userId;
     return this.jobsService.create(createJobDto);
   }
 
