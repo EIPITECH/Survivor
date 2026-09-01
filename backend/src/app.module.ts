@@ -26,7 +26,7 @@ import configuration from './config/configuration';
         password: configService.get<string>('database.password'),
         database: configService.get<string>('database.name'),
         entities: [User],
-        synchronize: true, // faut mettre en false en prod
+        synchronize: configService.get<boolean>('database.dev_mode'),
       }),
     }),
     UsersModule,
@@ -37,4 +37,3 @@ import configuration from './config/configuration';
 })
 
 export class AppModule {}
-
