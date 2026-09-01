@@ -1,16 +1,21 @@
 type Props = {
     placeHolder : string,
-    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
+    value?: string,
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 function Input({
     placeHolder,
-    onClick,
+    value,
+    onChange,
 } : Props) {
     return (
         <input
-            className="border-black border-2 rounded-2xl px-2"
-            placeholder={placeHolder}/>
+            className="bg-white border-black border-2 rounded-2xl px-2"
+            placeholder={placeHolder}
+            value={value}
+            onChange={onChange}
+            />
     )
 }
 
