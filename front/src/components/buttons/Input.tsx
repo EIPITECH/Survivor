@@ -11,7 +11,7 @@ function Input({
 } : Props) {
     return (
         <input
-            className="border-black border-2 rounded-2xl px-2"
+            className="bg-white border-black border-2 rounded-2xl px-2"
             placeholder={placeHolder}
             value={value}
             onChange={onChange}

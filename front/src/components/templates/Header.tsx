@@ -2,7 +2,7 @@ import Button from "../buttons/Button";
 
 function Header() {
     return (
-        <header className="flex justify-between border-2 px-10 py-2 bg-amber-300">
+        <header className="flex justify-between border-2 px-10 py-2 bg-[#1B3A6B]">
             <div>
                 <div>logo</div>
             </div>

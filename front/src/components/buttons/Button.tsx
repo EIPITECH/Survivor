@@ -13,7 +13,7 @@ function Button({
     link,
     type
 }: Props) {
-    const className = `border-black border-2 rounded-2xl px-2 flex justify-center ${clickable ? 'hover:cursor-pointer' : ''}`;
+    const className = `bg-white border-black border-2 rounded-2xl px-2 flex justify-center ${clickable ? 'hover:cursor-pointer' : ''}`;
 
     if (link) {
     return (
