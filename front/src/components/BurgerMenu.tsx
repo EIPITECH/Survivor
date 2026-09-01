@@ -7,8 +7,8 @@ export default function BurgerMenu() {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <div className="relative">
-      <Hamburger size={30}  toggled={isOpen} toggle={setOpen} />
+    <div className="relative flex justify-end">
+        <Hamburger size={30}  toggled={isOpen} toggle={setOpen} />
       {isOpen && (
         <div
           style={{ zIndex: 100 }}
