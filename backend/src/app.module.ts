@@ -6,6 +6,9 @@ import { User } from './users/entities/user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
+import { SeekersModule } from './seekers/seekers.module';
+import { EmployersModule } from './employers/employers.module';
+import { AdminsModule } from './admins/admins.module';
 import configuration from './config/configuration';
 
 @Module({
@@ -31,6 +34,9 @@ import configuration from './config/configuration';
     }),
     UsersModule,
     AuthModule,
+    SeekersModule,
+    EmployersModule,
+    AdminsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
