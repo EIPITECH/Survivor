@@ -7,4 +7,5 @@ export default () => ({
     password: process.env.DB_PASSWORD,
     name: process.env.DB_NAME,
   },
+  dev_mode: process.env.DEV_MODE
 });
