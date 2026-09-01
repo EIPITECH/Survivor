@@ -28,7 +28,7 @@ export function SurvivorMap({ setOpen }: { setOpen: React.Dispatch<React.SetStat
       center={[48.8566, 2.3522]}
       zoom={13}
       scrollWheelZoom={true}
-      style={{ zIndex: '-10', height: '600px', width: '100%' }}
+      style={{ zIndex: '0', height: '600px', width: '100%' }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

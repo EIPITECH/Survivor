@@ -19,7 +19,7 @@ export default function JobModal({ isOpen, setOpen, title, description }: { isOp
 
   return (
     <>
-      <Modal
+      <Modal style={{ zIndex: '100' }}
         open={isOpen}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
