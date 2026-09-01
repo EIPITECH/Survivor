@@ -3,9 +3,16 @@ type Props = {
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
     clickable?: boolean,
     link?: string,
+    type?: any,
 }
 
-function Button({ text, onClick, clickable, link }: Props) {
+function Button({
+    text,
+    onClick,
+    clickable,
+    link,
+    type
+}: Props) {
     const className = `border-black border-2 rounded-2xl px-2 flex justify-center ${clickable ? 'hover:cursor-pointer' : ''}`;
 
     if (link) {
@@ -17,7 +24,7 @@ function Button({ text, onClick, clickable, link }: Props) {
     }
 
     return (
-    <button onClick={onClick} className={className}>
+    <button onClick={onClick} className={className} type={type}>
         {text}
     </button>
     )
