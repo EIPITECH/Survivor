@@ -1,4 +1,5 @@
 import Button from "../buttons/Button";
+import SwitchLocation from "../toggleSwitchLoc";
 
 function HeaderMobile() {
     return (
@@ -7,7 +8,7 @@ function HeaderMobile() {
                 <div>logo</div>
             </div>
             <div className="flex gap-4">
-                <Button text="position refusée"/>
+                <SwitchLocation />
                 {/* <Button text="mes candidatures" clickable={true}/> */}
                 <Button text="connexion" clickable={true} link="/connexion/"/>
             </div>

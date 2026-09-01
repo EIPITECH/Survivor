@@ -1,4 +1,5 @@
 import Button from "../buttons/Button";
+import SwitchLocation from "../toggleSwitchLoc";
 
 function HeaderPc() {
     return (
@@ -7,7 +8,7 @@ function HeaderPc() {
                 <div>logo</div>
             </div>
             <div className="grid grid-cols-3 gap-4">
-                <Button text="position refusée"/>
+                <SwitchLocation />
                 <Button text="mes candidatures" clickable={true}/>
                 <Button text="connexion" clickable={true} link="/connexion/"/>
             </div>
