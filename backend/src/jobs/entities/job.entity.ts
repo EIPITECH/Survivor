@@ -31,7 +31,7 @@ export class Job
     })
     description: string
 
-    @Column()
+    @Column({type: 'float'})
     @IsNotEmpty() @IsNumber()
     @ApiProperty({
       description: 'Job\'s latitude coordinates',
@@ -39,7 +39,7 @@ export class Job
     })
     latitude: number
 
-    @Column()
+    @Column({type: 'float'})
     @IsNotEmpty() @IsNumber()
     @ApiProperty({
       description: 'Job\'s longitude coordinates',
