@@ -8,29 +8,31 @@ function ConnexionPcTemplate() {
     };
 
     return (
-        <form>
-            <Button text="button" onClick={handleClick}/>
-            <Input placeHolder="placeHolder"/>
+        <form className="grid grid-2 gap-10">
+            {/* HEADER CONNEXION */}
+            <div>
+                <div className="flex justify-center">
+                    Connexion
+                </div>
+            </div>
+
+            {/* INPUT CONNEXION */}
             <div className="grid gap-6 mb-6">
-                <div>
+                <div className="grid">
                     <label className="text-sm">Prénom</label>
-                    <input className="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                            placeholder="Alice"/>
+                    <Input placeHolder="Alice"/>
                 </div>
-                <div>
+                <div className="grid">
                     <label className="text-sm">Nom</label>
-                    <input className="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                            placeholder="Duvillier"/>
+                    <Input placeHolder="Duvillier"/>
                 </div>
-                <div>
+                <div className="grid">
                     <label className="text-sm">Email</label>
-                    <input className="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                            placeholder="alice.duvillier@epitech.eu"/>
+                    <Input placeHolder="alice.duvillier@epitech.eu"/>
                 </div>
-                <div>
+                <div className="grid">
                     <label className="text-sm">Mot de passe</label>
-                    <input className="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                            placeholder="****"/>
+                    <Input placeHolder="****"/>
                 </div>
             </div>
         </form>
