@@ -2,8 +2,10 @@ import { useState } from "react";
 import Button from "../buttons/Button";
 import Input from "../buttons/Input";
 
-function ConnexionPcTemplate() {
+function CreationPcTemplate() {
 
+    const [firstName, setFirstName] = useState('');
+    const [secondName, setSecondName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -15,22 +17,36 @@ function ConnexionPcTemplate() {
         event.preventDefault();
 
         console.log('Form :', {
+            firstName,
+            secondName,
             email,
             password
         });
     };
 
     return (
-        <form onSubmit={handleSubmit} className="grid grid-4 gap-10">
+        <form onSubmit={handleSubmit} className="grid grid-3 gap-10">
             {/* HEADER CONNEXION */}
             <div>
                 <div className="flex justify-center">
-                    Connexion
+                    Créer un compte
                 </div>
             </div>
 
             {/* INPUT CONNEXION */}
             <div className="grid gap-6 mb-6">
+                <div className="grid">
+                    <label className="text-sm">Prénom</label>
+                    <Input placeHolder="Alice" 
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}/>
+                </div>
+                <div className="grid">
+                    <label className="text-sm">Nom</label>
+                    <Input placeHolder="Duvillier"
+                        value={secondName}
+                        onChange={(e) => setSecondName(e.target.value)}/>
+                </div>
                 <div className="grid">
                     <label className="text-sm">Email</label>
                     <Input placeHolder="alice.duvillier@epitech.eu"
@@ -45,14 +61,6 @@ function ConnexionPcTemplate() {
                 </div>
             </div>
 
-            <div className="flex gap-1">
-                <p>Pas encore de compte ?</p>
-                <a href="/inscription/" className="group text-sky-600 transition duration-300">
-                    Créer un compte
-                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
-                </a>
-            </div>
-
             <div>
                 <Button text="submit" clickable={true} type="submit"/>
             </div>
@@ -60,6 +68,4 @@ function ConnexionPcTemplate() {
     )
 }
 
-
-
-export default ConnexionPcTemplate;
+export default CreationPcTemplate;
