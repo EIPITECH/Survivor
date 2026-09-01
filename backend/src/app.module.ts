@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { JobsModule } from './jobs/jobs.module';
+import { Job } from './jobs/entities/job.entity';
 import configuration from './config/configuration';
 
 @Module({
@@ -26,7 +27,7 @@ import configuration from './config/configuration';
         username: configService.get<string>('database.username'),
         password: configService.get<string>('database.password'),
         database: configService.get<string>('database.name'),
-        entities: [User],
+        entities: [User, Job],
         synchronize: configService.get<boolean>('database.dev_mode'),
       }),
     }),
