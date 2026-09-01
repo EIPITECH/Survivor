@@ -13,8 +13,8 @@ export default function ContainerSetterMap() {
       <JobModal
         isOpen={isOpen}
         setOpen={setOpen}
-        title="Job Title"
-        description="Job Description"
+        title="Titre job"
+        description="toujours un super job"
       />
       <SurvivorMap setOpen={setOpen} />
     </>
@@ -25,10 +25,10 @@ export function SurvivorMap({ setOpen }: { setOpen: React.Dispatch<React.SetStat
 
   return (
     <MapContainer
-      center={[51.505, -0.09]}
+      center={[48.8566, 2.3522]}
       zoom={13}
       scrollWheelZoom={true}
-      style={{ height: '600px', width: '100%' }}
+      style={{ zIndex: '-10', height: '600px', width: '100%' }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

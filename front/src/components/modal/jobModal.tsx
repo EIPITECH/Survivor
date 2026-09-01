@@ -19,7 +19,6 @@ export default function JobModal({ isOpen, setOpen, title, description }: { isOp
 
   return (
     <>
-      <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         open={isOpen}
         onClose={handleClose}
