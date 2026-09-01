@@ -6,10 +6,9 @@ COPY package.json /usr/src/app/package.json
 COPY package-lock.json /usr/src/app/package-lock.json
 
 RUN npm install
-RUN npm i pg
 
 COPY . /usr/src/app
 
-# RUN npm run build
+# RUN npm build
 
 CMD ["npm", "run", "start:dev"]
