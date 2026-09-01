@@ -5,13 +5,14 @@ import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
 import configuration from './config/configuration';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '../.env',
+      envFilePath: '.env',
       load: [configuration]
     }),
     TypeOrmModule.forRootAsync({
@@ -25,14 +26,14 @@ import configuration from './config/configuration';
         password: configService.get<string>('database.password'),
         database: configService.get<string>('database.name'),
         entities: [User],
-        synchronize: true, // faut mettre en false en prod
+        synchronize: configService.get<boolean>('database.dev_mode'),
       }),
     }),
     UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
 
 export class AppModule {}
-
