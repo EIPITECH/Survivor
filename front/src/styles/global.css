@@ -2,4 +2,12 @@
 @import '../../node_modules/@syncfusion/react-base/styles/material.css';
 @import '../../node_modules/@syncfusion/react-calendars/styles/material.css';
 
+body {
+    font-family: var(--font-spectral);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-marianne);
+}
+
 #map { height: 180px; }
