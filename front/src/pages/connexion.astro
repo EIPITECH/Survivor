@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import * as React from 'react';
 import ChooseDevice from "../components/ChooseDevice"
-import Header from "../components/templates/Header";
+import ConnexionPcTemplate from "../components/templates/ConnexionPcTemplate"
 ---
 <html lang="en">
 	<head>
@@ -14,9 +14,6 @@ import Header from "../components/templates/Header";
 		<title>Astro</title>
 	</head>
 	<body>
-		<Header/>
-		<a href="/map/" class="flex">map travail</a>
-		<a href="/connexion/">connexion</a>
-		<ChooseDevice client:only/>
+		<ConnexionPcTemplate/>
 	</body>
 </html>
