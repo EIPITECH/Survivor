@@ -1,8 +1,6 @@
 import { IsDate, IsNotEmpty, IsNumber, IsString } from "class-validator";
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { jobStatus } from '../enum/jobs-status.enum';
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-
 
 @Entity()
 export class Job 
@@ -19,6 +17,22 @@ export class Job
     @IsNotEmpty() @IsString()
 
     description: string
+
+    @Column()
+    @IsNotEmpty() @IsString()
+    cityName: string
+
+    @Column()
+    @IsNotEmpty() @IsString()
+    streetNumber: string
+
+    @Column()
+    @IsNotEmpty() @IsString()
+    streetName: string
+
+    @Column()
+    @IsNotEmpty() @IsString()
+    zipCode: string
 
     @Column({type: 'float'})
     @IsNotEmpty() @IsNumber()
@@ -38,10 +52,21 @@ export class Job
     @Column({
         type: 'enum',
         enum: jobStatus,
-        default: jobStatus.ACTIVE,
+        default: jobStatus.TOCHECK,
     })
-
     status: jobStatus;
+
+    @Column()
+    @IsNotEmpty() @IsString()
+    geocodageSource: string
+
+    @Column()
+    @IsNotEmpty() @IsNumber()
+    trustScore: number
+
+    @Column()
+    @IsNotEmpty() @IsDate()
+    obtentionDate: Date
 
     @CreateDateColumn()
     @IsNotEmpty() @IsDate()
