@@ -1,4 +1,11 @@
 services:
+  frontend:
+    container_name: astro-frontend
+    build:
+      context: ./front
+    ports:
+      - "4321:4321"
+
   backend:
     container_name: nest-backend
     build:
