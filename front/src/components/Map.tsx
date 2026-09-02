@@ -4,8 +4,6 @@ import LocationMarker from "./location"
 import MarkerRed from "./marker/markerRed"
 import { useState } from 'react';
 import JobModal from './modal/jobModal';
-import Map from 'ol/Map';
-import OSM from 'ol/source/OSM';
 
 export default function ContainerSetterMap() {
   const [isOpen, setOpen] = useState(false);
