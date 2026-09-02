@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../buttons/Button";
 import Input from "../buttons/Input";
 import Checkbox from "../buttons/Checkbox";
@@ -17,16 +17,38 @@ function CreationPcTemplate() {
     //     console.log('Bouton cliqué !');
     // };
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    //     event.preventDefault();
+
+    //     console.log('Form :', {
+    //         firstName,
+    //         secondName,
+    //         email,
+    //         password
+    //     });
+    // };
+
+
+    const handleSubmit = (event:any) =>  {
         event.preventDefault();
 
-        console.log('Form :', {
-            firstName,
-            secondName,
-            email,
-            password
-        });
-    };
+        fetch("http://localhost:3000/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*"
+            },
+            body: JSON.stringify({
+                firstName: firstName,
+                lastName: secondName,
+                email: email,
+                password: password,
+                role: inscriptionType
+            }),
+        }).then(() => {
+
+        })
+    }
 
     return (
 
@@ -35,12 +57,12 @@ function CreationPcTemplate() {
             {inscriptionType == '' && (
             // CHOIX INSCRIPTION
                 <div>
-                    <Button text="employeur" clickable={true} onClick={() => setInscriptionType('employeur')}/>
-                    <Button text="chercheur d'emploi" clickable={true} onClick={() => setInscriptionType('chercheur')}/>
+                    <Button text="employeur" clickable={true} onClick={() => setInscriptionType('employer')}/>
+                    <Button text="chercheur d'emploi" clickable={true} onClick={() => setInscriptionType('seeker')}/>
                 </div>
             )}
 
-            {inscriptionType == 'employeur' && (
+            {inscriptionType == 'employer' && (
             // INSCRIPTION EMPLOYEUR
                 <form onSubmit={handleSubmit} className="grid grid-3 gap-10">
                     {/* HEADER CONNEXION */}
@@ -84,7 +106,7 @@ function CreationPcTemplate() {
                 </form>
             )}
 
-            {inscriptionType == 'chercheur' && (
+            {inscriptionType == 'seeker' && (
             // INSCRIPTION CHERCHEUR D'EMPLOI
                 <form onSubmit={handleSubmit} className="grid grid-3 gap-10">
                     {/* HEADER CONNEXION */}
