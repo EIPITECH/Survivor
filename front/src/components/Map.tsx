@@ -34,7 +34,7 @@ export function SurvivorMap({ setOpen }: { setOpen: React.Dispatch<React.SetStat
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {MarkerRed([48.8566, 2.3522], setOpen, "un super job wallah")}
+      {MarkerRed([48.8566, 2.3522], setOpen, "Job description")}
       <LocationMarker />
     </MapContainer>
   );
