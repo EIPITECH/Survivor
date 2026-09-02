@@ -31,7 +31,7 @@ export function SurvivorMap({ setOpen }: { setOpen: React.Dispatch<React.SetStat
       center={[48.8566, 2.3522]}
       zoom={13}
       scrollWheelZoom={true}
-      style={{ zIndex: '0', height: '600px', width: '100%' }}
+      style={{ zIndex: '0', height: '100vh', width: '100%', overflow: 'hidden' }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.ign.fr/">IGN France</a>'
