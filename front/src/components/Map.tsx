@@ -1,11 +1,12 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, type MapContainerProps } from 'react-leaflet';
 import '../styles/global.css';
 import LocationMarker from "./location"
 import MarkerRed from "./marker/markerRed"
 import { useState } from 'react';
 import JobModal from './modal/jobModal';
 import BurgerMenu from './BurgerMenu';
-
+import { Control } from 'leaflet';
+import { Map } from 'leaflet';
 export default function ContainerSetterMap() {
   const [isOpen, setOpen] = useState(false);
 
@@ -24,8 +25,9 @@ export default function ContainerSetterMap() {
 
 export function SurvivorMap({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
   const [map, setMap] = useState();
-  
   const planIgnUrl = "https://data.geopf.fr/wmts?" + "SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&TILEMATRIXSET=PM" + "&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&STYLE=normal" + "&FORMAT=image/png&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}";
+  
+  
   return (
     <MapContainer
       center={[48.8566, 2.3522]}
@@ -37,7 +39,6 @@ export function SurvivorMap({ setOpen }: { setOpen: React.Dispatch<React.SetStat
         attribution='&copy; <a href="https://www.ign.fr/">IGN France</a>'
         url={planIgnUrl}
         />
-        <BurgerMenu />
       {MarkerRed([48.8566, 2.3522], setOpen, "Job description")}
       <LocationMarker />
     </MapContainer>

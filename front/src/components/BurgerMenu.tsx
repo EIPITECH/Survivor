@@ -7,12 +7,11 @@ export default function BurgerMenu() {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <div style={{zIndex: 10000}} className="relative justify-end flex">
+    <div  className="z-10000 relative justify-end flex">
         <Hamburger size={30}  toggled={isOpen} toggle={setOpen} />
       {isOpen && (
         <div
-          style={{ zIndex: 10000 }}
-          className="absolute right-0 top-14 w-72 rounded-2xl border border-slate-200 bg-white p-4 shadow-xl shadow-slate-200/70"
+          className="z-10000 absolute right-0 top-14 w-72 rounded-2xl border border-slate-200 bg-white p-4 shadow-xl shadow-slate-200/70"
         >
           <div className="mb-3 flex items-center justify-between">
           </div>

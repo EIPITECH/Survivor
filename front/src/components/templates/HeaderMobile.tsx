@@ -3,7 +3,7 @@ import SwitchLocation from "../toggleSwitchLoc";
 
 function HeaderMobile() {
     return (
-        <header className="flex justify-between border-2 px-10 py-2 bg-[#1B3A6B]">
+        <header style={{position: "fixed", top: '0', zIndex: 10000}} className="w-full flex justify-between border-2 bg-[#1B3A6B] px-10 py-2">
             <div>
                 <svg aria-labelledby="logo ministère du travail, de l'emploi et de l'insertion" width="58.25" height="48.25" viewBox="0 0 233 193" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="233" height="193" fill="white"/>

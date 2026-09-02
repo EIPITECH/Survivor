@@ -23,7 +23,12 @@ import BurgerMenu from "../components/BurgerMenu";
 		crossorigin=""/>
 	</head>
 	<body>
-		<ChooseDevice template="header" client:only/>
-		<Map client:only/>
+		<div class="relative">
+			<div class="absolute z-1000 w-full">
+				<ChooseDevice template="header" client:only/>
+	        	<BurgerMenu client:only/>
+			</div>
+			<Map client:only/>
+		</div>
 	</body>
 </html>
