@@ -60,7 +60,7 @@ export class Job
     @IsNotEmpty() @IsString()
     geocodageSource: string
 
-    @Column()
+    @Column({type: 'float'})
     @IsNotEmpty() @IsNumber()
     trustScore: number
 
