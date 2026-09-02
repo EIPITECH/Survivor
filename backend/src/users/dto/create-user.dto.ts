@@ -28,7 +28,7 @@ export class CreateUserDto {
     @MinLength(11, {message: 'La taille du mot de passe doit être supérieure ou égale à 11 caractères'})
     @ApiProperty({
         description: 'User\'s hashed password',
-        example: '$2a$05$LhayLxezLhK1LhWvKxCyLOj0j1u.Kj0jZ0pEmm134uzrQlFvQJLF6',
+        example: 'SuperMotDePasse123!',
     })
     password: string
 
