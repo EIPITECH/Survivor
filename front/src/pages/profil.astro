@@ -6,7 +6,7 @@ import Header from "../components/templates/HeaderPc";
 import { Font } from 'astro:assets';
 import Map from '../components/Map';
 import BurgerMenu from "../components/BurgerMenu";
-import FooterPc from "../components/templates/FooterPc";
+import UsersPcTemplate from "../components/templates/UsersPcTemplate";
 ---
 
 <html lang="en">
@@ -24,13 +24,8 @@ import FooterPc from "../components/templates/FooterPc";
 		crossorigin=""/>
 	</head>
 	<body>
-		<div class="flex flex-col h-screen relative">
-			<ChooseDevice template="header" client:only/>
-			<div class="relative flex-1 overflow-hidden">
-				<BurgerMenu client:only/>
-				<Map client:only/>
-			</div>
-			<FooterPc client:only/>
-		</div>
+		<div>
+            profil
+        </div>
 	</body>
 </html>

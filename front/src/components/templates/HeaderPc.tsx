@@ -3,8 +3,8 @@ import SwitchLocation from "../toggleSwitchLoc";
 
 function HeaderPc() {
     return (
-        <header className="w-full z-1000 flex justify-between border-2 px-10 py-2 bg-[#1B3A6B] items-center">
-            <div>
+        <header className="w-full z-1000 flex justify-between px-10 py-2 bg-white items-center shadow-md">
+            <div className="flex items-center gap-5">
                 <svg aria-hidden="true" aria-labelledby="logo ministère du travail de l'emploi et de l'insertion" width="116.5" height="96.5" viewBox="0 0 233 193" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="233" height="193" fill="white"/>
                     <rect width="55" height="20" transform="translate(20 20)" fill="white"/>
@@ -26,11 +26,14 @@ function HeaderPc() {
                     <g mask="url(#mask1)">
                     </g>
                 </svg>
+                <div className="text-white bold">
+                    GéoEmploi
+                </div>
             </div>
-            <div className="grid grid-cols-3 gap-4 text-center">
+            <div className="flex items-center gap-4">
                 <SwitchLocation />
-                <Button text="mes candidatures" clickable={true}/>
-                <Button text="connexion" clickable={true} link="/connexion/"/>
+                {/* <Button text="Mes candidatures" clickable={true}/> */}
+                <Button text="Connexion" clickable={true} link="/connexion/"/>
             </div>
         </header>
     )
