@@ -4,6 +4,7 @@ import LocationMarker from "./location"
 import MarkerRed from "./marker/markerRed"
 import { useState } from 'react';
 import JobModal from './modal/jobModal';
+import BurgerMenu from './BurgerMenu';
 
 export default function ContainerSetterMap() {
   const [isOpen, setOpen] = useState(false);
@@ -35,7 +36,8 @@ export function SurvivorMap({ setOpen }: { setOpen: React.Dispatch<React.SetStat
       <TileLayer
         attribution='&copy; <a href="https://www.ign.fr/">IGN France</a>'
         url={planIgnUrl}
-      />
+        />
+        <BurgerMenu />
       {MarkerRed([48.8566, 2.3522], setOpen, "Job description")}
       <LocationMarker />
     </MapContainer>

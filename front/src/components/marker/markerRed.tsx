@@ -13,7 +13,7 @@ export default function MarkerRed(pos: [number, number], setOpen: React.Dispatch
     });
 
     return (
-        <Marker position={pos} icon={redIcon} eventHandlers={{ mouseover: (event) => event.target.openPopup(), mouseout: (event) => event.target.closePopup(), click: (event) => setOpen(true) }}>
+        <Marker aria-label="Icone offre d'emploi" position={pos} icon={redIcon} eventHandlers={{ mouseover: (event) => event.target.openPopup(), mouseout: (event) => event.target.closePopup(), click: (event) => setOpen(true) }}>
             <Popup>
                 {description}
             </Popup>    
