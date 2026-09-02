@@ -23,16 +23,16 @@ export class Job
     cityName: string
 
     @Column()
-    @IsNotEmpty() @IsString()
-    streetNumber: string
+    @IsNotEmpty() @IsNumber()
+    streetNumber: number
 
     @Column()
     @IsNotEmpty() @IsString()
     streetName: string
 
     @Column()
-    @IsNotEmpty() @IsString()
-    zipCode: string
+    @IsNotEmpty() @IsNumber()
+    zipCode: number
 
     @Column({type: 'float'})
     @IsNotEmpty() @IsNumber()
