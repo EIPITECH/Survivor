@@ -20,12 +20,12 @@ export class CreateJobDto {
     description: string;
 
     @IsNotEmpty()
-    @IsString()
+    @IsNumber()
     @ApiProperty({
         description: 'Street\'s number',
-        example: '9'
+        example: 123
     })
-    streetNumber: string;
+    streetNumber: number;
 
     @IsNotEmpty()
     @IsString()
@@ -44,12 +44,12 @@ export class CreateJobDto {
     cityName: string;
 
     @IsNotEmpty()
-    @IsString()
+    @IsNumber()
     @ApiProperty({
         description: 'Zip code',
-        example: '75000'
+        example: 75000
     })
-    zipCode: string;
+    zipCode: number;
 
     @IsNotEmpty() 
     @IsNumber()
