@@ -39,6 +39,7 @@ export class JobsService {
       newJob.streetName = createJobDto.streetName;
       newJob.zipCode = createJobDto.zipCode;
       newJob.latitude = latitude;
+      newJob.geocodageSource = 'api-adresse.data.gouv.fr';
       newJob.longitude = longitude;
       newJob.trustScore = score;
       newJob.obtentionDate = new Date();
