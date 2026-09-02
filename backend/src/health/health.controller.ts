@@ -18,8 +18,8 @@ export class HealthController {
   @HealthCheck()
   check() {
     return this.health.check([
-      async () => this.http.pingCheck('Astro', 'http://frontend:4321'),
-      async () => this.db.pingCheck('PostgreSQL'),
+      () => this.http.pingCheck('Astro', 'http://frontend:4321'),
+      () => this.db.pingCheck('PostgreSQL'),
       // Add tile service onec it's done
     ]);
   }
