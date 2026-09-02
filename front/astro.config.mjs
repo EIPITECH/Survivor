@@ -10,6 +10,7 @@ export default defineConfig({
   },
 
   integrations: [react()],
+  server: { allowedHosts: ['frontend'] },
 
   fonts: [{
     provider: fontProviders.local(),
