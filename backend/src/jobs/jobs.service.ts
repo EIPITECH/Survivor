@@ -33,6 +33,7 @@ export class JobsService {
       
       const newJob = new Job();
       newJob.title = createJobDto.title;
+      newJob.employerId = createJobDto.employerId;
       newJob.description = createJobDto.description;
       newJob.cityName = createJobDto.cityName;
       newJob.streetNumber = createJobDto.streetNumber;
