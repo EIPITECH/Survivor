@@ -109,7 +109,7 @@ function ConnexionPcTemplate() {
                     <div className="grid gap-6 mb-6">
                         <div className="grid gap-2">
                             <label className="text-lg font-bold">Email</label>
-                            <Input placeHolder="alice.duvillier@epitech.eu"
+                            <Input placeHolder="prénom.nom@email.fr"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}/>
                         </div>

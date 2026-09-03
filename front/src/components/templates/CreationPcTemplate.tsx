@@ -100,19 +100,19 @@ function CreationPcTemplate() {
                             <div className="grid gap-6 mb-6">
                                 <div className="grid gap-2">
                                     <label className="text-lg font-bold">Prénom</label>
-                                    <Input placeHolder="Alice"
+                                    <Input placeHolder="Jean"
                                         value={firstName}
                                         onChange={(e) => setFirstName(e.target.value)}/>
                                 </div>
                                 <div className="grid gap-2">
                                     <label className="text-lg font-bold">Nom</label>
-                                    <Input placeHolder="Duvillier"
+                                    <Input placeHolder="Dupont"
                                         value={secondName}
                                         onChange={(e) => setSecondName(e.target.value)}/>
                                 </div>
                                 <div className="grid gap-2">
                                     <label className="text-lg font-bold">Email</label>
-                                    <Input placeHolder="alice.duvillier@epitech.eu"
+                                    <Input placeHolder="jean.dupon@email.fr"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}/>
                                 </div>
@@ -158,13 +158,13 @@ function CreationPcTemplate() {
                             <div className="grid gap-6 mb-6">
                                 <div className="grid gap-2">
                                     <label className="text-lg font-bold">Prénom</label>
-                                    <Input placeHolder="Alice"
+                                    <Input placeHolder="Jean"
                                         value={firstName}
                                         onChange={(e) => setFirstName(e.target.value)}/>
                                 </div>
                                 <div className="grid gap-2">
                                     <label className="text-lg font-bold">Nom</label>
-                                    <Input placeHolder="Duvillier"
+                                    <Input placeHolder="Dupont"
                                         value={secondName}
                                         onChange={(e) => setSecondName(e.target.value)}/>
                                 </div>
@@ -185,7 +185,7 @@ function CreationPcTemplate() {
                                 </div> */}
                                 <div className="grid gap-2">
                                     <label className="text-lg font-bold">Email</label>
-                                    <Input placeHolder="alice.duvillier@epitech.eu"
+                                    <Input placeHolder="jean.dupont@epitech.eu"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}/>
                                 </div>
