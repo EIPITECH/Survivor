@@ -4,9 +4,9 @@ import '../../styles/global.css';
 import { useState } from 'react';
 import iconPng from 'leaflet/dist/images/marker-icon-2x.png';
 
-export default function MarkerRed({ pos, setOpen, description }: {
+export default function MarkerRed({ pos, onClick, description }: {
   pos: [number, number],
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  onClick: () => void,
   description: string
 })
  {    var redIcon = L.icon({
@@ -25,7 +25,7 @@ export default function MarkerRed({ pos, setOpen, description }: {
       eventHandlers={{
         mouseover: (e) => e.target.openPopup(),
         mouseout: (e) => e.target.closePopup(),
-        click: () => setOpen(true)
+        click: onClick
       }}
     >
       <Popup>{description}</Popup>
