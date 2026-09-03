@@ -13,7 +13,7 @@ export class JobsService {
     private jobRepo: Repository<Job>,
   ) {}
 
-  async create(createJobDto: CreateJobDto) {
+  async create(createJobDto: CreateJobDto, employerId: number) {
     
     const adressUrl = `${createJobDto.streetNumber} ${createJobDto.streetName} ${createJobDto.zipCode} ${createJobDto.cityName}`;
     const url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(adressUrl)}&limit=1`;
@@ -26,8 +26,8 @@ export class JobsService {
       }
       const data = await response.json();
       if (!data.features || data.features.length === 0) {
-        console.log("Impossible de géocoder l'adresse donnée");
         failed = true;
+        throw new BadRequestException("L'adresse indiquée n'a pas pu être localisée");
       }
       const features = data.features[0];
       const longitude = features.geometry.coordinates[0];
@@ -36,7 +36,7 @@ export class JobsService {
       
       const newJob = new Job();
       newJob.title = createJobDto.title;
-      newJob.employerId = createJobDto.employerId;
+      newJob.employerId = employerId;
       newJob.description = createJobDto.description;
       newJob.cityName = createJobDto.cityName;
       newJob.streetNumber = createJobDto.streetNumber;
