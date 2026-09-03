@@ -3,69 +3,69 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { jobStatus } from '../enum/jobs-status.enum';
 
 export class CreateJobDto {
-    @IsNotEmpty() 
+    @IsNotEmpty()
     @IsString()
     @ApiProperty({
-        description: 'Job\'s title',
-        example: 'FullStack Developer',
+        description: 'Job title',
+        example: 'Ingénieur(e) développement Go/Rust (H/F)',
     })
     title: string;
 
-    @IsNotEmpty() 
+    @IsNotEmpty()
     @IsString()
     @ApiProperty({
-        description: 'Job\'s description',
-        example: 'Your role is to create a web app which can do a lot of things',
+        description: 'Job description',
+        example: `Développer, tester et exécuter le cycle de vie complet du développement logiciel. Concevoir, mettre en œuvre et tester des fonctionnalités en tenant compte de l'évolutivité, des performances, du déploiement/de l'exploitation et de l'expérience de l'utilisateur(ice) final(e)`,
     })
     description: string;
 
     @IsNotEmpty()
-    @IsNumber()
-    @ApiProperty({
-        description: 'Street\'s number',
-        example: 123
-    })
-    streetNumber: number;
-
-    @IsNotEmpty()
     @IsString()
     @ApiProperty({
-        description: 'Street\'s name',
-        example: 'Rue beau chatêau'
-    })
-    streetName: string;
-
-    @IsNotEmpty()
-    @IsString()
-    @ApiProperty({
-        description: 'City\'s name',
-        example: 'Paris'
+        description: 'Name of the city where the job is located',
+        example: 'Saint-Jacques-de-la-Lande',
     })
     cityName: string;
 
     @IsNotEmpty()
     @IsNumber()
     @ApiProperty({
-        description: 'Zip code',
-        example: 75000
+        description: 'Street number of the job location',
+        example: 1,
+    })
+    streetNumber: number;
+
+    @IsNotEmpty()
+    @IsString()
+    @ApiProperty({
+        description: 'Street name of the job location',
+        example: 'Rue Louis Braille',
+    })
+    streetName: string;
+
+    @IsNotEmpty()
+    @IsNumber()
+    @ApiProperty({
+        description: 'Zip code of the job location',
+        example: 35136,
     })
     zipCode: number;
 
-    @IsNotEmpty() 
+    @IsNotEmpty()
     @IsNumber()
-    @IsOptional()
     @ApiProperty({
-        description: 'Employer\'s Id who created the job',
-        example: 123,
+        description: 'Identification number of the employer who posted the job',
+        example: 42,
     })
     employerId: number;
 
     @IsOptional()
     @IsEnum(jobStatus)
     @ApiPropertyOptional({
-        description: 'Job\'s status',
+        description: 'Job current status',
         enum: jobStatus,
-        example: 'ACTIVE',
+        default: jobStatus.TOCHECK,
+        example: jobStatus.ACTIVE,
     })
     status?: jobStatus;
 }
