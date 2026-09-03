@@ -2,7 +2,7 @@ type Props = {
     placeHolder : string,
     value?: string,
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void,
-    classInput: any
+    classInput?: any
 }
 
 function Input({
