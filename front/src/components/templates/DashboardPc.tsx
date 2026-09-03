@@ -53,7 +53,7 @@ function DashboardPc() {
 
             <div className="bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col gap-4">
                 <h1 className="text-xl font-bold text-black">
-                    Vos offres
+                    Vos offres (2)
                 </h1>
 
                 {/* 1 */}
