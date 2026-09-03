@@ -50,14 +50,4 @@ export class CreateJobDto {
         example: 35136,
     })
     zipCode: number;
-
-    @IsOptional()
-    @IsEnum(jobStatus)
-    @ApiPropertyOptional({
-        description: 'Job current status',
-        enum: jobStatus,
-        default: jobStatus.TOCHECK,
-        example: jobStatus.ACTIVE,
-    })
-    status?: jobStatus;
 }

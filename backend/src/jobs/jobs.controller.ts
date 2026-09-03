@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request,UnauthorizedException} from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request, ForbiddenException} from '@nestjs/common';
 import { JobsService } from './jobs.service';
 import { CreateJobDto } from './dto/create-job.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
@@ -14,7 +14,7 @@ export class JobsController {
   @ApiOperation({summary: 'Créer un nouvelle offre de job (authentification requise)'})
   create(@Body() createJobDto: CreateJobDto, @Request() req: any) {
     if (req.user.role !== UserRole.EMPLOYER && req.user.role !== UserRole.ADMIN) {
-      throw new UnauthorizedException("Vous devez être un employeur pour publier une offre");
+      throw new ForbiddenException("Vous devez être un employeur pour publier une offre");
     }
     return this.jobsService.create(createJobDto, req.user.userId);
   }
