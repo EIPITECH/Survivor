@@ -48,7 +48,7 @@ export function SurvivorMap({ onOpenModal }: { onOpenModal: (job: item) => void 
   const planIgnUrl = "http://localhost:3000/tiles/{z}/{x}/{y}";
    useEffect(() => {
        const fetchJobs = () => {
-           fetch("http://localhost:3000/jobs", { cache: 'no-store' })
+           fetch("http://localhost:3000/jobs/active", { cache: 'no-store' })
              .then((response) => {
                if (!response.ok) throw new Error(`HTTP ${response.status}`);
                return response.json();
