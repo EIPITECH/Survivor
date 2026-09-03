@@ -27,7 +27,7 @@ function ChooseDevice({
     const isMobile = width <= 768;
 
     if (template === 'header') {
-        return isMobile ? <HeaderMobile/> : <HeaderPc/>;
+        return isMobile ? <HeaderMobile /> : <HeaderPc/>;
     } else {
         return (
             <div>

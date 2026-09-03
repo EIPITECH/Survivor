@@ -13,7 +13,8 @@ function Button({
     link,
     type
 }: Props) {
-    const className = `bg-white border-black border-2 rounded-2xl px-2 flex justify-center items-center h-fit ${clickable ? 'hover:cursor-pointer' : ''}`;
+    const className = `bg-gray-200 text-[#1B3A6B] rounded-xl px-6 py-4 flex justify-center items-center h-fit text-xl transition-colors duration-200 ease-in-out
+            ${clickable ? 'hover:cursor-pointer hover:bg-gray-400 hover:text-white' : ''}`;
 
     if (link) {
     return (
