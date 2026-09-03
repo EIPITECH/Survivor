@@ -51,14 +51,6 @@ export class CreateJobDto {
     })
     zipCode: number;
 
-    @IsNotEmpty()
-    @IsNumber()
-    @ApiProperty({
-        description: 'Identification number of the employer who posted the job',
-        example: 42,
-    })
-    employerId: number;
-
     @IsOptional()
     @IsEnum(jobStatus)
     @ApiPropertyOptional({
