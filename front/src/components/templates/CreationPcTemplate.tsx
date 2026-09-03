@@ -92,7 +92,7 @@ function CreationPcTemplate() {
 
                             {errorInscription == true &&
                                 <div className="flex justify-center text-red-500">
-                                    <p className="italic">erreur création du compte !</p>
+                                    <p className="italic">Erreur lors de la création du compte !</p>
                                 </div>
                             }
 

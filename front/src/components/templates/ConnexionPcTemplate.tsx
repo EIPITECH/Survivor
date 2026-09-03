@@ -101,7 +101,7 @@ function ConnexionPcTemplate() {
 
                     {errorConnection == true &&
                         <div className="flex justify-center text-red-500">
-                            <p className="italic">erreur connection du compte !</p>
+                            <p className="italic">Erreur lors de la connexion au compte.</p>
                         </div>
                     }
 
