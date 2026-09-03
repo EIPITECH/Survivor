@@ -101,7 +101,7 @@ function ConnexionPcTemplate() {
 
                     {errorConnection == true &&
                         <div className="flex justify-center text-red-500">
-                            <p className="italic">erreur connection du compte !</p>
+                            <p className="italic">Erreur lors de la connexion au compte.</p>
                         </div>
                     }
 
@@ -109,13 +109,13 @@ function ConnexionPcTemplate() {
                     <div className="grid gap-6 mb-6">
                         <div className="grid gap-2">
                             <label className="text-lg font-bold">Email</label>
-                            <Input placeHolder="alice.duvillier@epitech.eu"
+                            <Input placeHolder="prénom.nom@email.fr"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}/>
                         </div>
                         <div className="grid gap-2">
                             <label className="text-lg font-bold">Mot de passe</label>
-                            <Input placeHolder="****"
+                            <Input placeHolder="***********"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}/>
                         </div>

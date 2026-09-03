@@ -19,21 +19,37 @@ export class CreateJobDto {
     })
     description: string;
 
-    @IsNotEmpty() 
+    @IsNotEmpty()
     @IsNumber()
     @ApiProperty({
-        description: 'Job\'s latitude coordinates',
-        example: 48.8566,
+        description: 'Street\'s number',
+        example: 123
     })
-    latitude: number;
+    streetNumber: number;
 
-    @IsNotEmpty() 
+    @IsNotEmpty()
+    @IsString()
+    @ApiProperty({
+        description: 'Street\'s name',
+        example: 'Rue beau chatêau'
+    })
+    streetName: string;
+
+    @IsNotEmpty()
+    @IsString()
+    @ApiProperty({
+        description: 'City\'s name',
+        example: 'Paris'
+    })
+    cityName: string;
+
+    @IsNotEmpty()
     @IsNumber()
     @ApiProperty({
-        description: 'Job\'s longitude coordinates',
-        example: 2.3522,
+        description: 'Zip code',
+        example: 75000
     })
-    longitude: number;
+    zipCode: number;
 
     @IsNotEmpty() 
     @IsNumber()

@@ -8,4 +8,7 @@ export default () => ({
     name: process.env.DB_NAME,
     dev_mode: process.env.DEV_MODE,
   },
+  tiles: {
+    cacheDir: process.env.TILE_CACHE_DIR || '/data/wmts-cache',
+  },
 });
