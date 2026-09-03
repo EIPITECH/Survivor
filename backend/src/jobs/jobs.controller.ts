@@ -17,9 +17,7 @@ export class JobsController {
     if (req.user.role !== UserRole.EMPLOYER && req.user.role !== UserRole.ADMIN) {
       throw new UnauthorizedException("Vous devez être un employeur pour publier une offre");
     }
-
     createJobDto.employerId = req.user.userId;
-    // Checker si user.userID correspond à un employeur
     return this.jobsService.create(createJobDto);
   }
 
@@ -27,5 +25,11 @@ export class JobsController {
   @ApiOperation({summary: 'Récupère toutes les offres de job (authentification non requise'})
   findAll() {
     return this.jobsService.findAll();
+  }
+
+  @Get()
+  @ApiOperation({summary: 'Récupère toutes les offres de job actives (authentification non requise'})
+  findAllActive() {
+    return this.jobsService.findAllActive();
   }
 }

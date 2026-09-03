@@ -1,0 +1,12 @@
+# Ignorer les logs et fichiers temporaires
+*.log
+*.tmp
+
+# Ignorer les dépendances et le versionnement
+node_modules/
+.git/
+
+# Ignorer les fichiers sensibles
+.env
+*.pem
+
