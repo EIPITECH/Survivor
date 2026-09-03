@@ -3,6 +3,7 @@ import Button from "../buttons/Button";
 import Input from "../buttons/Input";
 import Checkbox from "../buttons/Checkbox";
 import Radio from "../buttons/Radio";
+import LogoJeb from "../../assets/logoJEB.png";
 
 function CreationPcTemplate() {
 
@@ -80,9 +81,10 @@ function CreationPcTemplate() {
                     <div className="bg-white rounded-2xl p-10 w-full max-w-xl shadow-[0_0_25px_rgba(0,0,0,0.15)]">
                         <form onSubmit={handleSubmit} className="max-w-md w-full grid gap-10">
                             {/* HEADER INSCRIPTION */}
-                            <div className="flex justify-center items-center">
+                            <div className="flex justify-center items-center gap-4 mb-4">
+                                <img className="w-20 object-contain" src={LogoJeb.src} alt="Logo GéoEmploi" />
                                 <h1 className="flex justify-center font-bold text-xl">
-                                    Créer un compte (employeur)
+                                    GéoEmploi
                                 </h1>
                             </div>
 
