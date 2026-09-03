@@ -9,8 +9,7 @@ import { UserRole } from '../users/enum/user-role.enum';
 export class JobsController {
   constructor(private readonly jobsService: JobsService) {}
 
-  @UseGuards(JwtAuthGuard)
-  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard) @ApiBearerAuth('accessToken')
   @Post()
   @ApiOperation({summary: 'Créer un nouvelle offre de job (authentification requise)'})
   create(@Body() createJobDto: CreateJobDto, @Request() req: any) {
