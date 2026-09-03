@@ -168,7 +168,7 @@ function CreationPcTemplate() {
                                         value={secondName}
                                         onChange={(e) => setSecondName(e.target.value)}/>
                                 </div>
-                                <div className="grid gap-2">
+                                {/* <div className="grid gap-2">
                                     <label className="text-lg font-bold">Genre</label>
                                     <div className="flex gap-4">
                                         <Radio label="Femme" name="gender"/>
@@ -176,7 +176,7 @@ function CreationPcTemplate() {
                                         <Radio label="Autre" name="gender"/>
                                         <Radio label="Je ne souhaite pas répondre" name="gender"/>
                                     </div>
-                                </div>
+                                </div> */}
                                 {/* <div className="grid gap-2">
                                     <label className="text-lg font-bold">Compétences</label>
                                     <Input placeHolder="Language C++, etc."
