@@ -1,18 +1,20 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 import AdminSeeder from './users/admin.seeder';
 
-async function bootstrap() 
+@Injectable()
+export class AdminSeederService implements OnApplicationBootstrap 
 {
-  const app = await NestFactory.createApplicationContext(AppModule);
-  const dataSource = app.get(DataSource);
-  
-  try {
-    const seeder = new AdminSeeder();
-    await seeder.run(dataSource);
-  } catch (error) {
-    console.error('Erreur lors du lancement :', error);
+  constructor(private readonly dataSource: DataSource) {}
+
+  async onApplicationBootstrap() {
+    try {
+      const adminInjection = new AdminSeeder();
+      adminInjection.run(this.dataSource);
+      console.log("Compte admin crée avec succès");
+    }
+    catch(error) {
+      console.log("Impossible de créer le compte admin : ", error);
+    }
   }
 }
-bootstrap();

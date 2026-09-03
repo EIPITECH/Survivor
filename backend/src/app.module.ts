@@ -11,6 +11,7 @@ import { Job } from './jobs/entities/job.entity';
 import { HealthModule } from './health/health.module';
 import { TilesModule } from './tiles/tiles.module';
 import configuration from './config/configuration';
+import { AdminSeederService } from './seeders';
 
 @Module({
   imports: [
@@ -40,7 +41,7 @@ import configuration from './config/configuration';
     TilesModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, AdminSeederService],
 })
 
 export class AppModule {}
