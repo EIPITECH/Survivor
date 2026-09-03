@@ -17,7 +17,6 @@ export class JobsService {
     
     const adressUrl = `${createJobDto.streetNumber} ${createJobDto.streetName} ${createJobDto.zipCode} ${createJobDto.cityName}`;
     const url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(adressUrl)}&limit=1`;
-    let failed = false;
 
     try {
       const response = await fetch(url);
@@ -26,15 +25,23 @@ export class JobsService {
       }
       const data = await response.json();
       if (!data.features || data.features.length === 0) {
-        failed = true;
         throw new BadRequestException("L'adresse indiquée n'a pas pu être localisée");
       }
       const features = data.features[0];
       const longitude = features.geometry.coordinates[0];
       const latitude = features.geometry.coordinates[1];
       const score = features.properties.score;
-      
+
+      if (score < 0.4) {
+        throw new BadRequestException("L'adresse indiquée n'a pas pu être vérifiée avec suffisamment de précision");
+      }
       const newJob = new Job();
+      if (score < 0.7) {
+        newJob.status = jobStatus.TOCHECK;
+      } else {
+        newJob.status = jobStatus.ACTIVE;
+      }
+
       newJob.title = createJobDto.title;
       newJob.employerId = employerId;
       newJob.description = createJobDto.description;
@@ -47,10 +54,6 @@ export class JobsService {
       newJob.longitude = longitude;
       newJob.trustScore = score;
       newJob.obtentionDate = new Date();
-      if (failed)
-        newJob.status = jobStatus.TOCHECK;
-      else newJob.status = jobStatus.ACTIVE;
-
       return await this.jobRepo.save(newJob);
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
