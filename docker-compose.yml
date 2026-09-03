@@ -21,7 +21,8 @@ services:
     env_file:
       - .env
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     volumes:
       - wmts-cache:/data/wmts-cache
     networks:
@@ -47,6 +48,12 @@ services:
       - postgres-data:/var/lib/postgresql/data
     networks:
       - backtier
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myuser -d mydb"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 5s
 
 volumes:
   postgres-data:

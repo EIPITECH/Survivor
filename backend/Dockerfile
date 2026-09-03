@@ -11,4 +11,4 @@ COPY . /usr/src/app
 
 # RUN npm build
 
-CMD ["npm", "run", "start:dev"]
+CMD ["npx", "ts-node", "src/seeders.ts", "&&", "npm", "run", "start:dev"]
