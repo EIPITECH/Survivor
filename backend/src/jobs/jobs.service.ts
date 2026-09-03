@@ -58,10 +58,20 @@ export class JobsService {
     } 
   }
 
+
+  async findAllActive() {
+    const jobs = this.jobRepo.find({
+      where: 
+      {
+        status: jobStatus.ACTIVE
+      }
+    });
+  }
+
   async findAll() {
     return this.jobRepo.find()
   }
-  
+
   async update(id: number, updateJobDto: UpdateJobDto) {
     return this.jobRepo.update({ id }, updateJobDto);
   }
