@@ -45,7 +45,7 @@ export function SurvivorMap({ onOpenModal }: { onOpenModal: (job: item) => void 
   const [items, setItems] = useState<item[]>([]);
   const [refetch, setRefetch] = useState(false);
 
-  const planIgnUrl = "https://data.geopf.fr/wmts?" + "SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&TILEMATRIXSET=PM" + "&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&STYLE=normal" + "&FORMAT=image/png&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}";
+  const planIgnUrl = "http://localhost:3000/tiles/{z}/{x}/{y}";
    useEffect(() => {
        const fetchJobs = () => {
            fetch("http://localhost:3000/jobs", { cache: 'no-store' })
