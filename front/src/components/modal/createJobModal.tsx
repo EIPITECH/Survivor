@@ -61,8 +61,7 @@ export default function CreateOfferModal({ isOpen, setOpen }: { isOpen: boolean;
         streetNumber: Number(streetNumber),
         streetName: streetName.trim(),
         cityName: cityName.trim(),
-        zipCode: Number(zipCode),
-        status: "active",
+        zipCode: Number(zipCode)
     };
 
     try {
