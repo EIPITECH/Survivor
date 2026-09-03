@@ -9,54 +9,46 @@ function CreationPcTemplate() {
 
     const [firstName, setFirstName] = useState('');
     const [secondName, setSecondName] = useState('');
-    const [gender, setGender] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [inscriptionType, setInscriptionType] = useState('');
-    const [errorInscription, setErrorInscription] = useState(false);
+    const [errorInscription, setErrorInscription] = useState('');
 
-    // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    //     console.log('Bouton cliqué !');
-    // };
-
-    // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    //     event.preventDefault();
-
-    //     console.log('Form :', {
-    //         firstName,
-    //         secondName,
-    //         email,
-    //         password
-    //     });
-    // };
-
-
-    const handleSubmit = (event:any) =>  {
+    const handleSubmit = async (event:any) =>  {
         event.preventDefault();
+        setErrorInscription('');
 
-        fetch("http://localhost:3000/users", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*"
-            },
-            body: JSON.stringify({
-                firstName: firstName,
-                lastName: secondName,
-                email: email,
-                password: password,
-                role: inscriptionType
-            }),
-        }).then((response) => {
+        try {
+            const response = await fetch("http://localhost:3000/users", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                },
+                body: JSON.stringify({
+                    firstName: firstName,
+                    lastName: secondName,
+                    email: email,
+                    password: password,
+                    role: inscriptionType
+                }),
+            });
             if (response.ok) {
                 window.location.href = "/";
             } else {
-                console.error("Erreur création du compte.");
-                setErrorInscription(true);
+                const errorData = await response.json();
+                let errorMessage = "Erreur lors de la création du compte.";
+                if (errorData.message) {
+                    errorMessage = Array.isArray(errorData.message) 
+                        ? errorData.message.join(', ') 
+                        : errorData.message;
+                }
+                setErrorInscription(errorMessage);
             }
-        }).catch((error) => {
+        } catch (error) {
             console.error("Error:", error);
-        })
+            setErrorInscription("Erreur de communication avec le serveur.");
+        }
     }
 
     return (
@@ -92,9 +84,9 @@ function CreationPcTemplate() {
                                 <p className="italic">Tous les champs sont obligatoires</p>
                             </div>
 
-                            {errorInscription == true &&
-                                <div className="flex justify-center text-red-500">
-                                    <p className="italic">Erreur lors de la création du compte !</p>
+                            {errorInscription &&
+                                <div className="flex justify-center text-red-500 text-center">
+                                    <p className="italic">{errorInscription}</p>
                                 </div>
                             }
 
@@ -127,7 +119,7 @@ function CreationPcTemplate() {
                             </div>
 
                             <div className="flex justify-center">
-                                <Button text="Créer mon compte" clickable={true} type="submit"/>
+                                <Button text="Créer mon compte" clickable={true} type="submit" role="Créer mon compte"/>
                             </div>
                         </form>
                     </div>
@@ -150,9 +142,9 @@ function CreationPcTemplate() {
                                 <p className="italic">Tous les champs sont obligatoires</p>
                             </div>
 
-                            {errorInscription == true &&
-                                <div className="flex justify-center text-red-500">
-                                    <p className="italic">erreur création du compte !</p>
+                            {errorInscription &&
+                                <div className="flex justify-center text-red-500 text-center">
+                                    <p className="italic">{errorInscription}</p>
                                 </div>
                             }
 
@@ -200,7 +192,7 @@ function CreationPcTemplate() {
                             </div>
 
                             <div className="flex justify-center">
-                                <Button text="Créer mon compte" clickable={true} type="submit"/>
+                                <Button text="Créer mon compte" clickable={true} type="submit" role="Créer mon compte"/>
                             </div>
                         </form>
                     </div>

@@ -3,6 +3,7 @@ type Props = {
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
     clickable?: boolean,
     link?: string,
+    role?: string,
     type?: any,
 }
 
@@ -11,6 +12,7 @@ function Button({
     onClick,
     clickable,
     link,
+    role,
     type
 }: Props) {
     const className = `bg-gray-200 text-[#1B3A6B] rounded-xl px-6 py-4 flex justify-center items-center h-fit text-xl transition-colors duration-200 ease-in-out
@@ -18,7 +20,7 @@ function Button({
 
     if (link) {
     return (
-        <a href={link} className={className}>
+        <a href={link} className={className} role={role}>
             {text}
         </a>
     )

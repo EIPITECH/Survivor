@@ -19,13 +19,15 @@ import CreateAnOffer from "../components/templates/CreateAnOffer";
 		<meta name="generator" content={Astro.generator} />
 		<Font cssVariable="--font-spectral" preload />
 		<Font cssVariable="--font-marianne" preload />
-		<title>GéoEmploi</title>
+		<title>GéoEmploi: création d'offre</title>
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
 		crossorigin=""/>
 	</head>
 	<body>
-		<ChooseDevice template="header" client:only/>
-		<CreateAnOffer client:only/>
+		<main>
+			<ChooseDevice template="header" client:only/>
+			<CreateAnOffer client:only/>
+		</main>
 	</body>
 </html>
