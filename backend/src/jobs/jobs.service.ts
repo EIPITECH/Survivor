@@ -48,8 +48,8 @@ export class JobsService {
       newJob.trustScore = score;
       newJob.obtentionDate = new Date();
       if (failed)
-        newJob.status = jobStatus.ACTIVE;
-      else newJob.status = jobStatus.TOCHECK;
+        newJob.status = jobStatus.TOCHECK;
+      else newJob.status = jobStatus.ACTIVE;
 
       return await this.jobRepo.save(newJob);
     } catch (error) {
