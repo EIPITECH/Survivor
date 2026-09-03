@@ -4,6 +4,7 @@ import { UpdateJobDto } from './dto/update-job.dto';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Job } from './entities/job.entity';
+import { jobStatus } from './enum/jobs-status.enum';
 
 @Injectable()
 export class JobsService {
@@ -16,7 +17,8 @@ export class JobsService {
     
     const adressUrl = `${createJobDto.streetNumber} ${createJobDto.streetName} ${createJobDto.zipCode} ${createJobDto.cityName}`;
     const url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(adressUrl)}&limit=1`;
-    
+    let failed = false;
+
     try {
       const response = await fetch(url);
       if (!response.ok) {
@@ -24,7 +26,8 @@ export class JobsService {
       }
       const data = await response.json();
       if (!data.features || data.features.length === 0) {
-        throw new BadRequestException("Impossible de géocoder l'adresse donnée");
+        console.log("Impossible de géocoder l'adresse donnée");
+        failed = true;
       }
       const features = data.features[0];
       const longitude = features.geometry.coordinates[0];
@@ -44,6 +47,9 @@ export class JobsService {
       newJob.longitude = longitude;
       newJob.trustScore = score;
       newJob.obtentionDate = new Date();
+      if (failed)
+        newJob.status = jobStatus.ACTIVE;
+      else newJob.status = jobStatus.TOCHECK;
 
       return await this.jobRepo.save(newJob);
     } catch (error) {
