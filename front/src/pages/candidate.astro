@@ -3,7 +3,7 @@ import "../styles/global.css";
 import * as React from 'react';
 import ChooseDevice from "../components/ChooseDevice"
 import PostulateTemplate from "../components/templates/PostuleTemplate";
-
+import FooterPc from "../components/templates/FooterPc";
 ---
 <html lang="en">
 	<head>
@@ -15,6 +15,12 @@ import PostulateTemplate from "../components/templates/PostuleTemplate";
 		<title>Astro</title>
 	</head>
 	<body>
-        <PostulateTemplate/>
+        <div class="flex flex-col h-screen relative">
+			<ChooseDevice template="header" client:only/>
+			<div class="relative flex-1 overflow-hidden">
+				<PostulateTemplate/>
+			</div>
+			<FooterPc client:only/>
+		</div>
 	</body>
 </html>
