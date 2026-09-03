@@ -42,17 +42,24 @@ export function SurvivorMap({ setOpen }: { setOpen: React.Dispatch<React.SetStat
 
   const planIgnUrl = "https://data.geopf.fr/wmts?" + "SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&TILEMATRIXSET=PM" + "&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&STYLE=normal" + "&FORMAT=image/png&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}";
    useEffect(() => {
-  fetch("http://localhost:3000/jobs", { cache: 'no-store' })
-    .then((response) => {
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return response.json();
-    })
-    .then((data) => {
-      console.log("jobs data:", data);
-      setItems(data);
-    })
-    .catch((err) => console.error("Failed to fetch jobs:", err));
-}, []);
+       const fetchJobs = () => {
+           fetch("http://localhost:3000/jobs", { cache: 'no-store' })
+             .then((response) => {
+               if (!response.ok) throw new Error(`HTTP ${response.status}`);
+               return response.json();
+             })
+             .then((data) => {
+               console.log("jobs data:", data);
+               setItems(data);
+             })
+             .catch((err) => console.error("Failed to fetch jobs:", err));
+         };
+         fetchJobs();
+         window.addEventListener('jobCreated', fetchJobs);
+         return () => {
+            window.removeEventListener('jobCreated', fetchJobs);
+         };
+    }, []);
 
   return (
     <MapContainer
