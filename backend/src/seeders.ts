@@ -11,7 +11,6 @@ export class AdminSeederService implements OnApplicationBootstrap
     try {
       const adminInjection = new AdminSeeder();
       adminInjection.run(this.dataSource);
-      console.log("Compte admin crée avec succès");
     }
     catch(error) {
       console.log("Impossible de créer le compte admin : ", error);
