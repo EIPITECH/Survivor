@@ -15,7 +15,6 @@ async function bootstrap()
     console.error('Erreur lors du lancement :', error);
   } finally {
     await app.close();
-    process.exit(0);
   }
 }
 bootstrap();
