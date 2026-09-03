@@ -19,6 +19,13 @@ export class UsersService {
   }
 
   async create(createUserDto: CreateUserDto) {
+    const userExists = await this.userRepo.findOneBy({ email: createUserDto.email });
+    if (userExists) {
+      return {
+        "statusCode": 409,
+        "message": "User with this e-mail already exists!"};
+    }
+
     const user = new User();
     user.firstName = createUserDto.firstName;
     user.lastName = createUserDto.lastName;
