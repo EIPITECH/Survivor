@@ -37,11 +37,32 @@ export class UsersService {
   }
 
   async findAll() {
-    return this.userRepo.find();
+    return this.userRepo.find({
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        email: true,
+        isConnected: true,
+        role: true,
+        createdAt: true,
+      },
+    });
   }
 
   async findOne(id: number) {
-    return this.userRepo.findOneBy({ id });
+    return this.userRepo.findOne({
+      where: { id },
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        email: true,
+        isConnected: true,
+        role: true,
+        createdAt: true,
+      },
+    });
   }
 
   async findByEmail(email: string) {
