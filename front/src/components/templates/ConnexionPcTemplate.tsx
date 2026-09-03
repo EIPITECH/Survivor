@@ -115,7 +115,7 @@ function ConnexionPcTemplate() {
                         </div>
                         <div className="grid gap-2">
                             <label className="text-lg font-bold">Mot de passe</label>
-                            <Input placeHolder="****"
+                            <Input placeHolder="***********"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}/>
                         </div>
