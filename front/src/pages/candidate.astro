@@ -2,13 +2,11 @@
 import "../styles/global.css";
 import * as React from 'react';
 import ChooseDevice from "../components/ChooseDevice"
-import Header from "../components/templates/HeaderPc";
-import { Font } from 'astro:assets';
-import Map from '../components/Map';
-import BurgerMenu from "../components/BurgerMenu";
+import PostulateTemplate from "../components/templates/PostuleTemplate";
 import FooterPc from "../components/templates/FooterPc";
----
+import { Font } from 'astro:assets';
 
+---
 <html lang="en">
 	<head >
 		<meta charset="utf-8" />
@@ -24,11 +22,10 @@ import FooterPc from "../components/templates/FooterPc";
 		crossorigin=""/>
 	</head>
 	<body>
-		<div class="flex flex-col h-screen relative">
+        <div class="flex flex-col h-screen relative">
 			<ChooseDevice template="header" client:only/>
 			<div class="relative flex-1 overflow-hidden">
-				<BurgerMenu client:only/>
-				<Map client:only/>
+				<PostulateTemplate/>
 			</div>
 			<FooterPc client:only/>
 		</div>
