@@ -10,16 +10,21 @@ import { Map } from 'leaflet';
 
 export default function ContainerSetterMap() {
   const [isOpen, setOpen] = useState(false);
+  const [selectedJob, setSelectedJob] = useState<item | null>(null);
+  const handleOpenModal = (job: item) => {
+    setSelectedJob(job);
+    setOpen(true);
+  };
 
   return (
     <>
       <JobModal
         isOpen={isOpen}
         setOpen={setOpen}
-        title="Titre job"
-        description="toujours un super job"
+        title={selectedJob?.title || "Offre d'emploi"}
+        description={selectedJob?.description || "Description non disponible"}
       />
-      <SurvivorMap setOpen={setOpen} />
+      <SurvivorMap onOpenModal={handleOpenModal} />
     </>
   );
 }
@@ -35,7 +40,7 @@ interface item {
   createdAt: string
 }
 
-export function SurvivorMap({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
+export function SurvivorMap({ onOpenModal }: { onOpenModal: (job: item) => void }) {
   const [map, setMap] = useState();
   const [items, setItems] = useState<item[]>([]);
   const [refetch, setRefetch] = useState(false);
@@ -71,11 +76,16 @@ export function SurvivorMap({ setOpen }: { setOpen: React.Dispatch<React.SetStat
       <TileLayer
         attribution='&copy; <a href="https://www.ign.fr/">IGN France</a>'
         url={planIgnUrl}
+      />
+      {items.map((item) => (
+        <MarkerRed
+          key={item.id}
+          pos={[item.latitude, item.longitude]}
+          onClick={() => onOpenModal(item)} 
+          description={item.title}
         />
-        {<MarkerRed pos={[48.8566, 2.3522]} setOpen={setOpen} description={"example job"}/>}
-        {items.map((item) => (<MarkerRed key={item.id} pos={[item.latitude, item.longitude]} setOpen={setOpen} description={item.description}
-  />
-))}      <LocationMarker />
+      ))}
+      <LocationMarker />
     </MapContainer>
   );
 }
