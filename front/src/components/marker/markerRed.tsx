@@ -4,19 +4,31 @@ import '../../styles/global.css';
 import { useState } from 'react';
 import iconPng from 'leaflet/dist/images/marker-icon-2x.png';
 
-export default function MarkerRed(pos: [number, number], setOpen: React.Dispatch<React.SetStateAction<boolean>>, description: string) {
-    var redIcon = L.icon({
-        iconUrl: iconPng.src,
-        iconSize:     [38, 45], // size of the icon
-        iconAnchor:   [22, 64], // point of the icon which will correspond to marker's location
-        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-    });
+export default function MarkerRed({ pos, setOpen, description }: {
+  pos: [number, number],
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  description: string
+})
+ {    var redIcon = L.icon({
+    iconUrl: iconPng.src,
+    iconSize: [38, 45],
+    iconAnchor: [22, 64],
+    popupAnchor: [-3, -76]
+  });
+  console.log("MarkerRed pos:", pos, "description:", description);
 
-    return (
-        <Marker aria-label="Icone offre d'emploi" position={pos} icon={redIcon} eventHandlers={{ mouseover: (event) => event.target.openPopup(), mouseout: (event) => event.target.closePopup(), click: (event) => setOpen(true) }}>
-            <Popup>
-                {description}
-            </Popup>    
-        </Marker>
-    );
+  return (
+    <Marker
+      aria-label="Icone offre d'emploi"
+      position={pos}
+      icon={redIcon}
+      eventHandlers={{
+        mouseover: (e) => e.target.openPopup(),
+        mouseout: (e) => e.target.closePopup(),
+        click: () => setOpen(true)
+      }}
+    >
+      <Popup>{description}</Popup>
+    </Marker>
+  );
 }

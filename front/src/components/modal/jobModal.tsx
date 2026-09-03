@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Box, Button, Modal, Typography } from '@mui/material';
 
+import { Box, Modal, Typography } from '@mui/material';
+import Button from "../buttons/Button";
 const style = {
   position: 'absolute',
   top: '50%',
@@ -32,6 +33,7 @@ export default function JobModal({ isOpen, setOpen, title, description }: { isOp
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             {description}
           </Typography>
+            <Button text="Postuler" clickable={true} link="/candidate/"/>
         </Box>
       </Modal>
     </>
