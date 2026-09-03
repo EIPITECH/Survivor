@@ -103,14 +103,14 @@ function ConnexionPcTemplate() {
 
                     <div className="flex gap-1 justify-center">
                         <p>Pas encore de compte ?</p>
-                        <a href="/inscription/" className="group text-sky-600 transition duration-300">
+                        <a href="/inscription/" role="Page création de compte" className="group text-sky-600 transition duration-300">
                             Créer un compte
                             <span className="block max-w-0 group-hover:max-w-full transition-all duration-200 h-px bg-sky-600"></span>
                         </a>
                     </div>
 
                     <div className="flex justify-center">
-                        <Button text="Se connecter" clickable={true} type="submit"/>
+                        <Button text="Se connecter" clickable={true} type="submit" role="se connecter"/>
                     </div>
                 </form>
             </div>

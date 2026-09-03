@@ -127,7 +127,7 @@ function CreationPcTemplate() {
                             </div>
 
                             <div className="flex justify-center">
-                                <Button text="Créer mon compte" clickable={true} type="submit"/>
+                                <Button text="Créer mon compte" clickable={true} type="submit" role="Créer mon compte"/>
                             </div>
                         </form>
                     </div>
@@ -200,7 +200,7 @@ function CreationPcTemplate() {
                             </div>
 
                             <div className="flex justify-center">
-                                <Button text="Créer mon compte" clickable={true} type="submit"/>
+                                <Button text="Créer mon compte" clickable={true} type="submit" role="Créer mon compte"/>
                             </div>
                         </form>
                     </div>
