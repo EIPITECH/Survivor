@@ -18,9 +18,11 @@ export class HealthController {
   @HealthCheck()
   check() {
     return this.health.check([
-      () => this.http.pingCheck('Astro', 'http://frontend:4321'),
       () => this.db.pingCheck('PostgreSQL'),
-      // Add tile service onec it's done
+      () => this.http.pingCheck(
+        'IGN Géoplateforme',
+        'https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetCapabilities&VERSION=1.0.0',
+        ),
     ]);
   }
 }

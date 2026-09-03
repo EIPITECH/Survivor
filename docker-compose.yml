@@ -20,15 +20,15 @@ services:
       - .env
     depends_on:
       - db
-    # volumes:
-    #   - wmts:/var/lib/postgresql/data
+    volumes:
+      - wmts-cache:/data/wmts-cache
     networks:
       - bridge
       - backtier
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:3000/health" ]
-      interval: 30s
-      timeout: 5s
+      interval: 5m
+      timeout: 200ms
       retries: 3
       start_period: 60s
 
@@ -48,7 +48,7 @@ services:
 
 volumes:
   postgres-data:
-  # wmts:
+  wmts-cache:
 
 networks:
   bridge:

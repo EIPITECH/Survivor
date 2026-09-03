@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { JobsModule } from './jobs/jobs.module';
 import { Job } from './jobs/entities/job.entity';
 import { HealthModule } from './health/health.module';
+import { TilesModule } from './tiles/tiles.module';
 import configuration from './config/configuration';
 
 @Module({
@@ -32,10 +33,11 @@ import configuration from './config/configuration';
         synchronize: configService.get<boolean>('database.dev_mode'),
       }),
     }),
+    HealthModule,
     UsersModule,
     AuthModule,
     JobsModule,
-    HealthModule,
+    TilesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
