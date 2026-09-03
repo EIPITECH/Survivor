@@ -12,12 +12,12 @@ function HeaderPc() {
         <>
             <header className="w-full z-1000 flex justify-between px-10 py-2 bg-white items-center shadow-md">
                 <div className="flex items-center gap-5">
-                    <img className="size-20" src={LogoJeb.src} alt="Logo Jean Eude Berlier: Ministère du Job et du Bonheur"/>
+                    <img className="size-20" src={LogoJeb.src} alt=""/>
                 <h1 className="text-black font-bold">
                     GéoEmploi
                 </h1>
                 </div>
-                
+
                 <div className="flex items-center gap-4">
                     <SwitchLocation />
                     <Button 
