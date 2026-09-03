@@ -65,7 +65,7 @@ export function SurvivorMap({ setOpen }: { setOpen: React.Dispatch<React.SetStat
         attribution='&copy; <a href="https://www.ign.fr/">IGN France</a>'
         url={planIgnUrl}
         />
-        {/* {<MarkerRed pos={[48.8566, 2.3522]} setOpen={setOpen} description={"example job"}/>} */}
+        {<MarkerRed pos={[48.8566, 2.3522]} setOpen={setOpen} description={"example job"}/>}
         {items.map((item) => (<MarkerRed key={item.id} pos={[item.latitude, item.longitude]} setOpen={setOpen} description={item.description}
   />
 ))}      <LocationMarker />

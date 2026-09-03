@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../buttons/Button";
 import Input from "../buttons/Input";
+import Cookies from 'js-cookie';
 
 function CreateAnOffer() {
     const [title, setTitle] = useState('');
@@ -21,8 +22,7 @@ function CreateAnOffer() {
             streetName: streetName.trim(),
             cityName: cityName.trim(),
             zipCode: Number(zipCode),
-            employerId: Number(employerId),
-            status: "ACTIVE",
+            token: Cookies.get('token')
         };
 
         await fetch("http://localhost:3000/jobs", {
@@ -91,14 +91,6 @@ function CreateAnOffer() {
                             placeHolder="75000"
                             value={zipCode}
                             onChange={(e) => setZipCode(e.target.value)}
-                        />
-                    </div>
-                    <div className="grid">
-                        <label className="text-sm">ID employeur</label>
-                        <Input
-                            placeHolder="123"
-                            value={employerId}
-                            onChange={(e) => setEmployerId(e.target.value)}
                         />
                     </div>
                 </div>
