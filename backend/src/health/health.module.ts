@@ -7,7 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [
     TerminusModule.forRoot({
-      gracefulShutdownTimeoutMs: 1000,
+      gracefulShutdownTimeoutMs: 200,
     }),
     HttpModule,
     TypeOrmModule
