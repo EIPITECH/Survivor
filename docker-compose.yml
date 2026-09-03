@@ -1,6 +1,7 @@
 services:
   frontend:
     container_name: astro-frontend
+    image: astro-frontend:latest
     build:
       context: ./front
     ports:
@@ -12,6 +13,7 @@ services:
 
   backend:
     container_name: nest-backend
+    image: nest-backend:latest
     build:
       context: ./backend
     ports:
