@@ -11,7 +11,7 @@ env:
   GH_PUB_KEY:
     github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
 
-jobs: 
+jobs:
   check_the_repository_state:
     runs-on: ubuntu-latest
 
@@ -25,6 +25,39 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ steps.branch-names.outputs.head_ref_branch }}
+
+  build_application:
+    needs: [check_the_repository_state]
+    if: ${{ !github.event.pull_request }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Create dummy .env for build
+        run: cp .env.example .env
+
+      - name: Build all images
+        run: docker compose build
+
+      - name: Export images to tarball
+        run: |
+          mkdir -p build-artifacts
+          docker save astro-frontend:latest -o build-artifacts/frontend.tar
+          docker save nest-backend:latest -o build-artifacts/backend.tar
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-images-${{ github.sha }}
+          path: build-artifacts/
+          retention-days: 7
 
   sync_repository:
     needs: [check_the_repository_state]
