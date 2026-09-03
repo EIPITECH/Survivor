@@ -13,8 +13,6 @@ async function bootstrap()
     await seeder.run(dataSource);
   } catch (error) {
     console.error('Erreur lors du lancement :', error);
-  } finally {
-    await app.close();
   }
 }
 bootstrap();
