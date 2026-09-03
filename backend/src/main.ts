@@ -16,7 +16,15 @@ async function bootstrap() {
     .setTitle('GéoEmploi')
     .setDescription('GéoEmploi\'s API')
     .setVersion('1.0')
-    .build();
+    .addBearerAuth({
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'JWT',
+      name: 'JWT',
+      description: 'Enter your accessToken here',
+      in: 'header',
+    }, 'accessToken', // this name here is important for matching up with @ApiBearerAuth() decorator
+    ).build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
 
