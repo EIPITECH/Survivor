@@ -12,14 +12,14 @@ function PostulateTemplate() {
 
     return (
         <form onSubmit={handleSubmit} className="grid grid-4 gap-10">
-            {/* HEADER CONNEXION */}
+            {}
             <div>
                 <div className="flex justify-center">
                     Postuler à une offre
                 </div>
             </div>
 
-            {/* INPUT CONNEXION */}
+            {}
             <div className="grid gap-6 mb-6">
                 <div className="grid">
                     <label className="text-sm">Email</label>
@@ -35,7 +35,7 @@ function PostulateTemplate() {
                 </div>
             </div>
 
-            <div>
+            <div style={{ zIndex: "10000", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Button text="Postuler" clickable={true} type="submit"/>
             </div>
         </form>
