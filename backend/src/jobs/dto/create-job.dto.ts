@@ -50,4 +50,11 @@ export class CreateJobDto {
         example: 35136,
     })
     zipCode: number;
+
+    @IsNotEmpty()
+    @IsString() @ApiProperty({
+        description: 'Company name',
+        example: 'Nova Technologies',
+    })
+    companyName: string
 }
