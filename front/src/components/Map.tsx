@@ -22,7 +22,12 @@ export default function ContainerSetterMap() {
         isOpen={isOpen}
         setOpen={setOpen}
         title={selectedJob?.title || "Offre d'emploi"}
-        description={selectedJob?.description || "Description non disponible"}
+        description={
+          selectedJob?.description ||
+          "Description non disponible"
+        }
+        cityName={selectedJob?.cityName || "Localisation non renseignée"}
+        companyName={selectedJob?.companyName || "Nom de l'entreprise non renseignée"}
       />
       <SurvivorMap onOpenModal={handleOpenModal} />
     </>
@@ -37,6 +42,8 @@ interface item {
   longitude: number,
   employerId:number,
   status: string,
+  cityName: string,
+  companyName: string,
   createdAt: string
 }
 
