@@ -48,7 +48,7 @@ export default function LocationMarker() {
 
   return locationEnabled && position !== null ? (
     <Marker position={position}>
-      <Popup>You are here</Popup>
+      <Popup>Vous êtes ici </Popup>
     </Marker>
   ) : null
 }

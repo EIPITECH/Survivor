@@ -2,7 +2,7 @@ import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import '../../styles/global.css';
 import { useState } from 'react';
-import iconPng from 'leaflet/dist/images/marker-icon-2x.png';
+import iconPng from 'leaflet/dist/images/marker-icon.png';
 
 export default function MarkerRed({ pos, onClick, description }: {
   pos: [number, number],
