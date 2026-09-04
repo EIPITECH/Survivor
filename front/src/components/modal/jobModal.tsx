@@ -221,7 +221,12 @@ export default function JobModal({
           </p>
 
           <div className="mt-6">
-            <PostulateTemplate />
+            <PostulateTemplate
+              jobTitle={title}
+              companyName={companyName}
+              cityName={cityName}
+              onClose={closePostule}
+            />
           </div>
         </Box>
       </Modal>
