@@ -26,6 +26,7 @@ export default function CreateOfferModal({ isOpen, setOpen }: { isOpen: boolean;
   const [streetName, setStreetName] = useState('');
   const [cityName, setCityName] = useState('');
   const [zipCode, setZipCode] = useState('');
+  const [companyName, setCompanyName] = useState('');
   
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
@@ -61,7 +62,9 @@ export default function CreateOfferModal({ isOpen, setOpen }: { isOpen: boolean;
         streetNumber: Number(streetNumber),
         streetName: streetName.trim(),
         cityName: cityName.trim(),
-        zipCode: Number(zipCode)
+        zipCode: Number(zipCode),
+        companyName: companyName.trim(),
+
     };
 
     try {
@@ -77,7 +80,7 @@ export default function CreateOfferModal({ isOpen, setOpen }: { isOpen: boolean;
         if (response.ok) {
             setSuccess(true);
             setTitle(''); setDescription(''); setStreetNumber(''); 
-            setStreetName(''); setCityName(''); setZipCode('');
+            setStreetName(''); setCityName(''); setZipCode(''); setCompanyName('');
             window.dispatchEvent(new Event('jobCreated'));
             setTimeout(() => {
                 handleClose();
@@ -131,7 +134,17 @@ export default function CreateOfferModal({ isOpen, setOpen }: { isOpen: boolean;
                         required
                     />
                 </div>
-
+                <div className="grid gap-2">
+                    <label className="text-sm font-bold text-[#1B3A6B]">
+                        Nom de l'entreprise
+                    </label>
+                            
+                    <Input
+                        placeHolder="Ex: NovaTech Solutions"
+                        value={companyName}
+                        onChange={(e) => setCompanyName(e.target.value)}
+                    />
+                </div>
                 <div className="grid grid-cols-3 gap-4">
                     <div className="col-span-1 grid gap-2">
                         <label className="text-sm font-bold text-[#1B3A6B]">N° de rue</label>
