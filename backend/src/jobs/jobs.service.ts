@@ -156,7 +156,7 @@ export class JobsService {
             const score =
                 feature.properties.score;
 
-            if (score < 0.4) {
+            if (score < 0.7) {
                 job.status = jobStatus.TOCHECK;
 
                 await this.jobRepo.save(job);
@@ -177,13 +177,7 @@ export class JobsService {
 
             job.trustScore = score;
             job.obtentionDate = new Date();
-
-            if (score < 0.5) {
-                job.status = jobStatus.TOCHECK;
-                toCheck++;
-            } else {
-                job.status = jobStatus.ACTIVE;
-            }
+            job.status = jobStatus.ACTIVE;
             await this.jobRepo.save(job);
             recovered++;
             console.log(
