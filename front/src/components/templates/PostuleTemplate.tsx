@@ -23,15 +23,15 @@ function PostulateTemplate() {
             <div className="grid gap-6 mb-6">
                 <div className="grid">
                     <label className="text-sm">Email</label>
-                    <Input placeHolder="jean.dupont@epitech.eu"/>
+                    <Input placeHolder="jean.dupont@emaik.com"/>
                 </div>
                 <div className="grid">
                     <label className="text-sm">Nom</label>
-                    <Input placeHolder="dupont"/>
+                    <Input placeHolder="Dupont"/>
                 </div>
                 <div className="grid">
                     <label className="text-sm">Prenom</label>
-                    <Input placeHolder=""/>
+                    <Input placeHolder="Jean"/>
                 </div>
             </div>
 
