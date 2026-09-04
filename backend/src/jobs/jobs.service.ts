@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Job } from './entities/job.entity';
 import { jobStatus } from './enum/jobs-status.enum';
+import { createReadStream } from 'fs';
 
 @Injectable()
 export class JobsService {
@@ -54,6 +55,7 @@ export class JobsService {
       newJob.longitude = longitude;
       newJob.trustScore = score;
       newJob.obtentionDate = new Date();
+      newJob.companyName = createJobDto.companyName;
       return await this.jobRepo.save(newJob);
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
