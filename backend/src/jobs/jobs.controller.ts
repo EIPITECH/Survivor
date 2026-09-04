@@ -26,7 +26,7 @@ export class JobsController {
     return this.jobsService.findAll();
   }
 
-  @Get()
+  @Get('active')
   @ApiOperation({summary: 'Récupère toutes les offres de job actives (authentification non requise'})
   findAllActive() {
     return this.jobsService.findAllActive();

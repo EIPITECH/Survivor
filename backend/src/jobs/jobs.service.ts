@@ -66,6 +66,7 @@ export class JobsService {
         status: jobStatus.ACTIVE
       }
     });
+    return jobs;
   }
 
   async findAll() {
