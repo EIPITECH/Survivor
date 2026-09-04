@@ -86,6 +86,21 @@ export class JobsService {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
+  private calculateDistanceMeters(lat1: number, lon1: number, lat2: number, lon2: number): number 
+  {
+      const earthRadius = 6371000;
+      const toRadians = (degrees: number) => degrees * Math.PI / 180;
+      const phi1 = toRadians(lat1);
+      const phi2 = toRadians(lat2);
+      const deltaPhi = toRadians(lat2 - lat1);
+      const deltaLambda = toRadians(lon2 - lon1);
+
+      const a = Math.sin(deltaPhi / 2) ** 2 + Math.cos(phi1) * Math.cos(phi2) * Math.sin(deltaLambda / 2) ** 2;
+
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return earthRadius * c;
+  }
+
   async migrationScript() 
   {
     
@@ -101,6 +116,10 @@ export class JobsService {
     console.log(`Offres trouvées : ${jobs.length}`);
     console.log('');
 
+    const differences: {
+      address: string;
+      distance: number;
+    }[] = [];
     for (const job of jobs) {
         const alreadyGood =
             job.geocodageSource === 'api-adresse.data.gouv.fr' &&
@@ -149,6 +168,9 @@ export class JobsService {
 
             const feature = data.features[0];
 
+            const oldLatitude = job.latitude;
+            const oldLongitude = job.longitude;
+
             const longitude =
                 feature.geometry.coordinates[0];
 
@@ -171,6 +193,9 @@ export class JobsService {
                 continue;
             }
 
+            const distance = this.calculateDistanceMeters(oldLatitude, oldLongitude, latitude, longitude);
+            differences.push({ address: addressToCheck, distance});
+
             job.longitude = longitude;
             job.latitude = latitude;
 
@@ -182,9 +207,7 @@ export class JobsService {
             job.status = jobStatus.ACTIVE;
             await this.jobRepo.save(job);
             recovered++;
-            console.log(
-                `[REPRISE] Offre #${job.id} reprise: score ${score.toFixed(3)}`,
-            );
+            console.log(`[REPRISE] Offre #${job.id} reprise - ` + `score ${score.toFixed(3)} - ` + `déplacement ${distance.toFixed(2)} m`);
 
         } catch (error) {
             failed++;
@@ -201,6 +224,16 @@ export class JobsService {
 
     const duration = Date.now() - startTime;
 
+     let averageDistance = 0;
+     let maxDistance = 0;
+
+      if (differences.length > 0) {
+        const totalDistance = differences.reduce((sum, item) => sum + item.distance, 0);
+        averageDistance = totalDistance / differences.length;
+        maxDistance = Math.max(...differences.map(item => item.distance));
+      }
+      const topFive = [...differences].sort((a, b) => b.distance - a.distance).slice(0, 5);
+
     console.log('');
     console.log(' Résultat de la reprise');
     console.log('========================================');
@@ -210,5 +243,20 @@ export class JobsService {
     console.log(`À vérifier :        ${toCheck}`);
     console.log(`Échecs techniques : ${failed}`);
     console.log(`Durée :             ${duration} ms`);
+    console.log('');
+    console.log(' Relevé des écarts');
+    console.log('========================================');
+    console.log(`Déplacement moyen : ` +`${averageDistance.toFixed(2)} m`);
+    console.log(`Déplacement maximal : ` +`${maxDistance.toFixed(2)} m`);
+    console.log('');
+    console.log('Top 5 des déplacements :');
+
+    if (topFive.length === 0) {
+      console.log('Aucun déplacement mesurable.');
+    } else {
+      topFive.forEach((item, index) => {
+        console.log(`${index + 1}. ` + `${item.address} - ` + `${item.distance.toFixed(2)} m`);
+      });
+    }
   }
 }
