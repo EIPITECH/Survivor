@@ -1,0 +1,59 @@
+Table users {
+  id           integer      [pk, increment, note: 'PrimaryGeneratedColumn']
+  firstName    varchar      [not null]
+  lastName     varchar      [not null]
+  email        varchar      [not null, unique, note: 'Email unique (contrainte DB)']
+  password     varchar      [not null, note: 'Hash bcrypt']
+  isConnected  boolean      [not null]
+  role         user_role    [not null, default: 'seeker']
+  createdAt    timestamp    [not null, default: `now()`]
+
+  indexes {
+    email [unique, name: 'idx_users_email']
+    role  [name: 'idx_users_role']
+  }
+
+  Note: 'Comptes utilisateurs : tous les profils pouvant se connecter depuis le frontend.'
+}
+
+Table jobs {
+  id               integer     [pk, increment]
+  title            varchar     [not null]
+  description      text        [not null]
+  cityName         varchar     [not null]
+  streetNumber     integer     [not null]
+  streetName       varchar     [not null]
+  zipCode          integer     [not null]
+  latitude         float       [not null]
+  longitude        float       [not null]
+  employerId       integer     [not null, note: 'FK logique vers users.id (role=employer). Pas de contrainte FK declaree dans le code TypeORM actuel']
+  status           job_status  [not null, default: 'toCheck', note: 'toCheck|active|archived']
+  geocodageSource  varchar     [not null, note: 'ex: google-maps-api']
+  trustScore       float       [not null, note: 'Score entre 0 et 1']
+  obtentionDate    timestamp   [not null, note: 'Date à laquelle le poste a été pourvu (quand offre archivée)']
+  companyName      varchar     [not null]
+  createdAt        timestamp   [not null, default: `now()`]
+
+  indexes {
+    employerId            [name: 'idx_jobs_employerId']
+    status                [name: 'idx_jobs_status']
+    (latitude, longitude) [name: 'idx_jobs_geo', note: 'recherche geographique / tiles']
+    zipCode               [name: 'idx_jobs_zipCode']
+  }
+
+  Note: 'Offres emploi geolocalisees, liées a un employeur.'
+}
+
+Enum user_role {
+  seeker
+  employer
+  admin
+}
+
+Enum job_status {
+  active
+  archived
+  toCheck
+}
+
+Ref: jobs.employerId > users.id // many-to-one
