@@ -121,6 +121,13 @@ export class Job
     })
     obtentionDate: Date
 
+    @Column()
+    @IsNotEmpty() @IsString() @ApiProperty({
+        description: 'Company name',
+        example: 'Nova Technologies',
+    })
+    companyName: string
+
     @CreateDateColumn()
     @IsNotEmpty() @IsDate()
     @ApiProperty({
