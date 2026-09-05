@@ -1,14 +1,13 @@
-FROM node:22
+FROM node:22-alpine
 
 WORKDIR /usr/src/app
 
-COPY package.json /usr/src/app/package.json
-COPY package-lock.json /usr/src/app/package-lock.json
+COPY package.json package-lock.json ./
 
-RUN npm install
+RUN npm install --no-audit
 
-COPY . /usr/src/app
+COPY . .
 
-# RUN npm build
+RUN npm run build
 
-CMD ["npm", "run", "dev", "--", "--host"]
+CMD ["npm", "run", "preview", "--", "--host"]
