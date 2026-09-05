@@ -21,9 +21,7 @@ function UsersPcTemplate() {
         headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*"
-        },
-        body: JSON.stringify({
-        }),
+        }
     })
 
     // const listAllUsers = allUsers.map((user) =>
