@@ -1,7 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToOne} from 'typeorm';
 import {IsEmail, IsString, IsNotEmpty, IsNumber, IsBoolean, IsDate, IsEnum} from 'class-validator'; 
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { UserRole } from '../enum/user-role.enum';
+import { Seeker } from '../seekers/entities/seeker.entity'
 
 @Entity()
 export class User {
@@ -65,6 +66,10 @@ export class User {
   })
   role: UserRole;
 
+  @OneToOne(() => Seeker, (seeker) => seeker.user)
+  seeker?: Seeker;
+
+  
   @CreateDateColumn()
   @IsNotEmpty() @IsDate()
   @ApiProperty({
