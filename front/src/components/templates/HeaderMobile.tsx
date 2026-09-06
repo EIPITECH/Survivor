@@ -19,7 +19,22 @@ function HeaderMobile({role}: Props) {
             </div>
             <div className="flex items-center gap-2 shrink-0">
                 <SwitchLocation />
-                <Button text="Connexion" clickable={true} link="/connexion/" role="Page de connexion" />
+                            
+                {isConnected ? (
+                    <Button
+                        text="Mon compte"
+                        clickable={true}
+                        link="/profil/"
+                        role="Accéder à mon compte"
+                    />
+                ) : (
+                    <Button
+                        text="Connexion"
+                        clickable={true}
+                        link="/connexion/"
+                        role="Page de connexion"
+                    />
+                )}
             </div>
         </header>
     );
