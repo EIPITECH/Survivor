@@ -5,8 +5,15 @@ import { useState } from "react";
 import LogoJeb from "../../assets/logoJEB.png"
 import CreateOfferModal from "../modal/createJobModal"; 
 
-function HeaderPc() {
+type Props = {
+    role: "seeker" | "employer" | "admin" | null;
+};
+
+function HeaderPc({ role }: Props) {
     const [isCreateModalOpen, setCreateModalOpen] = useState(false);
+
+    const isConnected = role !== null;
+    const isEmployer = role === "employer";
 
     return (
         <>
