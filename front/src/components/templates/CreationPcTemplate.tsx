@@ -4,6 +4,7 @@ import Input from "../buttons/Input";
 import Checkbox from "../buttons/Checkbox";
 import Radio from "../buttons/Radio";
 import LogoJeb from "../../assets/logoJEB.png";
+import Cookies from 'js-cookie';
 
 function CreationPcTemplate() {
 
@@ -37,9 +38,7 @@ function CreationPcTemplate() {
                     role: inscriptionType
                 }),
             });
-            if (response.ok) {
-                window.location.href = "/";
-            } else {
+            if (!response.ok) {
                 const errorData = await response.json();
                 let errorMessage = "Erreur lors de la création du compte.";
                 if (errorData.message) {
@@ -48,6 +47,58 @@ function CreationPcTemplate() {
                         : errorData.message;
                 }
                 setErrorInscription(errorMessage);
+                return;
+            }
+            const logginResponse = await fetch ("http://localhost:3000/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password,
+                }),
+            });
+            if (!logginResponse.ok) {
+                setErrorInscription("Compté crée mais connexion ratée");
+                return;
+            }
+            const loginData = await logginResponse.json();
+            const accessToken = loginData.accessToken;
+            if (!accessToken) {
+                setErrorInscription("Aucun token reçu lors de la connexion");
+                return;
+            }
+            if (inscriptionType === 'seeker') {
+            const seekerResponse = await fetch("http://localhost:3000/seekers/me", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${accessToken}`,
+                },
+                body: JSON.stringify({
+                    skills: skills,
+                    experience: experience,
+                    availability: availability,
+                }),
+            });
+            if (!seekerResponse.ok) {
+                const errorData = await seekerResponse.json();
+                let errorMessage = "Erreur lors de la création du compte candidat";
+                if (errorData.message) {
+                    errorMessage = Array.isArray(errorData.message) 
+                        ? errorData.message.join(', ') 
+                        : errorData.message;
+                }
+                setErrorInscription(errorMessage);
+                return;
+            }
+            Cookies.set('token', JSON.stringify(loginData), 
+            {
+                expires: 7,
+                secure: true,
+            });
+            window.location.href = "/";
             }
         } catch (error) {
             console.error("Error:", error);
