@@ -2,7 +2,13 @@ import Button from "../buttons/Button";
 import SwitchLocation from "../toggleSwitchLoc";
 import LogoJeb from "../../assets/logoJEB.png";
 
-function HeaderMobile() {
+type Props = {
+    role: "seeker" | "employer" | "admin" | null;
+};
+
+function HeaderMobile({role}: Props) {
+    const isConnected = role !== null;
+    
     return (
         <header className="w-full flex justify-between items-center px-4 py-2 bg-white shadow-md">
             <div className="flex items-center gap-2 min-w-0">
