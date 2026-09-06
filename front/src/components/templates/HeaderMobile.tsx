@@ -9,6 +9,13 @@ type Props = {
 function HeaderMobile({role}: Props) {
     const isConnected = role !== null;
     
+    let accountLink = "/profil/";
+
+    if (role === "employer")
+        accountLink = "/dashboard/";
+    else if (role === "admin")
+        accountLink = "/admin/";
+
     return (
         <header className="w-full flex justify-between items-center px-4 py-2 bg-white shadow-md">
             <div className="flex items-center gap-2 min-w-0">
@@ -24,7 +31,7 @@ function HeaderMobile({role}: Props) {
                     <Button
                         text="Mon compte"
                         clickable={true}
-                        link="/profil/"
+                        link={accountLink}
                         role="Accéder à mon compte"
                     />
                 ) : (

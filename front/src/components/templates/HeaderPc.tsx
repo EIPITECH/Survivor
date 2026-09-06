@@ -14,6 +14,12 @@ function HeaderPc({ role }: Props) {
     const isConnected = role !== null;
     const isEmployer = role === "employer";
 
+    let accountLink = "/profil/";
+
+    if (role === "employer")
+        accountLink = "/dashboard/";
+    else if (role === "admin")
+        accountLink = "/admin/";
     return (
         <>
             <header className="w-full z-1000 flex justify-between px-10 py-2 bg-white items-center shadow-md">
@@ -40,7 +46,7 @@ function HeaderPc({ role }: Props) {
                         <Button
                             text="Mon compte"
                             clickable={true}
-                            link="/profil/"
+                            link={accountLink}
                             role="Accéder à mon compte"
                         />
                     ) : (
