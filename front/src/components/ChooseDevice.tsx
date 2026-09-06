@@ -11,7 +11,13 @@ type Props = {
 
 type UserRole = "seeker" | "employer" | "admin";
 
-function getRoleFromToken(): UserRole | null {
+
+type ConnectedUser = {
+    role: UserRole;
+    firstName: string;
+};
+
+function getRoleFromToken(): ConnectedUser | null {
     const tokenCookie = Cookies.get("token");
 
     if (!tokenCookie) {
@@ -57,7 +63,7 @@ function getRoleFromToken(): UserRole | null {
             return null;
         }
 
-        return payload.role;
+        return {role: payload.role, firstName: payload.firstName};
     } catch (error) {
         console.error("Impossible de décoder le token:", error);
         return null;
@@ -69,7 +75,7 @@ function ChooseDevice({
 }: Props) {
     const [width, setWidth] = useState<number>(window.innerWidth);
 
-    const [role, setRole] = useState<UserRole | null>(() => {
+    const [user] = useState<ConnectedUser | null>(() => {
         return getRoleFromToken();
     });
 
@@ -89,8 +95,8 @@ function ChooseDevice({
 
     if (template === "header") {
         return isMobile
-            ? <HeaderMobile role={role} />
-            : <HeaderPc role={role} />;
+            ? <HeaderMobile role={user?.role ?? null} firstName={user?.firstName ?? null} />
+            : <HeaderPc role={user?.role ?? null} firstName={user?.firstName ?? null} />;
     }
 
     return (
