@@ -1,34 +1,40 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request, ForbiddenException } from '@nestjs/common';
 import { SeekersService } from './seekers.service';
 import { CreateSeekerDto } from './dto/create-seeker.dto';
 import { UpdateSeekerDto } from './dto/update-seeker.dto';
+import { ApiBearerAuth } from '@nestjs/swagger';
+import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
+import { UserRole } from '../enum/user-role.enum';
 
 @Controller('seekers')
+@UseGuards(JwtAuthGuard)
+@ApiBearerAuth('accessToken')
 export class SeekersController {
   constructor(private readonly seekersService: SeekersService) {}
 
-  @Post()
-  create(@Body() createSeekerDto: CreateSeekerDto) {
-    return this.seekersService.create(createSeekerDto);
+  @Post('me')
+  createMe(@Request() req: any, @Body() createSeekerDto: CreateSeekerDto) 
+  {
+    if (req.user.role !== UserRole.SEEKER) {
+      throw new ForbiddenException('Accès refusé vous n\'êtes pas candidat');
+    }
+    return this.seekersService.createForUser(req.user.userId, createSeekerDto);
   }
 
-  @Get()
-  findAll() {
-    return this.seekersService.findAll();
+  @Get('me')
+  findMe(@Request() req: any) {
+    if (req.user.role !== UserRole.SEEKER) {
+      throw new ForbiddenException('Accès refusé vous n\'êtes pas candidat');
+    }
+    return this.seekersService.findMe(req.user.userId);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.seekersService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateSeekerDto: UpdateSeekerDto) {
-    return this.seekersService.update(+id, updateSeekerDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.seekersService.remove(+id);
+  @Patch('me')
+  updateMe(@Request() req: any, @Body() updateSeekerDto: UpdateSeekerDto) 
+  {
+    if (req.user.role !== UserRole.SEEKER) {
+      throw new ForbiddenException('Accès refusé vous n\'êtes pas candidat');
+    }
+    return this.seekersService.updateMe(req.user.userId, updateSeekerDto);
   }
 }
