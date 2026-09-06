@@ -1,6 +1,5 @@
 import Button from "../buttons/Button";
 import SwitchLocation from "../toggleSwitchLoc";
-import logoJeb from "../../assets/logoJEB.svg"
 import { useState } from "react";
 import LogoJeb from "../../assets/logoJEB.png"
 import CreateOfferModal from "../modal/createJobModal"; 
@@ -27,16 +26,37 @@ function HeaderPc({ role }: Props) {
 
                 <div className="flex items-center gap-4">
                     <SwitchLocation />
-                    <Button 
-                        text="Créer une offre" 
-                        clickable={true} 
-                        type="button" 
-                        onClick={() => setCreateModalOpen(true)} 
-                    />
-                    <Button text="Connexion" clickable={true} link="/connexion/" role="Page de connexion"/>
+
+                    {isEmployer && (
+                        <Button
+                            text="Créer une offre"
+                            clickable={true}
+                            type="button"
+                            onClick={() => setCreateModalOpen(true)}
+                        />
+                    )}
+
+                    {isConnected ? (
+                        <Button
+                            text="Mon compte"
+                            clickable={true}
+                            link="/profil/"
+                            role="Accéder à mon compte"
+                        />
+                    ) : (
+                        <Button
+                            text="Connexion"
+                            clickable={true}
+                            link="/connexion/"
+                            role="Page de connexion"
+                        />
+                    )}
                 </div>
             </header>
-            <CreateOfferModal isOpen={isCreateModalOpen} setOpen={setCreateModalOpen} />
+            <CreateOfferModal
+                isOpen={isCreateModalOpen}
+                setOpen={setCreateModalOpen}
+            />
         </>
     )
 }
