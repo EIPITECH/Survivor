@@ -37,17 +37,17 @@ export default defineConfig({
     },
     {
       provider: fontProviders.local(),
-      name: "Marianne",
-      cssVariable: "--font-marianne",
+      name: "Stack",
+      cssVariable: "--font-stack",
       options: {
         variants: [
           {
-            src: ['./src/assets/Marianne/fontes_desktop/TTF/Marianne-Regular.ttf'],
+            src: ['./src/assets/stack/StackSansHeadline-VariableFont_wght.ttf'],
             weight: 'normal',
             style: 'normal'
           },
           {
-            src: ['./src/assets/Marianne/fontes_desktop/TTF/Marianne-Bold.ttf'],
+            src: ['./src/assets/stack/StackSansHeadline-VariableFont_wght.ttf'],
             weight: 'bold',
             style: 'normal'
           }
