@@ -3,7 +3,6 @@ import {IsEmail, IsString, IsNotEmpty, IsNumber, IsBoolean, IsDate, IsEnum, isMo
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { User } from '../../entities/user.entity'
 import { Application } from '../../application/entities/application.entity';
-
 @Entity()
 export class Seeker {
   @PrimaryGeneratedColumn()

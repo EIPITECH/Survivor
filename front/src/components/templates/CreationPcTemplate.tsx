@@ -100,6 +100,14 @@ function CreationPcTemplate() {
             });
             window.location.href = "/";
             }
+            if (inscriptionType === 'employer') {
+                Cookies.set('token', JSON.stringify(loginData), 
+                {
+                    expires: 7,
+                    secure: true,
+                });
+                window.location.href = "/";
+            }
         } catch (error) {
             console.error("Error:", error);
             setErrorInscription("Erreur de communication avec le serveur.");
