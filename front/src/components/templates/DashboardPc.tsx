@@ -161,6 +161,55 @@ function DashboardPc() {
         getApplications();
     }, []);
 
+    async function updateApplicationStatus(applicationId: number, status: "accepted" | "rejected") 
+    {
+        const token = getToken();
+
+        if (!token) {
+            console.error("Aucun token employeur trouvé");
+            return;
+        }
+
+        try {
+            const response = await fetch(
+                `http://localhost:3000/applications/${applicationId}/status`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                    },
+                    body: JSON.stringify({
+                        status: status,
+                    }),
+                }
+            );
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                console.error("Erreur modification candidature :", result);
+                return;
+            }
+
+            console.log("Statut candidature modifié :", result);
+
+            setApplications((previousApplications) =>
+                previousApplications.map((application) =>
+                    application.id === applicationId
+                        ? {
+                            ...application,
+                            status: status,
+                        }
+                        : application
+                )
+            );
+
+        } catch (error) {
+            console.error("Erreur lors de la modification du statut :", error);
+        }
+    }
+
     const handleJobSelection = (job: Job) => {
         setSelectedJob(job);
         setOpen(true);
@@ -227,17 +276,39 @@ function DashboardPc() {
                         voir la candidature ▾
                     </p>
 
-                    <img
-                        className="size-5 shrink-0"
-                        src={verifier.src}
-                        alt="Accepter"
-                    />
+                    <button
+                        onClick={() =>
+                            updateApplicationStatus(
+                                application.id,
+                                "accepted"
+                            )
+                        }
+                        title="Accepter la candidature"
+                        className="cursor-pointer"
+                    >
+                        <img
+                            className="size-5 shrink-0"
+                            src={verifier.src}
+                            alt="Accepter"
+                        />
+                    </button>
 
-                    <img
-                        className="size-4 shrink-0"
-                        src={croix.src}
-                        alt="Refuser"
-                    />
+                    <button
+                        onClick={() =>
+                            updateApplicationStatus(
+                                application.id,
+                                "rejected"
+                            )
+                        }
+                        title="Refuser la candidature"
+                        className="cursor-pointer"
+                    >
+                        <img
+                            className="size-4 shrink-0"
+                            src={croix.src}
+                            alt="Refuser"
+                        />
+                    </button>
                 </div>
             </div>
         ))
