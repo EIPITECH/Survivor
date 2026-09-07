@@ -3,7 +3,6 @@ import Button from "../buttons/Button";
 import Input from "../buttons/Input";
 import Checkbox from "../buttons/Checkbox";
 import Radio from "../buttons/Radio";
-import LogoJeb from "../../assets/logoJEB.png";
 import Cookies from 'js-cookie';
 
 function CreationPcTemplate() {
@@ -137,8 +136,7 @@ function CreationPcTemplate() {
                         <form onSubmit={handleSubmit} className="max-w-md w-full grid gap-10">
                             {/* HEADER INSCRIPTION */}
                             <div className="flex justify-center items-center gap-4 mb-4">
-                                <img className="w-20 object-contain" src={LogoJeb.src} alt="Logo GéoEmploi" />
-                                <h1 className="flex justify-center font-bold text-xl">
+                                <h1 className="text-[#FFA500] flex justify-center font-bold text-xl">
                                     GéoEmploi
                                 </h1>
                             </div>
@@ -156,25 +154,25 @@ function CreationPcTemplate() {
                             {/* INPUT INSCRIPTION */}
                             <div className="grid gap-6 mb-6">
                                 <div className="grid gap-2">
-                                    <label className="text-lg font-bold">Prénom*</label>
+                                    <label className="text-lg text-[#FFA500] font-bold">Prénom*</label>
                                     <Input placeHolder="Jean"
                                         value={firstName}
                                         onChange={(e) => setFirstName(e.target.value)}/>
                                 </div>
                                 <div className="grid gap-2">
-                                    <label className="text-lg font-bold">Nom*</label>
+                                    <label className="text-lg text-[#FFA500] font-bold">Nom*</label>
                                     <Input placeHolder="Dupont"
                                         value={secondName}
                                         onChange={(e) => setSecondName(e.target.value)}/>
                                 </div>
                                 <div className="grid gap-2">
-                                    <label className="text-lg font-bold">Email*</label>
+                                    <label className="text-[#FFA500] text-lg font-bold">Email*</label>
                                     <Input placeHolder="jean.dupon@email.fr"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}/>
                                 </div>
                                 <div className="grid gap-2">
-                                    <label className="text-lg font-bold">Mot de passe*</label>
+                                    <label className="text-lg text-[#FFA500] font-bold">Mot de passe*</label>
                                     <Input type= "password" placeHolder="***********"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}/>
@@ -214,19 +212,19 @@ function CreationPcTemplate() {
                             {/* INPUT INSCRIPTION */}
                             <div className="grid gap-6 mb-6">
                                 <div className="grid gap-2">
-                                    <label className="text-lg font-bold">Prénom*</label>
+                                    <label className="text-lg text-[#FFA500] font-bold">Prénom*</label>
                                     <Input placeHolder="Jean"
                                         value={firstName}
                                         onChange={(e) => setFirstName(e.target.value)}/>
                                 </div>
                                 <div className="grid gap-2">
-                                    <label className="text-lg font-bold">Nom*</label>
+                                    <label className="text-lg text-[#FFA500] font-bold">Nom*</label>
                                     <Input placeHolder="Dupont"
                                         value={secondName}
                                         onChange={(e) => setSecondName(e.target.value)}/>
                                 </div>
                                 <div className="grid gap-2">
-                                    <label className="text-lg font-bold">
+                                    <label className="text-lg text-[#FFA500] font-bold">
                                         Compétences
                                     </label>
 
@@ -240,9 +238,9 @@ function CreationPcTemplate() {
                                             py-2
                                             min-h-24
                                             outline-none
-                                            focus:border-[#1B3A6B]
+                                            focus:border-[#FFA500]
                                             focus:ring
-                                            focus:ring-[#1B3A6B]
+                                            focus:ring-[#FFA500]
                                         "
                                         placeholder="Ex : JavaScript, TypeScript, React, Node.js, Docker..."
                                         value={skills}
@@ -252,7 +250,7 @@ function CreationPcTemplate() {
                                 </div>
 
                                 <div className="grid gap-2">
-                                    <label className="text-lg font-bold">
+                                    <label className="text-lg text-[#FFA500] font-bold">
                                         Expériences professionnelles
                                     </label>
 
@@ -266,9 +264,9 @@ function CreationPcTemplate() {
                                             py-2
                                             min-h-28
                                             outline-none
-                                            focus:border-[#1B3A6B]
+                                            focus:border-[#FFA500]
                                             focus:ring
-                                            focus:ring-[#1B3A6B]
+                                            focus:ring-[#FFA500]
                                         "
                                         placeholder="Ex : 2 ans comme développeur frontend chez NovaTech..."
                                         value={experience}
@@ -278,7 +276,7 @@ function CreationPcTemplate() {
                                 </div>
 
                                 <div className="grid gap-2">
-                                    <label className="text-lg font-bold">
+                                    <label className="text-lg text-[#FFA500] font-bold">
                                         Disponibilité
                                     </label>
 
@@ -304,13 +302,13 @@ function CreationPcTemplate() {
                                         onChange={(e) => setSecondName(e.target.value)}/>
                                 </div> */}
                                 <div className="grid gap-2">
-                                    <label className="text-lg font-bold">Email*</label>
+                                    <label className="text-lg text-[#FFA500] font-bold">Email*</label>
                                     <Input placeHolder="jean.dupont@epitech.eu"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}/>
                                 </div>
                                 <div className="grid gap-2">
-                                    <label className="text-lg font-bold">Mot de passe*</label>
+                                    <label className="text-lg text-[#FFA500] font-bold">Mot de passe*</label>
                                     <Input type="password" placeHolder="***********"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}/>

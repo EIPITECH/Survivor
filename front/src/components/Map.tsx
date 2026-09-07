@@ -1,5 +1,4 @@
 import { MapContainer, TileLayer, Marker, Popup, type MapContainerProps } from 'react-leaflet';
-import '../styles/global.css';
 import LocationMarker from "./location"
 import MarkerRed from "./marker/markerRed"
 import { useEffect, useState } from 'react';
