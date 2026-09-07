@@ -14,6 +14,8 @@ import configuration from './config/configuration';
 import { AdminSeederService } from './seeders';
 import { SeekersModule } from './users/seekers/seekers.module';
 import { Seeker } from './users/seekers/entities/seeker.entity';
+import { ApplicationModule } from './users/application/application.module';
+import { Application } from './users/application/entities/application.entity';
 
 @Module({
   imports: [
@@ -32,7 +34,7 @@ import { Seeker } from './users/seekers/entities/seeker.entity';
         username: configService.get<string>('database.username'),
         password: configService.get<string>('database.password'),
         database: configService.get<string>('database.name'),
-        entities: [User, Job, Seeker],
+        entities: [User, Job, Seeker, Application],
         synchronize: configService.get<boolean>('database.dev_mode'),
       }),
     }),
@@ -41,7 +43,8 @@ import { Seeker } from './users/seekers/entities/seeker.entity';
     AuthModule,
     JobsModule,
     TilesModule,
-    SeekersModule
+    SeekersModule,
+    ApplicationModule
   ],
   controllers: [AppController],
   providers: [AppService, AdminSeederService],
