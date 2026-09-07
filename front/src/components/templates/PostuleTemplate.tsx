@@ -96,21 +96,21 @@ export default function PostulateTemplate({
                     flex h-16 w-16
                     items-center justify-center
                     rounded-full
-                    bg-green-100
+                    bg-FFA500
                     text-3xl
-                    text-green-700
+                    text-black
                 ">
                     ✓
                 </div>
 
                 <div>
-                    <h3 className="text-2xl font-bold text-[#1B3A6B]">
+                    <h3 className="text-2xl font-bold text-[#FFA500]">
                         Candidature envoyée
                     </h3>
 
                     <p className="mt-2 text-gray-600">
                         Votre candidature pour
-                        <strong> {jobTitle}</strong> a bien été prise en compte.
+                        <strong className='text-black'> {jobTitle}</strong> a bien été prise en compte.
                     </p>
                 </div>
 
@@ -119,12 +119,12 @@ export default function PostulateTemplate({
                     onClick={onClose}
                     className="
                         rounded-lg
-                        bg-[#2C5DB3]
+                        bg-[#FFA500]
                         px-8
                         py-3
                         font-semibold
-                        text-white
-                        hover:bg-[#214A91]
+                        text-black  
+                        hover:bg-[#FFA500]/50
                     "
                 >
                     Retour aux offres
@@ -139,15 +139,15 @@ export default function PostulateTemplate({
             className="flex flex-col gap-6"
         >
             <div>
-                <h3 className="text-2xl font-bold text-[#1B3A6B]">
+                <h3 className="text-2xl font-bold text-[#FFA500]">
                     Candidater
                 </h3>
 
-                <p className="mt-2 text-gray-600">
+                <p className="mt-2 text-black">
                     {jobTitle}
                 </p>
 
-                <p className="text-sm text-[#2C5DB3]">
+                <p className="text-sm text-black">
                     {companyName} — {cityName}
                 </p>
             </div>
@@ -157,7 +157,7 @@ export default function PostulateTemplate({
             <div className="flex flex-col gap-2">
                 <label
                     htmlFor="application-message"
-                    className="font-semibold text-[#1B3A6B]"
+                    className="font-semibold text-[#FFA500]"
                 >
                     Message à l'employeur
                 </label>
@@ -178,7 +178,7 @@ export default function PostulateTemplate({
                         border-gray-300
                         p-3
                         outline-none
-                        focus:border-[#2C5DB3]
+                        focus:border-[#FFA500]
                     "
                 />
             </div>
@@ -189,12 +189,13 @@ export default function PostulateTemplate({
                 className={`
                     w-full
                     rounded-lg
-                    bg-[#2C5DB3]
+                    bg-[#FFA500]
                     px-6
                     py-4
                     text-lg
                     font-semibold
-                    text-white
+                    text-black
+                    hover:bg-[#FFA500]/50
                     ${
                       loading
                         ? "bg-gray-400 cursor-not-allowed"

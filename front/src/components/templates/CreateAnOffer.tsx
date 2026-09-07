@@ -46,7 +46,7 @@ function CreateAnOffer() {
 
                 <div className="grid gap-6 mb-6">
                     <div className="grid">
-                        <label className="text-sm">Titre de l'offre</label>
+                        <label className="text-[#FFA500] text-sm">Titre de l'offre</label>
                         <Input
                             placeHolder="FullStack Developer"
                             value={title}
@@ -54,7 +54,7 @@ function CreateAnOffer() {
                         />
                     </div>
                     <div className="grid">
-                        <label className="text-sm">Description de l'offre</label>
+                        <label className="text-[#FFA500] text-sm">Description de l'offre</label>
                         <Input
                             placeHolder="Your role is to create a web app which can do a lot of things"
                             value={description}
@@ -62,7 +62,7 @@ function CreateAnOffer() {
                         />
                     </div>
                     <div className="grid">
-                        <label className="text-sm">Numéro de rue</label>
+                        <label className="text-[#FFA500] text-sm">Numéro de rue</label>
                         <Input
                             placeHolder="123"
                             value={streetNumber}
@@ -70,7 +70,7 @@ function CreateAnOffer() {
                         />
                     </div>
                     <div className="grid">
-                        <label className="text-sm">Nom de rue</label>
+                        <label className="text-[#FFA500] text-sm">Nom de rue</label>
                         <Input
                             placeHolder="Rue beau chatêau"
                             value={streetName}
@@ -78,7 +78,7 @@ function CreateAnOffer() {
                         />
                     </div>
                     <div className="grid">
-                        <label className="text-sm">Ville</label>
+                        <label className="text-[#FFA500] text-sm">Ville</label>
                         <Input
                             placeHolder="Paris"
                             value={cityName}
@@ -86,7 +86,7 @@ function CreateAnOffer() {
                         />
                     </div>
                     <div className="grid">
-                        <label className="text-sm">Code postal</label>
+                        <label className="text-[#FFA500] text-sm">Code postal</label>
                         <Input
                             placeHolder="75000"
                             value={zipCode}
