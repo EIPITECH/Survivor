@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import croix from "../../assets/croix.png";
 import poubelle from "../../assets/poubelle.png";
 import verifier from "../../assets/verifier.png";
+import CandidateApplicationModal from "../modal/candidateApplicationModal";
 
 interface Job {
     id: number;
@@ -55,8 +56,17 @@ function getStatusLabel(status: Application["status"]) {
 
 function Applications() {
     const [applications, setApplications] = useState<Application[]>([]);
+    const [selectedApplication, setSelectedApplication] = useState<Application | null>(null);
+    const [applicationOpen, setApplicationOpen] = useState(false);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+
+    function handleApplicationSelection(application: Application) 
+    {
+        setSelectedApplication(application);
+        setApplicationOpen(true);
+    }
+
 
     useEffect(() => {
         async function getApplications() {
@@ -139,9 +149,13 @@ function Applications() {
                 )}
 
                 {!loading && !error && applications.map((application) => (
+                    
                         <div
                             key={application.id}
-                            className="flex flex-col gap-4 rounded-xl border border-gray-100 p-4 sm:flex-row sm:items-center sm:justify-between"
+                            onClick={() =>
+                                handleApplicationSelection(application)
+                            }
+                            className="flex cursor-pointer flex-col gap-4 rounded-xl border border-gray-100 p-4 transition hover:bg-gray-50 sm:flex-row sm:items-center sm:justify-between"
                         >
                             <div className="flex gap-3">
 
@@ -197,7 +211,11 @@ function Applications() {
                     ))}
 
             </section>
-
+            <CandidateApplicationModal
+                isOpen={applicationOpen}
+                setOpen={setApplicationOpen}
+                application={selectedApplication}
+            />
         </div>
     );
 }
