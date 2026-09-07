@@ -238,6 +238,14 @@ export default function JobModal({
                 font-semibold
                 text-white
                 transition
+                ${
+                  canApply
+                    ? "bg-[#2C5DB3] hover:bg-[#214A91] hover:cursor-pointer"
+                    : "bg-gray-400 cursor-not-allowed"
+                  }
+                
+              `}
+
                 hover:bg-[#FFA500]
                 hover:cursor-pointer
               "

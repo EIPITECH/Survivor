@@ -201,6 +201,8 @@ export default function PostulateTemplate({
                         : "bg-[#2C5DB3] hover:bg-[#214A91]"
                     }
                 `}
+                    hover:bg-[#FFA500]
+                "
             >
                 {loading
                     ? "Envoi en cours..."
