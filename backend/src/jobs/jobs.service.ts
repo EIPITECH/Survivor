@@ -355,4 +355,15 @@ export class JobsService {
         topDisplacements,
       };
   }
+
+  async findMine(employerId: number) {
+    return this.jobRepo.find({
+      where: {
+        employerId: employerId,
+      },
+      order: {
+        createdAt: 'DESC',
+      },
+    });
+  }
 }
