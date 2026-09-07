@@ -2,6 +2,7 @@ import * as React from "react";
 import { Box, Modal } from "@mui/material";
 import PostulateTemplate from "../templates/PostuleTemplate";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 const modalStyle = {
   position: "absolute",
@@ -40,6 +41,7 @@ const postulateStyle = {
 export default function JobModal({
   isOpen,
   setOpen,
+  jobId,
   title,
   description,
   cityName,
@@ -47,6 +49,7 @@ export default function JobModal({
 }: {
   isOpen: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  jobId: number;
   title: string;
   description: string;
   cityName: string;
@@ -54,6 +57,50 @@ export default function JobModal({
 }) {
   const [statePostule, setOpenPostule] = useState(false);
 
+  function getCurrentUserRole() {
+    const tokenCookie = Cookies.get("token");
+
+    if (!tokenCookie) {
+      return null;
+    }
+
+    let token = tokenCookie;
+
+    try {
+      const parsed = JSON.parse(tokenCookie);
+
+      if (parsed.accessToken) {
+        token = parsed.accessToken;
+      }
+    } catch {}
+
+    try {
+      const payloadPart = token.split(".")[1];
+
+      if (!payloadPart) {
+        return null;
+      }
+
+      const base64 = payloadPart
+        .replace(/-/g, "+")
+        .replace(/_/g, "/");
+
+      const paddedBase64 = base64.padEnd(
+        base64.length + (4 - (base64.length % 4)) % 4,
+        "="
+      );
+
+      const payload = JSON.parse(atob(paddedBase64));
+
+      return payload.role ?? null;
+    } catch {
+      return null;
+    }
+  }
+
+  const role = getCurrentUserRole();
+  const canApply = role === "seeker";
+  
   function handleClose() {
     setOpen(false);
   }
@@ -180,7 +227,7 @@ export default function JobModal({
             <button
               type="button"
               onClick={openPostule}
-              className="
+              className={`
                 mt-7
                 w-full
                 rounded-lg
@@ -222,6 +269,7 @@ export default function JobModal({
 
           <div className="mt-6">
             <PostulateTemplate
+              jobId={jobId}
               jobTitle={title}
               companyName={companyName}
               cityName={cityName}

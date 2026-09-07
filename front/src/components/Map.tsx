@@ -21,6 +21,7 @@ export default function ContainerSetterMap() {
       <JobModal
         isOpen={isOpen}
         setOpen={setOpen}
+        jobId={selectedJob?.id ?? 0}
         title={selectedJob?.title || "Offre d'emploi"}
         description={
           selectedJob?.description ||
