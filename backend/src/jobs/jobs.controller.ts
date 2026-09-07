@@ -31,6 +31,15 @@ export class JobsController {
     return this.jobsService.findAllActive();
   }
 
+  @Get('active/grouped')
+  @ApiOperation({
+    summary: 'Récupère les offres actives regroupées par commune'
+  })
+  findAllActiveGrouped() 
+  {
+    return this.jobsService.findAllActiveGrouped();
+  }
+  
   @Get('mine')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth('accessToken')
