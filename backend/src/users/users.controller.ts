@@ -51,6 +51,14 @@ export class UsersController {
 
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
+  @Delete('me')
+  removeMe(@Request() req: any) 
+  {
+    return this.usersService.remove(req.user.userId);
+  }
+  
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @Delete(':id')
   remove(@Param('id') id: string, @Request() req: any) {
     if (req.user.role !== UserRole.ADMIN && req.user.userId !== +id) {
