@@ -49,8 +49,8 @@ export class JobsService {
 
   async create(createJobDto: CreateJobDto, employerId: number) {
     
-    const adressUrl = `${createJobDto.streetNumber} ${createJobDto.streetName} ${createJobDto.zipCode} ${createJobDto.cityName}`;
-    const url = `https://${GEOCODE_SOURCE}/search/?q=${encodeURIComponent(adressUrl)}&limit=1`;
+    const adressUrl = createJobDto.cityName;
+    const url = `https://${GEOCODE_SOURCE}/search/?q=${encodeURIComponent(adressUrl)}&type=municipality&limit=1`;
 
     try {
       const response = await fetch(url);
@@ -98,6 +98,43 @@ export class JobsService {
 
   async findAllActive() {
     return this.jobRepo.find({ where: { status: jobStatus.ACTIVE } });
+  }
+
+  async findAllActiveGrouped() 
+  {
+   const jobs = await this.findAllActive();
+   const groupedJobs = new Map<
+     string,
+     {
+       cityName: string;
+       latitude: number;
+       longitude: number;
+       count: number;
+       jobs: Job[];
+     }
+   >();
+
+   for (const job of jobs) {
+     const key = job.cityName
+       .trim()
+       .toLowerCase();
+
+     const existingGroup = groupedJobs.get(key);
+
+     if (existingGroup) {
+       existingGroup.jobs.push(job);
+       existingGroup.count++;
+     } else {
+       groupedJobs.set(key, {
+         cityName: job.cityName,
+         latitude: job.latitude,
+         longitude: job.longitude,
+         count: 1,
+         jobs: [job],
+       });
+     }
+   }
+   return Array.from(groupedJobs.values());
   }
 
   // Need to wire this to the admin panel so they can be manually checked 
