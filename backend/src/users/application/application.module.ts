@@ -16,5 +16,6 @@ import { PassportModule } from '@nestjs/passport';
         ]),PassportModule.register({ session: false })],
   controllers: [ApplicationController],
   providers: [ApplicationService],
+  exports: [ApplicationService]
 })
 export class ApplicationModule {}

@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToOne, JoinColumn, ManyToOne, Unique } from 'typeorm';
-import {IsEmail, IsString, IsNotEmpty, IsNumber, IsBoolean, IsDate, IsEnum, isMongoId} from 'class-validator'; 
+import {IsEmail, IsString, IsNotEmpty, IsNumber, IsBoolean, IsDate, IsEnum, isMongoId, IsOptional, MaxLength} from 'class-validator'; 
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { User } from '../../entities/user.entity'
 import { Job } from '../../../jobs/entities/job.entity';
@@ -44,4 +44,9 @@ export class Application {
         onDelete: 'CASCADE',
     })
     job: Job;
+
+    @Column()
+    @IsString() @IsOptional()
+    @MaxLength(1000)
+    message: string
 }
