@@ -4,6 +4,7 @@ import verifier from "../../assets/verifier.png"
 import { useEffect, useState } from "react";
 import DashboardJobModal from "../modal/DashboardJobModal";
 import Cookies from 'js-cookie'
+import DashboardApplicationModal from "../modal/dashboardApplicationModal";
 
 interface Job {
     id: number;
@@ -71,6 +72,8 @@ function DashboardPc() {
     
     const [jobs, setJobs] = useState<Job[]>([]);
     const [applications, setApplications] = useState<Application[]>([]);
+    const [applicationOpen, setApplicationOpen] = useState(false);
+    const [selectedApplication, setSelectedApplication] = useState<Application | null>(null);
     const [open, setOpen] = useState(false);
     const [selectedJob, setSelectedJob] = useState<Job | null>(null)
     const okJob = ['active'];
@@ -79,6 +82,11 @@ function DashboardPc() {
     const lengthOkJob = jobs.filter(job => job.status.includes('active')).length;
     const lengthtoCheckJob = jobs.filter(job => job.status.includes('toCheck')).length;
     const lengthArchiveJob = jobs.filter(job => job.status.includes('archived')).length;
+
+    const handleApplicationSelection = (application: Application) => {
+        setSelectedApplication(application);
+        setApplicationOpen(true);
+    };
 
     useEffect(() => {
         async function getMyJobs() {
@@ -270,11 +278,20 @@ function DashboardPc() {
                         </p>
                     </div>
                 </div>
-
+                <DashboardApplicationModal
+                    isOpen={applicationOpen}
+                    setOpen={setApplicationOpen}
+                    application={selectedApplication}
+                />
                 <div className="flex items-center gap-4">
-                    <p className="cursor-pointer">
+                    <button
+                        className="cursor-pointer hover:underline"
+                        onClick={() =>
+                            handleApplicationSelection(application)
+                        }
+                    >
                         voir la candidature ▾
-                    </p>
+                    </button>
 
                     <button
                         onClick={() =>
