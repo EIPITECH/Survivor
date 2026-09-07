@@ -1,16 +1,20 @@
-import { Injectable, ConflictException } from '@nestjs/common';
+import { Injectable, ConflictException, NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { Job } from '../jobs/entities/job.entity';
+import { UserRole } from './enum/user-role.enum';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User)
     private userRepo: Repository<User>,
+    @InjectRepository(Job)
+    private jobRepo: Repository<Job>,
   ) {}
 
   private async hashString(str: string): Promise<string> {
@@ -69,11 +73,26 @@ export class UsersService {
     return this.userRepo.findOneBy({ email });
   }
 
-  async remove(id: number) {
-    return this.userRepo.delete({ id });
+  async remove(id: number) 
+  {
+    const user = await this.userRepo.findOneBy({ id });
+    
+    if (!user) {
+      throw new NotFoundException("Utilisateur introuvable");
+    }
+
+    if (user.role === UserRole.EMPLOYER) {
+      await this.jobRepo.delete({employerId: id});
+    }
+
+    await this.userRepo.delete({id});
+
+    return {
+      message: "Compte supprimé avec succès",
+    };
   }
 
-  async update(id: number, updateUserDto: UpdateUserDto) {
-    return this.userRepo.update({ id }, updateUserDto);
-  }
+    async update(id: number, updateUserDto: UpdateUserDto) {
+      return this.userRepo.update({ id }, updateUserDto);
+    }
 }
