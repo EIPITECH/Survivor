@@ -4,10 +4,12 @@ import { JobsController } from './jobs.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Job } from './entities/job.entity';
 import { AuthModule } from '../auth/auth.module';
+import { Application } from '../users/application/entities/application.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Job]), AuthModule],
+  imports: [TypeOrmModule.forFeature([Job, Application]), AuthModule],
   controllers: [JobsController],
   providers: [JobsService],
+  exports: [JobsService],
 })
 export class JobsModule {}
