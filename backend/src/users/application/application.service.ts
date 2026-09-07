@@ -52,7 +52,7 @@ export class ApplicationService {
         {
           where: {
             seeker: {
-              id: userId,
+              id: seeker.id,
             },
             job: {
               id: job.id,
@@ -102,5 +102,79 @@ export class ApplicationService {
             createdAt: 'DESC',
         },
     });
+  }
+
+  async findByEmployerId(employerId: number) {
+    const applications = await this.applicationRepo.find({
+      where: {
+        job: {
+          employerId: employerId,
+        },
+      },
+
+      relations: {
+        job: true,
+        seeker: {
+          user: true,
+        },
+      },
+
+      order: {
+        createdAt: 'DESC',
+      },
+    });
+
+    return applications.map((application) => ({
+      id: application.id,
+      status: application.status,
+      message: application.message,
+      createdAt: application.createdAt,
+
+      job: {
+        id: application.job.id,
+        title: application.job.title,
+        companyName: application.job.companyName,
+        cityName: application.job.cityName,
+      },
+
+      seeker: {
+        id: application.seeker.id,
+        skills: application.seeker.skills,
+        experience: application.seeker.experience,
+        availability: application.seeker.availability,
+
+        user: {
+          id: application.seeker.user.id,
+          firstName: application.seeker.user.firstName,
+          lastName: application.seeker.user.lastName,
+          email: application.seeker.user.email,
+        },
+      },
+    }));
+  }
+
+
+  async updateStatus(applicationId: number, employerId: number, updateApplicationDto: UpdateApplicationDto) 
+  {
+    const application = await this.applicationRepo.findOne({
+      where: {
+        id: applicationId,
+        job: {
+          employerId: employerId,
+        },
+      },
+
+      relations: {
+        job: true,
+        seeker: true,
+      },
+    });
+
+    if (!application) {
+      throw new NotFoundException('Candidature introuvable ou vous ne possédez pas cette offre');
+    }
+
+    application.status = updateApplicationDto.status;
+    return this.applicationRepo.save(application);
   }
 }

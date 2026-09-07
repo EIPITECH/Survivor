@@ -30,4 +30,16 @@ export class JobsController {
   findAllActive() {
     return this.jobsService.findAllActive();
   }
+
+  @Get('mine')
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth('accessToken')
+  @ApiOperation({summary: 'Récupère les offres publiées par l’employeur connecté'})
+  findMine(@Request() req: any) 
+  {
+    if (req.user.role !== UserRole.EMPLOYER && req.user.role !== UserRole.ADMIN) {
+      throw new ForbiddenException('Vous devez être un employeur pour récupérer vos offres');
+    }
+    return this.jobsService.findMine(req.user.userId);
+  }
 }

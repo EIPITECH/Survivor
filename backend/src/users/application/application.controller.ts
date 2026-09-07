@@ -24,6 +24,31 @@ export class ApplicationController {
   @UseGuards(JwtAuthGuard)
   findMine(@Request() req: any) 
   {
-      return this.applicationService.findByUserId(req.user.userId);
+    if (req.user.role !== UserRole.SEEKER) {
+      throw new ForbiddenException('Seul un demandeur d’emploi peut consulter ses candidatures');
+    }
+    return this.applicationService.findByUserId(req.user.userId);
   }
+
+  @Get('employer')
+  @UseGuards(JwtAuthGuard)
+  findForEmployer(@Request() req:any) 
+  {
+    if (req.user.role !== UserRole.EMPLOYER && req.user.role !== UserRole.ADMIN) {
+      throw new ForbiddenException('Seul un employeur peut consulter les candidatures reçues');
+    }
+    return this.applicationService.findByEmployerId(req.user.userId);
+  }
+
+  @Patch(':id/status')
+  @UseGuards(JwtAuthGuard)
+  updateStatus(@Param('id', ParseIntPipe) id: number, @Request() req: any, @Body() updateApplicationDto: UpdateApplicationDto) 
+  {
+    if (req.user.role !== UserRole.EMPLOYER && req.user.role !== UserRole.ADMIN) {
+      throw new ForbiddenException('Seul un employeur peut modifier le statut d’une candidature');
+    }
+
+    return this.applicationService.updateStatus(id, req.user.userId, updateApplicationDto);
+  }
+
 }
