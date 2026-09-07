@@ -21,12 +21,14 @@ export class ApplicationService {
     private jobRepo: Repository<Job>
   ){}
 
-  async create(jobId: number, userId: number, createApplicationDto: CreateApplicationDto) {
+  async create(userId: number, createApplicationDto: CreateApplicationDto) {
     
     const seeker = await this.seekerRepo.findOne(
       {
         where: {
-          id: userId,
+          user: {
+            id: userId,
+          }
         },
       }
       );
@@ -38,7 +40,7 @@ export class ApplicationService {
       const job = await this.jobRepo.findOne(
         {
           where: {
-            id: jobId,
+            id: createApplicationDto.jobId,
           },
         }
       );
@@ -53,7 +55,7 @@ export class ApplicationService {
               id: userId,
             },
             job: {
-              id: jobId,
+              id: job.id,
             }
           },
         }
@@ -64,7 +66,7 @@ export class ApplicationService {
       }
 
       const application = this.applicationRepo.create({
-        ...createApplicationDto,
+        message: createApplicationDto.message,
         seeker,
         job,
       });

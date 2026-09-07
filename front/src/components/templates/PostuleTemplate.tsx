@@ -1,11 +1,14 @@
 import { useState } from "react";
+import Cookies  from 'js-cookie'
 
 export default function PostulateTemplate({
+    jobId,
     jobTitle,
     companyName,
     cityName,
     onClose,
 }: {
+    jobId: number;
     jobTitle: string;
     companyName: string;
     cityName: string;
@@ -13,12 +16,78 @@ export default function PostulateTemplate({
 }) {
     const [message, setMessage] = useState("");
     const [success, setSuccess] = useState(false);
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    function handleSubmit(event: React.SubmitEvent) {
+    function getToken() {
+        const tokenCookie = Cookies.get("token");
+
+        if (!tokenCookie) {
+          return null;
+        }
+
+        try {
+          const parsed = JSON.parse(tokenCookie);
+
+          return parsed.accessToken || tokenCookie;
+        } catch {
+          return tokenCookie;
+        }
+    }
+    async function handleSubmit(event: React.FormEvent) {
         event.preventDefault();
 
-        setSuccess(true);
-    }
+        setError("");
+        setLoading(true);
+
+        const token = getToken();
+
+        if (!token) {
+          setError("Vous devez être connecté pour postuler.");
+          setLoading(false);
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            "http://localhost:3000/applications",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+
+              body: JSON.stringify({
+                jobId: jobId,
+                message: message.trim(),
+              }),
+            }
+          );
+
+          if (!response.ok) {
+            const data = await response.json();
+
+            const errorMessage = Array.isArray(data.message)
+              ? data.message.join(", ")
+              : data.message || "Erreur lors de la candidature.";
+
+            setError(errorMessage);
+            setLoading(false);
+            return;
+          }
+
+          setSuccess(true);
+        } catch (err) {
+          console.error(err);
+
+          setError(
+            "Impossible de contacter le serveur."
+          );
+        } finally {
+          setLoading(false);
+        }
+      }
 
     if (success) {
         return (
@@ -116,7 +185,8 @@ export default function PostulateTemplate({
 
             <button
                 type="submit"
-                className="
+                disabled={loading}
+                className={`
                     w-full
                     rounded-lg
                     bg-[#2C5DB3]
@@ -125,11 +195,17 @@ export default function PostulateTemplate({
                     text-lg
                     font-semibold
                     text-white
-                    hover:bg-[#214A91]
-                "
+                    ${
+                      loading
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-[#2C5DB3] hover:bg-[#214A91]"
+                    }
+                `}
             >
-                Envoyer ma candidature
-            </button>
+                {loading
+                    ? "Envoi en cours..."
+                    : "Envoyer ma candidature"}
+                </button>
         </form>
     );
 }
