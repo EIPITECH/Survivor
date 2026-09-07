@@ -6,21 +6,21 @@ import { UseGuards, ParseIntPipe } from '@nestjs/common';
 import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
 import { UserRole } from '../enum/user-role.enum';
 
-@Controller('jobs/:jobId/applications')
+@Controller('applications')
 export class ApplicationController {
   constructor(private readonly applicationService: ApplicationService) {}
 
   @Post()
   @UseGuards(JwtAuthGuard)
-  create(@Param('jobId', ParseIntPipe) jobId: number, @Request() req: any, @Body() createApplicationDto: CreateApplicationDto) 
+  create(@Request() req: any, @Body() createApplicationDto: CreateApplicationDto) 
   {
     if (req.user.role !== UserRole.SEEKER) {
         throw new ForbiddenException('Seul un demandeur d’emploi peut candidater');
     }
-    return this.applicationService.create(jobId, req.user.userId, createApplicationDto);
+    return this.applicationService.create(req.user.userId, createApplicationDto);
   }
 
-  @Get('me')
+  @Get()
   @UseGuards(JwtAuthGuard)
   findMine(@Request() req: any) 
   {
