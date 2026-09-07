@@ -4,6 +4,7 @@ import croix from "../../assets/croix.png"
 import verifier from "../../assets/verifier.png"
 import { useEffect, useState } from "react";
 import DashboardJobModal from "../modal/DashboardJobModal";
+import Cookies from 'js-cookie'
 
 interface Job {
     id: number;
@@ -23,16 +24,25 @@ interface Job {
     createdAt: string
 }
 
+function getToken(): string | null {
+    const tokenCookie = Cookies.get("token");
+
+    if (!tokenCookie) {
+        return null;
+    }
+
+    try {
+        const parsedToken = JSON.parse(tokenCookie);
+        return parsedToken.accessToken ?? tokenCookie;
+    } catch {
+        return tokenCookie;
+    }
+}
+
 function DashboardPc() {
 
-    const request = new Request("http://localhost:3000/jobs", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        // credentials: "include"
-    })
-    const [jobs, setJobs] = useState([]);
+    
+    const [jobs, setJobs] = useState<Job[]>([]);
     const [open, setOpen] = useState(false);
     const [selectedJob, setSelectedJob] = useState<Job | null>(null)
     const okJob = ['active'];
@@ -43,25 +53,42 @@ function DashboardPc() {
     const lengthArchiveJob = jobs.filter(job => job.status.includes('archived')).length;
 
     useEffect(() => {
-        async function getAllJobsByUser(request:Request) {
+        async function getMyJobs() {
+            const token = getToken();
+
+            if (!token) {
+                console.error("Aucun token employeur trouvé");
+                return;
+            }
             try {
-                const response = await fetch(request);
+                const response = await fetch(
+                    "http://localhost:3000/jobs/mine",
+                    {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+
                 const result = await response.json();
 
-                if (response.ok) {
-                    console.log("Get all jobs is success: ", result);
-                    setJobs(result);
-                } else {
-                    console.error("Error de récupération des jobs: ", result);
+                if (!response.ok) {
+                    console.error("Erreur lors de la récupération des offres :", result);
+                    return;
                 }
+                console.log("Mes offres employeur :", result);
+                setJobs(result);
+
             } catch (error) {
-                console.error("Error lors du fetch: ", error);
+                console.error("Erreur lors du fetch des offres :", error);
             }
         }
-
-        getAllJobsByUser(request)
+        getMyJobs();
     }, []);
 
+    
     const handleJobSelection = (job: Job) => {
         setSelectedJob(job);
         setOpen(true);
