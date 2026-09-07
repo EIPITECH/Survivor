@@ -30,8 +30,8 @@ export function LocationModal({
           boxShadow: '0 24px 70px rgba(41, 35, 27, 0.2)',
           p: { xs: 3, sm: 5 },
           '& h3': {
-            color: '#1B3A6B',
-            fontFamily: 'var(--font-marianne)',
+            color: '#FFA500',
+            fontFamily: 'var(--font-stack)',
             fontSize: '0.95rem',
             letterSpacing: '0.02em',
             margin: '1.5rem 0 0.35rem',
@@ -48,8 +48,8 @@ export function LocationModal({
         <h2
           id="location-modal-title"
           style={{
-            color: '#1B3A6B',
-            fontFamily: 'var(--font-marianne)',
+            color: '#FFA500',
+            fontFamily: 'var(--font-stack)',
             fontSize: '1.8rem',
             lineHeight: 1.15,
             margin: 0,
@@ -64,13 +64,13 @@ export function LocationModal({
         <Box
           sx={{
             bgcolor: '#f1f4f8',
-            borderLeft: '4px solid #1B3A6B',
+            borderLeft: '4px solid #FFA500',
             borderRadius: '0 8px 8px 0',
             marginTop: 3,
             padding: 2,
           }}
         >
-          <p style={{ color: '#1B3A6B', fontSize: '0.98rem' }}>
+          <p style={{ color: '#FFA500', fontSize: '0.98rem' }}>
             Vous allez activer la localisation pour centrer automatiquement la carte sur votre position. Cette donnée reste temporaire et n&apos;est pas conservée.
           </p>
         </Box>
@@ -133,7 +133,28 @@ export default function SwitchLocation() {
   return (
     <div className="flex items-center">
       <FormControlLabel
-        control={<Switch checked={checked} onChange={handleChange} />}
+        control={
+          <Switch
+            checked={checked}
+            onChange={handleChange}
+            sx={{
+              '& .MuiSwitch-switchBase': {
+                color: '#9e9e9e',
+              },
+              '& .MuiSwitch-switchBase + .MuiSwitch-track': {
+                backgroundColor: '#9e9e9e',
+                opacity: 0.5,
+              },
+              '& .MuiSwitch-switchBase.Mui-checked': {
+                color: '#FFA500',
+              },
+              '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                backgroundColor: '#FFA500',
+                opacity: 1,
+              },
+            }}
+          />
+        }
         label=""
       />
       <p>Localisation</p>

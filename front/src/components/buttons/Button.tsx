@@ -15,8 +15,8 @@ function Button({
     role,
     type
 }: Props) {
-    const className = `bg-gray-200 text-[#1B3A6B] rounded-xl px-6 py-4 flex justify-center items-center h-fit text-xl transition-colors duration-200 ease-in-out
-            ${clickable ? 'hover:cursor-pointer hover:bg-gray-400 hover:text-white' : ''}`;
+    const className = `bg-gray-200 text-[#FFA500] rounded-xl px-6 py-4 flex justify-center items-center h-fit text-xl transition-colors duration-200 ease-in-out
+            ${clickable ? 'hover:cursor-pointer hover:bg-gray-400 hover:text-[#FFA500]' : ''}`;
 
     if (link) {
     return (

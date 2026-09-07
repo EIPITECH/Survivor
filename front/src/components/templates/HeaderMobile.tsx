@@ -1,6 +1,5 @@
 import Button from "../buttons/Button";
 import SwitchLocation from "../toggleSwitchLoc";
-import LogoJeb from "../../assets/logoJEB.png";
 import { useState } from "react";
 import Cookies from "js-cookie";
 

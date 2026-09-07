@@ -3,7 +3,6 @@ import Button from "../buttons/Button";
 import Input from "../buttons/Input";
 import Checkbox from "../buttons/Checkbox";
 import Radio from "../buttons/Radio";
-import LogoJeb from "../../assets/logoJEB.png";
 import Cookies from 'js-cookie';
 
 function CreationPcTemplate() {
@@ -132,7 +131,6 @@ function CreationPcTemplate() {
                         <form onSubmit={handleSubmit} className="max-w-md w-full grid gap-10">
                             {/* HEADER INSCRIPTION */}
                             <div className="flex justify-center items-center gap-4 mb-4">
-                                <img className="w-20 object-contain" src={LogoJeb.src} alt="Logo GéoEmploi" />
                                 <h1 className="flex justify-center font-bold text-xl">
                                     GéoEmploi
                                 </h1>
@@ -235,9 +233,9 @@ function CreationPcTemplate() {
                                             py-2
                                             min-h-24
                                             outline-none
-                                            focus:border-[#1B3A6B]
+                                            focus:border-[#FFA500]
                                             focus:ring
-                                            focus:ring-[#1B3A6B]
+                                            focus:ring-[#FFA500]
                                         "
                                         placeholder="Ex : JavaScript, TypeScript, React, Node.js, Docker..."
                                         value={skills}
@@ -261,9 +259,9 @@ function CreationPcTemplate() {
                                             py-2
                                             min-h-28
                                             outline-none
-                                            focus:border-[#1B3A6B]
+                                            focus:border-[#FFA500]
                                             focus:ring
-                                            focus:ring-[#1B3A6B]
+                                            focus:ring-[#FFA500]
                                         "
                                         placeholder="Ex : 2 ans comme développeur frontend chez NovaTech..."
                                         value={experience}

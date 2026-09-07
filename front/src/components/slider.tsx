@@ -3,7 +3,7 @@ import Slider from '@mui/material/Slider';
 export default function SliderLocalisation() {
     return (
         <Slider
-          color="primary"
+          sx={{ color: '#FFA500' }}
           size="small"
           defaultValue={70}
           aria-label="Small"

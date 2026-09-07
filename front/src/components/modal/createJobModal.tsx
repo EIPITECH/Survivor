@@ -103,7 +103,7 @@ export default function CreateOfferModal({ isOpen, setOpen }: { isOpen: boolean;
       aria-labelledby="create-offer-modal-title"
     >
       <Box sx={style}>
-        <Typography id="create-offer-modal-title" variant="h5" component="h2" color="#1B3A6B" className="text-center font-bold mb-6">
+        <Typography id="create-offer-modal-title" variant="h5" component="h2" color="#FFA500" className="text-center font-bold mb-6">
           Créer une offre d'emploi
         </Typography>
 
@@ -121,13 +121,13 @@ export default function CreateOfferModal({ isOpen, setOpen }: { isOpen: boolean;
                 )}
 
                 <div className="grid gap-2">
-                    <label className="text-sm font-bold text-[#1B3A6B]">Titre de l'offre</label>
+                    <label className="text-sm font-bold text-[#FFA500]">Titre de l'offre</label>
                     <Input placeHolder="Ex: Développeur FullStack" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </div>
 
                 <div className="grid gap-2">
-                    <label className="text-sm font-bold text-[#1B3A6B]">Description</label>                    <textarea 
-                        className="bg-white border-2 border-black rounded-md px-2 py-2 outline-none transition-shadow duration-200 ease-out focus:border-[#1B3A6B] focus:ring focus:ring-[#1B3A6B] min-h-25"
+                    <label className="text-sm font-bold text-[#FFA500]">Description</label>                    <textarea 
+                        className="bg-white border-2 border-black rounded-md px-2 py-2 outline-none transition-shadow duration-200 ease-out focus:border-[#FFA500] focus:ring focus:ring-[#FFA500] min-h-25"
                         placeholder="Détaillez les missions..." 
                         value={description} 
                         onChange={(e) => setDescription(e.target.value)}
@@ -135,7 +135,7 @@ export default function CreateOfferModal({ isOpen, setOpen }: { isOpen: boolean;
                     />
                 </div>
                 <div className="grid gap-2">
-                    <label className="text-sm font-bold text-[#1B3A6B]">
+                    <label className="text-sm font-bold text-[#FFA500]">
                         Nom de l'entreprise
                     </label>
                             
@@ -147,18 +147,18 @@ export default function CreateOfferModal({ isOpen, setOpen }: { isOpen: boolean;
                 </div>
                 <div className="grid grid-cols-3 gap-4">
                     <div className="col-span-1 grid gap-2">
-                        <label className="text-sm font-bold text-[#1B3A6B]">N° de rue</label>
+                        <label className="text-sm font-bold text-[#FFA500]">N° de rue</label>
                         <Input placeHolder="Ex: 123" value={streetNumber} onChange={(e) => setStreetNumber(e.target.value)} />
                     </div>
                     <div className="col-span-2 grid gap-2">
-                        <label className="text-sm font-bold text-[#1B3A6B]">Nom de la rue</label>
+                        <label className="text-sm font-bold text-[#FFA500]">Nom de la rue</label>
                         <Input placeHolder="Ex: Rue de la Paix" value={streetName} onChange={(e) => setStreetName(e.target.value)} />
                     </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                     <div className="grid gap-2">
-                        <label className="text-sm font-bold text-[#1B3A6B]">Code postal</label>
+                        <label className="text-sm font-bold text-[#]">Code postal</label>
                         <Input placeHolder="Ex: 75000" value={zipCode} onChange={(e) => setZipCode(e.target.value)} />
                     </div>
                     <div className="grid gap-2">

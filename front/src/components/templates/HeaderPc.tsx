@@ -1,7 +1,6 @@
 import Button from "../buttons/Button";
 import SwitchLocation from "../toggleSwitchLoc";
 import { useState } from "react";
-import LogoJeb from "../../assets/logoJEB.png"
 import CreateOfferModal from "../modal/createJobModal"; 
 import Cookies from "js-cookie";
 
@@ -32,7 +31,6 @@ function HeaderPc({ role, firstName }: Props) {
         <>
             <header className="w-full z-1000 flex justify-between px-10 py-2 bg-white items-center shadow-md">
                 <div className="flex items-center gap-5">
-                    <img className="size-20" src={LogoJeb.src} alt=""/>
                 <h1 className="text-black font-bold">
                     GéoEmploi
                 </h1>

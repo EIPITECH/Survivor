@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Button from "../buttons/Button";
 import Input from "../buttons/Input";
-import LogoJeb from "../../assets/logoJEB.png";
 import Cookies from 'js-cookie';
 
 async function connectionUser(request:Request, setToken:any, setErrorConnection:any) {
@@ -69,7 +68,6 @@ function ConnexionPcTemplate() {
                 <form onSubmit={handleSubmit} className="max-w-md w-full px-6 grid gap-10">
                     {/* HEADER CONNEXION */}
                     <div className="flex justify-center items-center gap-4 mb-4">
-                        <img className="w-20 object-contain" src={LogoJeb.src} alt="Logo GéoEmploi" />
                         <h1 className="flex justify-center font-bold text-xl">
                             GéoEmploi
                         </h1>
