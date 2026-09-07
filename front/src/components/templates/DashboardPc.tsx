@@ -1,5 +1,4 @@
 
-import poubelle from "../../assets/poubelle.png"
 import croix from "../../assets/croix.png"
 import verifier from "../../assets/verifier.png"
 import { useEffect, useState } from "react";
@@ -24,6 +23,34 @@ interface Job {
     createdAt: string
 }
 
+interface Application {
+    id: number;
+    status: "submitted" | "accepted" | "rejected";
+    message: string;
+    createdAt: string;
+
+    job: {
+        id: number;
+        title: string;
+        companyName: string;
+        cityName: string;
+    };
+
+    seeker: {
+        id: number;
+        skills: string;
+        experience: string;
+        availability: string;
+
+        user: {
+            id: number;
+            firstName: string;
+            lastName: string;
+            email: string;
+        };
+    };
+}
+
 function getToken(): string | null {
     const tokenCookie = Cookies.get("token");
 
@@ -43,6 +70,7 @@ function DashboardPc() {
 
     
     const [jobs, setJobs] = useState<Job[]>([]);
+    const [applications, setApplications] = useState<Application[]>([]);
     const [open, setOpen] = useState(false);
     const [selectedJob, setSelectedJob] = useState<Job | null>(null)
     const okJob = ['active'];
@@ -88,7 +116,51 @@ function DashboardPc() {
         getMyJobs();
     }, []);
 
-    
+    useEffect(() => {
+        async function getApplications() {
+            const token = getToken();
+
+            if (!token) {
+                console.error("Aucun token employeur trouvé");
+                return;
+            }
+
+            try {
+                const response = await fetch(
+                    "http://localhost:3000/applications/employer",
+                    {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    console.error(
+                        "Erreur récupération candidatures :",
+                        result
+                    );
+                    return;
+                }
+
+                console.log("Candidatures reçues :", result);
+                setApplications(result);
+
+            } catch (error) {
+                console.error(
+                    "Erreur lors du fetch des candidatures :",
+                    error
+                );
+            }
+        }
+
+        getApplications();
+    }, []);
+
     const handleJobSelection = (job: Job) => {
         setSelectedJob(job);
         setOpen(true);
@@ -112,33 +184,64 @@ function DashboardPc() {
             <div className="bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col gap-4">
 
                 <h1 className="text-xl font-bold text-black">
-                    Candidatures (1)
+                    Candidatures ({applications.length})
                 </h1>
+                    {applications.length === 0 ? (
+        <p className="text-gray-500">
+            Aucune candidature reçue.
+        </p>
+    ) : (
+        applications.map((application) => (
+            <div
+                key={application.id}
+                className="flex justify-between rounded-lg px-2 py-3 hover:bg-gray-100"
+            >
+                <div className="flex gap-2 px-5">
+                    <div className="border border-[#1B3A6B]"></div>
 
-                {/* 1 */}
-                <div className="flex justify-between">
-                    <div className="flex gap-2 px-5">
-                        <div className="border border-[#1B3A6B]"></div>
-                        <div>
-                            <h1>
-                                Développeur fullstack
-                            </h1>
-                            <p>
-                                Jeanne Dupont
-                            </p>
-                        </div>
-                    </div>
-                    <div className="flex gap-4">
+                    <div>
+                        <h1 className="font-semibold">
+                            {application.job.title}
+                        </h1>
+
                         <p>
-                        voir la candidature ▾
+                            {application.seeker.user.firstName}{" "}
+                            {application.seeker.user.lastName}
                         </p>
-                        <img className="size-5 shrink-0" src={verifier.src} alt=""/>
-                        <img className="size-4 shrink-0" src={croix.src} alt=""/>
-                        <img className="size-6 shrink-0 -translate-y-1" src={poubelle.src} alt=""/>
+
+                        <p className="text-sm text-gray-500">
+                            {application.seeker.user.email}
+                        </p>
+
+                        <p className="mt-1 text-sm">
+                            Statut :{" "}
+                            <span className="font-bold">
+                                {application.status}
+                            </span>
+                        </p>
                     </div>
                 </div>
 
+                <div className="flex items-center gap-4">
+                    <p className="cursor-pointer">
+                        voir la candidature ▾
+                    </p>
 
+                    <img
+                        className="size-5 shrink-0"
+                        src={verifier.src}
+                        alt="Accepter"
+                    />
+
+                    <img
+                        className="size-4 shrink-0"
+                        src={croix.src}
+                        alt="Refuser"
+                    />
+                </div>
+            </div>
+        ))
+    )}
             </div>
 
             <div className="bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col gap-4">
