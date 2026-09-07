@@ -10,5 +10,6 @@ import { Application } from '../users/application/entities/application.entity';
   imports: [TypeOrmModule.forFeature([Job, Application]), AuthModule],
   controllers: [JobsController],
   providers: [JobsService],
+  exports: [JobsService],
 })
 export class JobsModule {}

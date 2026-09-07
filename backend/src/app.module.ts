@@ -11,11 +11,11 @@ import { Job } from './jobs/entities/job.entity';
 import { HealthModule } from './health/health.module';
 import { TilesModule } from './tiles/tiles.module';
 import configuration from './config/configuration';
-import { AdminSeederService } from './seeders';
 import { SeekersModule } from './users/seekers/seekers.module';
 import { Seeker } from './users/seekers/entities/seeker.entity';
 import { ApplicationModule } from './users/application/application.module';
 import { Application } from './users/application/entities/application.entity';
+import { SeederService } from './seeders';
 
 @Module({
   imports: [
@@ -47,7 +47,7 @@ import { Application } from './users/application/entities/application.entity';
     ApplicationModule
   ],
   controllers: [AppController],
-  providers: [AppService, AdminSeederService],
+  providers: [AppService, SeederService],
 })
 
 export class AppModule {}
