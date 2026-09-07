@@ -87,4 +87,4 @@ jobs:
 
       - name: Synchronize main branch
         run: |
-          git push target main:main
+          git push --force target main:main
