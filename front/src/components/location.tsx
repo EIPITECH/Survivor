@@ -10,9 +10,9 @@ const LOCATE_INTERVAL_MS = 10000
 export default function LocationMarker() {
   var redIcon = L.icon({
     iconUrl: iconPng.src,
-    iconSize: [38, 45],
-    iconAnchor: [22, 64],
-    popupAnchor: [-3, -76]
+    iconSize: [25, 25],
+    iconAnchor: [12.5, 12.5],
+    popupAnchor: [-3, -15]
   });
 
   const [position, setPosition] = useState<LatLng | null>(null)
