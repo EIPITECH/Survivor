@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import croix from "../../assets/croix.png";
 import poubelle from "../../assets/poubelle.png";
 import verifier from "../../assets/verifier.png";
+import DeleteAccountButton from "../buttons/deleteAccountButton";
 
 interface User {
     id: number;
@@ -93,6 +94,20 @@ function DashboardPcSeeker() {
                         <ProfileField label="Type de compte" value="Candidat" />
                     </div>
                 )}
+            </section>
+            <section className="rounded-2xl border border-red-200 bg-white p-6 shadow-[0_0_25px_rgba(0,0,0,0.1)]">
+                <div className="flex flex-col gap-4">
+                    <div>
+                        <h2 className="text-xl font-bold text-red-600">
+                            Supprimer mon compte
+                        </h2>
+                        <p className="mt-1 text-gray-600">
+                            La suppression de votre compte est définitive.
+                            Vos informations et vos candidatures seront supprimées.
+                        </p>
+                    </div>
+                    <DeleteAccountButton />
+                </div>
             </section>
         </div>
     );
