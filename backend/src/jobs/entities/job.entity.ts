@@ -1,7 +1,8 @@
 import { IsDate, IsIn, IsNotEmpty, IsNumber, IsString } from "class-validator";
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { ApiProperty } from '@nestjs/swagger';
 import { jobStatus } from '../enum/jobs-status.enum';
+import { Application } from "../../users/application/entities/application.entity";
 
 @Entity()
 export class Job 
@@ -135,4 +136,7 @@ export class Job
         example: '2025-09-03T14:20:00.000Z',
     })
     createdAt: Date;
+
+    @OneToMany(() => Application,(application) => application.job) 
+    applications: Application[];
 }

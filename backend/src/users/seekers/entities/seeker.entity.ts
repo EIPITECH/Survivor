@@ -1,8 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToOne, JoinColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToOne, JoinColumn, OneToMany } from 'typeorm';
 import {IsEmail, IsString, IsNotEmpty, IsNumber, IsBoolean, IsDate, IsEnum, isMongoId} from 'class-validator'; 
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { User } from '../../entities/user.entity'
-
+import { Application } from '../../application/entities/application.entity';
 @Entity()
 export class Seeker {
   @PrimaryGeneratedColumn()
@@ -43,4 +43,7 @@ export class Seeker {
 
   @JoinColumn({ name: 'userId' })
   user: User;
+
+  @OneToMany(() => Application, (application) => application.seeker)
+  applications: Application[];
 }
