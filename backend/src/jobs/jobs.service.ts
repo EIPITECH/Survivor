@@ -1,10 +1,11 @@
-import { Injectable, BadRequestException } from '@nestjs/common';
+import { Injectable, BadRequestException, Logger, OnModuleInit, } from '@nestjs/common';
 import { CreateJobDto } from './dto/create-job.dto';
 import { UpdateJobDto } from './dto/update-job.dto';
-import { Repository } from 'typeorm';
+import { Repository, LessThan, Not } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Job } from './entities/job.entity';
 import { jobStatus } from './enum/jobs-status.enum';
+import {Cron, CronExpression} from '@nestjs/schedule';
 
 const GEOCODE_SOURCE = 'api-adresse.data.gouv.fr';
 const ACTIVE_SCORE_THRESHOLD = 0.5;
@@ -41,12 +42,40 @@ export interface MigrationReport {
 }
 
 @Injectable()
-export class JobsService {
+export class JobsService implements OnModuleInit {
+  private readonly logger = new Logger(JobsService.name);
   constructor(
     @InjectRepository(Job)
     private jobRepo: Repository<Job>,
   ) {}
 
+async onModuleInit() {
+  await this.archiveExpiredJobs();
+}
+
+@Cron(CronExpression.EVERY_HOUR)
+async archiveExpiredJobs(): Promise<number> 
+{
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() - 30);
+    const result = await this.jobRepo.update(
+      {
+        createdAt: LessThan(expirationDate),
+        status: Not(jobStatus.ARCHIVED),
+      },
+      {
+        status: jobStatus.ARCHIVED,
+      },
+    );
+
+    const archivedCount = result.affected ?? 0;
+
+    if (archivedCount > 0) {
+      this.logger.log(`${archivedCount} offre(s) expirée(s) archivée(s) automatiquement`);
+    }
+    return archivedCount;
+  }
+  
   async create(createJobDto: CreateJobDto, employerId: number) {
     
     const adressUrl = createJobDto.cityName;
