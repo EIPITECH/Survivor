@@ -19,6 +19,8 @@ import { SeederService } from './seeders';
 import { ScheduleModule } from '@nestjs/schedule';
 import { Consent } from './users/consent/entities/consent.entity';
 import { ConsentsModule } from './users/consent/consent.module';
+import { ReportsModule } from './reports/reports.module';
+import { Report } from './reports/entities/report.entity';
 
 @Module({
   imports: [
@@ -38,7 +40,7 @@ import { ConsentsModule } from './users/consent/consent.module';
         username: configService.get<string>('database.username'),
         password: configService.get<string>('database.password'),
         database: configService.get<string>('database.name'),
-        entities: [User, Job, Seeker, Application, Consent],
+        entities: [User, Job, Seeker, Application, Consent, Report],
         synchronize: configService.get<boolean>('database.dev_mode'),
       }),
     }),
@@ -49,7 +51,8 @@ import { ConsentsModule } from './users/consent/consent.module';
     TilesModule,
     SeekersModule,
     ApplicationModule,
-    ConsentsModule
+    ConsentsModule,
+    ReportsModule
   ],
   controllers: [AppController],
   providers: [AppService, SeederService],

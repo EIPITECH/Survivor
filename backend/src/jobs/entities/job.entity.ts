@@ -3,6 +3,7 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, OneToMany } f
 import { ApiProperty } from '@nestjs/swagger';
 import { jobStatus } from '../enum/jobs-status.enum';
 import { Application } from "../../users/application/entities/application.entity";
+import { Report } from "../../reports/entities/report.entity";
 
 @Entity()
 export class Job 
@@ -148,4 +149,8 @@ export class Job
 
     @OneToMany(() => Application,(application) => application.job) 
     applications: Application[];
+
+    @OneToMany(() => Report, (report) => report.job)
+    reports: Report[];
+    
 }
