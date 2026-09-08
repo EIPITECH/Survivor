@@ -64,7 +64,7 @@ export default function Transparence () {
         <h3>La durée de conservation des données</h3>
         
         <p>
-            Les données personnels utiles à la création de compte sont conservé jusqu'à supression du compte. Les données de géolocalisation utilisateurs ne sont pas stockées, elle sont 
+            Les données personnelles utiles à la création de compte sont conservées jusqu'à suppression du compte. Les données de géolocalisation des utilisateurs ne sont pas stockées ; elles sont utilisées pour actualiser toutes les 10 secondes le marqueur de position sur la carte si l'utilisateur a activé l'outil de localisation. Il n'y a donc aucune trace de la position de l'utilisateur après fermeture ou rechargement de la page.
         </p>
         
         
