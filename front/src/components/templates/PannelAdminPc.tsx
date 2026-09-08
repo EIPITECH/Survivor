@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import DashboardJobModal from "../modal/DashboardJobModal";
 import DashbordCandidatureModal from "../modal/DashboardCandidatureModal";
 import BarVerticalStats from "../BarVerticalStats"
+import DashboardUserModal from "../modal/dashboardUserModal";
 import Input from "../../components/buttons/Input"
 import Cookies from "js-cookie";
 
@@ -59,6 +60,7 @@ interface User {
     email: string;
     isConnected: boolean;
     role: "seeker" | "employer" | "admin";
+    accountStatus: "active" | "suspended";
     createdAt: string;
 }
 
@@ -448,7 +450,7 @@ function PannelAdminPc()
                         }
                     />
 
-                    <div className="flex flex-col gap-2">
+                    <div className="flex max-h-[450px] flex-col gap-2 overflow-y-auto pr-2">
                         {filteredCandidatures.map(candidature => (
                             <div
                                 key={candidature.id}
@@ -552,22 +554,88 @@ function PannelAdminPc()
                                     handleUserSelection(user)
                                 }
                             >
-                                <div className="flex gap-2 px-5">
+                                <div className="flex w-full gap-2 px-5">
 
                                     <div className="border border-[#FFA500]"></div>
 
-                                    <div>
-                                        <h1 className="font-bold">
-                                            {user.firstName} {user.lastName}
-                                        </h1>
+                                    <div className="flex w-full items-center justify-between">
 
-                                        <p>
-                                            {user.email}
-                                        </p>
+                                        <div>
+                                            <h1 className="font-bold">
+                                                {user.firstName} {user.lastName}
+                                            </h1>
 
-                                        <p className="text-sm text-gray-500">
-                                            Rôle : {user.role}
-                                        </p>
+                                            <p>
+                                                {user.email}
+                                            </p>
+
+                                            <p className="text-sm text-gray-500">
+                                                Rôle : {user.role}
+                                            </p>
+                                        </div>
+
+                                        {user.accountStatus === "suspended" ? (
+                                            <div
+                                                className="
+                                                    flex
+                                                    items-center
+                                                    gap-2
+                                                    rounded-lg
+                                                    bg-red-100
+                                                    px-3
+                                                    py-1
+                                                "
+                                            >
+                                                <div
+                                                    className="
+                                                        size-2
+                                                        rounded-full
+                                                        bg-red-600
+                                                    "
+                                                />
+
+                                                <p
+                                                    className="
+                                                        text-sm
+                                                        font-bold
+                                                        text-red-700
+                                                    "
+                                                >
+                                                    Suspendu
+                                                </p>
+                                            </div>
+                                        ) : (
+                                            <div
+                                                className="
+                                                    flex
+                                                    items-center
+                                                    gap-2
+                                                    rounded-lg
+                                                    bg-green-100
+                                                    px-3
+                                                    py-1
+                                                "
+                                            >
+                                                <div
+                                                    className="
+                                                        size-2
+                                                        rounded-full
+                                                        bg-green-600
+                                                    "
+                                                />
+
+                                                <p
+                                                    className="
+                                                        text-sm
+                                                        font-bold
+                                                        text-green-700
+                                                    "
+                                                >
+                                                    Actif
+                                                </p>
+                                            </div>
+                                        )}
+
                                     </div>
 
                                 </div>
@@ -576,13 +644,21 @@ function PannelAdminPc()
 
                     </div>
 
-                    {/*
-                    <DashbordCandidatureModal
+                    <DashboardUserModal
                         isOpen={openModalUser}
                         setOpen={setOpenModalUser}
-                        candidature={selectedUser}
+                        user={selectedUser}
+                        onUserUpdated={(updatedUser) => {
+                            setUsers(previousUsers =>
+                                previousUsers.map(user =>
+                                    user.id === updatedUser.id
+                                        ? updatedUser
+                                        : user
+                                )
+                            );
+                            setSelectedUser(updatedUser);
+                        }}
                     />
-                    */}
 
                 </div>
 
