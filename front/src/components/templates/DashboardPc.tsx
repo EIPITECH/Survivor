@@ -447,12 +447,13 @@ function DashboardPc() {
                           cursor-pointer
                           rounded-lg
                           border
-                          border-[#1B3A6B]
+                          border-[#FFA500]
                           px-5
                           py-3
                           font-semibold
-                          text-[#1B3A6B]
-                          hover:bg-gray-50
+                          text-black
+                          hover:bg-[#FFA500]/50
+                          bg-[#FFA500]
                         "
                       >
                         Informations sur la géolocalisation

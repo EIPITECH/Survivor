@@ -4,6 +4,7 @@ import * as React from 'react';
 import ChooseDevice from "../components/ChooseDevice"
 import ConnexionPcTemplate from "../components/templates/ConnexionPcTemplate";
 import { Font } from 'astro:assets';
+import FooterPc from "../components/templates/FooterPc";
 ---
 <html lang="en">
 	<head >
@@ -20,6 +21,7 @@ import { Font } from 'astro:assets';
 	<body>
 		<main>
 			<ConnexionPcTemplate client:load/>
+			<FooterPc client:only/>
 		</main>
 	</body>
 </html>
