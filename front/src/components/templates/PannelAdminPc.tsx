@@ -6,6 +6,7 @@ import DashboardJobModal from "../modal/DashboardJobModal";
 import DashbordCandidatureModal from "../modal/DashboardCandidatureModal";
 import BarVerticalStats from "../BarVerticalStats"
 import Input from "../../components/buttons/Input"
+import Cookies from "js-cookie";
 
 interface Job {
     id: number;
@@ -27,44 +28,42 @@ interface Job {
 
 interface Candidature {
     id: number;
-    title: string;
-    description: string;
-    status: string,
-    obtentionDate: string,
-    createdAt: string
+    status: "submitted" | "accepted" | "rejected";
+    message: string;
+    createdAt: string;
+
+    job: {
+        id: number;
+        title: string;
+        companyName: string;
+        cityName: string;
+    };
+
+    seeker: {
+        id: number;
+        skills: string;
+        experience: string;
+        availability: string;
+
+        user: {
+            id: number;
+            firstName: string;
+            lastName: string;
+            email: string;
+        };
+    };
 }
+
 
 interface User {
-    id: number,
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string,
-    isConnected: boolean,
-    role: string,
-    createdAt: string,
-    seeker: string
+    id: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    isConnected: boolean;
+    role: "seeker" | "employer" | "admin";
+    createdAt: string;
 }
-
-const fakeJob: Job = {
-    id: 1,
-    title: "Développeur fullstack",
-    description: "Nous recherchons un·e développeur·se fullstack pour rejoindre notre équipe technique et participer à la conception et à l'évolution de nos applications web, du back-end à l'interface utilisateur.",
-    cityName: "Lyon",
-    streetNumber: 12,
-    streetName: "Rue de la République",
-    zipCode: 69002,
-    latitude: 45.7640,
-    longitude: 4.8357,
-    employerId: 7,
-    status: "active",
-    geocodageSource: "Google Maps API",
-    trustScore: 0.87,
-    obtentionDate: "2026-08-15T09:00:00.000Z",
-    createdAt: "2026-09-04T08:08:17.438Z"
-};
-
-
 
 function getStatusByJob(job: Job) {
     if (job.status == 'active') {
@@ -88,68 +87,72 @@ function getStatusByJob(job: Job) {
     }
 }
 
-const fakeCandidature: Candidature = {
-    id: 1,
-    title: "Développeur fullstack",
-    description: "Candidature envoyée pour le poste de développeur fullstack au sein de l'équipe technique.",
-    status: "pending",
-    obtentionDate: "2026-08-15T09:00:00.000Z",
-    createdAt: "2026-09-04T08:08:17.438Z"
-};
+function getToken(): string | null 
+{
+    const tokenCookie = Cookies.get("token");
 
-function PannelAdminPc() {
+    if (!tokenCookie) {
+        return null;
+    }
 
-    const request = new Request("http://localhost:3000/jobs", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        // credentials: "include"
-    })
+    try {
+        const parsedToken = JSON.parse(tokenCookie);
+        return parsedToken.accessToken ?? tokenCookie;
+    } catch {
+        return tokenCookie;
+    }
+}
 
-    const requestUsers = new Request("http://localhost:3000/users", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        },
-    })
-
+function PannelAdminPc() 
+{
     useEffect(() => {
+    async function loadAdminData() 
+    {
+        const token = getToken();
+        if (!token) {
+            console.error("Aucun token administrateur trouvé");
+            return;
+        }
+        try {
+            const [responseJobs, responseUsers, responseApplications] = await Promise.all([
+                fetch("http://localhost:3000/jobs"),
+                fetch("http://localhost:3000/users", {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }),
+                fetch("http://localhost:3000/applications/admin", {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }),
+            ]);
+            const jobsResult = await responseJobs.json();
+            const usersResult = await responseUsers.json();
+            const applicationsResult = await responseApplications.json();
 
-        // setJobs([fakeJob]);
-        // setCandidatures([fakeCandidature]);
-        // return;
+            if (responseJobs.ok) {
+                setJobs(jobsResult);
+            } else {
+                console.error("Erreur récupération offres :", jobsResult);
+            }
+            if (responseUsers.ok) {
+                setUsers(usersResult);
+            } else {
+                console.error("Erreur récupération utilisateurs :", usersResult);
+            }
+            if (responseApplications.ok) {
+                setCandidatures(applicationsResult);
+            } else {
+                console.error("Erreur récupération candidatures :", applicationsResult);
+            }
 
-
-        async function getAllJobsByUser(request:Request) {
-            try {
-                const responseJobs = await fetch(request);
-                const resultJobs = await responseJobs.json();
-
-                const responseUsers = await fetch(requestUsers);
-                const resultUsers = await responseUsers.json();
-
-                if (responseJobs.ok) {
-                    console.log("Get all jobs is success: ", resultJobs);
-                    setJobs(resultJobs);
-                } else {
-                    console.error("Error de récupération des jobs: ", resultJobs);
-                }
-
-                if (responseUsers.ok) {
-                    console.log("Get all jobs is success: ", resultJobs);
-                    setUsers(resultUsers);
-                } else {
-                    console.error("Erreur de récupération des utilisateurs: ", resultUsers)
-                }
             } catch (error) {
-                console.error("Error lors du fetch: ", error);
+                console.error("Erreur chargement panel admin :", error);
             }
         }
-
-        getAllJobsByUser(request)
+        loadAdminData();
     }, []);
-
     const handleJobSelection = (job: Job) => {
         setSelectedJob(job);
         setOpenModalJob(true);
@@ -168,13 +171,7 @@ function PannelAdminPc() {
     const [jobs, setJobs] = useState<Job[]>([]);
     const [openModalJob, setOpenModalJob] = useState(false);
     const [selectedJob, setSelectedJob] = useState<Job | null>(null)
-    const okJob = ['active'];
-    const toCheckJob = ['toCheck'];
-    const archiveJob = ['archived']
     const lengthJob = jobs.length;
-    const lengthOkJob = jobs.filter(job => job.status.includes('active')).length;
-    const lengthtoCheckJob = jobs.filter(job => job.status.includes('toCheck')).length;
-    const lengthArchiveJob = jobs.filter(job => job.status.includes('archived')).length;
 
     const [candidatures, setCandidatures] = useState<Candidature[]>([]);
     const [openModalCandidature, setOpenModalCandidature] = useState(false);
@@ -185,36 +182,45 @@ function PannelAdminPc() {
     const [openModalUser, setOpenModalUser] = useState(false);
     const [selectedUser, setSelectedUser] = useState<User | null>(null);
     const lengthUsers = users.length;
+    const employerCount = users.filter(user => user.role === "employer").length;
+    const seekerCount = users.filter(user => user.role === "seeker").length;
+    const adminCount = users.filter(user => user.role === "admin").length;
 
     const [searchTermJobs, setSearchTermJobs] = useState("");
     const filteredJobs = jobs.filter(job =>
         job.title.toLowerCase().includes(searchTermJobs.toLowerCase())
     );
     const [searchTermCandidatures, setSearchTermCandidatures] = useState("");
-    const filteredCandidatures = candidatures.filter(candidature =>
-        candidature.title.toLowerCase().includes(searchTermCandidatures.toLowerCase())
-    );
-    const [searchTermUsers, setSearchTermUsers] = useState("");
-    const filteredUsers = users.filter(user =>
-        user.firstName.toLowerCase().includes(searchTermUsers.toLowerCase()) &&
-        user.lastName.toLowerCase().includes(searchTermUsers.toLowerCase())
-    );
+    const filteredCandidatures = candidatures.filter(candidature => {
+        const search = searchTermCandidatures.toLowerCase();
+        return (candidature.job.title.toLowerCase().includes(search) || candidature.seeker.user.firstName.toLowerCase().includes(search) || candidature.seeker.user.lastName.toLowerCase().includes(search));
 
-    const dataType: [string, number][] = [
-        ["Employeur", 12],
-        ["Chercheur d'emploi", 8]
+    });
+    const [searchTermUsers, setSearchTermUsers] = useState("");
+    const filteredUsers = users.filter(user => {
+        const search = searchTermUsers.toLowerCase();
+
+        return (user.firstName.toLowerCase().includes(search) || user.lastName.toLowerCase().includes(search) || user.email.toLowerCase().includes(search));
+    });
+
+    const dataType: [string, number][] = 
+    [
+        ["Employeurs", employerCount],
+        ["Chercheurs d'emploi", seekerCount],
+        ["Administrateurs", adminCount],
     ];
 
-    const dataPub: [string, number][] = [
-        ["Jobs", lengthJob],
-        ["Candidatures", lengthCandidatures]
+    const dataPub: [string, number][] = 
+    [
+        ["Offres", jobs.length],
+        ["Candidatures", candidatures.length],
     ];
 
     return (
         <div className="flex flex-col gap-6 px-10 py-8">
             <div>
                 <h1 className="text-2xl font-bold text-black">
-                    Pannel administrateur
+                    Espace administrateur
                 </h1>
             </div>
 
@@ -288,13 +294,18 @@ function PannelAdminPc() {
                                 <div className="flex gap-2 px-5">
                                     <div className="border border-[#FFA500]"></div>
                                     <div>
-                                        <h1>
-                                            title
-                                            {/* {candidatures.title} */}
+                                        <h1 className="font-bold">
+                                            {candidature.job.title}
                                         </h1>
                                         <p>
-                                            description
-                                            {/* {candidatures.description} */}
+                                            {candidature.seeker.user.firstName}{" "}
+                                            {candidature.seeker.user.lastName}
+                                        </p>
+                                        <p className="text-sm text-gray-500">
+                                            {candidature.seeker.user.email}
+                                        </p>
+                                        <p className="text-sm">
+                                            Statut : {candidature.status}
                                         </p>
                                     </div>
                                 </div>
@@ -323,13 +334,14 @@ function PannelAdminPc() {
                                 <div className="flex gap-2 px-5">
                                     <div className="border border-[#FFA500]"></div>
                                     <div>
-                                        <h1>
-                                            title
-                                            {/* {user.title} */}
+                                        <h1 className="font-bold">
+                                            {user.firstName} {user.lastName}
                                         </h1>
                                         <p>
-                                            description
-                                            {/* {user.description} */}
+                                            {user.email}
+                                        </p>
+                                        <p className="text-sm text-gray-500">
+                                            Rôle : {user.role}
                                         </p>
                                     </div>
                                 </div>

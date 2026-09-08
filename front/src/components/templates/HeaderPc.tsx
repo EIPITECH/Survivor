@@ -23,7 +23,7 @@ function HeaderPc({ role, firstName }: Props) {
     if (role === "employer")
         accountLink = "/dashboard/";
     else if (role === "admin")
-        accountLink = "/admin/";
+        accountLink = "/pannel-admin/";
 
     function logout() {
         Cookies.remove("token");
