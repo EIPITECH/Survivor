@@ -118,13 +118,12 @@ function DashboardPcSeeker() {
                           w-fit
                           cursor-pointer
                           rounded-lg
-                          border
-                          border-[#1B3A6B]
                           px-5
                           py-3
                           font-semibold
-                          text-[#1B3A6B]
-                          hover:bg-gray-50
+                          text-black
+                          bg-[#FFA500]
+                          hover:bg-[#FFA500]/50
                         "
                       >
                         Informations sur la géolocalisation
@@ -141,7 +140,7 @@ function DashboardPcSeeker() {
                         <h2 className="text-xl font-bold text-black">
                             Mes données personnelles
                         </h2>
-                        <p className="mt-1 text-gray-600">
+                        <p className="mt-1 text-black">
                             Téléchargez une copie des données
                             personnelles que GéoEmploi détient
                             à votre sujet.
