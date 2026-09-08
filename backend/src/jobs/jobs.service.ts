@@ -78,7 +78,7 @@ async archiveExpiredJobs(): Promise<number>
   
   async create(createJobDto: CreateJobDto, employerId: number) {
     
-    const adressUrl = createJobDto.cityName;
+    const adressUrl = `${createJobDto.cityName} ${createJobDto.zipCode}`;
     const url = `https://${GEOCODE_SOURCE}/search/?q=${encodeURIComponent(adressUrl)}&type=municipality&limit=1`;
 
     try {
@@ -204,7 +204,7 @@ async archiveExpiredJobs(): Promise<number>
    * MAX_RETRIES consecutive 429s, gives up loudly (RateLimitExceededError)
    */
   private async geocode(address: string): Promise<any> {
-    const url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(address)}&limit=1`;
+    const url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(address)}&type=municipality&limit=1`;
     let delay = 500;
 
     for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
@@ -275,17 +275,8 @@ async archiveExpiredJobs(): Promise<number>
       console.log(`Offres trouvées : ${jobs.length}\n`);
   
       for (const job of jobs) {
-        const alreadyGood =
-          job.geocodageSource === GEOCODE_SOURCE &&
-          job.trustScore !== null && job.trustScore !== undefined &&
-          job.obtentionDate !== null && job.obtentionDate !== undefined;
-  
-        if (alreadyGood) {
-          console.log(`[SKIPPED] Offre #${job.id} déjà valide`);
-          skipped++; continue;
-        }
-  
-        const addressToCheck = `${job.streetNumber} ${job.streetName} ${job.zipCode} ${job.cityName}`;
+     
+        const addressToCheck = `${job.cityName} ${job.zipCode}`;
         const addressShort = addressToCheck.substring(0, 16);
         console.log(`[CHECK] Offre #${job.id} : ${addressShort}${addressShort.length < addressToCheck.length ? '...' : ''}`);
   
@@ -294,7 +285,9 @@ async archiveExpiredJobs(): Promise<number>
           consecutiveFailures = 0;
   
           if (!data.features || data.features.length === 0) {
-            job.status = jobStatus.TOCHECK;
+            if (job.status !== jobStatus.ARCHIVED) {
+              job.status = jobStatus.TOCHECK;
+            }
             await this.jobRepo.save(job);
             console.log(`[TOCHECK] Offre #${job.id} : adresse introuvable`);
             toCheck++;
@@ -308,7 +301,9 @@ async archiveExpiredJobs(): Promise<number>
           const score = feature.properties.score;
   
           if (score < ACTIVE_SCORE_THRESHOLD) {
-            job.status = jobStatus.TOCHECK;
+            if (job.status !== jobStatus.ARCHIVED) {
+              job.status = jobStatus.TOCHECK;
+            }
             await this.jobRepo.save(job);
             console.log(
               `[TOCHECK] Offre #${job.id} : score de confiance trop faible (${score})`,
@@ -317,7 +312,9 @@ async archiveExpiredJobs(): Promise<number>
             await this.sleep(REQUEST_DELAY_MS);
             continue;
           }
-  
+          if(job.status !== jobStatus.ARCHIVED) {
+            job.status = jobStatus.ACTIVE;
+          }
           const hadPreviousCoordinates =
             job.latitude !== null && job.latitude !== undefined &&
             job.longitude !== null && job.longitude !== undefined;
