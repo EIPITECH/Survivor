@@ -1,4 +1,4 @@
-import { Injectable, ConflictException, NotFoundException } from '@nestjs/common';
+import { Injectable, ConflictException, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -45,6 +45,9 @@ export class UsersService {
     user.lastName = createUserDto.lastName;
     user.email = createUserDto.email;
     user.isConnected = false;
+    if (createUserDto.role == UserRole.ADMIN) {
+      throw new ForbiddenException("Vous ne pouvez pas vous inscrire en tant qu'administrateur");
+    }
     user.role = createUserDto.role;
     user.password = await this.hashString(createUserDto.password);
     return this.userRepo.save(user);
