@@ -14,9 +14,15 @@ export class ReportsController {
   ) {}
 
   @Post()
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth('accessToken')
   @ApiOperation({summary: "Signaler une offre d'emploi frauduleuse ou non conforme"})
-  create(@Body() createReportDto: CreateReportDto) 
+  create(@Body() createReportDto: CreateReportDto, @Request() req: any) 
   {
+    if (req.user.role !== UserRole.SEEKER) {
+      throw new ForbiddenException('Vous devez être un demandeur d’emploi pour signaler une offre');
+    }
+    
     return this.reportsService.create(createReportDto);
   }
 
