@@ -5,6 +5,7 @@ import poubelle from "../../assets/poubelle.png";
 import verifier from "../../assets/verifier.png";
 import DeleteAccountButton from "../buttons/deleteAccountButton";
 import DownloadExportButton from "../buttons/downloadExportButton";
+import { LocationModal } from "../toggleSwitchLoc";
 
 interface User {
     id: number;
@@ -43,6 +44,7 @@ function getUserId(token: string): number | null {
 
 function DashboardPcSeeker() {
     const [user, setUser] = useState<User | null>(null);
+    const [locationInfoOpen, setLocationInfoOpen] = useState(false);
 
     useEffect(() => {
         async function getPersonalInfo() {
@@ -98,6 +100,43 @@ function DashboardPcSeeker() {
             </section>
             <section className="rounded-2xl border border-red-200 bg-white p-6 shadow-[0_0_25px_rgba(0,0,0,0.1)]">
                 <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-2">
+                                
+                      <h3 className="font-semibold text-black">
+                        Géolocalisation
+                      </h3>
+                                
+                      <p className="text-gray-600">
+                        Consultez les informations relatives à
+                        l'utilisation de votre localisation par GéoEmploi.
+                      </p>
+                                
+                      <button
+                        type="button"
+                        onClick={() => setLocationInfoOpen(true)}
+                        className="
+                          w-fit
+                          cursor-pointer
+                          rounded-lg
+                          border
+                          border-[#1B3A6B]
+                          px-5
+                          py-3
+                          font-semibold
+                          text-[#1B3A6B]
+                          hover:bg-gray-50
+                        "
+                      >
+                        Informations sur la géolocalisation
+                      </button>
+                                
+                    </div>
+                                
+                    <LocationModal
+                      isOpen={locationInfoOpen}
+                      onClose={() => setLocationInfoOpen(false)}
+                      informationOnly
+                    />
                     <div>
                         <h2 className="text-xl font-bold text-black">
                             Mes données personnelles

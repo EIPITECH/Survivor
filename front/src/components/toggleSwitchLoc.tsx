@@ -51,16 +51,20 @@ async function saveGeolocationConsent(granted: boolean): Promise<void>
 
 export function LocationModal({
   isOpen,
+  onClose,
   onAccept,
   onRefuse,
+  informationOnly = false
 }: {
   isOpen: boolean;
-  onAccept: () => void;
-  onRefuse: () => void;
+  onClose: () => void;
+  onAccept?: () => void;
+  onRefuse?: () => void;
+  informationOnly?: boolean;
 }) {
 
   return (
-    <Modal open={isOpen} onClose={onRefuse} aria-labelledby="location-modal-title">
+    <Modal open={isOpen} onClose={onClose} aria-labelledby="location-modal-title">
       <Box
         sx={{
           position: 'absolute',
@@ -152,42 +156,61 @@ export function LocationModal({
           contient aucune coordonnée géographique.</p>
 
         <div className="mt-8 flex justify-end gap-3">
+          {informationOnly ? (
+            <button
+              type="button"
+              onClick={onClose}
+              className="
+                cursor-pointer
+                rounded-lg
+                bg-[#FFA500]
+                px-5
+                py-3
+                font-bold
+                text-white
+                hover:opacity-90
+              "
+            >
+              Fermer
+            </button>
+          ):(
+            <>
+            <button
+              type="button"
+              onClick={onRefuse}
+              className="
+                cursor-pointer
+                rounded-lg
+                border
+                border-gray-300
+                px-5
+                py-3
+                font-semibold
+                text-gray-700
+                hover:bg-gray-100
+              "
+            >
+              Refuser
+            </button>
 
-          <button
-            type="button"
-            onClick={onRefuse}
-            className="
-              cursor-pointer
-              rounded-lg
-              border
-              border-gray-300
-              px-5
-              py-3
-              font-semibold
-              text-gray-700
-              hover:bg-gray-100
-            "
-          >
-            Refuser
-          </button>
-
-          <button
-            type="button"
-            onClick={onAccept}
-            className="
-              cursor-pointer
-              rounded-lg
-              bg-[#FFA500]
-              px-5
-              py-3
-              font-bold
-              text-white
-              hover:opacity-90
-            "
-          >
-            Accepter et activer
-          </button>
-
+            <button
+              type="button"
+              onClick={onAccept}
+              className="
+                cursor-pointer
+                rounded-lg
+                bg-[#FFA500]
+                px-5
+                py-3
+                font-bold
+                text-white
+                hover:opacity-90
+              "
+            >
+              Accepter et activer
+            </button>
+        </>
+        )}
         </div>
       </Box>
     </Modal>
@@ -294,6 +317,7 @@ export default function SwitchLocation() {
       <p>Localisation</p>
       <LocationModal
         isOpen={isModalOpen}
+        onClose={() => setModalOpen(false)}
         onAccept={handleAccept}
         onRefuse={handleRefuse}
       />
