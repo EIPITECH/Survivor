@@ -7,6 +7,7 @@ import Cookies from 'js-cookie'
 import DashboardApplicationModal from "../modal/dashboardApplicationModal";
 import DownloadExportButton from "../buttons/downloadExportButton";
 import DeleteAccountButton from "../buttons/deleteAccountButton";
+import { LocationModal } from "../toggleSwitchLoc";
 
 interface Job {
     id: number;
@@ -89,6 +90,7 @@ function DashboardPc() {
         setSelectedApplication(application);
         setApplicationOpen(true);
     };
+    const [locationInfoOpen, setLocationInfoOpen] = useState(false);
 
     useEffect(() => {
         async function getMyJobs() {
@@ -423,6 +425,40 @@ function DashboardPc() {
             </div>
             <section className="rounded-2xl bg-white p-6 shadow-[0_0_25px_rgba(0,0,0,0.1)]">
                 <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-2">
+                      <h3 className="font-semibold text-black">
+                        Géolocalisation
+                      </h3>
+
+                      <p className="text-gray-600">
+                        Consultez les informations relatives à
+                        l'utilisation de votre localisation par GéoEmploi.
+                      </p>
+
+                      <button
+                        type="button"
+                        onClick={() => setLocationInfoOpen(true)}
+                        className="
+                          w-fit
+                          cursor-pointer
+                          rounded-lg
+                          border
+                          border-[#1B3A6B]
+                          px-5
+                          py-3
+                          font-semibold
+                          text-[#1B3A6B]
+                          hover:bg-gray-50
+                        "
+                      >
+                        Informations sur la géolocalisation
+                      </button>
+                    </div>
+                    <LocationModal
+                      isOpen={locationInfoOpen}
+                      onClose={() => setLocationInfoOpen(false)}
+                      informationOnly
+                    />
                     <div>
                         <h2 className="text-xl font-bold text-black">
                             Mes données personnelles
