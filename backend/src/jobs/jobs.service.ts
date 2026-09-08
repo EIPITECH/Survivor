@@ -439,4 +439,37 @@ async archiveExpiredJobs(): Promise<number>
       },
     });
   }
+  
+  async purgeArchivedJobs(retentionDays: number): Promise<{examined: number; deleted: number}> 
+  {
+    const cutoffDate = new Date();
+
+    cutoffDate.setDate(cutoffDate.getDate() - retentionDays);
+    const examined = await this.jobRepo.count({
+      where: {
+        status: jobStatus.ARCHIVED,
+      },
+    });
+
+    const jobsToDelete = await this.jobRepo.find({
+      where: {
+        status: jobStatus.ARCHIVED,
+        createdAt: LessThan(cutoffDate),
+      },
+    });
+
+    if (jobsToDelete.length === 0) {
+      return {
+        examined,
+        deleted: 0,
+      };
+    }
+
+    await this.jobRepo.remove(jobsToDelete);
+
+    return {
+      examined,
+      deleted: jobsToDelete.length,
+    };
+  }
 }
