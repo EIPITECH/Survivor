@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import DashboardJobModal from "../modal/DashboardJobModal";
 import DashbordCandidatureModal from "../modal/DashboardCandidatureModal";
 import BarVerticalStats from "../BarVerticalStats"
-import Input from "../../components/buttons/Input"
+import Input from "../buttons/Input"
 
 interface Job {
     id: number;
@@ -97,7 +97,7 @@ const fakeCandidature: Candidature = {
     createdAt: "2026-09-04T08:08:17.438Z"
 };
 
-function PannelAdminPc() {
+function PanelAdminPc() {
 
     const request = new Request("http://localhost:3000/jobs", {
         method: "GET",
@@ -214,7 +214,7 @@ function PannelAdminPc() {
         <div className="flex flex-col gap-6 px-10 py-8">
             <div>
                 <h1 className="text-2xl font-bold text-black">
-                    Pannel administrateur
+                    Panel administrateur
                 </h1>
             </div>
 
@@ -344,4 +344,4 @@ function PannelAdminPc() {
     )
 }
 
-export default PannelAdminPc;
+export default PanelAdminPc;
