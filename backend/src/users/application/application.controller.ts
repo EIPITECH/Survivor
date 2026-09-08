@@ -51,4 +51,14 @@ export class ApplicationController {
     return this.applicationService.updateStatus(id, req.user.userId, updateApplicationDto);
   }
 
+  @Get('admin')
+  @UseGuards(JwtAuthGuard)
+  findAllForAdmin(@Request() req: any) 
+  {
+    if (req.user.role !== UserRole.ADMIN) {
+      throw new ForbiddenException('Accès réservé aux administrateurs');
+    }
+    return this.applicationService.findAllForAdmin();
+  }
+
 }

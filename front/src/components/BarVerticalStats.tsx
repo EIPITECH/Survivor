@@ -1,7 +1,6 @@
 
 
 
-const SVG_WIDTH = 400;
 const SVG_HEIGHT = 300;
 
 function BarVerticalStats({
@@ -9,7 +8,7 @@ function BarVerticalStats({
 }:{
     data: [string, number][],
 }) {
-
+    const SVG_WIDTH = Math.max(400, data.length * 190);
     const types = ["Chercheur d'emploi", "Employeur"];
     const x0 = 50;
     const xAxisLength = SVG_WIDTH - x0 * 2;
@@ -64,7 +63,7 @@ function BarVerticalStats({
                 const yRatio = (dataY - dataYMin) / dataYRange;
                 const y = y0 + (1 - yRatio) * yAxisLength;
                 const height = yRatio * yAxisLength;
-                const sidePadding = 10;
+                const sidePadding = 35;
 
                 return (
                     <g key={index}>

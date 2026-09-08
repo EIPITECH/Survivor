@@ -1,9 +1,10 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request, ForbiddenException} from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request, ForbiddenException, BadRequestException} from '@nestjs/common';
 import { JobsService } from './jobs.service';
 import { CreateJobDto } from './dto/create-job.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 import { UserRole } from '../users/enum/user-role.enum';
+import { jobStatus } from './enum/jobs-status.enum';
 
 @Controller('jobs')
 export class JobsController {
@@ -58,5 +59,23 @@ export class JobsController {
   {
     return this.jobsService.incrementViews(Number(id));
   }
-}
 
+  @Patch(':id/status')
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth('accessToken')
+  @ApiOperation({
+    summary: "Modifier le statut d'une offre (administrateur uniquement)",
+  })
+  updateStatus(@Param('id') id: string, @Body('status') status: jobStatus, @Request() req: any) 
+  {
+    if (req.user.role !== UserRole.ADMIN) {
+      throw new ForbiddenException('Accès réservé aux administrateurs');
+    }
+
+    if (!Object.values(jobStatus).includes(status)) {
+      throw new BadRequestException('Statut invalide');
+    }
+    
+    return this.jobsService.updateStatus(Number(id), status);
+  }
+}

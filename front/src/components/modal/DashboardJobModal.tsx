@@ -4,6 +4,7 @@ import poubelle from "../../assets/poubelle2.png"
 import { useState, useEffect } from "react";
 import Input from "../../components/buttons/Input"
 import Radio from "../buttons/Radio";
+import Cookies from "js-cookie";
 
 interface Form {
     title: string,
@@ -12,15 +13,68 @@ interface Form {
     streetName: number
 }
 
+function getToken(): string | null 
+{
+    const tokenCookie = Cookies.get("token");
+
+    if (!tokenCookie) {
+        return null;
+    }
+
+    try {
+        const parsedToken = JSON.parse(tokenCookie);
+        return parsedToken.accessToken ?? tokenCookie;
+    } catch {
+        return tokenCookie;
+    }
+}
+
 function DashboardJobModal({
     isOpen,
     setOpen,
-    job
+    job,
+    adminMode = false,
+    onJobUpdated,
 }:{
     isOpen: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    job: any
+    job: any;
+    adminMode?: boolean;
+    onJobUpdated?: (job: any) => void
 }) {
+
+    const handleStatusChange = async (status: "active" | "toCheck" | "archived") => 
+    {
+        const token = getToken();
+
+        if (!token || !job) {
+            return;
+        }
+        try {
+            const response = await fetch(`http://localhost:3000/jobs/${job.id}/status`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                    },
+                    body: JSON.stringify({
+                        status,
+                    }),
+                }
+            );
+
+            const result = await response.json();
+            if (!response.ok) {
+                console.error("Erreur modification statut :", result);
+                return;
+            }
+            onJobUpdated?.(result);
+            setOpen(false);
+        } catch (error) {
+            console.error("Erreur modification statut :", error);
+        }
+    };
 
     const [formData, setFormData] = useState<Form>({
         title: job?.title ?? "",
@@ -165,6 +219,39 @@ function DashboardJobModal({
                             ):
                             (
                                 <div>Status: {job.status}</div>
+                            )}{adminMode && (
+                                <div className="flex gap-3 mt-4">
+                                    {job.status !== "active" && (
+                                        <button
+                                            className="bg-green-500/20 border border-green-500 rounded-lg px-4 py-2 hover:bg-green-500/30"
+                                            onClick={() =>
+                                                handleStatusChange("active")
+                                            }
+                                        >
+                                            Valider l'offre
+                                        </button>
+                                    )}
+                                    {job.status !== "toCheck" && (
+                                        <button
+                                            className="bg-orange-500/20 border border-orange-500 rounded-lg px-4 py-2 hover:bg-orange-500/30"
+                                            onClick={() =>
+                                                handleStatusChange("toCheck")
+                                            }
+                                        >
+                                            À vérifier
+                                        </button>
+                                    )}
+                                    {job.status !== "archived" && (
+                                        <button
+                                            className="bg-gray-500/20 border border-gray-500 rounded-lg px-4 py-2 hover:bg-gray-500/30"
+                                            onClick={() =>
+                                                handleStatusChange("archived")
+                                            }
+                                        >
+                                            Archiver
+                                        </button>
+                                    )}
+                                </div>
                             )}
                             <div>Score de confiance: {job.trustScore} / 1</div>
                             <div>Créé le: {date.format(new Date(job.createdAt))}</div>

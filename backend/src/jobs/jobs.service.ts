@@ -1,4 +1,4 @@
-import { Injectable, BadRequestException, Logger, OnModuleInit, } from '@nestjs/common';
+import { Injectable, BadRequestException, Logger, OnModuleInit, NotFoundException } from '@nestjs/common';
 import { CreateJobDto } from './dto/create-job.dto';
 import { UpdateJobDto } from './dto/update-job.dto';
 import { Repository, LessThan, Not } from 'typeorm';
@@ -179,6 +179,18 @@ async archiveExpiredJobs(): Promise<number>
     return this.jobRepo.update({ id }, updateJobDto);
   }
 
+  async updateStatus(id: number, status: jobStatus) {
+    const job = await this.jobRepo.findOne({
+      where: { id },
+    });
+
+    if (!job) {
+      throw new NotFoundException("Offre introuvable");
+    }
+    job.status = status;
+    return this.jobRepo.save(job);
+  }
+
   private sleep(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
@@ -339,6 +351,7 @@ async archiveExpiredJobs(): Promise<number>
           job.latitude = latitude;
           job.geocodageSource = GEOCODE_SOURCE;
           job.trustScore = score;
+          job.obtentionDate = new Date();
           await this.jobRepo.save(job);
           recovered++;
           console.log(`[REPRISE] Offre #${job.id} reprise: score ${score.toFixed(3)}`);

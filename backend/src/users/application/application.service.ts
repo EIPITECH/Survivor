@@ -177,4 +177,49 @@ export class ApplicationService {
     application.status = updateApplicationDto.status;
     return this.applicationRepo.save(application);
   }
+
+
+  async findAllForAdmin() 
+  {
+    const applications = await this.applicationRepo.find({
+      relations: {
+        job: true,
+        seeker: {
+          user: true,
+        },
+      },
+
+      order: {
+        createdAt: 'DESC',
+      },
+    });
+
+    return applications.map((application) => ({
+      id: application.id,
+      status: application.status,
+      message: application.message,
+      createdAt: application.createdAt,
+
+      job: {
+        id: application.job.id,
+        title: application.job.title,
+        companyName: application.job.companyName,
+        cityName: application.job.cityName,
+      },
+
+      seeker: {
+        id: application.seeker.id,
+        skills: application.seeker.skills,
+        experience: application.seeker.experience,
+        availability: application.seeker.availability,
+
+        user: {
+          id: application.seeker.user.id,
+          firstName: application.seeker.user.firstName,
+          lastName: application.seeker.user.lastName,
+          email: application.seeker.user.email,
+        },
+      },
+    }));
+  }
 }
