@@ -44,7 +44,14 @@ function HeaderPc({ role, firstName }: Props) {
                 </div>
 
                 <div className="flex items-center gap-4">
+
                     <SwitchLocation />
+                    <Button
+                            text="Transparence"
+                            clickable={true}
+                            link="/transparence"
+                            role="Page transparence"
+                        />
 
                     {isEmployer && (
                         <Button
