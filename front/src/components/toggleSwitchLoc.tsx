@@ -4,17 +4,63 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Switch from '@mui/material/Switch';
 import Button from './buttons/Button';
+import Cookies from 'js-cookie';
+
+function getToken(): string | null {
+  const tokenCookie = Cookies.get('token');
+
+  if (!tokenCookie) {
+    return null;
+  }
+
+  try {
+    const parsedToken = JSON.parse(tokenCookie);
+    return parsedToken.accessToken ?? tokenCookie;
+  } catch {
+    return tokenCookie;
+  }
+}
+
+async function saveGeolocationConsent(granted: boolean): Promise<void> 
+{
+  const token = getToken();
+
+  if (!token) {
+    return;
+  }
+  const response = await fetch(
+    'http://localhost:3000/consents/geolocation',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        granted,
+      }),
+    },
+  );
+
+  if (!response.ok) {
+    const result = await response.json();
+    throw new Error(result.message ?? "Impossible d'enregistrer la décision de consentement");
+  }
+}
+
 
 export function LocationModal({
   isOpen,
-  handleCloseModal,
+  onAccept,
+  onRefuse,
 }: {
   isOpen: boolean;
-  handleCloseModal: () => void;
+  onAccept: () => void;
+  onRefuse: () => void;
 }) {
 
   return (
-    <Modal open={isOpen} onClose={handleCloseModal} aria-labelledby="location-modal-title">
+    <Modal open={isOpen} onClose={onRefuse} aria-labelledby="location-modal-title">
       <Box
         sx={{
           position: 'absolute',
@@ -55,10 +101,11 @@ export function LocationModal({
             margin: 0,
           }}
         >
+          Utilisation de votre localisation
         </h2>
 
         <p style={{ color: '#6b665e', marginTop: '0.5rem' }}>
-          Registre d'utilisation de la géolocalisation
+            Information préalable à l'activation
         </p>
 
         <Box
@@ -71,41 +118,77 @@ export function LocationModal({
           }}
         >
           <p style={{ color: '#FFA500', fontSize: '0.98rem' }}>
-            Vous allez activer la localisation pour centrer automatiquement la carte sur votre position. Cette donnée reste temporaire et n&apos;est pas conservée.
+            GéoEmploi peut utiliser temporairement
+            votre position afin de vous localiser sur
+            la carte. Vos coordonnées GPS ne sont pas
+            enregistrées dans notre base de données et
+            aucun historique de localisation n'est
+            constitué.
           </p>
         </Box>
-
-        <h3>Nom du traitement</h3>
-        <p>Géolocalisation de l'utilisateur pour centrage automatique de la carte interactive (GéoEmploi)</p>
-
+          
         <h3>Finalité</h3>
-        <p>Centrer automatiquement l'affichage de la carte des offres sur la position de l'utilisateur, à sa demande explicite</p>
 
-        <h3>Base légale</h3>
-        <p>Consentement (art. 6.1.a du RGPD), recueilli via un toggle dédié précédé d'un texte d'information sur la finalité et l'absence de conservation</p>
+        <p>Utiliser votre position actuelle afin de
+          faciliter la consultation de la carte des
+          offres d'emploi.</p>
 
-        <h3>Personnes concernées</h3>
-        <p>Utilisateurs du site ayant activé le toggle de géolocalisation</p>
+        <h3>Données utilisées</h3>
+        <p> Coordonnées géographiques fournies par votre navigateur : latitude et longitude.</p>
 
-        <h3>Catégories de données</h3>
-        <p>Coordonnées GPS (latitude/longitude) de l'utilisateur</p>
+        <h3>Conservation</h3>
+        <p>Aucune conservation de votre position. Elle
+          est utilisée temporairement dans votre
+          navigateur et n'est pas enregistrée dans la
+          base de données de GéoEmploi.</p>
 
-        <h3>Destinataires</h3>
-        <p>Aucun pour la position GPS elle-même. L'IGN (Géoplateforme) reçoit, via notre backend qui fait office de relais, les coordonnées de la zone de carte affichée, sans aucune information permettant d'identifier l'utilisateur</p>
+        <h3>Historique de localisation</h3>
+        <p>Aucun historique de déplacement ou de localisation n'est constitué.</p>
 
-        <h3>Durée de conservation</h3>
-        <p>Aucune, donnée effacée à la fermeture ou au rafraîchissement de la page</p>
+        <h3>Trace de votre décision</h3>
+        <p>Si vous êtes connecté, GéoEmploi conserve
+          uniquement la trace de votre décision, sa date
+          et la version de cette notice. Cette trace ne
+          contient aucune coordonnée géographique.</p>
 
-        <h3>Table / Colonne BDD</h3>
-        <p>Aucune, la donnée GPS est transmise au serveur pour être instantanément envoyée à l'IGN afin de récupérer la tuile correspondante sans être stockée dans la BDD</p>
+        <div className="mt-8 flex justify-end gap-3">
 
-        <h3>Ce qui n'est pas collecté</h3>
-        <p>Coordonnées GPS en base de données, historique de déplacement, croisement position/identité, adresse IP à aucun niveau de la chaîne (pas de log HTTP global, pas de reverse proxy)</p>
+          <button
+            type="button"
+            onClick={onRefuse}
+            className="
+              cursor-pointer
+              rounded-lg
+              border
+              border-gray-300
+              px-5
+              py-3
+              font-semibold
+              text-gray-700
+              hover:bg-gray-100
+            "
+          >
+            Refuser
+          </button>
 
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: 3 }}>
-          <Button text="Fermer" onClick={handleCloseModal} type="button" clickable />
-        </Box>
+          <button
+            type="button"
+            onClick={onAccept}
+            className="
+              cursor-pointer
+              rounded-lg
+              bg-[#FFA500]
+              px-5
+              py-3
+              font-bold
+              text-white
+              hover:opacity-90
+            "
+          >
+            Accepter et activer
+          </button>
 
+        </div>
       </Box>
     </Modal>
   );
@@ -117,18 +200,69 @@ export default function SwitchLocation() {
   const [checked, setChecked] = useState(false);
   const [firstActivation, setFirstActivation] = useState(false)
   const [isModalOpen, setModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const isEnabled = event.target.checked;
-    setChecked(isEnabled);
-    if (isEnabled && !firstActivation) {
-      setFirstActivation(true);
+    const wantsLocation = event.target.checked;
+    setError(null);
+    if (wantsLocation) {
       setModalOpen(true);
+      return;
     }
+    setChecked(false);
     window.dispatchEvent(
-      new CustomEvent('locationToggle', { detail: { enabled: isEnabled } })
+      new CustomEvent('locationToggle', {
+        detail: {
+          enabled: false,
+        },
+      }),
     );
-  };
+    saveGeolocationConsent(false).catch((error) => {
+      console.error('Erreur consentement géolocalisation :', error);
+    });};
+    const handleAccept = async () => {
+      setLoading(true);
+      setError(null);
+
+      try {
+        await saveGeolocationConsent(true);
+        setModalOpen(false);
+        setChecked(true);
+        window.dispatchEvent(
+          new CustomEvent('locationToggle', {
+            detail: {
+              enabled: true,
+            },
+          }),
+        );
+
+      } catch (error) {
+        console.error('Erreur consentement géolocalisation :', error);
+        setError("Impossible d'enregistrer votre choix");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    const handleRefuse = async () => {
+      setChecked(false);
+      setModalOpen(false);
+
+      window.dispatchEvent(
+        new CustomEvent('locationToggle', {
+          detail: {
+            enabled: false,
+          },
+        }),
+      );
+
+      try {
+        await saveGeolocationConsent(false);
+      } catch (err) {
+        console.error('Erreur consentement géolocalisation :', err);
+      }
+    };
 
   return (
     <div className="flex items-center">
@@ -160,8 +294,19 @@ export default function SwitchLocation() {
       <p>Localisation</p>
       <LocationModal
         isOpen={isModalOpen}
-        handleCloseModal={() => setModalOpen(false)}
+        onAccept={handleAccept}
+        onRefuse={handleRefuse}
       />
+      {loading && (
+        <p className="ml-3 text-sm text-gray-500">
+          Enregistrement...
+        </p>
+      )}
+      {error && (
+        <p className="ml-3 text-sm text-red-600">
+          {error}
+        </p>
+      )}
     </div>
   );
-}
+};
