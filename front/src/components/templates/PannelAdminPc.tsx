@@ -271,7 +271,16 @@ function PannelAdminPc()
                                 {getStatusByJob(job)}
                             </div>
                         )}
-                        <DashboardJobModal isOpen={openModalJob} setOpen={setOpenModalJob} job={selectedJob}/>
+                        <DashboardJobModal isOpen={openModalJob} setOpen={setOpenModalJob} job={selectedJob} adminMode={true}
+                            onJobUpdated={(updatedJob) => {
+                                setJobs(previousJobs =>
+                                    previousJobs.map(job =>
+                                        job.id === updatedJob.id ? updatedJob : job
+                                    )
+                        );
+
+        setSelectedJob(updatedJob);
+    }}/>
                     </div>
 
 {/* CANDIDATURES */}
