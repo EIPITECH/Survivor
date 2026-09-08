@@ -246,7 +246,7 @@ function PannelAdminPc() {
                         }
 
                         <Input placeHolder="Chercher un job..." value={searchTermJobs} onChange={(e) => setSearchTermJobs(e.target.value)}/>
-                        {/* {filteredJobs.map(job =>
+                        {filteredJobs.map(job =>
                             <div key={job.id}
                                 className="flex justify-between hover:bg-gray-200 hover:cursor-pointer rounded-lg"
                                 onClick={() => handleJobSelection(job)}>
@@ -264,7 +264,7 @@ function PannelAdminPc() {
 
                                 {getStatusByJob(job)}
                             </div>
-                        )} */}
+                        )}
                         <DashboardJobModal isOpen={openModalJob} setOpen={setOpenModalJob} job={selectedJob}/>
                     </div>
 
