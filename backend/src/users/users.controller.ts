@@ -27,6 +27,15 @@ export class UsersController {
 
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
+  @Get('me/export')
+  @ApiOperation({summary: 'Exporte les données personnelles de l’utilisateur connecté'})
+  exportMyData(@Request() req: any) 
+  {
+    return this.usersService.exportPersonalData(req.user.userId);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @Get(':id')
   findOne(@Param('id') id: string, @Request() req: any) {
     if (req.user.role !== UserRole.ADMIN && req.user.userId !== +id) {
