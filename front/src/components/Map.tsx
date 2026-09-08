@@ -16,11 +16,34 @@ export default function ContainerSetterMap() {
     const [selectedJob, setSelectedJob] =
         useState<Job | null>(null);
 
-    const handleOpenModal = (job: Job) => {
+    const handleOpenModal = async (job: Job) => {
         setSelectedJob(job);
         setOpen(true);
-    };
 
+        try {
+            const response = await fetch(`http://localhost:3000/jobs/${job.id}/view`,
+                {
+                    method: "POST",
+                }
+            );
+            if (!response.ok) {
+                console.error("Impossible d'incrémenter les vues");
+                return;
+            }
+            const updatedJob = await response.json();
+            setSelectedJob((previousJob) => {
+                if (!previousJob) {
+                    return previousJob;
+                }
+                return {
+                    ...previousJob,
+                    views: updatedJob.views,
+                };
+            });
+        } catch (error) {
+            console.error("Erreur lors de l'incrémentation des vues :", error);
+        }
+    };
     return (
         <>
             <JobModal
@@ -43,6 +66,7 @@ export default function ContainerSetterMap() {
                     selectedJob?.companyName ||
                     "Nom de l'entreprise non renseignée"
                 }
+                views={selectedJob?.views ?? 0}
             />
 
             <SurvivorMap

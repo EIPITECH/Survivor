@@ -46,6 +46,7 @@ export default function JobModal({
   description,
   cityName,
   companyName,
+  views
 }: {
   isOpen: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -54,6 +55,7 @@ export default function JobModal({
   description: string;
   cityName: string;
   companyName: string;
+  views: number;
 }) {
   const [statePostule, setOpenPostule] = useState(false);
 
@@ -219,6 +221,15 @@ export default function JobModal({
                   <span className="text-black">
                     {companyName}
                   </span>
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-[#FFA500] text-lg">
+                    ◉
+                </span>
+                <span>
+                    <strong>Vues :</strong>{" "}
+                    {views}
                 </span>
               </div>
             </div>

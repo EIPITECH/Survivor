@@ -24,6 +24,7 @@ interface Job {
     geocodageSource: string,
     trustScore: number,
     obtentionDate: string,
+    views: number,
     createdAt: string
 }
 
@@ -358,7 +359,10 @@ function DashboardPc() {
                         </div>
 
                         <div className="flex items-center">
-                            Vues : <p className="font-bold px-2">0</p>
+                            Vues :
+                            <p className="font-bold px-2">
+                                {job.views}
+                            </p>
                         </div>
                     </div>
                 )}
