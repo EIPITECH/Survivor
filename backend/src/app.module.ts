@@ -16,6 +16,7 @@ import { Seeker } from './users/seekers/entities/seeker.entity';
 import { ApplicationModule } from './users/application/application.module';
 import { Application } from './users/application/entities/application.entity';
 import { SeederService } from './seeders';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { SeederService } from './seeders';
       envFilePath: '.env',
       load: [configuration]
     }),
+    ScheduleModule.forRoot(),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
