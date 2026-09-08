@@ -259,7 +259,7 @@ function DashboardPc() {
                 className="flex justify-between rounded-lg px-2 py-3 hover:bg-gray-100"
             >
                 <div className="flex gap-2 px-5">
-                    <div className="border border-[#1B3A6B]"></div>
+                    <div className="border border-[#FFA500]"></div>
 
                     <div>
                         <h1 className="font-semibold">
@@ -347,7 +347,7 @@ function DashboardPc() {
                         className="flex justify-between hover:bg-gray-200 hover:cursor-pointer rounded-lg"
                         onClick={() => handleJobSelection(job)}>
                         <div className="flex gap-2 px-5">
-                            <div className="border border-[#1B3A6B]"></div>
+                            <div className="border border-[#FFA500]"></div>
                             <div>
                                 <h1>
                                     {job.title}
