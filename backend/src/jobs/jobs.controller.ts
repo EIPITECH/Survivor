@@ -51,4 +51,12 @@ export class JobsController {
     }
     return this.jobsService.findMine(req.user.userId);
   }
+
+  @Post(':id/view')
+  @ApiOperation({summary: 'Incrémente le nombre de vues d’une offre'})
+  incrementViews(@Param('id') id: string)
+  {
+    return this.jobsService.incrementViews(Number(id));
+  }
 }
+
