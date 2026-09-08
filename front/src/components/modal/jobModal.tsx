@@ -250,16 +250,33 @@ export default function JobModal({
                 text-black
                 transition
                 hover:cursor-pointer
-                ${
-                  canApply
-                    ? "hover:bg-[#FFA500]/50 hover:cursor-pointer"
-                    : "bg-gray-400 cursor-not-allowed"
-                  }
+                hover:bg-[#FFA500]/50
                 
               `}
 
             >
               Postuler
+            </button>
+
+            <button
+              type="button"
+              className={`
+                mt-7
+                w-full
+                rounded-lg
+                bg-[#FF0000]
+                px-6
+                py-4
+                text-[20px]
+                font-semibold
+                text-black
+                transition
+                hover:cursor-pointer
+                
+              `}
+
+            >
+              Signaler
             </button>
           </div>
         </Box>
