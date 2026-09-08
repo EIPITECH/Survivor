@@ -129,6 +129,15 @@ export class Job
     })
     companyName: string
 
+    @Column({ default: 0 })
+    @IsNumber()
+    @ApiProperty({
+        description: 'Number of times the job offer has been viewed',
+        example: 42,
+        default: 0,
+    })
+    views: number;
+
     @CreateDateColumn()
     @IsNotEmpty() @IsDate()
     @ApiProperty({
