@@ -29,6 +29,9 @@ docker compose --profile loadtest run --rm k6 run-application-flow.js
 Each writes its own report (e.g. `k6/reports/jobs-read.html`).
 <!-- the nest server could use fcking benzodiazepines after  `run-tiles.js`. that thing is STRESSING HIM OUT -->
 
+> [!NOTE]
+> If the container has trouble writing the report to the `k6/reports/` folder, you can execute each of the preceding command with the prefix `GID=$(id -g)`, which will give the command your user ID. This way, it will have the same permission as you to write in that directory (likely true).
+
 ## Configuring virtual users / duration
 
 Set environment variables before running (defaults shown are in [`.env.example`](/.env.example)), using the root `.env` file, or inline while running the tests :
