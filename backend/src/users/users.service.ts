@@ -10,6 +10,7 @@ import { UserRole } from './enum/user-role.enum';
 import { Seeker } from './seekers/entities/seeker.entity';
 import { Application } from './application/entities/application.entity';
 import { Consent } from './consent/entities/consent.entity';
+import { UserAccountStatus } from './enum/user-account-status.enum';
 
 @Injectable()
 export class UsersService {
@@ -45,6 +46,7 @@ export class UsersService {
     user.lastName = createUserDto.lastName;
     user.email = createUserDto.email;
     user.isConnected = false;
+    user.accountStatus = UserAccountStatus.ACTIVE;
     if (createUserDto.role == UserRole.ADMIN) {
       throw new ForbiddenException("Vous ne pouvez pas vous inscrire en tant qu'administrateur");
     }
@@ -62,6 +64,7 @@ export class UsersService {
         email: true,
         isConnected: true,
         role: true,
+        accountStatus: true,
         createdAt: true,
       },
     });
@@ -77,6 +80,7 @@ export class UsersService {
         email: true,
         isConnected: true,
         role: true,
+        accountStatus: true,
         createdAt: true,
       },
     });
@@ -123,6 +127,7 @@ export class UsersService {
         email: true,
         isConnected: true,
         role: true,
+        accountStatus: true,
         createdAt: true,
       },
     });
@@ -161,6 +166,7 @@ export class UsersService {
       lastName: user.lastName,
       email: user.email,
       role: user.role,
+      accountStatus: user.accountStatus,
       isConnected: user.isConnected,
       createdAt: user.createdAt,
     },
@@ -269,4 +275,25 @@ export class UsersService {
   
     return exportData;
   }
+
+
+  async updateAccountStatus(id: number, status: UserAccountStatus, adminId: number) 
+  {
+    const user = await this.userRepo.findOneBy({id});
+
+    if (!user) {
+      throw new NotFoundException('Utilisateur introuvable');
+    }
+
+    if (user.id === adminId && status === UserAccountStatus.SUSPENDED) {
+      throw new ForbiddenException('Vous ne pouvez pas suspendre votre propre compte administrateur');
+    }
+    user.accountStatus = status;
+    if (status === UserAccountStatus.SUSPENDED) {
+      user.isConnected = false;
+    }
+    await this.userRepo.save(user);
+    return this.findOne(id);
+  }
+
 }
