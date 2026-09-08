@@ -4,6 +4,7 @@ import croix from "../../assets/croix.png";
 import poubelle from "../../assets/poubelle.png";
 import verifier from "../../assets/verifier.png";
 import DeleteAccountButton from "../buttons/deleteAccountButton";
+import DownloadExportButton from "../buttons/downloadExportButton";
 
 interface User {
     id: number;
@@ -97,6 +98,17 @@ function DashboardPcSeeker() {
             </section>
             <section className="rounded-2xl border border-red-200 bg-white p-6 shadow-[0_0_25px_rgba(0,0,0,0.1)]">
                 <div className="flex flex-col gap-4">
+                    <div>
+                        <h2 className="text-xl font-bold text-black">
+                            Mes données personnelles
+                        </h2>
+                        <p className="mt-1 text-gray-600">
+                            Téléchargez une copie des données
+                            personnelles que GéoEmploi détient
+                            à votre sujet.
+                        </p>
+                    </div>
+                    <DownloadExportButton></DownloadExportButton>
                     <div>
                         <h2 className="text-xl font-bold text-red-600">
                             Supprimer mon compte

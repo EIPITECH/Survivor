@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import DashboardJobModal from "../modal/DashboardJobModal";
 import Cookies from 'js-cookie'
 import DashboardApplicationModal from "../modal/dashboardApplicationModal";
+import DownloadExportButton from "../buttons/downloadExportButton";
+import DeleteAccountButton from "../buttons/deleteAccountButton";
 
 interface Job {
     id: number;
@@ -419,6 +421,35 @@ function DashboardPc() {
                 )}
                 <DashboardJobModal isOpen={open} setOpen={setOpen} job={selectedJob}/>
             </div>
+            <section className="rounded-2xl bg-white p-6 shadow-[0_0_25px_rgba(0,0,0,0.1)]">
+                <div className="flex flex-col gap-4">
+                    <div>
+                        <h2 className="text-xl font-bold text-black">
+                            Mes données personnelles
+                        </h2>
+                        <p className="mt-1 text-gray-600">
+                            Téléchargez une copie des données personnelles
+                            que GéoEmploi détient à votre sujet.
+                        </p>
+                    </div>
+                    <DownloadExportButton />
+                </div>
+            </section>
+            <section className="rounded-2xl border border-red-200 bg-white p-6 shadow-[0_0_25px_rgba(0,0,0,0.1)]">
+                <div className="flex flex-col gap-4">
+                    <div>
+                        <h2 className="text-xl font-bold text-red-600">
+                            Supprimer mon compte
+                        </h2>
+                        <p className="mt-1 text-gray-600">
+                            La suppression de votre compte est définitive.
+                            Toutes vos offres ainsi que les candidatures
+                            associées seront supprimées.
+                        </p>
+                    </div>
+                    <DeleteAccountButton />
+                </div>
+            </section>
         </div>
     )
 }
