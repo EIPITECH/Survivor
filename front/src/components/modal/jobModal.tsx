@@ -3,6 +3,7 @@ import { Box, Modal } from "@mui/material";
 import PostulateTemplate from "../templates/PostuleTemplate";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import ReportModal from "./reportModal";
 
 const modalStyle = {
   position: "absolute",
@@ -58,6 +59,33 @@ export default function JobModal({
   views: number;
 }) {
   const [statePostule, setOpenPostule] = useState(false);
+  const [stateReport, setOpenReport] = useState(false);
+  const [reportAccessError, setReportAccessError] = useState("");
+  const [reportNeedsLogin, setReportNeedsLogin] = useState(false);
+
+  function openReport() 
+  {
+    const currentRole = getCurrentUserRole();
+
+    setReportAccessError("");
+    setReportNeedsLogin(false);
+
+    if (!currentRole) {
+      setReportAccessError("Vous devez être connecté avec un compte candidat pour signaler une offre");
+      setReportNeedsLogin(true);
+      return;
+    }
+
+    if (currentRole !== "seeker") {
+      setReportAccessError("Seuls les demandeurs d'emploi peuvent signaler une offre");
+      return;
+    }
+    setOpenReport(true);
+  }
+
+  function closeReport() {
+    setOpenReport(false);
+  }
 
   function getCurrentUserRole() {
     const tokenCookie = Cookies.get("token");
@@ -114,7 +142,6 @@ export default function JobModal({
   function closePostule() {
     setOpenPostule(false);
   }
-
   return (
     <>
       <Modal
@@ -260,24 +287,56 @@ export default function JobModal({
 
             <button
               type="button"
+              onClick={openReport}
               className={`
                 mt-7
                 w-full
                 rounded-lg
-                bg-[#FF0000]
+                bg-red-600
                 px-6
                 py-4
                 text-[20px]
                 font-semibold
-                text-black
+                text-white
                 transition
                 hover:cursor-pointer
-                
+                hover:bg-red-700
               `}
-
             >
               Signaler
             </button>
+            {reportAccessError && (
+            <div
+              className="
+                mt-3
+                rounded-lg
+                border
+                border-red-200
+                bg-red-50
+                px-4
+                py-3
+                text-sm
+                text-red-700
+              "
+            >
+              <p>{reportAccessError}</p>
+                      
+              {reportNeedsLogin && (
+                <a
+                  href="/connexion"
+                  className="
+                    mt-2
+                    inline-block
+                    font-semibold
+                    text-[#1B3A6B]
+                    underline
+                  "
+                >
+                  Se connecter
+                </a>
+              )}
+            </div>
+          )}
           </div>
         </Box>
       </Modal>
@@ -312,6 +371,12 @@ export default function JobModal({
           </div>
         </Box>
       </Modal>
+      <ReportModal
+        isOpen={stateReport}
+        setOpen={setOpenReport}
+        jobId={jobId}
+        jobTitle={title}
+      />
     </>
   );
 }

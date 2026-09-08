@@ -53,20 +53,36 @@ export default function ReportModal({
     }, 200);
   }
 
+  function getToken() 
+  {
+    const tokenCookie = Cookies.get("token");
+
+    if (!tokenCookie) {
+      return null;
+    }
+
+    try {
+      const parsed = JSON.parse(tokenCookie);
+      return parsed.accessToken || tokenCookie;
+    } catch {
+      return tokenCookie;
+    }
+  }
+
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
 
     setLoading(true);
     setError("");
     setSuccess(false);
-    const token = Cookies.get("access_token");
+    const token = getToken();
 
     if (!token) {
         setError("Vous devez être connecté avec un compte candidat pour signaler une offre");
         setLoading(false);
         return;
     }
-    
+
     try {
       const response = await fetch("http://localhost:3000/reports",
         {
