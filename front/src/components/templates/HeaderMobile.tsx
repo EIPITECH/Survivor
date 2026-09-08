@@ -13,7 +13,7 @@ function HeaderMobile({role, firstName}: Props) {
     const isConnected = role !== null;
     const [isAccountMenuOpen, setAccountMenuOpen] = useState(false);
 
-    let accountLink = "/profil/";
+    let accountLink = "/seekerDashboard/";
 
     if (role === "employer")
         accountLink = "/dashboard/";

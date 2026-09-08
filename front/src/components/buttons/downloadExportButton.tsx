@@ -88,10 +88,11 @@ export default function DownloadExportButton() {
                     px-5
                     py-3
                     font-bold
-                    text-white
+                    text-black
                     hover:opacity-90
                     disabled:cursor-not-allowed
                     disabled:opacity-50
+                    hover:bg-[#FFA500]/50
                 "
             >
                 {loading

@@ -1,9 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup, type MapContainerProps } from 'react-leaflet';
 import LocationMarker from "./location"
-import MarkerRed from "./marker/markerRed"
 import { useEffect, useState } from 'react';
 import JobModal from './modal/jobModal';
-import BurgerMenu from './BurgerMenu';
 import { Control } from 'leaflet';
 import { Map } from 'leaflet';
 import CityMarker from "./marker/cityMarker";
@@ -191,4 +189,3 @@ export function SurvivorMap({
     );
 }
 
-//        {items.map((item) => (<MarkerRed key={item.id} pos={[item.latitude, item.longitude]} setOpen={setOpen} description={item.description}
