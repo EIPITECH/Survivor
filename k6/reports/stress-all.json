@@ -1,0 +1,745 @@
+{
+  "root_group": {
+    "name": "",
+    "path": "",
+    "id": "d41d8cd98f00b204e9800998ecf8427e",
+    "groups": [
+      {
+        "id": "5c0f8025f7e0b6654089e5b00e950f1a",
+        "groups": [],
+        "checks": [
+            {
+              "path": "::setup::register: 2xx or already exists",
+              "id": "d91d69ee3ebd5194598a85879aeccb66",
+              "passes": 60,
+              "fails": 0,
+              "name": "register: 2xx or already exists"
+            },
+            {
+              "fails": 0,
+              "name": "login: 200",
+              "path": "::setup::login: 200",
+              "id": "129fc54f1b25cccb7471fa0065452b46",
+              "passes": 60
+            },
+            {
+              "fails": 0,
+              "name": "setup job create: 2xx",
+              "path": "::setup::setup job create: 2xx",
+              "id": "3d83a489ada8dc8220142b50fa40d395",
+              "passes": 30
+            }
+          ],
+        "name": "setup",
+        "path": "::setup"
+      }
+    ],
+    "checks": [
+      {
+        "id": "4b9326c2a99cd60fbce9411e35f6dc18",
+        "passes": 3032,
+        "fails": 2421,
+        "name": "tiles: 200",
+        "path": "::tiles: 200"
+      },
+      {
+        "name": "jobs/active: 200",
+        "path": "::jobs/active: 200",
+        "id": "42a141253e42a799e50c7c4924d0ceab",
+        "passes": 473,
+        "fails": 0
+      },
+      {
+        "id": "4ef9e2b5daf8d223f2ab22f1fe273f85",
+        "passes": 473,
+        "fails": 0,
+        "name": "jobs/active/grouped: 200",
+        "path": "::jobs/active/grouped: 200"
+      },
+      {
+        "passes": 691,
+        "fails": 0,
+        "name": "login: 200",
+        "path": "::login: 200",
+        "id": "d197f3faedc4c064674fc90d1995e47a"
+      },
+      {
+        "passes": 110,
+        "fails": 0,
+        "name": "appflow jobs/active: 200",
+        "path": "::appflow jobs/active: 200",
+        "id": "9e0e492d0fe4931bc1021390c25a2d18"
+      },
+      {
+        "passes": 220,
+        "fails": 0,
+        "name": "seekers/me GET: 200",
+        "path": "::seekers/me GET: 200",
+        "id": "458b306dc9481af93d5bf350126926cf"
+      },
+      {
+        "name": "jobs/:id/view: 2xx",
+        "path": "::jobs/:id/view: 2xx",
+        "id": "4af6160806fb724b05f3a0b3ba84e2f4",
+        "passes": 473,
+        "fails": 0
+      },
+      {
+        "fails": 0,
+        "name": "seekers/me PATCH: 2xx",
+        "path": "::seekers/me PATCH: 2xx",
+        "id": "6890dbc18c698b433fc7598bb0f8a1f4",
+        "passes": 220
+      },
+      {
+        "id": "f5da446715b18ae73d2b3ffc8be42553",
+        "passes": 110,
+        "fails": 0,
+        "name": "appflow apply: 201 or 409 (dup)",
+        "path": "::appflow apply: 201 or 409 (dup)"
+      },
+      {
+        "name": "users/:id GET: 200",
+        "path": "::users/:id GET: 200",
+        "id": "61bc51110bfe52c36c7234213d9a530b",
+        "passes": 220,
+        "fails": 0
+      },
+      {
+        "path": "::appflow applications GET: 200",
+        "id": "6f650c7092a43be1827c8c03c9a5268f",
+        "passes": 110,
+        "fails": 0,
+        "name": "appflow applications GET: 200"
+      },
+      {
+        "name": "appflow applications/employer: 200",
+        "path": "::appflow applications/employer: 200",
+        "id": "67cc54de17f643c0eeac49867fe27287",
+        "passes": 110,
+        "fails": 0
+      },
+      {
+        "name": "appflow status PATCH: 2xx",
+        "path": "::appflow status PATCH: 2xx",
+        "id": "e4ff5407b15f05ca874b4ef2501042d3",
+        "passes": 7,
+        "fails": 0
+      }
+    ]
+  },
+  "options": {
+    "noColor": false,
+    "summaryTrendStats": [
+      "avg",
+      "min",
+      "med",
+      "max",
+      "p(90)",
+      "p(95)"
+    ],
+    "summaryTimeUnit": ""
+  },
+  "state": {
+    "isStdOutTTY": true,
+    "isStdErrTTY": true,
+    "testRunDurationMs": 38577.041483
+  },
+  "metrics": {
+    "http_reqs": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "rate": 229.41106056305503,
+        "count": 8850
+      }
+    },
+    "data_received": {
+      "type": "counter",
+      "contains": "data",
+      "values": {
+        "count": 359166136,
+        "rate": 9310359.794134967
+      }
+    },
+    "http_req_blocked": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "min": 0.000784,
+        "med": 0.003021,
+        "max": 5.163215,
+        "p(90)": 0.0048922,
+        "p(95)": 0.005739,
+        "avg": 0.009745876271186508
+      }
+    },
+    "vus": {
+      "type": "gauge",
+      "contains": "default",
+      "values": {
+        "max": 65,
+        "value": 43,
+        "min": 0
+      }
+    },
+    "data_sent": {
+      "type": "counter",
+      "contains": "data",
+      "values": {
+        "count": 1202913,
+        "rate": 31182.095716958895
+      }
+    },
+    "http_req_failed": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 0.2735593220338983,
+        "passes": 2421,
+        "fails": 6429
+      },
+      "thresholds": {
+        "rate<0.5": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_duration{scenario:login}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 206.1845575019921,
+        "min": 49.419894,
+        "med": 177.492903,
+        "max": 800.529916,
+        "p(90)": 362.209822,
+        "p(95)": 543.9364694999999
+      },
+      "thresholds": {
+        "p(50)<500": {
+          "ok": true
+        },
+        "p(95)<1000": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_duration{expected_response:true}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 86.67596048467875,
+        "min": 0.112442,
+        "med": 41.210165,
+        "max": 1408.935754,
+        "p(90)": 232.1119816,
+        "p(95)": 319.3807481999998
+      }
+    },
+    "http_req_tls_handshaking": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "max": 0,
+        "p(90)": 0,
+        "p(95)": 0,
+        "avg": 0,
+        "min": 0,
+        "med": 0
+      }
+    },
+    "http_req_duration{scenario:tiles}": {
+      "contains": "time",
+      "values": {
+        "avg": 82.52018082578401,
+        "min": 0.112442,
+        "med": 53.158221,
+        "max": 2589.98191,
+        "p(90)": 201.78733240000005,
+        "p(95)": 274.87014539999996
+      },
+      "thresholds": {
+        "p(50)<1000": {
+          "ok": true
+        },
+        "p(95)<2500": {
+          "ok": true
+        }
+      },
+      "type": "trend"
+    },
+    "http_req_duration{scenario:jobs_read}": {
+      "values": {
+        "avg": 95.61629237843552,
+        "min": 2.303589,
+        "med": 86.457216,
+        "max": 750.686223,
+        "p(90)": 172.3076628,
+        "p(95)": 213.81889779999997
+      },
+      "thresholds": {
+        "p(50)<500": {
+          "ok": true
+        },
+        "p(95)<1000": {
+          "ok": true
+        }
+      },
+      "type": "trend",
+      "contains": "time"
+    },
+    "http_req_waiting": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(95)": 301.42358545,
+        "avg": 92.05465368745773,
+        "min": 0.09861,
+        "med": 56.749602499999995,
+        "max": 2589.948442,
+        "p(90)": 226.63182380000003
+      }
+    },
+    "vus_max": {
+      "type": "gauge",
+      "contains": "default",
+      "values": {
+        "min": 65,
+        "max": 65,
+        "value": 65
+      }
+    },
+    "iteration_duration": {
+      "contains": "time",
+      "values": {
+        "max": 3199.600889,
+        "p(90)": 1274.4650276000002,
+        "p(95)": 1378.0603401,
+        "avg": 303.84825601767335,
+        "min": 0.139464,
+        "med": 65.651435
+      },
+      "type": "trend"
+    },
+    "http_req_duration{scenario:application_flow}": {
+      "contains": "time",
+      "values": {
+        "avg": 129.56406922938527,
+        "min": 1.403635,
+        "med": 55.221164,
+        "max": 813.400373,
+        "p(90)": 322.4481922,
+        "p(95)": 356.5032059
+      },
+      "thresholds": {
+        "p(50)<800": {
+          "ok": true
+        },
+        "p(95)<1500": {
+          "ok": true
+        }
+      },
+      "type": "trend"
+    },
+    "http_req_duration{scenario:profile}": {
+      "values": {
+        "avg": 97.05401258750005,
+        "min": 0.516937,
+        "med": 48.964349,
+        "max": 784.668936,
+        "p(90)": 249.91797480000002,
+        "p(95)": 308.73147265
+      },
+      "thresholds": {
+        "p(50)<600": {
+          "ok": true
+        },
+        "p(95)<1200": {
+          "ok": true
+        }
+      },
+      "type": "trend",
+      "contains": "time"
+    },
+    "http_req_sending": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(90)": 0.016968400000000005,
+        "p(95)": 0.020464949999999992,
+        "avg": 0.01114670259887001,
+        "min": 0.002046,
+        "med": 0.0100055,
+        "max": 0.155407
+      }
+    },
+    "iterations": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "rate": 168.6754543597513,
+        "count": 6507
+      }
+    },
+    "http_req_duration": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "min": 0.112442,
+        "med": 56.822361,
+        "max": 2589.98191,
+        "p(90)": 227.30411500000002,
+        "p(95)": 303.5429150499998,
+        "avg": 92.28936917163863
+      },
+      "thresholds": {
+        "p(95)<1500": {
+          "ok": true
+        },
+        "p(50)<800": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_connecting": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(90)": 0,
+        "p(95)": 0,
+        "avg": 0.006199055480225988,
+        "min": 0,
+        "med": 0,
+        "max": 5.131466
+      }
+    },
+    "http_req_receiving": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 0.22356878158192034,
+        "min": 0.008923,
+        "med": 0.044754,
+        "max": 113.909547,
+        "p(90)": 0.12787310000000002,
+        "p(95)": 0.16860029999999995
+      }
+    },
+    "checks": {
+      "contains": "default",
+      "values": {
+        "rate": 0.7255102040816327,
+        "passes": 6399,
+        "fails": 2421
+      },
+      "type": "rate"
+    }
+  },
+  "setup_data": {
+    "employers": [
+      {
+        "email": "k6.employer.0.1788891652302@load-test.local",
+        "jobId": 521,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.1.1788891652576@load-test.local",
+        "jobId": 522,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.2.1788891652716@load-test.local",
+        "jobId": 523,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.3.1788891652862@load-test.local",
+        "jobId": 524,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "password": "k6-load-test-pw",
+        "email": "k6.employer.4.1788891653006@load-test.local",
+        "jobId": 525
+      },
+      {
+        "email": "k6.employer.5.1788891653169@load-test.local",
+        "jobId": 526,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.6.1788891653320@load-test.local",
+        "jobId": 527,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.7.1788891653460@load-test.local",
+        "jobId": 528,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.8.1788891653614@load-test.local",
+        "jobId": 529,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.9.1788891653760@load-test.local",
+        "jobId": 530,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "password": "k6-load-test-pw",
+        "email": "k6.employer.10.1788891653899@load-test.local",
+        "jobId": 531
+      },
+      {
+        "email": "k6.employer.11.1788891654048@load-test.local",
+        "jobId": 532,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.12.1788891654195@load-test.local",
+        "jobId": 533,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "password": "k6-load-test-pw",
+        "email": "k6.employer.13.1788891654359@load-test.local",
+        "jobId": 534
+      },
+      {
+        "email": "k6.employer.14.1788891654553@load-test.local",
+        "jobId": 535,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.15.1788891654693@load-test.local",
+        "jobId": 536,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "password": "k6-load-test-pw",
+        "email": "k6.employer.16.1788891654841@load-test.local",
+        "jobId": 537
+      },
+      {
+        "email": "k6.employer.17.1788891654985@load-test.local",
+        "jobId": 538,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.18.1788891655126@load-test.local",
+        "jobId": 539,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.19.1788891655269@load-test.local",
+        "jobId": 540,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.20.1788891655424@load-test.local",
+        "jobId": 541,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.21.1788891655587@load-test.local",
+        "jobId": 542,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.22.1788891655731@load-test.local",
+        "jobId": 543,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "password": "k6-load-test-pw",
+        "email": "k6.employer.23.1788891655870@load-test.local",
+        "jobId": 544
+      },
+      {
+        "jobId": 545,
+        "password": "k6-load-test-pw",
+        "email": "k6.employer.24.1788891656013@load-test.local"
+      },
+      {
+        "email": "k6.employer.25.1788891656151@load-test.local",
+        "jobId": 546,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.26.1788891656295@load-test.local",
+        "jobId": 547,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "jobId": 548,
+        "password": "k6-load-test-pw",
+        "email": "k6.employer.27.1788891656469@load-test.local"
+      },
+      {
+        "email": "k6.employer.28.1788891656628@load-test.local",
+        "jobId": 549,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.employer.29.1788891656850@load-test.local",
+        "jobId": 550,
+        "password": "k6-load-test-pw"
+      }
+    ],
+    "seekers": [
+      {
+        "email": "k6.seeker.0.1788891649485@load-test.local",
+        "id": 62,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.seeker.1.1788891649607@load-test.local",
+        "id": 63,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "id": 64,
+        "password": "k6-load-test-pw",
+        "email": "k6.seeker.2.1788891649703@load-test.local"
+      },
+      {
+        "password": "k6-load-test-pw",
+        "email": "k6.seeker.3.1788891649800@load-test.local",
+        "id": 65
+      },
+      {
+        "email": "k6.seeker.4.1788891649895@load-test.local",
+        "id": 66,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.seeker.5.1788891649991@load-test.local",
+        "id": 67,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "password": "k6-load-test-pw",
+        "email": "k6.seeker.6.1788891650087@load-test.local",
+        "id": 68
+      },
+      {
+        "email": "k6.seeker.7.1788891650183@load-test.local",
+        "id": 69,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.seeker.8.1788891650276@load-test.local",
+        "id": 70,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.seeker.9.1788891650369@load-test.local",
+        "id": 71,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.seeker.10.1788891650465@load-test.local",
+        "id": 72,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "id": 73,
+        "password": "k6-load-test-pw",
+        "email": "k6.seeker.11.1788891650564@load-test.local"
+      },
+      {
+        "email": "k6.seeker.12.1788891650658@load-test.local",
+        "id": 74,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "password": "k6-load-test-pw",
+        "email": "k6.seeker.13.1788891650753@load-test.local",
+        "id": 75
+      },
+      {
+        "email": "k6.seeker.14.1788891650844@load-test.local",
+        "id": 76,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.seeker.15.1788891650935@load-test.local",
+        "id": 77,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.seeker.16.1788891651024@load-test.local",
+        "id": 78,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.seeker.17.1788891651123@load-test.local",
+        "id": 79,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.seeker.18.1788891651214@load-test.local",
+        "id": 80,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "password": "k6-load-test-pw",
+        "email": "k6.seeker.19.1788891651303@load-test.local",
+        "id": 81
+      },
+      {
+        "password": "k6-load-test-pw",
+        "email": "k6.seeker.20.1788891651393@load-test.local",
+        "id": 82
+      },
+      {
+        "password": "k6-load-test-pw",
+        "email": "k6.seeker.21.1788891651482@load-test.local",
+        "id": 83
+      },
+      {
+        "email": "k6.seeker.22.1788891651575@load-test.local",
+        "id": 84,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.seeker.23.1788891651668@load-test.local",
+        "id": 85,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.seeker.24.1788891651759@load-test.local",
+        "id": 86,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "password": "k6-load-test-pw",
+        "email": "k6.seeker.25.1788891651851@load-test.local",
+        "id": 87
+      },
+      {
+        "email": "k6.seeker.26.1788891651940@load-test.local",
+        "id": 88,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "password": "k6-load-test-pw",
+        "email": "k6.seeker.27.1788891652031@load-test.local",
+        "id": 89
+      },
+      {
+        "email": "k6.seeker.28.1788891652121@load-test.local",
+        "id": 90,
+        "password": "k6-load-test-pw"
+      },
+      {
+        "email": "k6.seeker.29.1788891652211@load-test.local",
+        "id": 91,
+        "password": "k6-load-test-pw"
+      }
+    ]
+  }
+}
