@@ -105,55 +105,82 @@ export function LocationModal({
             margin: 0,
           }}
         >
-          Utilisation de votre localisation
+          Géolocalisation de l'utilisateur
         </h2>
-
+        
         <p style={{ color: '#6b665e', marginTop: '0.5rem' }}>
-            Information préalable à l'activation
+          Information préalable à l'activation
         </p>
-
-        <Box
-          sx={{
-            bgcolor: '#f1f4f8',
-            borderLeft: '4px solid #FFA500',
-            borderRadius: '0 8px 8px 0',
-            marginTop: 3,
-            padding: 2,
-          }}
-        >
-          <p style={{ color: '#FFA500', fontSize: '0.98rem' }}>
-            GéoEmploi peut utiliser temporairement
-            votre position afin de vous localiser sur
-            la carte. Vos coordonnées GPS ne sont pas
-            enregistrées dans notre base de données et
-            aucun historique de localisation n'est
-            constitué.
-          </p>
-        </Box>
-          
+        
+        
         <h3>Finalité</h3>
-
-        <p>Utiliser votre position actuelle afin de
-          faciliter la consultation de la carte des
-          offres d'emploi.</p>
-
-        <h3>Données utilisées</h3>
-        <p> Coordonnées géographiques fournies par votre navigateur : latitude et longitude.</p>
-
-        <h3>Conservation</h3>
-        <p>Aucune conservation de votre position. Elle
-          est utilisée temporairement dans votre
-          navigateur et n'est pas enregistrée dans la
-          base de données de GéoEmploi.</p>
-
-        <h3>Historique de localisation</h3>
-        <p>Aucun historique de déplacement ou de localisation n'est constitué.</p>
-
-        <h3>Trace de votre décision</h3>
-        <p>Si vous êtes connecté, GéoEmploi conserve
-          uniquement la trace de votre décision, sa date
-          et la version de cette notice. Cette trace ne
-          contient aucune coordonnée géographique.</p>
+        
+        <p>
+          Centrer automatiquement l'affichage de la carte des offres
+          sur la position de l'utilisateur, à sa demande explicite.
+        </p>
+        
+        
+        <h3>Base légale</h3>
+        
+        <p>
+          Consentement (art. 6.1.a du RGPD), recueilli via un toggle
+          dédié précédé d'un texte d'information sur la finalité et
+          l'absence de conservation.
+        </p>
+        
+        
+        <h3>Personnes concernées</h3>
+        
+        <p>
+          Utilisateurs du site ayant activé le toggle de
+          géolocalisation.
+        </p>
+        
+        
+        <h3>Catégorie de données</h3>
+        
+        <p>
+          Coordonnées GPS (latitude/longitude) de l'utilisateur.
+        </p>
+        
+        
+        <h3>Destinataires</h3>
+        
+        <p>
+          Aucun pour la position GPS elle-même.
+          L'IGN (Géoplateforme) reçoit, via notre backend qui fait
+          office de relais, les coordonnées de la zone de carte
+          affichée, sans aucune information permettant
+          d'identifier l'utilisateur.
+        </p>
+        
+        
+        <h3>Durée de conservation</h3>
+        
+        <p>
+          Aucune, donnée effacée à la fermeture ou au
+          rafraîchissement de la page.
+        </p>
+        
+        
+        <h3>Table / Colonne BDD</h3>
+        
+        <p>
+          Aucune, la donnée GPS est transmise au serveur pour être
+          instantanément envoyée à l'IGN afin de récupérer la tuile
+          correspondante sans être stockée dans la BDD.
+        </p>
+        
+        
+        <h3>Ce qui n'est pas collecté</h3>
+        
+        <p>
+          Coordonnées GPS en base de données, historique de
+          déplacement, croisement position/identité, adresse IP
+          à aucun niveau de la chaîne (pas de log HTTP global,
+          pas de reverse proxy).
+        </p>
 
         <div className="mt-8 flex justify-end gap-3">
           {informationOnly ? (
