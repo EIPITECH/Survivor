@@ -1,10 +1,11 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request, ForbiddenException  } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request, ForbiddenException,ParseIntPipe  } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 import { UserRole } from './enum/user-role.enum';
+import { UpdateUserStatusDto } from './dto/update-user-status.dto';
 
 @Controller('users')
 export class UsersController {
@@ -44,6 +45,18 @@ export class UsersController {
     return this.usersService.findOne(+id);
   }
 
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @Patch(':id/status')
+  @ApiOperation({summary: 'Active ou suspend un compte utilisateur (administrateur)'})
+  updateAccountStatus(@Param('id', ParseIntPipe) id: number, @Body() updateUserStatusDto: UpdateUserStatusDto, @Request() req: any) 
+  {
+    if (req.user.role !== UserRole.ADMIN) {
+      throw new ForbiddenException('Accès réservé aux administrateurs');
+    }
+    return this.usersService.updateAccountStatus(id, updateUserStatusDto.status, req.user.userId);
+  }
+  
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
   @Patch(':id')
