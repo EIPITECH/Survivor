@@ -339,6 +339,7 @@ async archiveExpiredJobs(): Promise<number>
           job.latitude = latitude;
           job.geocodageSource = GEOCODE_SOURCE;
           job.trustScore = score;
+          job.obtentionDate = new Date();
           await this.jobRepo.save(job);
           recovered++;
           console.log(`[REPRISE] Offre #${job.id} reprise: score ${score.toFixed(3)}`);
