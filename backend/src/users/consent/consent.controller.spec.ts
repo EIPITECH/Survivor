@@ -1,17 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ConsentController } from './consent.controller';
-import { ConsentService } from './consent.service';
+import { ConsentsController } from './consent.controller';
+import { ConsentsService } from './consent.service';
 
 describe('ConsentController', () => {
-  let controller: ConsentController;
+  let controller: ConsentsController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [ConsentController],
-      providers: [ConsentService],
+      controllers: [ConsentsController],
+      providers: [ConsentsService],
     }).compile();
 
-    controller = module.get<ConsentController>(ConsentController);
+    controller = module.get<ConsentsController>(ConsentsController);
   });
 
   it('should be defined', () => {
