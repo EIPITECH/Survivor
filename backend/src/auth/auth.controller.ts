@@ -1,4 +1,4 @@
-import { Controller, Post, UseGuards, Request } from '@nestjs/common';
+import { Controller, Post, UseGuards, Request, HttpCode, HttpStatus } from '@nestjs/common';
 import { LocalAuthGuard } from './local-auth.guard';
 import { AuthService } from './auth.service';
 import { ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
@@ -9,6 +9,7 @@ export class AuthController {
 
   @UseGuards(LocalAuthGuard)
   @Post('login')
+  @HttpCode(HttpStatus.OK)
   @ApiOperation({summary: 'Pour se connecter, utilisez l\'email et le mot de passe renseignés lors de votre inscription.' })
   async login(@Request() req: any) {
     return this.authService.login(req.user);
