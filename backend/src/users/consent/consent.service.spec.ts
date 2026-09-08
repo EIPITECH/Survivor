@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ConsentService } from './consent.service';
+import { ConsentsService } from './consent.service';
 
 describe('ConsentService', () => {
-  let service: ConsentService;
+  let service: ConsentsService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [ConsentService],
+      providers: [ConsentsService],
     }).compile();
 
-    service = module.get<ConsentService>(ConsentService);
+    service = module.get<ConsentsService>(ConsentsService);
   });
 
   it('should be defined', () => {

@@ -7,9 +7,10 @@ import { UsersController } from './users.controller';
 import { SeekersModule } from './seekers/seekers.module';
 import { ApplicationModule } from './application/application.module';
 import { Job } from '../jobs/entities/job.entity';
+import { ConsentsModule } from './consent/consent.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User, Job]), PassportModule.register({ session: false }), SeekersModule, ApplicationModule],
+  imports: [TypeOrmModule.forFeature([User, Job]), PassportModule.register({ session: false }), SeekersModule, ApplicationModule, ConsentsModule],
   controllers: [UsersController],
   providers: [UsersService],
   exports: [UsersService]
