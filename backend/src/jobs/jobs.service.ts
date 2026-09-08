@@ -422,6 +422,16 @@ async archiveExpiredJobs(): Promise<number>
       };
   }
 
+  async incrementViews(id: number) 
+  {
+    await this.jobRepo.increment({ id }, 'views', 1);
+    return this.jobRepo.findOne({
+      where: {
+        id,
+      },
+    });
+  }
+  
   async findMine(employerId: number) {
     return this.jobRepo.find({
       where: {

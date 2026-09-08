@@ -10,6 +10,7 @@ export interface Job {
     employerId: number;
     status: string;
     companyName: string;
+    views: number;
     createdAt: string;
 
     streetNumber?: number | null;
