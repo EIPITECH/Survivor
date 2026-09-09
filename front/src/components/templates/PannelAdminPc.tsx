@@ -5,6 +5,7 @@ import BarVerticalStats from "../BarVerticalStats"
 import DashboardUserModal from "../modal/dashboardUserModal";
 import Input from "../../components/buttons/Input"
 import Cookies from "js-cookie";
+import CreateAdminModal from "../modal/createAdminModal";
 
 interface Job {
     id: number;
@@ -332,6 +333,8 @@ function PannelAdminPc()
     const [users, setUsers] = useState<User[]>([]);
     const [openModalUser, setOpenModalUser] = useState(false);
     const [selectedUser, setSelectedUser] = useState<User | null>(null);
+    const [openCreateAdminModal, setOpenCreateAdminModal] = useState(false);
+
     const lengthUsers = users.length;
     const employerCount = users.filter(user => user.role === "employer").length;
     const seekerCount = users.filter(user => user.role === "seeker").length;
@@ -644,10 +647,31 @@ function PannelAdminPc()
                         shadow-[0_0_25px_rgba(0,0,0,0.15)]
                     "
                 >
-                    <h1 className="text-xl font-bold text-black">
-                        Utilisateurs ({lengthUsers})
-                    </h1>
+                    <div className="flex items-center justify-between gap-4">
 
+                        <h1 className="text-xl font-bold text-black">
+                            Utilisateurs ({lengthUsers})
+                        </h1>          
+                        <button
+                            type="button"
+                            onClick={() =>
+                                setOpenCreateAdminModal(true)
+                            }
+                            className="
+                                rounded-xl
+                                bg-[#FFA500]
+                                px-4
+                                py-2
+                                font-bold
+                                text-black
+                                transition
+                                hover:cursor-pointer
+                                hover:bg-orange-400
+                            "
+                        >
+                            Créer un administrateur
+                        </button>
+                    </div>
                     {lengthUsers === 0 && (
                         <div>
                             <p>Aucun utilisateur.</p>
@@ -785,7 +809,16 @@ function PannelAdminPc()
                             setSelectedUser(updatedUser);
                         }}
                     />
-
+                    <CreateAdminModal
+                        isOpen={openCreateAdminModal}
+                        setOpen={setOpenCreateAdminModal}
+                        onAdminCreated={(createdAdmin) => {
+                            setUsers(previousUsers => [
+                                createdAdmin,
+                                ...previousUsers,
+                            ]);
+                        }}
+                    />
                 </div>
 
             </div>
