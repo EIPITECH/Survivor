@@ -78,6 +78,7 @@ function DashboardPc() {
     const [applications, setApplications] = useState<Application[]>([]);
     const [applicationOpen, setApplicationOpen] = useState(false);
     const [selectedApplication, setSelectedApplication] = useState<Application | null>(null);
+    const [applicationDateSort, setApplicationDateSort] = useState<"desc" | "asc">("desc");
     const [open, setOpen] = useState(false);
     const [selectedJob, setSelectedJob] = useState<Job | null>(null)
     const okJob = ['active'];
@@ -227,8 +228,24 @@ function DashboardPc() {
         setSelectedJob(job);
         setOpen(true);
     }
+    const sortedApplications = [...applications].sort((a, b) => {
+        const dateA = new Date(a.createdAt).getTime();
+        const dateB = new Date(b.createdAt).getTime();
 
-    return (
+        return applicationDateSort === "desc"
+            ? dateB - dateA
+            : dateA - dateB;
+    });
+
+    const formatApplicationDate = (createdAt: string) =>
+        new Date(createdAt).toLocaleString("fr-FR", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+        });
+        return (
         <div className="flex flex-col gap-6 px-10 py-8">
             <div>
                 <h1 className="text-2xl font-bold text-black">
@@ -245,15 +262,30 @@ function DashboardPc() {
 
             <div className="bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col gap-4">
 
-                <h1 className="text-xl font-bold text-black">
-                    Candidatures ({applications.length})
-                </h1>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                    <h1 className="text-xl font-bold text-black">
+                        Candidatures ({applications.length})
+                    </h1>
+
+                    <select
+                        value={applicationDateSort}
+                        onChange={(e) =>
+                            setApplicationDateSort(e.target.value as "desc" | "asc")
+                        }
+                        className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-black outline-none focus:border-[#1B3A6B]"
+                        aria-label="Trier les candidatures par date"
+                    >
+                        <option value="desc">Plus récentes d'abord</option>
+                        <option value="asc">Plus anciennes d'abord</option>
+                    </select>
+                </div>
+
                     {applications.length === 0 ? (
         <p className="text-gray-500">
             Aucune candidature reçue.
         </p>
     ) : (
-        applications.map((application) => (
+        sortedApplications.map((application) => (
             <div
                 key={application.id}
                 className="flex justify-between rounded-lg px-2 py-3 hover:bg-gray-100"
@@ -280,6 +312,10 @@ function DashboardPc() {
                             <span className="font-bold">
                                 {application.status}
                             </span>
+                        </p>
+
+                        <p className="mt-1 text-xs text-gray-500">
+                            Reçue le {formatApplicationDate(application.createdAt)}
                         </p>
                     </div>
                 </div>

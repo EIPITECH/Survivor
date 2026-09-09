@@ -350,11 +350,35 @@ function PannelAdminPc()
         job.title.toLowerCase().includes(searchTermJobs.toLowerCase())
     );
     const [searchTermCandidatures, setSearchTermCandidatures] = useState("");
-    const filteredCandidatures = candidatures.filter(candidature => {
-        const search = searchTermCandidatures.toLowerCase();
-        return (candidature.job.title.toLowerCase().includes(search) || candidature.seeker.user.firstName.toLowerCase().includes(search) || candidature.seeker.user.lastName.toLowerCase().includes(search));
+    const [candidatureDateSort, setCandidatureDateSort] = useState<"desc" | "asc">("desc");
 
-    });
+    const filteredCandidatures = candidatures
+        .filter(candidature => {
+            const search = searchTermCandidatures.toLowerCase();
+
+            return (
+                candidature.job.title.toLowerCase().includes(search) ||
+                candidature.seeker.user.firstName.toLowerCase().includes(search) ||
+                candidature.seeker.user.lastName.toLowerCase().includes(search)
+            );
+        })
+        .sort((a, b) => {
+            const dateA = new Date(a.createdAt).getTime();
+            const dateB = new Date(b.createdAt).getTime();
+
+            return candidatureDateSort === "desc"
+                ? dateB - dateA
+                : dateA - dateB;
+        });
+        const formatCandidatureDate = (createdAt: string) =>
+        new Date(createdAt).toLocaleString("fr-FR", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+        });
+
     const [searchTermUsers, setSearchTermUsers] = useState("");
     const filteredUsers = users.filter(user => {
         const search = searchTermUsers.toLowerCase();
