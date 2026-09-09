@@ -34,6 +34,9 @@ export class ApplicationService {
             id: userId,
           }
         },
+        relations: {
+          user: true,
+        },
       }
       );
 
