@@ -350,34 +350,57 @@ function PannelAdminPc()
         job.title.toLowerCase().includes(searchTermJobs.toLowerCase())
     );
     const [searchTermCandidatures, setSearchTermCandidatures] = useState("");
+    
     const [candidatureDateSort, setCandidatureDateSort] = useState<"desc" | "asc">("desc");
 
+    const [candidatureStatusFilter, setCandidatureStatusFilter] = useState<"all" | Candidature["status"]>("all");
+
+    const [candidatureJobFilter, setCandidatureJobFilter] = useState<string>("all");
     const filteredCandidatures = candidatures
-        .filter(candidature => {
-            const search = searchTermCandidatures.toLowerCase();
+    .filter((candidature) => {
+        const search = searchTermCandidatures.toLowerCase();
 
-            return (
-                candidature.job.title.toLowerCase().includes(search) ||
-                candidature.seeker.user.firstName.toLowerCase().includes(search) ||
-                candidature.seeker.user.lastName.toLowerCase().includes(search)
-            );
-        })
-        .sort((a, b) => {
-            const dateA = new Date(a.createdAt).getTime();
-            const dateB = new Date(b.createdAt).getTime();
+        const matchesSearch =
+            candidature.job.title.toLowerCase().includes(search) ||
+            candidature.seeker.user.firstName.toLowerCase().includes(search) ||
+            candidature.seeker.user.lastName.toLowerCase().includes(search) ||
+            candidature.seeker.user.email.toLowerCase().includes(search);
 
-            return candidatureDateSort === "desc"
-                ? dateB - dateA
-                : dateA - dateB;
-        });
-        const formatCandidatureDate = (createdAt: string) =>
+        const matchesStatus =
+            candidatureStatusFilter === "all" ||
+            candidature.status === candidatureStatusFilter;
+
+        const matchesJob =
+            candidatureJobFilter === "all" ||
+            String(candidature.job.id) === candidatureJobFilter;
+
+        return matchesSearch && matchesStatus && matchesJob;
+    })
+    .sort((a, b) => {
+        const dateA = new Date(a.createdAt).getTime();
+        const dateB = new Date(b.createdAt).getTime();
+
+        return candidatureDateSort === "desc"
+            ? dateB - dateA
+            : dateA - dateB;
+    });
+
+    const formatCandidatureDate = (createdAt: string) =>
         new Date(createdAt).toLocaleString("fr-FR", {
             day: "2-digit",
             month: "2-digit",
             year: "numeric",
             hour: "2-digit",
             minute: "2-digit",
-        });
+    });
+    const candidatureJobs = Array.from(
+        new Map(
+            candidatures.map((candidature) => [
+                candidature.job.id,
+                candidature.job,
+            ])
+        ).values()
+    );
 
     const [searchTermUsers, setSearchTermUsers] = useState("");
     const filteredUsers = users.filter(user => {
@@ -466,13 +489,89 @@ function PannelAdminPc()
                         </div>
                     )}
 
-                    <Input
-                        placeHolder="Chercher une candidature..."
-                        value={searchTermCandidatures}
+                    <div className="flex flex-wrap items-center gap-3">
+
+                    <div className="min-w-[220px] flex-1">
+                        <Input
+                            placeHolder="Chercher une candidature..."
+                            value={searchTermCandidatures}
+                            onChange={(e) =>
+                                setSearchTermCandidatures(e.target.value)
+                            }
+                        />
+                    </div>
+                        
+                    {/* STATUT */}
+                    <select
+                        value={candidatureStatusFilter}
                         onChange={(e) =>
-                            setSearchTermCandidatures(e.target.value)
+                            setCandidatureStatusFilter(
+                                e.target.value as
+                                    | "all"
+                                    | Candidature["status"]
+                            )
                         }
-                    />
+                        className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-black outline-none focus:border-[#1B3A6B]"
+                    >
+                        <option value="all">
+                            Tous les statuts
+                        </option>
+                    
+                        <option value="submitted">
+                            En attente
+                        </option>
+                    
+                        <option value="accepted">
+                            Acceptées
+                        </option>
+                    
+                        <option value="rejected">
+                            Refusées
+                        </option>
+                    </select>
+                    
+                    {/* OFFRE */}
+                    <select
+                        value={candidatureJobFilter}
+                        onChange={(e) =>
+                            setCandidatureJobFilter(e.target.value)
+                        }
+                        className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-black outline-none focus:border-[#1B3A6B]"
+                    >
+                        <option value="all">
+                            Toutes les offres
+                        </option>
+                    
+                        {candidatureJobs.map((job) => (
+                            <option
+                                key={job.id}
+                                value={String(job.id)}
+                            >
+                                {job.title}
+                            </option>
+                        ))}
+                    </select>
+                    
+                    {/* DATE */}
+                    <select
+                        value={candidatureDateSort}
+                        onChange={(e) =>
+                            setCandidatureDateSort(
+                                e.target.value as "desc" | "asc"
+                            )
+                        }
+                        className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-black outline-none focus:border-[#1B3A6B]"
+                    >
+                        <option value="desc">
+                            Plus récentes d'abord
+                        </option>
+                    
+                        <option value="asc">
+                            Plus anciennes d'abord
+                        </option>
+                    </select>
+                    
+                </div>
 
                     <div className="flex max-h-[450px] flex-col gap-2 overflow-y-auto pr-2">
                         {filteredCandidatures.map(candidature => (
@@ -511,6 +610,9 @@ function PannelAdminPc()
 
                                         <p className="text-sm">
                                             Statut : {candidature.status}
+                                        </p>
+                                        <p className="mt-1 text-xs text-gray-500">
+                                            Reçue le {formatCandidatureDate(candidature.createdAt)}
                                         </p>
                                     </div>
 
