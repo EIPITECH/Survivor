@@ -79,6 +79,10 @@ function DashboardPc() {
     const [applicationOpen, setApplicationOpen] = useState(false);
     const [selectedApplication, setSelectedApplication] = useState<Application | null>(null);
     const [applicationDateSort, setApplicationDateSort] = useState<"desc" | "asc">("desc");
+    const [applicationJobFilter, setApplicationJobFilter] = useState<string>("all");
+    const [applicationStatusFilter, setApplicationStatusFilter] = useState<"all" | "submitted" | "accepted" | "rejected">("all");
+    const [applicationSearch, setApplicationSearch] = useState<string>("");
+
     const [open, setOpen] = useState(false);
     const [selectedJob, setSelectedJob] = useState<Job | null>(null)
     const okJob = ['active'];
@@ -228,7 +232,50 @@ function DashboardPc() {
         setSelectedJob(job);
         setOpen(true);
     }
-    const sortedApplications = [...applications].sort((a, b) => {
+const filteredApplications = applications
+    .filter((application) => {
+        if (
+            applicationStatusFilter !== "all" &&
+            application.status !== applicationStatusFilter
+        ) {
+            return false;
+        }
+
+        if (
+            applicationJobFilter !== "all" &&
+            application.job.id.toString() !== applicationJobFilter
+        ) {
+            return false;
+        }
+
+        if (applicationSearch.trim() !== "") {
+            const search = applicationSearch.toLowerCase();
+
+            const firstName =
+                application.seeker.user.firstName.toLowerCase();
+
+            const lastName =
+                application.seeker.user.lastName.toLowerCase();
+
+            const email =
+                application.seeker.user.email.toLowerCase();
+
+            const jobTitle =
+                application.job.title.toLowerCase();
+
+            if (
+                !firstName.includes(search) &&
+                !lastName.includes(search) &&
+                !email.includes(search) &&
+                !jobTitle.includes(search)
+            ) {
+                return false;
+            }
+        }
+
+        return true;
+    })
+    .sort((a, b) => {
         const dateA = new Date(a.createdAt).getTime();
         const dateB = new Date(b.createdAt).getTime();
 
@@ -262,30 +309,174 @@ function DashboardPc() {
 
             <div className="bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex flex-col gap-4">
 
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                    <h1 className="text-xl font-bold text-black">
-                        Candidatures ({applications.length})
-                    </h1>
-
-                    <select
-                        value={applicationDateSort}
-                        onChange={(e) =>
-                            setApplicationDateSort(e.target.value as "desc" | "asc")
-                        }
-                        className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-black outline-none focus:border-[#1B3A6B]"
-                        aria-label="Trier les candidatures par date"
-                    >
-                        <option value="desc">Plus récentes d'abord</option>
-                        <option value="asc">Plus anciennes d'abord</option>
-                    </select>
+                <div className="flex flex-col gap-4">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                        <h1 className="text-xl font-bold text-black">
+                            Candidatures ({filteredApplications.length})
+                        </h1>
+                    </div>
+                            
+                    <div className="flex flex-wrap gap-3">
+                            
+                        {/* Recherche */}
+                        <input
+                            type="text"
+                            value={applicationSearch}
+                            onChange={(e) => setApplicationSearch(e.target.value)}
+                            placeholder="Rechercher candidat ou offre..."
+                            className="
+                                min-w-[220px]
+                                rounded-lg
+                                border
+                                border-gray-300
+                                bg-white
+                                px-3
+                                py-2
+                                text-sm
+                                text-black
+                                outline-none
+                                focus:border-[#1B3A6B]
+                            "
+                        />
+                
+                        {/* Filtre statut */}
+                        <select
+                            value={applicationStatusFilter}
+                            onChange={(e) =>
+                                setApplicationStatusFilter(
+                                    e.target.value as
+                                        | "all"
+                                        | "submitted"
+                                        | "accepted"
+                                        | "rejected"
+                                )
+                            }
+                            className="
+                                rounded-lg
+                                border
+                                border-gray-300
+                                bg-white
+                                px-3
+                                py-2
+                                text-sm
+                                text-black
+                                outline-none
+                                focus:border-[#1B3A6B]
+                            "
+                        >
+                            <option value="all">
+                                Tous les statuts
+                            </option>
+                        
+                            <option value="submitted">
+                                En attente
+                            </option>
+                        
+                            <option value="accepted">
+                                Acceptées
+                            </option>
+                        
+                            <option value="rejected">
+                                Refusées
+                            </option>
+                        </select>
+                        
+                        {/* Filtre offre */}
+                        <select
+                            value={applicationJobFilter}
+                            onChange={(e) =>
+                                setApplicationJobFilter(e.target.value)
+                            }
+                            className="
+                                rounded-lg
+                                border
+                                border-gray-300
+                                bg-white
+                                px-3
+                                py-2
+                                text-sm
+                                text-black
+                                outline-none
+                                focus:border-[#1B3A6B]
+                            "
+                        >
+                            <option value="all">
+                                Toutes les offres
+                            </option>
+                        
+                            {jobs.map((job) => (
+                                <option
+                                    key={job.id}
+                                    value={job.id.toString()}
+                                >
+                                    {job.title}
+                                </option>
+                            ))}
+                        </select>
+                        
+                        {/* Tri date */}
+                        <select
+                            value={applicationDateSort}
+                            onChange={(e) =>
+                                setApplicationDateSort(
+                                    e.target.value as "desc" | "asc"
+                                )
+                            }
+                            className="
+                                rounded-lg
+                                border
+                                border-gray-300
+                                bg-white
+                                px-3
+                                py-2
+                                text-sm
+                                text-black
+                                outline-none
+                                focus:border-[#1B3A6B]
+                            "
+                            aria-label="Trier les candidatures par date"
+                        >
+                            <option value="desc">
+                                Plus récentes d'abord
+                            </option>
+                        
+                            <option value="asc">
+                                Plus anciennes d'abord
+                            </option>
+                        </select>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setApplicationStatusFilter("all");
+                                setApplicationJobFilter("all");
+                                setApplicationDateSort("desc");
+                                setApplicationSearch("");
+                            }}
+                            className="
+                                rounded-lg
+                                border
+                                border-gray-300
+                                px-3
+                                py-2
+                                text-sm
+                                hover:bg-gray-100
+                            "
+                        >
+                            Réinitialiser
+                        </button>
+                    </div>
                 </div>
 
-                    {applications.length === 0 ? (
-        <p className="text-gray-500">
-            Aucune candidature reçue.
-        </p>
-    ) : (
-        sortedApplications.map((application) => (
+        {applications.length === 0 ? (
+            <p className="text-gray-500">
+                Aucune candidature reçue.
+            </p>
+        ) : filteredApplications.length === 0 ? (
+            <p className="text-gray-500">
+                Aucune candidature ne correspond aux filtres sélectionnés.
+            </p>
+        ) : (
+    filteredApplications.map((application) => (
             <div
                 key={application.id}
                 className="flex justify-between rounded-lg px-2 py-3 hover:bg-gray-100"
