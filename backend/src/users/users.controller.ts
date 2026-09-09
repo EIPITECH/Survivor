@@ -6,6 +6,7 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 import { UserRole } from './enum/user-role.enum';
 import { UpdateUserStatusDto } from './dto/update-user-status.dto';
+import { CreateAdminDto } from './dto/create-admin.dto';
 
 @Controller('users')
 export class UsersController {
@@ -15,6 +16,19 @@ export class UsersController {
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
+
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth('accessToken')
+  @Post('admin')
+  @ApiOperation({summary: "Crée un compte administrateur (administrateur uniquement)"})
+  createAdmin(@Body() createAdminDto: CreateAdminDto, @Request() req: any) 
+  {
+    if (req.user.role !== UserRole.ADMIN) {
+      throw new ForbiddenException("Accès réservé aux administrateurs");
+    }
+    return this.usersService.createAdmin(createAdminDto);
+  }
+
 
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
