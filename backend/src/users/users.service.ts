@@ -127,7 +127,11 @@ export class UsersService {
     };
   }
 
-  async update(id: number, updateUserDto: UpdateUserDto) {
+  async update(id: number, updateUserDto: UpdateUserDto) 
+  {
+    if (updateUserDto.password) {
+        updateUserDto.password = await this.hashString(updateUserDto.password);
+    }
     return this.userRepo.update({ id }, updateUserDto);
   }
 
