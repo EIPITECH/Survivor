@@ -1,4 +1,4 @@
-import {IsEmail, IsString, IsNotEmpty, MinLength, IsEnum, minLength} from 'class-validator'; 
+import {IsEmail, IsString, IsNotEmpty, MinLength, IsEnum, minLength, ValidateIf, Matches} from 'class-validator'; 
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { UserRole } from '../enum/user-role.enum';
 
@@ -40,5 +40,19 @@ export class CreateUserDto {
         example: UserRole.SEEKER,
     })
     role: UserRole
+
+    @ValidateIf((object) => object.role === UserRole.EMPLOYER)
+    @IsNotEmpty({message: 'Le SIRET est obligatoire pour un compte employeur'})
+    @IsString()
+    @Matches(/^\d{14}$/, {
+        message: 'Le SIRET doit contenir exactement 14 chiffres',
+    })
+    @ApiPropertyOptional({
+        description: 'SIRET obligatoire pour les employeurs',
+        example: '55210055400013',
+    })
+    siret?: string;
+
+    
 }
 

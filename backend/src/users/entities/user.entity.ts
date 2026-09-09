@@ -80,6 +80,17 @@ export class User {
   @OneToOne(() => Seeker, (seeker) => seeker.user)
   seeker?: Seeker;
 
+  @Column({
+    type: 'varchar',
+    length: 14,
+    nullable: true,
+  })
+  @ApiPropertyOptional({
+    description: 'SIRET de l’établissement pour un compte employeur',
+    example: '55210055400013',
+  })
+  siret: string | null;
+
   @CreateDateColumn()
   @IsNotEmpty() @IsDate()
   @ApiProperty({
