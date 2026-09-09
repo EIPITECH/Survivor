@@ -11,6 +11,7 @@ import { Seeker } from './seekers/entities/seeker.entity';
 import { Application } from './application/entities/application.entity';
 import { Consent } from './consent/entities/consent.entity';
 import { UserAccountStatus } from './enum/user-account-status.enum';
+import { CreateAdminDto } from './dto/create-admin.dto';
 
 @Injectable()
 export class UsersService {
@@ -365,4 +366,26 @@ export class UsersService {
         throw new ServiceUnavailableException('Le service de vérification des entreprises est temporairement indisponible');
     }
   }
+
+  async createAdmin(createAdminDto: CreateAdminDto) 
+  {
+    const userExists = await this.userRepo.findOneBy({email: createAdminDto.email});
+
+    if (userExists) {
+      throw new ConflictException('Un utilisateur avec cette adresse email existe déjà');
+    }
+    const admin = this.userRepo.create({
+      firstName: createAdminDto.firstName,
+      lastName: createAdminDto.lastName,
+      email: createAdminDto.email,
+      password: await this.hashString(createAdminDto.password),
+      isConnected: false,
+      role: UserRole.ADMIN,
+      accountStatus: UserAccountStatus.ACTIVE,
+      siret: null,
+    });
+    const savedAdmin = await this.userRepo.save(admin);
+    return this.findOne(savedAdmin.id);
+  }
+  
 }
