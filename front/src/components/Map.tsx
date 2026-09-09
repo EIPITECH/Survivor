@@ -141,7 +141,7 @@ export function SurvivorMap({
 
             <MapContainer
                 center={[48.8566, 2.3522]}
-                zoom={13}
+                zoom={6}
                 scrollWheelZoom={true}
                 style={{
                     zIndex: "0",
