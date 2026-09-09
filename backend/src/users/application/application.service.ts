@@ -7,6 +7,7 @@ import { Seeker } from '../seekers/entities/seeker.entity'
 import { Job } from '../../jobs/entities/job.entity';
 import { Application } from './entities/application.entity';
 import { NotFoundError } from 'rxjs';
+import { Notifs, NotifType } from '../../notifs/entities/notif.entity';
 
 @Injectable()
 export class ApplicationService {
@@ -18,7 +19,10 @@ export class ApplicationService {
     private seekerRepo: Repository<Seeker>,
 
     @InjectRepository(Job)
-    private jobRepo: Repository<Job>
+    private jobRepo: Repository<Job>,
+
+    @InjectRepository(Notifs)
+    private notificationRepo: Repository<Notifs>
   ){}
 
   async create(userId: number, createApplicationDto: CreateApplicationDto) {
@@ -70,8 +74,19 @@ export class ApplicationService {
         seeker,
         job,
       });
+      const savedApplication = await this.applicationRepo.save(application);
+      const candidateName = `${seeker.user?.firstName ?? 'Un candidat'} ${seeker.user?.lastName ?? ''}`.trim();
+      const notification = this.notificationRepo.create({
 
-      return this.applicationRepo.save(application);
+        userId: job.employerId,
+        type: NotifType.APPLICATION_RECEIVED,
+        title: 'Nouvelle candidature reçue',
+        message: `${candidateName} a candidaté à votre offre « ${job.title} ».`,
+        applicationId: savedApplication.id,
+      });
+      await this.notificationRepo.save(notification);
+
+      return savedApplication;
   }
 
   async findByUserId(userId: number) {

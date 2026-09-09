@@ -21,6 +21,8 @@ import { Consent } from './users/consent/entities/consent.entity';
 import { ConsentsModule } from './users/consent/consent.module';
 import { ReportsModule } from './reports/reports.module';
 import { Report } from './reports/entities/report.entity';
+import { Notifs } from './notifs/entities/notif.entity';
+import { NotifsModule } from './notifs/notifs.module';
 
 @Module({
   imports: [
@@ -40,7 +42,7 @@ import { Report } from './reports/entities/report.entity';
         username: configService.get<string>('database.username'),
         password: configService.get<string>('database.password'),
         database: configService.get<string>('database.name'),
-        entities: [User, Job, Seeker, Application, Consent, Report],
+        entities: [User, Job, Seeker, Application, Consent, Report, Notifs],
         synchronize: configService.get<boolean>('database.dev_mode'),
       }),
     }),
@@ -52,7 +54,8 @@ import { Report } from './reports/entities/report.entity';
     SeekersModule,
     ApplicationModule,
     ConsentsModule,
-    ReportsModule
+    ReportsModule,
+    NotifsModule
   ],
   controllers: [AppController],
   providers: [AppService, SeederService],

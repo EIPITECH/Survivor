@@ -4,6 +4,8 @@ import { useState } from "react";
 import CreateOfferModal from "../modal/createJobModal"; 
 import Cookies from "js-cookie";
 import Candidatures from "../../pages/Candidatures.astro";
+import EmployerNotifications from "../employerNotifs";
+
 
 type Props = {
     role: "seeker" | "employer" | "admin" | null;
@@ -122,6 +124,7 @@ function HeaderPc({ role, firstName }: Props) {
                                         z-[2000]
                                     "
                                 >
+                                    {role === "employer" && (<EmployerNotifications variant="header"/>)}
                                     <a
                                         href={accountLink}
                                         className="

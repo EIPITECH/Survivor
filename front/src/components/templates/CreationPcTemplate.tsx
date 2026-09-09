@@ -268,7 +268,7 @@ function CreationPcTemplate() {
                                             focus:ring
                                             focus:ring-[#FFA500]
                                         "
-                                        placeholder="Ex : 2 ans comme développeur frontend chez NovaTech..."
+                                        placeholder="Ex : 2 ans comme développeur frontend chez GitSolution..."
                                         value={experience}
                                         onChange={(e) => setExperience(e.target.value)}
                                         required

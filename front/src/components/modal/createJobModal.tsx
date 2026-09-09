@@ -140,7 +140,7 @@ export default function CreateOfferModal({ isOpen, setOpen }: { isOpen: boolean;
                     </label>
                             
                     <Input
-                        placeHolder="Ex: NovaTech Solutions"
+                        placeHolder="Ex: GitSolutions"
                         value={companyName}
                         onChange={(e) => setCompanyName(e.target.value)}
                     />
