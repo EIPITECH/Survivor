@@ -11,6 +11,7 @@ function CreationPcTemplate() {
     const [secondName, setSecondName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [siret, setSiret] = useState('');
     const [inscriptionType, setInscriptionType] = useState('');
     const [errorInscription, setErrorInscription] = useState('');
 
@@ -21,7 +22,11 @@ function CreationPcTemplate() {
     const handleSubmit = async (event:any) =>  {
         event.preventDefault();
         setErrorInscription('');
-
+        if (inscriptionType === 'employer' && !/^\d{14}$/.test(siret)) {
+            setErrorInscription("Le SIRET doit contenir exactement 14 chiffres");
+            return;
+        }
+ 
         try {
             const response = await fetch("http://localhost:3000/users", {
                 method: "POST",
@@ -34,7 +39,8 @@ function CreationPcTemplate() {
                     lastName: secondName,
                     email: email,
                     password: password,
-                    role: inscriptionType
+                    role: inscriptionType,
+                    ...(inscriptionType === 'employer' ? { siret } : {}),
                 }),
             });
             if (!response.ok) {
@@ -164,6 +170,23 @@ function CreationPcTemplate() {
                                     <Input placeHolder="Dupont"
                                         value={secondName}
                                         onChange={(e) => setSecondName(e.target.value)}/>
+                                </div>
+                                <div className="grid gap-2">
+                                    <label className="text-lg text-[#FFA500] font-bold">
+                                        SIRET*
+                                    </label>
+
+                                    <Input
+                                        placeHolder="Numéro de SIRET"
+                                        value={siret}
+                                        onChange={(e) => {
+                                            const value = e.target.value.replace(/\D/g, '').slice(0, 14); 
+                                            setSiret(value);
+                                        }}
+                                    />
+                                    <p className="text-xs text-gray-500">
+                                        14 chiffres permettant de vérifier l'activité de votre établissement
+                                    </p>
                                 </div>
                                 <div className="grid gap-2">
                                     <label className="text-[#FFA500] text-lg font-bold">Email*</label>
