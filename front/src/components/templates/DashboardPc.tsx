@@ -8,6 +8,8 @@ import DashboardApplicationModal from "../modal/dashboardApplicationModal";
 import DownloadExportButton from "../buttons/downloadExportButton";
 import DeleteAccountButton from "../buttons/deleteAccountButton";
 import { LocationModal } from "../toggleSwitchLoc";
+import EmployerNotifications from "../employerNotifs";
+
 
 interface Job {
     id: number;
@@ -299,7 +301,7 @@ const filteredApplications = applications
                     Tableau de bord
                 </h1>
             </div>
-
+            <EmployerNotifications variant="dashboard" />
             {/* <div className="flex gap-4">
                 <div className="bg-white rounded-2xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-6 flex-1">
                 </div>
