@@ -6,6 +6,8 @@ import { Application } from './entities/application.entity';
 import { Seeker } from '../seekers/entities/seeker.entity'
 import { Job } from '../../jobs/entities/job.entity'
 import { PassportModule } from '@nestjs/passport';
+import { Notifs } from '../../notifs/entities/notif.entity';
+
 @Module({
 
   imports: [
@@ -13,6 +15,7 @@ import { PassportModule } from '@nestjs/passport';
             Application,
             Seeker,
             Job,
+            Notifs
         ]),PassportModule.register({ session: false })],
   controllers: [ApplicationController],
   providers: [ApplicationService],
