@@ -1,9 +1,11 @@
 import Button from "../buttons/Button";
 import SwitchLocation from "../toggleSwitchLoc";
 import { useState } from "react";
-import LogoJeb from "../../assets/logoJEB.png"
 import CreateOfferModal from "../modal/createJobModal"; 
 import Cookies from "js-cookie";
+import Candidatures from "../../pages/Candidatures.astro";
+import EmployerNotifications from "../employerNotifs";
+
 
 type Props = {
     role: "seeker" | "employer" | "admin" | null;
@@ -15,31 +17,43 @@ function HeaderPc({ role, firstName }: Props) {
     const [isAccountMenuOpen, setAccountMenuOpen] = useState(false);
     const isConnected = role !== null;
     const isEmployer = role === "employer";
+    const isSeeker = role === "seeker";
+    let accountLink = "/seekerDashboard";
 
-    let accountLink = "/profil/";
+
 
     if (role === "employer")
         accountLink = "/dashboard/";
     else if (role === "admin")
-        accountLink = "/admin/";
+        accountLink = "/pannel-admin/";
 
     function logout() {
         Cookies.remove("token");
         window.location.href = "/";
     }
 
+    function Applications() {
+        window.location.href = "/Candidatures";
+    }
+
     return (
         <>
             <header className="w-full z-1000 flex justify-between px-10 py-2 bg-white items-center shadow-md">
                 <div className="flex items-center gap-5">
-                    <img className="size-20" src={LogoJeb.src} alt=""/>
                 <h1 className="text-black font-bold">
                     GéoEmploi
                 </h1>
                 </div>
 
                 <div className="flex items-center gap-4">
+
                     <SwitchLocation />
+                    <Button
+                            text="Transparence"
+                            clickable={true}
+                            link="/transparence"
+                            role="Page transparence"
+                        />
 
                     {isEmployer && (
                         <Button
@@ -66,7 +80,7 @@ function HeaderPc({ role, firstName }: Props) {
                                 }
                                 className="
                                     bg-gray-200
-                                    text-[#1B3A6B]
+                                    text-[#FFA500]
                                     rounded-xl
                                     px-6
                                     py-4
@@ -75,7 +89,7 @@ function HeaderPc({ role, firstName }: Props) {
                                     items-center
                                     gap-2
                                     hover:cursor-pointer
-                                    hover:bg-gray-300
+                                    hover:bg-gray-300   
                                     transition-colors
                                 "
                             >
@@ -110,6 +124,7 @@ function HeaderPc({ role, firstName }: Props) {
                                         z-[2000]
                                     "
                                 >
+                                    {role === "employer" && (<EmployerNotifications variant="header"/>)}
                                     <a
                                         href={accountLink}
                                         className="
@@ -118,13 +133,34 @@ function HeaderPc({ role, firstName }: Props) {
                                             px-5
                                             py-4
                                             text-left
-                                            text-[#1B3A6B]
-                                            hover:bg-gray-100
+                                            text-black
+                                            hover:bg-[#FFA500]/50
                                             transition-colors
+                                            z-index:10000
                                         "
                                     >
                                         Mon compte
                                     </a>
+
+                                    {isSeeker && (
+                                        <button
+                                        type="button"
+                                        onClick={Applications}
+                                        className="
+                                            block
+                                            w-full
+                                            px-5
+                                            py-4
+                                            text-left
+                                            text-black
+                                            hover:bg-[#FFA500]/50
+                                            transition-colors
+                                            cursor-pointer
+                                        "
+                                    >
+                                        Mes candidatures
+                                    </button>
+                                    )}
 
                                     <button
                                         type="button"
@@ -136,7 +172,7 @@ function HeaderPc({ role, firstName }: Props) {
                                             py-4
                                             text-left
                                             text-red-600
-                                            hover:bg-gray-100
+                                            hover:bg-[#FFA500]/50
                                             transition-colors
                                             cursor-pointer
                                         "

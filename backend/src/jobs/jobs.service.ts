@@ -1,10 +1,11 @@
-import { Injectable, BadRequestException } from '@nestjs/common';
+import { Injectable, BadRequestException, Logger, OnModuleInit, NotFoundException } from '@nestjs/common';
 import { CreateJobDto } from './dto/create-job.dto';
 import { UpdateJobDto } from './dto/update-job.dto';
-import { Repository } from 'typeorm';
+import { Repository, LessThan, Not } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Job } from './entities/job.entity';
 import { jobStatus } from './enum/jobs-status.enum';
+import {Cron, CronExpression} from '@nestjs/schedule';
 
 const GEOCODE_SOURCE = 'api-adresse.data.gouv.fr';
 const ACTIVE_SCORE_THRESHOLD = 0.5;
@@ -41,16 +42,44 @@ export interface MigrationReport {
 }
 
 @Injectable()
-export class JobsService {
+export class JobsService implements OnModuleInit {
+  private readonly logger = new Logger(JobsService.name);
   constructor(
     @InjectRepository(Job)
     private jobRepo: Repository<Job>,
   ) {}
 
+async onModuleInit() {
+  await this.archiveExpiredJobs();
+}
+
+@Cron(CronExpression.EVERY_HOUR)
+async archiveExpiredJobs(): Promise<number> 
+{
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() - 30);
+    const result = await this.jobRepo.update(
+      {
+        createdAt: LessThan(expirationDate),
+        status: Not(jobStatus.ARCHIVED),
+      },
+      {
+        status: jobStatus.ARCHIVED,
+      },
+    );
+
+    const archivedCount = result.affected ?? 0;
+
+    if (archivedCount > 0) {
+      this.logger.log(`${archivedCount} offre(s) expirée(s) archivée(s) automatiquement`);
+    }
+    return archivedCount;
+  }
+  
   async create(createJobDto: CreateJobDto, employerId: number) {
     
-    const adressUrl = `${createJobDto.streetNumber} ${createJobDto.streetName} ${createJobDto.zipCode} ${createJobDto.cityName}`;
-    const url = `https://${GEOCODE_SOURCE}/search/?q=${encodeURIComponent(adressUrl)}&limit=1`;
+    const adressUrl = `${createJobDto.cityName} ${createJobDto.zipCode}`;
+    const url = `https://${GEOCODE_SOURCE}/search/?q=${encodeURIComponent(adressUrl)}&type=municipality&limit=1`;
 
     try {
       const response = await fetch(url);
@@ -100,6 +129,43 @@ export class JobsService {
     return this.jobRepo.find({ where: { status: jobStatus.ACTIVE } });
   }
 
+  async findAllActiveGrouped() 
+  {
+   const jobs = await this.findAllActive();
+   const groupedJobs = new Map<
+     string,
+     {
+       cityName: string;
+       latitude: number;
+       longitude: number;
+       count: number;
+       jobs: Job[];
+     }
+   >();
+
+   for (const job of jobs) {
+     const key = job.cityName
+       .trim()
+       .toLowerCase();
+
+     const existingGroup = groupedJobs.get(key);
+
+     if (existingGroup) {
+       existingGroup.jobs.push(job);
+       existingGroup.count++;
+     } else {
+       groupedJobs.set(key, {
+         cityName: job.cityName,
+         latitude: job.latitude,
+         longitude: job.longitude,
+         count: 1,
+         jobs: [job],
+       });
+     }
+   }
+   return Array.from(groupedJobs.values());
+  }
+
   // Need to wire this to the admin panel so they can be manually checked 
   async findAllToCheck() {
     return this.jobRepo.find({ where: { status: jobStatus.TOCHECK } });
@@ -111,6 +177,18 @@ export class JobsService {
 
   async update(id: number, updateJobDto: UpdateJobDto) {
     return this.jobRepo.update({ id }, updateJobDto);
+  }
+
+  async updateStatus(id: number, status: jobStatus) {
+    const job = await this.jobRepo.findOne({
+      where: { id },
+    });
+
+    if (!job) {
+      throw new NotFoundException("Offre introuvable");
+    }
+    job.status = status;
+    return this.jobRepo.save(job);
   }
 
   private sleep(ms: number) {
@@ -138,7 +216,7 @@ export class JobsService {
    * MAX_RETRIES consecutive 429s, gives up loudly (RateLimitExceededError)
    */
   private async geocode(address: string): Promise<any> {
-    const url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(address)}&limit=1`;
+    const url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(address)}&type=municipality&limit=1`;
     let delay = 500;
 
     for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
@@ -209,17 +287,25 @@ export class JobsService {
       console.log(`Offres trouvées : ${jobs.length}\n`);
   
       for (const job of jobs) {
-        const alreadyGood =
+        const isAlreadyGeocoded =
           job.geocodageSource === GEOCODE_SOURCE &&
-          job.trustScore !== null && job.trustScore !== undefined &&
-          job.obtentionDate !== null && job.obtentionDate !== undefined;
-  
-        if (alreadyGood) {
-          console.log(`[SKIPPED] Offre #${job.id} déjà valide`);
-          skipped++; continue;
+          job.trustScore !== null &&
+          job.trustScore !== undefined &&
+          job.obtentionDate !== null &&
+          job.obtentionDate !== undefined &&
+          job.latitude !== null &&
+          job.latitude !== undefined &&
+          job.longitude !== null &&
+          job.longitude !== undefined &&
+          job.status !== jobStatus.TOCHECK;
+
+        if (isAlreadyGeocoded) {
+          skipped++;
+          console.log(`[SKIP] Offre #${job.id} déjà conforme`);
+          continue;
         }
-  
-        const addressToCheck = `${job.streetNumber} ${job.streetName} ${job.zipCode} ${job.cityName}`;
+
+        const addressToCheck = `${job.cityName} ${job.zipCode}`;
         const addressShort = addressToCheck.substring(0, 16);
         console.log(`[CHECK] Offre #${job.id} : ${addressShort}${addressShort.length < addressToCheck.length ? '...' : ''}`);
   
@@ -228,7 +314,9 @@ export class JobsService {
           consecutiveFailures = 0;
   
           if (!data.features || data.features.length === 0) {
-            job.status = jobStatus.TOCHECK;
+            if (job.status !== jobStatus.ARCHIVED) {
+              job.status = jobStatus.TOCHECK;
+            }
             await this.jobRepo.save(job);
             console.log(`[TOCHECK] Offre #${job.id} : adresse introuvable`);
             toCheck++;
@@ -242,7 +330,9 @@ export class JobsService {
           const score = feature.properties.score;
   
           if (score < ACTIVE_SCORE_THRESHOLD) {
-            job.status = jobStatus.TOCHECK;
+            if (job.status !== jobStatus.ARCHIVED) {
+              job.status = jobStatus.TOCHECK;
+            }
             await this.jobRepo.save(job);
             console.log(
               `[TOCHECK] Offre #${job.id} : score de confiance trop faible (${score})`,
@@ -251,7 +341,9 @@ export class JobsService {
             await this.sleep(REQUEST_DELAY_MS);
             continue;
           }
-  
+          if(job.status !== jobStatus.ARCHIVED) {
+            job.status = jobStatus.ACTIVE;
+          }
           const hadPreviousCoordinates =
             job.latitude !== null && job.latitude !== undefined &&
             job.longitude !== null && job.longitude !== undefined;
@@ -276,6 +368,7 @@ export class JobsService {
           job.latitude = latitude;
           job.geocodageSource = GEOCODE_SOURCE;
           job.trustScore = score;
+          job.obtentionDate = new Date();
           await this.jobRepo.save(job);
           recovered++;
           console.log(`[REPRISE] Offre #${job.id} reprise: score ${score.toFixed(3)}`);
@@ -356,6 +449,16 @@ export class JobsService {
       };
   }
 
+  async incrementViews(id: number) 
+  {
+    await this.jobRepo.increment({ id }, 'views', 1);
+    return this.jobRepo.findOne({
+      where: {
+        id,
+      },
+    });
+  }
+  
   async findMine(employerId: number) {
     return this.jobRepo.find({
       where: {
@@ -365,5 +468,38 @@ export class JobsService {
         createdAt: 'DESC',
       },
     });
+  }
+  
+  async purgeArchivedJobs(retentionDays: number): Promise<{examined: number; deleted: number}> 
+  {
+    const cutoffDate = new Date();
+
+    cutoffDate.setDate(cutoffDate.getDate() - retentionDays);
+    const examined = await this.jobRepo.count({
+      where: {
+        status: jobStatus.ARCHIVED,
+      },
+    });
+
+    const jobsToDelete = await this.jobRepo.find({
+      where: {
+        status: jobStatus.ARCHIVED,
+        createdAt: LessThan(cutoffDate),
+      },
+    });
+
+    if (jobsToDelete.length === 0) {
+      return {
+        examined,
+        deleted: 0,
+      };
+    }
+
+    await this.jobRepo.remove(jobsToDelete);
+
+    return {
+      examined,
+      deleted: jobsToDelete.length,
+    };
   }
 }

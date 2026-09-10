@@ -16,6 +16,13 @@ import { Seeker } from './users/seekers/entities/seeker.entity';
 import { ApplicationModule } from './users/application/application.module';
 import { Application } from './users/application/entities/application.entity';
 import { SeederService } from './seeders';
+import { ScheduleModule } from '@nestjs/schedule';
+import { Consent } from './users/consent/entities/consent.entity';
+import { ConsentsModule } from './users/consent/consent.module';
+import { ReportsModule } from './reports/reports.module';
+import { Report } from './reports/entities/report.entity';
+import { Notifs } from './notifs/entities/notif.entity';
+import { NotifsModule } from './notifs/notifs.module';
 
 @Module({
   imports: [
@@ -24,6 +31,7 @@ import { SeederService } from './seeders';
       envFilePath: '.env',
       load: [configuration]
     }),
+    ScheduleModule.forRoot(),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -34,7 +42,7 @@ import { SeederService } from './seeders';
         username: configService.get<string>('database.username'),
         password: configService.get<string>('database.password'),
         database: configService.get<string>('database.name'),
-        entities: [User, Job, Seeker, Application],
+        entities: [User, Job, Seeker, Application, Consent, Report, Notifs],
         synchronize: configService.get<boolean>('database.dev_mode'),
       }),
     }),
@@ -44,7 +52,10 @@ import { SeederService } from './seeders';
     JobsModule,
     TilesModule,
     SeekersModule,
-    ApplicationModule
+    ApplicationModule,
+    ConsentsModule,
+    ReportsModule,
+    NotifsModule
   ],
   controllers: [AppController],
   providers: [AppService, SeederService],

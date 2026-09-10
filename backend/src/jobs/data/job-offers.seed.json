@@ -1,0 +1,4502 @@
+[
+  {
+    "title": "Chargé(e) d'affaires en assurance",
+    "description": "Développement et suivi d'un portefeuille de clients professionnels.",
+    "cityName": "Bourg-en-Bresse",
+    "streetNumber": 2,
+    "streetName": "Rue de l'Église",
+    "zipCode": 1000,
+    "companyName": "Atlantide Conseil Bourg-en-Bresse"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Laon",
+    "streetNumber": 48,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 2000,
+    "companyName": "Cristal Bâtiment"
+  },
+  {
+    "title": "Développeur(euse) QA / Testeur(euse)",
+    "description": "Conception de scénarios de tests automatisés et manuels pour une application mobile grand public.",
+    "cityName": "Moulins",
+    "streetNumber": 6,
+    "streetName": "Avenue Foch",
+    "zipCode": 3002,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Développeur(euse) Full Stack",
+    "description": "Vous interviendrez sur une plateforme web utilisée par plusieurs centaines de clients, du backend à l'interface, au sein d'une équipe agile.",
+    "cityName": "Nice",
+    "streetNumber": 14,
+    "streetName": "Rue de la Gare",
+    "zipCode": 6000,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Développeur(euse) Full Stack",
+    "description": "Vous interviendrez sur une plateforme web utilisée par plusieurs centaines de clients, du backend à l'interface, au sein d'une équipe agile.",
+    "cityName": "Privas",
+    "streetNumber": 13,
+    "streetName": "Rue de l'Église",
+    "zipCode": 7002,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Pharmacien(ne) adjoint(e)",
+    "description": "Officine de quartier recherche un(e) pharmacien(ne) adjoint(e), logiciel LGPI en place.",
+    "cityName": "Charleville-Mézières",
+    "streetNumber": 15,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 8001,
+    "companyName": "Pharmacie Centrale"
+  },
+  {
+    "title": "Conseiller(ère) bancaire particuliers",
+    "description": "Gestion d'un portefeuille de clients particuliers, ouverture de compte et conseil en épargne.",
+    "cityName": "Troyes",
+    "streetNumber": 49,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 10000,
+    "companyName": "Atlantide Conseil Troyes"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Carcassonne",
+    "streetNumber": 18,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 11000,
+    "companyName": "École Sainte-Cécile Carcassonne"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Marseille",
+    "streetNumber": 7,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 13000,
+    "companyName": "Menuiserie Artisanale"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Caen",
+    "streetNumber": 39,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 14000,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Angoulême",
+    "streetNumber": 35,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 16001,
+    "companyName": "Clinique Vétérinaire"
+  },
+  {
+    "title": "Mécanicien(ne) automobile",
+    "description": "Entretien courant et diagnostics électroniques, outillage fourni.",
+    "cityName": "La Rochelle",
+    "streetNumber": 36,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 17000,
+    "companyName": "Garage Central"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Bourges",
+    "streetNumber": 37,
+    "streetName": "Rue de la Gare",
+    "zipCode": 18000,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Tulle",
+    "streetNumber": 50,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 19000,
+    "companyName": "Clinique Saint-Joseph"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Dijon",
+    "streetNumber": 56,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 21000,
+    "companyName": "Crèche Les Petits Korrigans"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Saint-Brieuc",
+    "streetNumber": 11,
+    "streetName": "Place du Marché",
+    "zipCode": 22000,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Périgueux",
+    "streetNumber": 45,
+    "streetName": "Rue Pasteur",
+    "zipCode": 24000,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Besançon",
+    "streetNumber": 41,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 25002,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Valence",
+    "streetNumber": 30,
+    "streetName": "Rue des Écoles",
+    "zipCode": 26000,
+    "companyName": "Cristal Bâtiment Valence"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Évreux",
+    "streetNumber": 15,
+    "streetName": "Rue Nationale",
+    "zipCode": 27002,
+    "companyName": "Épicerie Fine"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Chartres",
+    "streetNumber": 15,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 28000,
+    "companyName": "Menuiserie Artisanale Chartres"
+  },
+  {
+    "title": "Auxiliaire de vie sociale",
+    "description": "Accompagnement de personnes âgées ou en situation de handicap à domicile.",
+    "cityName": "Quimper",
+    "streetNumber": 18,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 29001,
+    "companyName": "Services à la Personne Quimper"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Nîmes",
+    "streetNumber": 14,
+    "streetName": "Rue Nationale",
+    "zipCode": 30000,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Développeur(euse) QA / Testeur(euse)",
+    "description": "Conception de scénarios de tests automatisés et manuels pour une application mobile grand public.",
+    "cityName": "Toulouse",
+    "streetNumber": 10,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 31001,
+    "companyName": "Nova Technologies Toulouse"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Bordeaux",
+    "streetNumber": 35,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 33002,
+    "companyName": "Clinique Vétérinaire"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Montpellier",
+    "streetNumber": 26,
+    "streetName": "Place du Marché",
+    "zipCode": 34002,
+    "companyName": "École Sainte-Cécile Montpellier"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Rennes",
+    "streetNumber": 32,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 35002,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Tours",
+    "streetNumber": 10,
+    "streetName": "Rue Nationale",
+    "zipCode": 37000,
+    "companyName": "Crèche Les Petits Korrigans Tours"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Grenoble",
+    "streetNumber": 39,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 38001,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Lons-le-Saunier",
+    "streetNumber": 34,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 39001,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Blois",
+    "streetNumber": 44,
+    "streetName": "Rue de l'Église",
+    "zipCode": 41000,
+    "companyName": "Crèche Les Petits Korrigans Blois"
+  },
+  {
+    "title": "Développeur(euse) QA / Testeur(euse)",
+    "description": "Conception de scénarios de tests automatisés et manuels pour une application mobile grand public.",
+    "cityName": "Saint-Étienne",
+    "streetNumber": 49,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 42002,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Auxiliaire de vie sociale",
+    "description": "Accompagnement de personnes âgées ou en situation de handicap à domicile.",
+    "cityName": "Nantes",
+    "streetNumber": 19,
+    "streetName": "Rue des Écoles",
+    "zipCode": 44000,
+    "companyName": "Services à la Personne Nantes"
+  },
+  {
+    "title": "Développeur(euse) Full Stack",
+    "description": "Vous interviendrez sur une plateforme web utilisée par plusieurs centaines de clients, du backend à l'interface, au sein d'une équipe agile.",
+    "cityName": "Orléans",
+    "streetNumber": 33,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 45000,
+    "companyName": "Nova Technologies Orléans"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Angers",
+    "streetNumber": 56,
+    "streetName": "Rue Nationale",
+    "zipCode": 49000,
+    "companyName": "Épicerie Fine Angers"
+  },
+  {
+    "title": "Chargé(e) d'affaires en assurance",
+    "description": "Développement et suivi d'un portefeuille de clients professionnels.",
+    "cityName": "Saint-Lô",
+    "streetNumber": 39,
+    "streetName": "Rue de la Gare",
+    "zipCode": 50002,
+    "companyName": "Atlantide Conseil Saint-Lô"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Châlons-en-Champagne",
+    "streetNumber": 35,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 51000,
+    "companyName": "Menuiserie Artisanale"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Nancy",
+    "streetNumber": 39,
+    "streetName": "Place du Marché",
+    "zipCode": 54000,
+    "companyName": "Épicerie Fine"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Vannes",
+    "streetNumber": 57,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 56000,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Metz",
+    "streetNumber": 16,
+    "streetName": "Rue Pasteur",
+    "zipCode": 57000,
+    "companyName": "Cristal Bâtiment"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Lille",
+    "streetNumber": 47,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 59000,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Beauvais",
+    "streetNumber": 50,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 60002,
+    "companyName": "Menuiserie Artisanale Beauvais"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Arras",
+    "streetNumber": 11,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 62002,
+    "companyName": "Studio Odyssée"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Clermont-Ferrand",
+    "streetNumber": 14,
+    "streetName": "Rue Pasteur",
+    "zipCode": 63001,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Pau",
+    "streetNumber": 46,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 64000,
+    "companyName": "Clinique Vétérinaire"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Strasbourg",
+    "streetNumber": 29,
+    "streetName": "Rue Pasteur",
+    "zipCode": 67000,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Colmar",
+    "streetNumber": 15,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 68000,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Lyon",
+    "streetNumber": 15,
+    "streetName": "Avenue Foch",
+    "zipCode": 69002,
+    "companyName": "Ker Logistique Lyon"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Le Mans",
+    "streetNumber": 15,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 72000,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Chambéry",
+    "streetNumber": 5,
+    "streetName": "Rue de la Paix",
+    "zipCode": 73000,
+    "companyName": "Crèche Les Petits Korrigans Chambéry"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Rouen",
+    "streetNumber": 14,
+    "streetName": "Rue de la Paix",
+    "zipCode": 76001,
+    "companyName": "Bretagne Verte Paysage Rouen"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Melun",
+    "streetNumber": 37,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 77002,
+    "companyName": "Épicerie Fine Melun"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Amiens",
+    "streetNumber": 13,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 80001,
+    "companyName": "Studio Odyssée Amiens"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Toulon",
+    "streetNumber": 28,
+    "streetName": "Rue des Écoles",
+    "zipCode": 83000,
+    "companyName": "École Sainte-Cécile"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Avignon",
+    "streetNumber": 44,
+    "streetName": "Rue Nationale",
+    "zipCode": 84000,
+    "companyName": "Clinique Vétérinaire"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Poitiers",
+    "streetNumber": 26,
+    "streetName": "Rue de l'Église",
+    "zipCode": 86000,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Limoges",
+    "streetNumber": 16,
+    "streetName": "Rue de la Gare",
+    "zipCode": 87000,
+    "companyName": "Crèche Les Petits Korrigans Limoges"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Bourg-en-Bresse",
+    "streetNumber": 28,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 1000,
+    "companyName": "Cristal Immobilier Bourg-en-Bresse"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Laon",
+    "streetNumber": 29,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 2000,
+    "companyName": "Cristal Bâtiment"
+  },
+  {
+    "title": "Pharmacien(ne) adjoint(e)",
+    "description": "Officine de quartier recherche un(e) pharmacien(ne) adjoint(e), logiciel LGPI en place.",
+    "cityName": "Moulins",
+    "streetNumber": 4,
+    "streetName": "Rue Nationale",
+    "zipCode": 3000,
+    "companyName": "Pharmacie Centrale"
+  },
+  {
+    "title": "Agent(e) de sécurité SSIAP 1",
+    "description": "Rondes de surveillance et gestion des alarmes incendie en centre commercial.",
+    "cityName": "Nice",
+    "streetNumber": 6,
+    "streetName": "Rue Pasteur",
+    "zipCode": 6000,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Privas",
+    "streetNumber": 27,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 7000,
+    "companyName": "Cristal Bâtiment"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Charleville-Mézières",
+    "streetNumber": 58,
+    "streetName": "Rue de la République",
+    "zipCode": 8001,
+    "companyName": "Crèche Les Petits Korrigans Charleville-Mézières"
+  },
+  {
+    "title": "Développeur(euse) Full Stack",
+    "description": "Vous interviendrez sur une plateforme web utilisée par plusieurs centaines de clients, du backend à l'interface, au sein d'une équipe agile.",
+    "cityName": "Troyes",
+    "streetNumber": 17,
+    "streetName": "Rue Pasteur",
+    "zipCode": 10001,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Carcassonne",
+    "streetNumber": 28,
+    "streetName": "Rue de l'Église",
+    "zipCode": 11000,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Conseiller(ère) bancaire particuliers",
+    "description": "Gestion d'un portefeuille de clients particuliers, ouverture de compte et conseil en épargne.",
+    "cityName": "Marseille",
+    "streetNumber": 43,
+    "streetName": "Rue de l'Église",
+    "zipCode": 13002,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Aide-soignant(e)",
+    "description": "Établissement médicalisé recherche un(e) aide-soignant(e) pour son équipe de nuit, matériel récent.",
+    "cityName": "Caen",
+    "streetNumber": 14,
+    "streetName": "Rue de la République",
+    "zipCode": 14000,
+    "companyName": "Vilaine Santé"
+  },
+  {
+    "title": "Pharmacien(ne) adjoint(e)",
+    "description": "Officine de quartier recherche un(e) pharmacien(ne) adjoint(e), logiciel LGPI en place.",
+    "cityName": "Angoulême",
+    "streetNumber": 48,
+    "streetName": "Place du Marché",
+    "zipCode": 16000,
+    "companyName": "Pharmacie Centrale Angoulême"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "La Rochelle",
+    "streetNumber": 33,
+    "streetName": "Rue Pasteur",
+    "zipCode": 17001,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Data Analyst H/F",
+    "description": "Construction de tableaux de bord et fiabilisation des pipelines de données existants.",
+    "cityName": "Bourges",
+    "streetNumber": 33,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 18000,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Tulle",
+    "streetNumber": 5,
+    "streetName": "Rue Nationale",
+    "zipCode": 19002,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Mécanicien(ne) automobile",
+    "description": "Entretien courant et diagnostics électroniques, outillage fourni.",
+    "cityName": "Dijon",
+    "streetNumber": 57,
+    "streetName": "Avenue Foch",
+    "zipCode": 21000,
+    "companyName": "Garage Central Dijon"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Saint-Brieuc",
+    "streetNumber": 40,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 22000,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Périgueux",
+    "streetNumber": 34,
+    "streetName": "Place du Marché",
+    "zipCode": 24002,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Aide-soignant(e)",
+    "description": "Établissement médicalisé recherche un(e) aide-soignant(e) pour son équipe de nuit, matériel récent.",
+    "cityName": "Besançon",
+    "streetNumber": 16,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 25000,
+    "companyName": "Vilaine Santé"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Valence",
+    "streetNumber": 30,
+    "streetName": "Place du Marché",
+    "zipCode": 26000,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Évreux",
+    "streetNumber": 1,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 27000,
+    "companyName": "Épicerie Fine"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Chartres",
+    "streetNumber": 5,
+    "streetName": "Rue de la Paix",
+    "zipCode": 28000,
+    "companyName": "Ker Logistique Chartres"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Quimper",
+    "streetNumber": 60,
+    "streetName": "Place du Marché",
+    "zipCode": 29000,
+    "companyName": "Le Comptoir"
+  },
+  {
+    "title": "Développeur(euse) QA / Testeur(euse)",
+    "description": "Conception de scénarios de tests automatisés et manuels pour une application mobile grand public.",
+    "cityName": "Nîmes",
+    "streetNumber": 24,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 30000,
+    "companyName": "Nova Technologies Nîmes"
+  },
+  {
+    "title": "Agent(e) de sécurité SSIAP 1",
+    "description": "Rondes de surveillance et gestion des alarmes incendie en centre commercial.",
+    "cityName": "Toulouse",
+    "streetNumber": 46,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 31002,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Conseiller(ère) bancaire particuliers",
+    "description": "Gestion d'un portefeuille de clients particuliers, ouverture de compte et conseil en épargne.",
+    "cityName": "Bordeaux",
+    "streetNumber": 1,
+    "streetName": "Rue Nationale",
+    "zipCode": 33002,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Montpellier",
+    "streetNumber": 57,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 34000,
+    "companyName": "Breizh Data Solutions Montpellier"
+  },
+  {
+    "title": "Développeur(euse) QA / Testeur(euse)",
+    "description": "Conception de scénarios de tests automatisés et manuels pour une application mobile grand public.",
+    "cityName": "Rennes",
+    "streetNumber": 48,
+    "streetName": "Rue de la Paix",
+    "zipCode": 35000,
+    "companyName": "Nova Technologies Rennes"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Tours",
+    "streetNumber": 14,
+    "streetName": "Rue de l'Église",
+    "zipCode": 37002,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Grenoble",
+    "streetNumber": 33,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 38000,
+    "companyName": "Bretagne Verte Paysage Grenoble"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Lons-le-Saunier",
+    "streetNumber": 6,
+    "streetName": "Rue Nationale",
+    "zipCode": 39000,
+    "companyName": "Épicerie Fine"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Blois",
+    "streetNumber": 1,
+    "streetName": "Place du Marché",
+    "zipCode": 41000,
+    "companyName": "Le Comptoir"
+  },
+  {
+    "title": "Chargé(e) d'affaires en assurance",
+    "description": "Développement et suivi d'un portefeuille de clients professionnels.",
+    "cityName": "Saint-Étienne",
+    "streetNumber": 11,
+    "streetName": "Rue de l'Église",
+    "zipCode": 42000,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Assistant(e) de direction",
+    "description": "Gestion d'agenda, préparation de dossiers et organisation de déplacements pour deux dirigeants.",
+    "cityName": "Nantes",
+    "streetNumber": 36,
+    "streetName": "Rue de la République",
+    "zipCode": 44001,
+    "companyName": "Nova Technologies Nantes"
+  },
+  {
+    "title": "Développeur(euse) QA / Testeur(euse)",
+    "description": "Conception de scénarios de tests automatisés et manuels pour une application mobile grand public.",
+    "cityName": "Orléans",
+    "streetNumber": 35,
+    "streetName": "Rue de la République",
+    "zipCode": 45000,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Angers",
+    "streetNumber": 10,
+    "streetName": "Rue des Écoles",
+    "zipCode": 49002,
+    "companyName": "Ker Logistique Angers"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Saint-Lô",
+    "streetNumber": 58,
+    "streetName": "Rue Pasteur",
+    "zipCode": 50000,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Châlons-en-Champagne",
+    "streetNumber": 58,
+    "streetName": "Place du Marché",
+    "zipCode": 51000,
+    "companyName": "Crèche Les Petits Korrigans Châlons-en-Champagne"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Nancy",
+    "streetNumber": 23,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 54000,
+    "companyName": "Cristal Bâtiment"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Vannes",
+    "streetNumber": 40,
+    "streetName": "Rue de l'Église",
+    "zipCode": 56001,
+    "companyName": "Crèche Les Petits Korrigans Vannes"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Metz",
+    "streetNumber": 56,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 57000,
+    "companyName": "Épicerie Fine"
+  },
+  {
+    "title": "Conseiller(ère) bancaire particuliers",
+    "description": "Gestion d'un portefeuille de clients particuliers, ouverture de compte et conseil en épargne.",
+    "cityName": "Lille",
+    "streetNumber": 57,
+    "streetName": "Rue des Écoles",
+    "zipCode": 59000,
+    "companyName": "Atlantide Conseil Lille"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Beauvais",
+    "streetNumber": 51,
+    "streetName": "Rue Pasteur",
+    "zipCode": 60000,
+    "companyName": "Clinique Vétérinaire"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Arras",
+    "streetNumber": 18,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 62000,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Clermont-Ferrand",
+    "streetNumber": 56,
+    "streetName": "Rue de la République",
+    "zipCode": 63001,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Pau",
+    "streetNumber": 53,
+    "streetName": "Rue Pasteur",
+    "zipCode": 64000,
+    "companyName": "Cristal Bâtiment"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Strasbourg",
+    "streetNumber": 15,
+    "streetName": "Rue de la République",
+    "zipCode": 67000,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Mécanicien(ne) automobile",
+    "description": "Entretien courant et diagnostics électroniques, outillage fourni.",
+    "cityName": "Colmar",
+    "streetNumber": 18,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 68000,
+    "companyName": "Garage Central Colmar"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Lyon",
+    "streetNumber": 23,
+    "streetName": "Rue Nationale",
+    "zipCode": 69000,
+    "companyName": "Menuiserie Artisanale"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Le Mans",
+    "streetNumber": 22,
+    "streetName": "Rue de la République",
+    "zipCode": 72002,
+    "companyName": "Bretagne Verte Paysage Le Mans"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Chambéry",
+    "streetNumber": 38,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 73000,
+    "companyName": "Le Comptoir Chambéry"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Rouen",
+    "streetNumber": 23,
+    "streetName": "Rue de l'Église",
+    "zipCode": 76001,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Melun",
+    "streetNumber": 33,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 77002,
+    "companyName": "École Sainte-Cécile"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Amiens",
+    "streetNumber": 17,
+    "streetName": "Rue de la République",
+    "zipCode": 80000,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Développeur(euse) Full Stack",
+    "description": "Vous interviendrez sur une plateforme web utilisée par plusieurs centaines de clients, du backend à l'interface, au sein d'une équipe agile.",
+    "cityName": "Toulon",
+    "streetNumber": 60,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 83002,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Avignon",
+    "streetNumber": 24,
+    "streetName": "Rue des Écoles",
+    "zipCode": 84000,
+    "companyName": "Clinique Vétérinaire Avignon"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Poitiers",
+    "streetNumber": 40,
+    "streetName": "Place du Marché",
+    "zipCode": 86000,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Limoges",
+    "streetNumber": 33,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 87000,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Auxiliaire de vie sociale",
+    "description": "Accompagnement de personnes âgées ou en situation de handicap à domicile.",
+    "cityName": "Bourg-en-Bresse",
+    "streetNumber": 45,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 1001,
+    "companyName": "Services à la Personne"
+  },
+  {
+    "title": "Aide-soignant(e)",
+    "description": "Établissement médicalisé recherche un(e) aide-soignant(e) pour son équipe de nuit, matériel récent.",
+    "cityName": "Laon",
+    "streetNumber": 43,
+    "streetName": "Rue des Écoles",
+    "zipCode": 2001,
+    "companyName": "Vilaine Santé"
+  },
+  {
+    "title": "Développeur(euse) QA / Testeur(euse)",
+    "description": "Conception de scénarios de tests automatisés et manuels pour une application mobile grand public.",
+    "cityName": "Moulins",
+    "streetNumber": 40,
+    "streetName": "Avenue Foch",
+    "zipCode": 3000,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Pharmacien(ne) adjoint(e)",
+    "description": "Officine de quartier recherche un(e) pharmacien(ne) adjoint(e), logiciel LGPI en place.",
+    "cityName": "Nice",
+    "streetNumber": 20,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 6000,
+    "companyName": "Pharmacie Centrale Nice"
+  },
+  {
+    "title": "Conseiller(ère) bancaire particuliers",
+    "description": "Gestion d'un portefeuille de clients particuliers, ouverture de compte et conseil en épargne.",
+    "cityName": "Privas",
+    "streetNumber": 39,
+    "streetName": "Rue Nationale",
+    "zipCode": 7002,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Charleville-Mézières",
+    "streetNumber": 44,
+    "streetName": "Rue de la Gare",
+    "zipCode": 8001,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Conseiller(ère) bancaire particuliers",
+    "description": "Gestion d'un portefeuille de clients particuliers, ouverture de compte et conseil en épargne.",
+    "cityName": "Troyes",
+    "streetNumber": 43,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 10000,
+    "companyName": "Atlantide Conseil Troyes"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Carcassonne",
+    "streetNumber": 22,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 11002,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Marseille",
+    "streetNumber": 44,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 13000,
+    "companyName": "Menuiserie Artisanale Marseille"
+  },
+  {
+    "title": "Aide-soignant(e)",
+    "description": "Établissement médicalisé recherche un(e) aide-soignant(e) pour son équipe de nuit, matériel récent.",
+    "cityName": "Caen",
+    "streetNumber": 2,
+    "streetName": "Rue de la République",
+    "zipCode": 14000,
+    "companyName": "Vilaine Santé Caen"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Angoulême",
+    "streetNumber": 55,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 16002,
+    "companyName": "Studio Odyssée Angoulême"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "La Rochelle",
+    "streetNumber": 13,
+    "streetName": "Rue de l'Église",
+    "zipCode": 17002,
+    "companyName": "École Sainte-Cécile"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Bourges",
+    "streetNumber": 16,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 18001,
+    "companyName": "Studio Odyssée"
+  },
+  {
+    "title": "Développeur(euse) Full Stack",
+    "description": "Vous interviendrez sur une plateforme web utilisée par plusieurs centaines de clients, du backend à l'interface, au sein d'une équipe agile.",
+    "cityName": "Tulle",
+    "streetNumber": 50,
+    "streetName": "Rue des Écoles",
+    "zipCode": 19000,
+    "companyName": "Nova Technologies Tulle"
+  },
+  {
+    "title": "Conseiller(ère) bancaire particuliers",
+    "description": "Gestion d'un portefeuille de clients particuliers, ouverture de compte et conseil en épargne.",
+    "cityName": "Dijon",
+    "streetNumber": 30,
+    "streetName": "Rue de la République",
+    "zipCode": 21002,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Saint-Brieuc",
+    "streetNumber": 30,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 22000,
+    "companyName": "Épicerie Fine"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Périgueux",
+    "streetNumber": 36,
+    "streetName": "Avenue Foch",
+    "zipCode": 24002,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Besançon",
+    "streetNumber": 40,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 25001,
+    "companyName": "Menuiserie Artisanale"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Valence",
+    "streetNumber": 54,
+    "streetName": "Rue Pasteur",
+    "zipCode": 26001,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Développeur(euse) QA / Testeur(euse)",
+    "description": "Conception de scénarios de tests automatisés et manuels pour une application mobile grand public.",
+    "cityName": "Évreux",
+    "streetNumber": 48,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 27000,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Chartres",
+    "streetNumber": 54,
+    "streetName": "Rue Nationale",
+    "zipCode": 28000,
+    "companyName": "Le Comptoir Chartres"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Quimper",
+    "streetNumber": 32,
+    "streetName": "Rue Nationale",
+    "zipCode": 29002,
+    "companyName": "Menuiserie Artisanale Quimper"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Nîmes",
+    "streetNumber": 46,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 30000,
+    "companyName": "Cristal Immobilier Nîmes"
+  },
+  {
+    "title": "Auxiliaire de vie sociale",
+    "description": "Accompagnement de personnes âgées ou en situation de handicap à domicile.",
+    "cityName": "Toulouse",
+    "streetNumber": 58,
+    "streetName": "Rue de la Paix",
+    "zipCode": 31000,
+    "companyName": "Services à la Personne Toulouse"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Bordeaux",
+    "streetNumber": 25,
+    "streetName": "Rue de l'Église",
+    "zipCode": 33000,
+    "companyName": "Ker Logistique Bordeaux"
+  },
+  {
+    "title": "Aide-soignant(e)",
+    "description": "Établissement médicalisé recherche un(e) aide-soignant(e) pour son équipe de nuit, matériel récent.",
+    "cityName": "Montpellier",
+    "streetNumber": 27,
+    "streetName": "Rue des Écoles",
+    "zipCode": 34000,
+    "companyName": "Vilaine Santé"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Rennes",
+    "streetNumber": 4,
+    "streetName": "Rue de la Gare",
+    "zipCode": 35001,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Mécanicien(ne) automobile",
+    "description": "Entretien courant et diagnostics électroniques, outillage fourni.",
+    "cityName": "Tours",
+    "streetNumber": 45,
+    "streetName": "Rue de la République",
+    "zipCode": 37002,
+    "companyName": "Garage Central"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Grenoble",
+    "streetNumber": 25,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 38002,
+    "companyName": "Menuiserie Artisanale Grenoble"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Lons-le-Saunier",
+    "streetNumber": 49,
+    "streetName": "Rue des Écoles",
+    "zipCode": 39000,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Agent(e) de sécurité SSIAP 1",
+    "description": "Rondes de surveillance et gestion des alarmes incendie en centre commercial.",
+    "cityName": "Blois",
+    "streetNumber": 35,
+    "streetName": "Rue de l'Église",
+    "zipCode": 41001,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Conseiller(ère) bancaire particuliers",
+    "description": "Gestion d'un portefeuille de clients particuliers, ouverture de compte et conseil en épargne.",
+    "cityName": "Saint-Étienne",
+    "streetNumber": 58,
+    "streetName": "Rue de la Gare",
+    "zipCode": 42002,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Nantes",
+    "streetNumber": 32,
+    "streetName": "Rue de la République",
+    "zipCode": 44001,
+    "companyName": "Le Comptoir"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Orléans",
+    "streetNumber": 47,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 45001,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Angers",
+    "streetNumber": 40,
+    "streetName": "Rue de la Paix",
+    "zipCode": 49000,
+    "companyName": "Épicerie Fine Angers"
+  },
+  {
+    "title": "Mécanicien(ne) automobile",
+    "description": "Entretien courant et diagnostics électroniques, outillage fourni.",
+    "cityName": "Saint-Lô",
+    "streetNumber": 37,
+    "streetName": "Rue Nationale",
+    "zipCode": 50002,
+    "companyName": "Garage Central Saint-Lô"
+  },
+  {
+    "title": "Chargé(e) d'affaires en assurance",
+    "description": "Développement et suivi d'un portefeuille de clients professionnels.",
+    "cityName": "Châlons-en-Champagne",
+    "streetNumber": 9,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 51001,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Nancy",
+    "streetNumber": 25,
+    "streetName": "Place du Marché",
+    "zipCode": 54000,
+    "companyName": "Clinique Saint-Joseph Nancy"
+  },
+  {
+    "title": "Auxiliaire de vie sociale",
+    "description": "Accompagnement de personnes âgées ou en situation de handicap à domicile.",
+    "cityName": "Vannes",
+    "streetNumber": 49,
+    "streetName": "Rue Pasteur",
+    "zipCode": 56000,
+    "companyName": "Services à la Personne"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Metz",
+    "streetNumber": 17,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 57001,
+    "companyName": "Menuiserie Artisanale Metz"
+  },
+  {
+    "title": "Développeur(euse) Full Stack",
+    "description": "Vous interviendrez sur une plateforme web utilisée par plusieurs centaines de clients, du backend à l'interface, au sein d'une équipe agile.",
+    "cityName": "Lille",
+    "streetNumber": 4,
+    "streetName": "Place du Marché",
+    "zipCode": 59002,
+    "companyName": "Nova Technologies Lille"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Beauvais",
+    "streetNumber": 49,
+    "streetName": "Rue de la République",
+    "zipCode": 60000,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Aide-soignant(e)",
+    "description": "Établissement médicalisé recherche un(e) aide-soignant(e) pour son équipe de nuit, matériel récent.",
+    "cityName": "Arras",
+    "streetNumber": 40,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 62000,
+    "companyName": "Vilaine Santé Arras"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Clermont-Ferrand",
+    "streetNumber": 37,
+    "streetName": "Rue de la Gare",
+    "zipCode": 63000,
+    "companyName": "Studio Odyssée"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Pau",
+    "streetNumber": 11,
+    "streetName": "Avenue Foch",
+    "zipCode": 64000,
+    "companyName": "Le Comptoir"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Strasbourg",
+    "streetNumber": 50,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 67000,
+    "companyName": "Clinique Vétérinaire Strasbourg"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Colmar",
+    "streetNumber": 38,
+    "streetName": "Rue de la République",
+    "zipCode": 68000,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Lyon",
+    "streetNumber": 26,
+    "streetName": "Rue de l'Église",
+    "zipCode": 69001,
+    "companyName": "Ker Logistique Lyon"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Le Mans",
+    "streetNumber": 7,
+    "streetName": "Rue de l'Église",
+    "zipCode": 72000,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Chambéry",
+    "streetNumber": 52,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 73002,
+    "companyName": "Crèche Les Petits Korrigans"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Rouen",
+    "streetNumber": 23,
+    "streetName": "Rue de la Paix",
+    "zipCode": 76000,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Melun",
+    "streetNumber": 33,
+    "streetName": "Rue Nationale",
+    "zipCode": 77000,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Amiens",
+    "streetNumber": 53,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 80001,
+    "companyName": "Crèche Les Petits Korrigans Amiens"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Toulon",
+    "streetNumber": 46,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 83001,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Avignon",
+    "streetNumber": 42,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 84002,
+    "companyName": "Clinique Vétérinaire"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Poitiers",
+    "streetNumber": 50,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 86002,
+    "companyName": "Épicerie Fine"
+  },
+  {
+    "title": "Agent(e) de sécurité SSIAP 1",
+    "description": "Rondes de surveillance et gestion des alarmes incendie en centre commercial.",
+    "cityName": "Limoges",
+    "streetNumber": 18,
+    "streetName": "Place du Marché",
+    "zipCode": 87002,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Agent(e) de sécurité SSIAP 1",
+    "description": "Rondes de surveillance et gestion des alarmes incendie en centre commercial.",
+    "cityName": "Bourg-en-Bresse",
+    "streetNumber": 18,
+    "streetName": "Rue Pasteur",
+    "zipCode": 1000,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Laon",
+    "streetNumber": 37,
+    "streetName": "Avenue Foch",
+    "zipCode": 2001,
+    "companyName": "Menuiserie Artisanale"
+  },
+  {
+    "title": "Auxiliaire de vie sociale",
+    "description": "Accompagnement de personnes âgées ou en situation de handicap à domicile.",
+    "cityName": "Moulins",
+    "streetNumber": 32,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 3000,
+    "companyName": "Services à la Personne"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Nice",
+    "streetNumber": 23,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 6000,
+    "companyName": "Studio Odyssée Nice"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Privas",
+    "streetNumber": 45,
+    "streetName": "Rue Pasteur",
+    "zipCode": 7002,
+    "companyName": "Le Comptoir Privas"
+  },
+  {
+    "title": "Développeur(euse) Full Stack",
+    "description": "Vous interviendrez sur une plateforme web utilisée par plusieurs centaines de clients, du backend à l'interface, au sein d'une équipe agile.",
+    "cityName": "Charleville-Mézières",
+    "streetNumber": 13,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 8002,
+    "companyName": "Nova Technologies Charleville-Mézières"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Troyes",
+    "streetNumber": 36,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 10001,
+    "companyName": "École Sainte-Cécile Troyes"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Carcassonne",
+    "streetNumber": 29,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 11001,
+    "companyName": "Studio Odyssée Carcassonne"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Marseille",
+    "streetNumber": 26,
+    "streetName": "Rue de l'Église",
+    "zipCode": 13000,
+    "companyName": "Breizh Data Solutions Marseille"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Caen",
+    "streetNumber": 24,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 14002,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Angoulême",
+    "streetNumber": 48,
+    "streetName": "Rue de la Paix",
+    "zipCode": 16001,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Assistant(e) de direction",
+    "description": "Gestion d'agenda, préparation de dossiers et organisation de déplacements pour deux dirigeants.",
+    "cityName": "La Rochelle",
+    "streetNumber": 18,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 17001,
+    "companyName": "Nova Technologies La Rochelle"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Bourges",
+    "streetNumber": 21,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 18000,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Tulle",
+    "streetNumber": 13,
+    "streetName": "Rue de la Gare",
+    "zipCode": 19000,
+    "companyName": "Menuiserie Artisanale"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Dijon",
+    "streetNumber": 49,
+    "streetName": "Rue de la Paix",
+    "zipCode": 21002,
+    "companyName": "Le Comptoir"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Saint-Brieuc",
+    "streetNumber": 19,
+    "streetName": "Rue de la Gare",
+    "zipCode": 22000,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Périgueux",
+    "streetNumber": 46,
+    "streetName": "Rue de la Paix",
+    "zipCode": 24000,
+    "companyName": "Breizh Data Solutions Périgueux"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Besançon",
+    "streetNumber": 36,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 25000,
+    "companyName": "Clinique Saint-Joseph"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Valence",
+    "streetNumber": 7,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 26001,
+    "companyName": "Ker Logistique Valence"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Évreux",
+    "streetNumber": 31,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 27001,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Chartres",
+    "streetNumber": 56,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 28000,
+    "companyName": "Clinique Saint-Joseph Chartres"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Quimper",
+    "streetNumber": 32,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 29001,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Nîmes",
+    "streetNumber": 10,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 30000,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Toulouse",
+    "streetNumber": 16,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 31000,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Bordeaux",
+    "streetNumber": 39,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 33002,
+    "companyName": "École Sainte-Cécile"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Montpellier",
+    "streetNumber": 25,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 34002,
+    "companyName": "Menuiserie Artisanale"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Rennes",
+    "streetNumber": 28,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 35002,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Tours",
+    "streetNumber": 48,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 37002,
+    "companyName": "Clinique Saint-Joseph"
+  },
+  {
+    "title": "Aide-soignant(e)",
+    "description": "Établissement médicalisé recherche un(e) aide-soignant(e) pour son équipe de nuit, matériel récent.",
+    "cityName": "Grenoble",
+    "streetNumber": 17,
+    "streetName": "Rue Nationale",
+    "zipCode": 38000,
+    "companyName": "Vilaine Santé Grenoble"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Lons-le-Saunier",
+    "streetNumber": 36,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 39000,
+    "companyName": "Cristal Bâtiment Lons-le-Saunier"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Blois",
+    "streetNumber": 45,
+    "streetName": "Avenue Foch",
+    "zipCode": 41001,
+    "companyName": "École Sainte-Cécile"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Saint-Étienne",
+    "streetNumber": 19,
+    "streetName": "Rue de l'Église",
+    "zipCode": 42000,
+    "companyName": "Clinique Saint-Joseph Saint-Étienne"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Nantes",
+    "streetNumber": 5,
+    "streetName": "Rue Nationale",
+    "zipCode": 44001,
+    "companyName": "Crèche Les Petits Korrigans Nantes"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Orléans",
+    "streetNumber": 43,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 45002,
+    "companyName": "Le Comptoir"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Angers",
+    "streetNumber": 35,
+    "streetName": "Rue de la Gare",
+    "zipCode": 49000,
+    "companyName": "École Sainte-Cécile"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Saint-Lô",
+    "streetNumber": 53,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 50000,
+    "companyName": "Épicerie Fine Saint-Lô"
+  },
+  {
+    "title": "Data Analyst H/F",
+    "description": "Construction de tableaux de bord et fiabilisation des pipelines de données existants.",
+    "cityName": "Châlons-en-Champagne",
+    "streetNumber": 39,
+    "streetName": "Rue de l'Église",
+    "zipCode": 51000,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Nancy",
+    "streetNumber": 29,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 54000,
+    "companyName": "Épicerie Fine"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Vannes",
+    "streetNumber": 18,
+    "streetName": "Rue de la Paix",
+    "zipCode": 56001,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Metz",
+    "streetNumber": 39,
+    "streetName": "Rue de la République",
+    "zipCode": 57000,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Lille",
+    "streetNumber": 39,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 59000,
+    "companyName": "Clinique Vétérinaire Lille"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Beauvais",
+    "streetNumber": 38,
+    "streetName": "Rue de la République",
+    "zipCode": 60002,
+    "companyName": "Cristal Bâtiment"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Arras",
+    "streetNumber": 37,
+    "streetName": "Rue de la République",
+    "zipCode": 62000,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Data Analyst H/F",
+    "description": "Construction de tableaux de bord et fiabilisation des pipelines de données existants.",
+    "cityName": "Clermont-Ferrand",
+    "streetNumber": 34,
+    "streetName": "Rue Nationale",
+    "zipCode": 63001,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Pau",
+    "streetNumber": 38,
+    "streetName": "Rue des Écoles",
+    "zipCode": 64000,
+    "companyName": "Le Comptoir"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Strasbourg",
+    "streetNumber": 31,
+    "streetName": "Place du Marché",
+    "zipCode": 67000,
+    "companyName": "Studio Odyssée"
+  },
+  {
+    "title": "Auxiliaire de vie sociale",
+    "description": "Accompagnement de personnes âgées ou en situation de handicap à domicile.",
+    "cityName": "Colmar",
+    "streetNumber": 55,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 68000,
+    "companyName": "Services à la Personne"
+  },
+  {
+    "title": "Assistant(e) de direction",
+    "description": "Gestion d'agenda, préparation de dossiers et organisation de déplacements pour deux dirigeants.",
+    "cityName": "Lyon",
+    "streetNumber": 19,
+    "streetName": "Rue Nationale",
+    "zipCode": 69001,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Agent(e) de sécurité SSIAP 1",
+    "description": "Rondes de surveillance et gestion des alarmes incendie en centre commercial.",
+    "cityName": "Le Mans",
+    "streetNumber": 3,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 72002,
+    "companyName": "Ouest Services RH Le Mans"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Chambéry",
+    "streetNumber": 8,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 73000,
+    "companyName": "Le Comptoir"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Rouen",
+    "streetNumber": 43,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 76000,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Melun",
+    "streetNumber": 13,
+    "streetName": "Rue de la Paix",
+    "zipCode": 77000,
+    "companyName": "École Sainte-Cécile"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Amiens",
+    "streetNumber": 41,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 80001,
+    "companyName": "Menuiserie Artisanale"
+  },
+  {
+    "title": "Aide-soignant(e)",
+    "description": "Établissement médicalisé recherche un(e) aide-soignant(e) pour son équipe de nuit, matériel récent.",
+    "cityName": "Toulon",
+    "streetNumber": 36,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 83000,
+    "companyName": "Vilaine Santé"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Avignon",
+    "streetNumber": 8,
+    "streetName": "Rue de la République",
+    "zipCode": 84001,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Poitiers",
+    "streetNumber": 46,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 86000,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Développeur(euse) Full Stack",
+    "description": "Vous interviendrez sur une plateforme web utilisée par plusieurs centaines de clients, du backend à l'interface, au sein d'une équipe agile.",
+    "cityName": "Limoges",
+    "streetNumber": 27,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 87002,
+    "companyName": "Nova Technologies Limoges"
+  },
+  {
+    "title": "Agent(e) de sécurité SSIAP 1",
+    "description": "Rondes de surveillance et gestion des alarmes incendie en centre commercial.",
+    "cityName": "Bourg-en-Bresse",
+    "streetNumber": 30,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 1000,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Laon",
+    "streetNumber": 60,
+    "streetName": "Rue de l'Église",
+    "zipCode": 2001,
+    "companyName": "Ker Logistique Laon"
+  },
+  {
+    "title": "Assistant(e) de direction",
+    "description": "Gestion d'agenda, préparation de dossiers et organisation de déplacements pour deux dirigeants.",
+    "cityName": "Moulins",
+    "streetNumber": 27,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 3000,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Nice",
+    "streetNumber": 30,
+    "streetName": "Rue de la Paix",
+    "zipCode": 6000,
+    "companyName": "Studio Odyssée Nice"
+  },
+  {
+    "title": "Aide-soignant(e)",
+    "description": "Établissement médicalisé recherche un(e) aide-soignant(e) pour son équipe de nuit, matériel récent.",
+    "cityName": "Privas",
+    "streetNumber": 33,
+    "streetName": "Rue de l'Église",
+    "zipCode": 7002,
+    "companyName": "Vilaine Santé"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Charleville-Mézières",
+    "streetNumber": 18,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 8000,
+    "companyName": "Crèche Les Petits Korrigans"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Troyes",
+    "streetNumber": 60,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 10000,
+    "companyName": "École Sainte-Cécile"
+  },
+  {
+    "title": "Agent(e) de sécurité SSIAP 1",
+    "description": "Rondes de surveillance et gestion des alarmes incendie en centre commercial.",
+    "cityName": "Carcassonne",
+    "streetNumber": 19,
+    "streetName": "Rue de l'Église",
+    "zipCode": 11000,
+    "companyName": "Ouest Services RH Carcassonne"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Marseille",
+    "streetNumber": 43,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 13002,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Caen",
+    "streetNumber": 31,
+    "streetName": "Place du Marché",
+    "zipCode": 14002,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Angoulême",
+    "streetNumber": 25,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 16002,
+    "companyName": "Menuiserie Artisanale"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "La Rochelle",
+    "streetNumber": 45,
+    "streetName": "Rue de la Gare",
+    "zipCode": 17000,
+    "companyName": "Crèche Les Petits Korrigans"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Bourges",
+    "streetNumber": 3,
+    "streetName": "Place du Marché",
+    "zipCode": 18001,
+    "companyName": "Cristal Bâtiment"
+  },
+  {
+    "title": "Assistant(e) de direction",
+    "description": "Gestion d'agenda, préparation de dossiers et organisation de déplacements pour deux dirigeants.",
+    "cityName": "Tulle",
+    "streetNumber": 25,
+    "streetName": "Rue Nationale",
+    "zipCode": 19001,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Chargé(e) d'affaires en assurance",
+    "description": "Développement et suivi d'un portefeuille de clients professionnels.",
+    "cityName": "Dijon",
+    "streetNumber": 32,
+    "streetName": "Rue de la République",
+    "zipCode": 21000,
+    "companyName": "Atlantide Conseil Dijon"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Saint-Brieuc",
+    "streetNumber": 56,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 22000,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Périgueux",
+    "streetNumber": 34,
+    "streetName": "Rue Pasteur",
+    "zipCode": 24000,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Besançon",
+    "streetNumber": 27,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 25000,
+    "companyName": "Clinique Vétérinaire"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Valence",
+    "streetNumber": 31,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 26000,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Auxiliaire de vie sociale",
+    "description": "Accompagnement de personnes âgées ou en situation de handicap à domicile.",
+    "cityName": "Évreux",
+    "streetNumber": 45,
+    "streetName": "Rue des Écoles",
+    "zipCode": 27002,
+    "companyName": "Services à la Personne"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Chartres",
+    "streetNumber": 55,
+    "streetName": "Rue Nationale",
+    "zipCode": 28000,
+    "companyName": "Crèche Les Petits Korrigans"
+  },
+  {
+    "title": "Mécanicien(ne) automobile",
+    "description": "Entretien courant et diagnostics électroniques, outillage fourni.",
+    "cityName": "Quimper",
+    "streetNumber": 41,
+    "streetName": "Rue de l'Église",
+    "zipCode": 29000,
+    "companyName": "Garage Central"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Nîmes",
+    "streetNumber": 3,
+    "streetName": "Avenue Foch",
+    "zipCode": 30002,
+    "companyName": "Studio Odyssée Nîmes"
+  },
+  {
+    "title": "Chargé(e) d'affaires en assurance",
+    "description": "Développement et suivi d'un portefeuille de clients professionnels.",
+    "cityName": "Toulouse",
+    "streetNumber": 15,
+    "streetName": "Rue de l'Église",
+    "zipCode": 31000,
+    "companyName": "Atlantide Conseil Toulouse"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Bordeaux",
+    "streetNumber": 29,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 33000,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Développeur(euse) QA / Testeur(euse)",
+    "description": "Conception de scénarios de tests automatisés et manuels pour une application mobile grand public.",
+    "cityName": "Montpellier",
+    "streetNumber": 3,
+    "streetName": "Place du Marché",
+    "zipCode": 34000,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Rennes",
+    "streetNumber": 24,
+    "streetName": "Rue des Écoles",
+    "zipCode": 35000,
+    "companyName": "Breizh Data Solutions Rennes"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Tours",
+    "streetNumber": 37,
+    "streetName": "Rue Nationale",
+    "zipCode": 37001,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Data Analyst H/F",
+    "description": "Construction de tableaux de bord et fiabilisation des pipelines de données existants.",
+    "cityName": "Grenoble",
+    "streetNumber": 6,
+    "streetName": "Avenue Foch",
+    "zipCode": 38000,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Lons-le-Saunier",
+    "streetNumber": 32,
+    "streetName": "Rue Pasteur",
+    "zipCode": 39000,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Blois",
+    "streetNumber": 41,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 41001,
+    "companyName": "Cristal Bâtiment"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Saint-Étienne",
+    "streetNumber": 58,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 42000,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Nantes",
+    "streetNumber": 11,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 44002,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Orléans",
+    "streetNumber": 20,
+    "streetName": "Rue Nationale",
+    "zipCode": 45002,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Assistant(e) de direction",
+    "description": "Gestion d'agenda, préparation de dossiers et organisation de déplacements pour deux dirigeants.",
+    "cityName": "Angers",
+    "streetNumber": 30,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 49000,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Mécanicien(ne) automobile",
+    "description": "Entretien courant et diagnostics électroniques, outillage fourni.",
+    "cityName": "Saint-Lô",
+    "streetNumber": 7,
+    "streetName": "Rue de la Gare",
+    "zipCode": 50001,
+    "companyName": "Garage Central"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Châlons-en-Champagne",
+    "streetNumber": 19,
+    "streetName": "Rue de l'Église",
+    "zipCode": 51002,
+    "companyName": "Ouest Services RH Châlons-en-Champagne"
+  },
+  {
+    "title": "Agent(e) de sécurité SSIAP 1",
+    "description": "Rondes de surveillance et gestion des alarmes incendie en centre commercial.",
+    "cityName": "Nancy",
+    "streetNumber": 18,
+    "streetName": "Rue de la République",
+    "zipCode": 54001,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Vannes",
+    "streetNumber": 59,
+    "streetName": "Avenue Foch",
+    "zipCode": 56000,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Agent(e) de sécurité SSIAP 1",
+    "description": "Rondes de surveillance et gestion des alarmes incendie en centre commercial.",
+    "cityName": "Metz",
+    "streetNumber": 50,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 57000,
+    "companyName": "Ouest Services RH Metz"
+  },
+  {
+    "title": "Conseiller(ère) bancaire particuliers",
+    "description": "Gestion d'un portefeuille de clients particuliers, ouverture de compte et conseil en épargne.",
+    "cityName": "Lille",
+    "streetNumber": 15,
+    "streetName": "Rue Nationale",
+    "zipCode": 59000,
+    "companyName": "Atlantide Conseil Lille"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Beauvais",
+    "streetNumber": 41,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 60000,
+    "companyName": "Le Comptoir"
+  },
+  {
+    "title": "Chargé(e) d'affaires en assurance",
+    "description": "Développement et suivi d'un portefeuille de clients professionnels.",
+    "cityName": "Arras",
+    "streetNumber": 20,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 62000,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Clermont-Ferrand",
+    "streetNumber": 47,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 63000,
+    "companyName": "Ker Logistique Clermont-Ferrand"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Pau",
+    "streetNumber": 48,
+    "streetName": "Rue des Écoles",
+    "zipCode": 64000,
+    "companyName": "Breizh Data Solutions Pau"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Strasbourg",
+    "streetNumber": 57,
+    "streetName": "Place du Marché",
+    "zipCode": 67002,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Colmar",
+    "streetNumber": 54,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 68000,
+    "companyName": "Épicerie Fine Colmar"
+  },
+  {
+    "title": "Agent(e) de sécurité SSIAP 1",
+    "description": "Rondes de surveillance et gestion des alarmes incendie en centre commercial.",
+    "cityName": "Lyon",
+    "streetNumber": 52,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 69001,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Auxiliaire de vie sociale",
+    "description": "Accompagnement de personnes âgées ou en situation de handicap à domicile.",
+    "cityName": "Le Mans",
+    "streetNumber": 30,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 72000,
+    "companyName": "Services à la Personne Le Mans"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Chambéry",
+    "streetNumber": 55,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 73001,
+    "companyName": "Cristal Bâtiment"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Rouen",
+    "streetNumber": 1,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 76001,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Melun",
+    "streetNumber": 44,
+    "streetName": "Rue de l'Église",
+    "zipCode": 77000,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Amiens",
+    "streetNumber": 53,
+    "streetName": "Rue Nationale",
+    "zipCode": 80001,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Toulon",
+    "streetNumber": 31,
+    "streetName": "Rue de la République",
+    "zipCode": 83000,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Pharmacien(ne) adjoint(e)",
+    "description": "Officine de quartier recherche un(e) pharmacien(ne) adjoint(e), logiciel LGPI en place.",
+    "cityName": "Avignon",
+    "streetNumber": 59,
+    "streetName": "Avenue Foch",
+    "zipCode": 84000,
+    "companyName": "Pharmacie Centrale Avignon"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Poitiers",
+    "streetNumber": 59,
+    "streetName": "Rue de l'Église",
+    "zipCode": 86001,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Limoges",
+    "streetNumber": 9,
+    "streetName": "Rue de la République",
+    "zipCode": 87000,
+    "companyName": "École Sainte-Cécile"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Bourg-en-Bresse",
+    "streetNumber": 8,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 1001,
+    "companyName": "Breizh Data Solutions Bourg-en-Bresse"
+  },
+  {
+    "title": "Pharmacien(ne) adjoint(e)",
+    "description": "Officine de quartier recherche un(e) pharmacien(ne) adjoint(e), logiciel LGPI en place.",
+    "cityName": "Laon",
+    "streetNumber": 25,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 2000,
+    "companyName": "Pharmacie Centrale"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Moulins",
+    "streetNumber": 27,
+    "streetName": "Avenue Foch",
+    "zipCode": 3002,
+    "companyName": "Clinique Vétérinaire"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Nice",
+    "streetNumber": 42,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 6001,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Privas",
+    "streetNumber": 18,
+    "streetName": "Rue de la République",
+    "zipCode": 7001,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Aide-soignant(e)",
+    "description": "Établissement médicalisé recherche un(e) aide-soignant(e) pour son équipe de nuit, matériel récent.",
+    "cityName": "Charleville-Mézières",
+    "streetNumber": 29,
+    "streetName": "Rue de la Gare",
+    "zipCode": 8001,
+    "companyName": "Vilaine Santé"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Troyes",
+    "streetNumber": 35,
+    "streetName": "Rue Pasteur",
+    "zipCode": 10000,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Carcassonne",
+    "streetNumber": 26,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 11000,
+    "companyName": "Ouest Services RH Carcassonne"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Marseille",
+    "streetNumber": 6,
+    "streetName": "Rue Nationale",
+    "zipCode": 13001,
+    "companyName": "Boulangerie du Centre Marseille"
+  },
+  {
+    "title": "Chargé(e) d'affaires en assurance",
+    "description": "Développement et suivi d'un portefeuille de clients professionnels.",
+    "cityName": "Caen",
+    "streetNumber": 2,
+    "streetName": "Rue de la République",
+    "zipCode": 14002,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Angoulême",
+    "streetNumber": 51,
+    "streetName": "Avenue Foch",
+    "zipCode": 16000,
+    "companyName": "Cristal Bâtiment Angoulême"
+  },
+  {
+    "title": "Agent(e) de sécurité SSIAP 1",
+    "description": "Rondes de surveillance et gestion des alarmes incendie en centre commercial.",
+    "cityName": "La Rochelle",
+    "streetNumber": 14,
+    "streetName": "Avenue Foch",
+    "zipCode": 17002,
+    "companyName": "Ouest Services RH La Rochelle"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Bourges",
+    "streetNumber": 22,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 18000,
+    "companyName": "Crèche Les Petits Korrigans Bourges"
+  },
+  {
+    "title": "Développeur(euse) QA / Testeur(euse)",
+    "description": "Conception de scénarios de tests automatisés et manuels pour une application mobile grand public.",
+    "cityName": "Tulle",
+    "streetNumber": 1,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 19002,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Dijon",
+    "streetNumber": 35,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 21000,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Saint-Brieuc",
+    "streetNumber": 9,
+    "streetName": "Rue de la République",
+    "zipCode": 22000,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Conseiller(ère) bancaire particuliers",
+    "description": "Gestion d'un portefeuille de clients particuliers, ouverture de compte et conseil en épargne.",
+    "cityName": "Périgueux",
+    "streetNumber": 38,
+    "streetName": "Place du Marché",
+    "zipCode": 24000,
+    "companyName": "Atlantide Conseil Périgueux"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Besançon",
+    "streetNumber": 9,
+    "streetName": "Rue de l'Église",
+    "zipCode": 25000,
+    "companyName": "Le Comptoir"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Valence",
+    "streetNumber": 31,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 26000,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Évreux",
+    "streetNumber": 7,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 27002,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Chartres",
+    "streetNumber": 47,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 28000,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Quimper",
+    "streetNumber": 20,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 29002,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Développeur(euse) Full Stack",
+    "description": "Vous interviendrez sur une plateforme web utilisée par plusieurs centaines de clients, du backend à l'interface, au sein d'une équipe agile.",
+    "cityName": "Nîmes",
+    "streetNumber": 31,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 30000,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Toulouse",
+    "streetNumber": 32,
+    "streetName": "Rue de l'Église",
+    "zipCode": 31000,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Bordeaux",
+    "streetNumber": 21,
+    "streetName": "Avenue Foch",
+    "zipCode": 33000,
+    "companyName": "Armorik Ingénierie Bordeaux"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Montpellier",
+    "streetNumber": 40,
+    "streetName": "Rue Nationale",
+    "zipCode": 34000,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Assistant(e) de direction",
+    "description": "Gestion d'agenda, préparation de dossiers et organisation de déplacements pour deux dirigeants.",
+    "cityName": "Rennes",
+    "streetNumber": 25,
+    "streetName": "Avenue Foch",
+    "zipCode": 35000,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Tours",
+    "streetNumber": 39,
+    "streetName": "Rue des Écoles",
+    "zipCode": 37002,
+    "companyName": "Cristal Immobilier Tours"
+  },
+  {
+    "title": "Assistant(e) de direction",
+    "description": "Gestion d'agenda, préparation de dossiers et organisation de déplacements pour deux dirigeants.",
+    "cityName": "Grenoble",
+    "streetNumber": 55,
+    "streetName": "Rue Nationale",
+    "zipCode": 38000,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Lons-le-Saunier",
+    "streetNumber": 47,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 39002,
+    "companyName": "Menuiserie Artisanale Lons-le-Saunier"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Blois",
+    "streetNumber": 27,
+    "streetName": "Place du Marché",
+    "zipCode": 41000,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Mécanicien(ne) automobile",
+    "description": "Entretien courant et diagnostics électroniques, outillage fourni.",
+    "cityName": "Saint-Étienne",
+    "streetNumber": 47,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 42001,
+    "companyName": "Garage Central"
+  },
+  {
+    "title": "Auxiliaire de vie sociale",
+    "description": "Accompagnement de personnes âgées ou en situation de handicap à domicile.",
+    "cityName": "Nantes",
+    "streetNumber": 24,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 44000,
+    "companyName": "Services à la Personne"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Orléans",
+    "streetNumber": 6,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 45000,
+    "companyName": "Studio Odyssée Orléans"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Angers",
+    "streetNumber": 48,
+    "streetName": "Rue de l'Église",
+    "zipCode": 49000,
+    "companyName": "École Sainte-Cécile"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Saint-Lô",
+    "streetNumber": 4,
+    "streetName": "Avenue Foch",
+    "zipCode": 50002,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Pharmacien(ne) adjoint(e)",
+    "description": "Officine de quartier recherche un(e) pharmacien(ne) adjoint(e), logiciel LGPI en place.",
+    "cityName": "Châlons-en-Champagne",
+    "streetNumber": 43,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 51000,
+    "companyName": "Pharmacie Centrale"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Nancy",
+    "streetNumber": 56,
+    "streetName": "Rue Pasteur",
+    "zipCode": 54001,
+    "companyName": "Crèche Les Petits Korrigans"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Vannes",
+    "streetNumber": 20,
+    "streetName": "Place du Marché",
+    "zipCode": 56002,
+    "companyName": "Breizh Data Solutions Vannes"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Metz",
+    "streetNumber": 10,
+    "streetName": "Rue Nationale",
+    "zipCode": 57000,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Lille",
+    "streetNumber": 23,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 59000,
+    "companyName": "Crèche Les Petits Korrigans"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Beauvais",
+    "streetNumber": 37,
+    "streetName": "Rue de la Gare",
+    "zipCode": 60000,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Arras",
+    "streetNumber": 50,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 62002,
+    "companyName": "Crèche Les Petits Korrigans"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Clermont-Ferrand",
+    "streetNumber": 2,
+    "streetName": "Avenue Foch",
+    "zipCode": 63002,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Agent(e) de sécurité SSIAP 1",
+    "description": "Rondes de surveillance et gestion des alarmes incendie en centre commercial.",
+    "cityName": "Pau",
+    "streetNumber": 2,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 64000,
+    "companyName": "Ouest Services RH Pau"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Strasbourg",
+    "streetNumber": 59,
+    "streetName": "Place du Marché",
+    "zipCode": 67000,
+    "companyName": "Menuiserie Artisanale"
+  },
+  {
+    "title": "Data Analyst H/F",
+    "description": "Construction de tableaux de bord et fiabilisation des pipelines de données existants.",
+    "cityName": "Colmar",
+    "streetNumber": 37,
+    "streetName": "Rue Nationale",
+    "zipCode": 68000,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Lyon",
+    "streetNumber": 6,
+    "streetName": "Rue de l'Église",
+    "zipCode": 69000,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Mécanicien(ne) automobile",
+    "description": "Entretien courant et diagnostics électroniques, outillage fourni.",
+    "cityName": "Le Mans",
+    "streetNumber": 30,
+    "streetName": "Place du Marché",
+    "zipCode": 72001,
+    "companyName": "Garage Central Le Mans"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Chambéry",
+    "streetNumber": 50,
+    "streetName": "Avenue Foch",
+    "zipCode": 73000,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Développeur(euse) QA / Testeur(euse)",
+    "description": "Conception de scénarios de tests automatisés et manuels pour une application mobile grand public.",
+    "cityName": "Rouen",
+    "streetNumber": 10,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 76000,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Melun",
+    "streetNumber": 18,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 77000,
+    "companyName": "Clinique Saint-Joseph"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Amiens",
+    "streetNumber": 29,
+    "streetName": "Rue des Écoles",
+    "zipCode": 80002,
+    "companyName": "Studio Odyssée Amiens"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Toulon",
+    "streetNumber": 8,
+    "streetName": "Place du Marché",
+    "zipCode": 83002,
+    "companyName": "Menuiserie Artisanale"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Avignon",
+    "streetNumber": 32,
+    "streetName": "Rue de la Paix",
+    "zipCode": 84002,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Poitiers",
+    "streetNumber": 26,
+    "streetName": "Avenue Foch",
+    "zipCode": 86000,
+    "companyName": "Clinique Saint-Joseph Poitiers"
+  },
+  {
+    "title": "Aide-soignant(e)",
+    "description": "Établissement médicalisé recherche un(e) aide-soignant(e) pour son équipe de nuit, matériel récent.",
+    "cityName": "Limoges",
+    "streetNumber": 14,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 87000,
+    "companyName": "Vilaine Santé Limoges"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Bourg-en-Bresse",
+    "streetNumber": 21,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 1000,
+    "companyName": "Le Comptoir Bourg-en-Bresse"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Laon",
+    "streetNumber": 12,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 2001,
+    "companyName": "Clinique Vétérinaire"
+  },
+  {
+    "title": "Assistant(e) de direction",
+    "description": "Gestion d'agenda, préparation de dossiers et organisation de déplacements pour deux dirigeants.",
+    "cityName": "Moulins",
+    "streetNumber": 33,
+    "streetName": "Rue de la Paix",
+    "zipCode": 3000,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Conseiller(ère) bancaire particuliers",
+    "description": "Gestion d'un portefeuille de clients particuliers, ouverture de compte et conseil en épargne.",
+    "cityName": "Nice",
+    "streetNumber": 5,
+    "streetName": "Rue des Écoles",
+    "zipCode": 6000,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Privas",
+    "streetNumber": 2,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 7001,
+    "companyName": "Clinique Saint-Joseph"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Charleville-Mézières",
+    "streetNumber": 37,
+    "streetName": "Rue des Écoles",
+    "zipCode": 8000,
+    "companyName": "Crèche Les Petits Korrigans"
+  },
+  {
+    "title": "Assistant(e) de direction",
+    "description": "Gestion d'agenda, préparation de dossiers et organisation de déplacements pour deux dirigeants.",
+    "cityName": "Troyes",
+    "streetNumber": 19,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 10001,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Auxiliaire de vie sociale",
+    "description": "Accompagnement de personnes âgées ou en situation de handicap à domicile.",
+    "cityName": "Carcassonne",
+    "streetNumber": 52,
+    "streetName": "Avenue Foch",
+    "zipCode": 11000,
+    "companyName": "Services à la Personne"
+  },
+  {
+    "title": "Assistant(e) de direction",
+    "description": "Gestion d'agenda, préparation de dossiers et organisation de déplacements pour deux dirigeants.",
+    "cityName": "Marseille",
+    "streetNumber": 6,
+    "streetName": "Rue des Écoles",
+    "zipCode": 13000,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Caen",
+    "streetNumber": 38,
+    "streetName": "Rue des Écoles",
+    "zipCode": 14001,
+    "companyName": "Cristal Bâtiment"
+  },
+  {
+    "title": "Mécanicien(ne) automobile",
+    "description": "Entretien courant et diagnostics électroniques, outillage fourni.",
+    "cityName": "Angoulême",
+    "streetNumber": 48,
+    "streetName": "Place du Marché",
+    "zipCode": 16000,
+    "companyName": "Garage Central Angoulême"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "La Rochelle",
+    "streetNumber": 5,
+    "streetName": "Rue de la Paix",
+    "zipCode": 17000,
+    "companyName": "Menuiserie Artisanale"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Bourges",
+    "streetNumber": 13,
+    "streetName": "Rue Pasteur",
+    "zipCode": 18002,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Tulle",
+    "streetNumber": 16,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 19000,
+    "companyName": "Ouest Services RH Tulle"
+  },
+  {
+    "title": "Aide-soignant(e)",
+    "description": "Établissement médicalisé recherche un(e) aide-soignant(e) pour son équipe de nuit, matériel récent.",
+    "cityName": "Dijon",
+    "streetNumber": 39,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 21000,
+    "companyName": "Vilaine Santé"
+  },
+  {
+    "title": "Chargé(e) d'affaires en assurance",
+    "description": "Développement et suivi d'un portefeuille de clients professionnels.",
+    "cityName": "Saint-Brieuc",
+    "streetNumber": 12,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 22000,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Périgueux",
+    "streetNumber": 49,
+    "streetName": "Avenue Foch",
+    "zipCode": 24002,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Besançon",
+    "streetNumber": 42,
+    "streetName": "Rue Nationale",
+    "zipCode": 25002,
+    "companyName": "Épicerie Fine"
+  },
+  {
+    "title": "Auxiliaire de vie sociale",
+    "description": "Accompagnement de personnes âgées ou en situation de handicap à domicile.",
+    "cityName": "Valence",
+    "streetNumber": 10,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 26000,
+    "companyName": "Services à la Personne Valence"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Évreux",
+    "streetNumber": 51,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 27000,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Chartres",
+    "streetNumber": 5,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 28002,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Quimper",
+    "streetNumber": 24,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 29000,
+    "companyName": "Clinique Saint-Joseph Quimper"
+  },
+  {
+    "title": "Chargé(e) d'affaires en assurance",
+    "description": "Développement et suivi d'un portefeuille de clients professionnels.",
+    "cityName": "Nîmes",
+    "streetNumber": 40,
+    "streetName": "Avenue Foch",
+    "zipCode": 30000,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Toulouse",
+    "streetNumber": 36,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 31002,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Bordeaux",
+    "streetNumber": 59,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 33001,
+    "companyName": "Clinique Saint-Joseph"
+  },
+  {
+    "title": "Aide-soignant(e)",
+    "description": "Établissement médicalisé recherche un(e) aide-soignant(e) pour son équipe de nuit, matériel récent.",
+    "cityName": "Montpellier",
+    "streetNumber": 39,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 34000,
+    "companyName": "Vilaine Santé"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Rennes",
+    "streetNumber": 7,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 35001,
+    "companyName": "Clinique Saint-Joseph"
+  },
+  {
+    "title": "Auxiliaire de vie sociale",
+    "description": "Accompagnement de personnes âgées ou en situation de handicap à domicile.",
+    "cityName": "Tours",
+    "streetNumber": 33,
+    "streetName": "Rue Nationale",
+    "zipCode": 37000,
+    "companyName": "Services à la Personne Tours"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Grenoble",
+    "streetNumber": 29,
+    "streetName": "Rue de la Paix",
+    "zipCode": 38001,
+    "companyName": "Cristal Bâtiment"
+  },
+  {
+    "title": "Data Analyst H/F",
+    "description": "Construction de tableaux de bord et fiabilisation des pipelines de données existants.",
+    "cityName": "Lons-le-Saunier",
+    "streetNumber": 24,
+    "streetName": "Rue Pasteur",
+    "zipCode": 39000,
+    "companyName": "Breizh Data Solutions Lons-le-Saunier"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Blois",
+    "streetNumber": 44,
+    "streetName": "Avenue Foch",
+    "zipCode": 41000,
+    "companyName": "École Sainte-Cécile Blois"
+  },
+  {
+    "title": "Chargé(e) d'affaires en assurance",
+    "description": "Développement et suivi d'un portefeuille de clients professionnels.",
+    "cityName": "Saint-Étienne",
+    "streetNumber": 5,
+    "streetName": "Place du Marché",
+    "zipCode": 42000,
+    "companyName": "Atlantide Conseil Saint-Étienne"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Nantes",
+    "streetNumber": 19,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 44001,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Orléans",
+    "streetNumber": 56,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 45002,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Angers",
+    "streetNumber": 59,
+    "streetName": "Place du Marché",
+    "zipCode": 49000,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Chargé(e) d'affaires en assurance",
+    "description": "Développement et suivi d'un portefeuille de clients professionnels.",
+    "cityName": "Saint-Lô",
+    "streetNumber": 9,
+    "streetName": "Avenue Foch",
+    "zipCode": 50001,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Châlons-en-Champagne",
+    "streetNumber": 36,
+    "streetName": "Rue des Écoles",
+    "zipCode": 51000,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Auxiliaire de vie sociale",
+    "description": "Accompagnement de personnes âgées ou en situation de handicap à domicile.",
+    "cityName": "Nancy",
+    "streetNumber": 43,
+    "streetName": "Rue de l'Église",
+    "zipCode": 54000,
+    "companyName": "Services à la Personne"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Vannes",
+    "streetNumber": 6,
+    "streetName": "Rue Nationale",
+    "zipCode": 56002,
+    "companyName": "Clinique Vétérinaire"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Metz",
+    "streetNumber": 2,
+    "streetName": "Place du Marché",
+    "zipCode": 57000,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Aide-soignant(e)",
+    "description": "Établissement médicalisé recherche un(e) aide-soignant(e) pour son équipe de nuit, matériel récent.",
+    "cityName": "Lille",
+    "streetNumber": 50,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 59000,
+    "companyName": "Vilaine Santé Lille"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Beauvais",
+    "streetNumber": 5,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 60000,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Arras",
+    "streetNumber": 50,
+    "streetName": "Rue de la Paix",
+    "zipCode": 62002,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Développeur(euse) QA / Testeur(euse)",
+    "description": "Conception de scénarios de tests automatisés et manuels pour une application mobile grand public.",
+    "cityName": "Clermont-Ferrand",
+    "streetNumber": 3,
+    "streetName": "Rue Nationale",
+    "zipCode": 63002,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Pau",
+    "streetNumber": 9,
+    "streetName": "Avenue Foch",
+    "zipCode": 64002,
+    "companyName": "Menuiserie Artisanale"
+  },
+  {
+    "title": "Data Analyst H/F",
+    "description": "Construction de tableaux de bord et fiabilisation des pipelines de données existants.",
+    "cityName": "Strasbourg",
+    "streetNumber": 54,
+    "streetName": "Rue de l'Église",
+    "zipCode": 67000,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Conseiller(ère) bancaire particuliers",
+    "description": "Gestion d'un portefeuille de clients particuliers, ouverture de compte et conseil en épargne.",
+    "cityName": "Colmar",
+    "streetNumber": 47,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 68000,
+    "companyName": "Atlantide Conseil Colmar"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Lyon",
+    "streetNumber": 29,
+    "streetName": "Avenue Foch",
+    "zipCode": 69000,
+    "companyName": "Ouest Services RH Lyon"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Le Mans",
+    "streetNumber": 15,
+    "streetName": "Rue de la Paix",
+    "zipCode": 72001,
+    "companyName": "Clinique Vétérinaire Le Mans"
+  },
+  {
+    "title": "Conseiller(ère) bancaire particuliers",
+    "description": "Gestion d'un portefeuille de clients particuliers, ouverture de compte et conseil en épargne.",
+    "cityName": "Chambéry",
+    "streetNumber": 58,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 73001,
+    "companyName": "Atlantide Conseil Chambéry"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Rouen",
+    "streetNumber": 29,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 76002,
+    "companyName": "Bretagne Verte Paysage"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Melun",
+    "streetNumber": 33,
+    "streetName": "Rue de la Paix",
+    "zipCode": 77001,
+    "companyName": "Menuiserie Artisanale"
+  },
+  {
+    "title": "Data Analyst H/F",
+    "description": "Construction de tableaux de bord et fiabilisation des pipelines de données existants.",
+    "cityName": "Amiens",
+    "streetNumber": 52,
+    "streetName": "Avenue Foch",
+    "zipCode": 80000,
+    "companyName": "Breizh Data Solutions Amiens"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Toulon",
+    "streetNumber": 42,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 83000,
+    "companyName": "Le Comptoir"
+  },
+  {
+    "title": "Pharmacien(ne) adjoint(e)",
+    "description": "Officine de quartier recherche un(e) pharmacien(ne) adjoint(e), logiciel LGPI en place.",
+    "cityName": "Avignon",
+    "streetNumber": 46,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 84000,
+    "companyName": "Pharmacie Centrale"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Poitiers",
+    "streetNumber": 6,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 86000,
+    "companyName": "Boulangerie du Centre Poitiers"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Limoges",
+    "streetNumber": 10,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 87002,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Bourg-en-Bresse",
+    "streetNumber": 53,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 1000,
+    "companyName": "Épicerie Fine"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Laon",
+    "streetNumber": 27,
+    "streetName": "Rue de la République",
+    "zipCode": 2000,
+    "companyName": "Épicerie Fine"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Moulins",
+    "streetNumber": 25,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 3000,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Développeur(euse) Full Stack",
+    "description": "Vous interviendrez sur une plateforme web utilisée par plusieurs centaines de clients, du backend à l'interface, au sein d'une équipe agile.",
+    "cityName": "Nice",
+    "streetNumber": 60,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 6000,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Chargé(e) d'affaires en assurance",
+    "description": "Développement et suivi d'un portefeuille de clients professionnels.",
+    "cityName": "Privas",
+    "streetNumber": 51,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 7000,
+    "companyName": "Atlantide Conseil Privas"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Charleville-Mézières",
+    "streetNumber": 45,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 8001,
+    "companyName": "Breizh Data Solutions Charleville-Mézières"
+  },
+  {
+    "title": "Assistant(e) de direction",
+    "description": "Gestion d'agenda, préparation de dossiers et organisation de déplacements pour deux dirigeants.",
+    "cityName": "Troyes",
+    "streetNumber": 29,
+    "streetName": "Avenue Foch",
+    "zipCode": 10001,
+    "companyName": "Nova Technologies Troyes"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Carcassonne",
+    "streetNumber": 17,
+    "streetName": "Rue de la Gare",
+    "zipCode": 11000,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Pharmacien(ne) adjoint(e)",
+    "description": "Officine de quartier recherche un(e) pharmacien(ne) adjoint(e), logiciel LGPI en place.",
+    "cityName": "Marseille",
+    "streetNumber": 34,
+    "streetName": "Rue des Écoles",
+    "zipCode": 13002,
+    "companyName": "Pharmacie Centrale Marseille"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Caen",
+    "streetNumber": 20,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 14000,
+    "companyName": "Breizh Data Solutions Caen"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Angoulême",
+    "streetNumber": 30,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 16002,
+    "companyName": "École Sainte-Cécile Angoulême"
+  },
+  {
+    "title": "Développeur(euse) QA / Testeur(euse)",
+    "description": "Conception de scénarios de tests automatisés et manuels pour une application mobile grand public.",
+    "cityName": "La Rochelle",
+    "streetNumber": 39,
+    "streetName": "Rue de la Paix",
+    "zipCode": 17001,
+    "companyName": "Nova Technologies La Rochelle"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Bourges",
+    "streetNumber": 16,
+    "streetName": "Rue de l'Église",
+    "zipCode": 18002,
+    "companyName": "Armorik Ingénierie Bourges"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Tulle",
+    "streetNumber": 40,
+    "streetName": "Place du Marché",
+    "zipCode": 19000,
+    "companyName": "École Sainte-Cécile Tulle"
+  },
+  {
+    "title": "Professeur(e) des écoles - remplacement",
+    "description": "Remplacement de longue durée en classe élémentaire, équipe pédagogique de huit enseignants.",
+    "cityName": "Dijon",
+    "streetNumber": 43,
+    "streetName": "Rue Nationale",
+    "zipCode": 21000,
+    "companyName": "École Sainte-Cécile Dijon"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Saint-Brieuc",
+    "streetNumber": 34,
+    "streetName": "Rue de la Paix",
+    "zipCode": 22000,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Périgueux",
+    "streetNumber": 2,
+    "streetName": "Rue des Écoles",
+    "zipCode": 24002,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Besançon",
+    "streetNumber": 24,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 25001,
+    "companyName": "Clinique Saint-Joseph"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Valence",
+    "streetNumber": 23,
+    "streetName": "Rue de la Gare",
+    "zipCode": 26000,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Chargé(e) d'affaires en assurance",
+    "description": "Développement et suivi d'un portefeuille de clients professionnels.",
+    "cityName": "Évreux",
+    "streetNumber": 50,
+    "streetName": "Avenue Foch",
+    "zipCode": 27000,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Auxiliaire de vie sociale",
+    "description": "Accompagnement de personnes âgées ou en situation de handicap à domicile.",
+    "cityName": "Chartres",
+    "streetNumber": 3,
+    "streetName": "Place du Marché",
+    "zipCode": 28000,
+    "companyName": "Services à la Personne"
+  },
+  {
+    "title": "Agent(e) de sécurité SSIAP 1",
+    "description": "Rondes de surveillance et gestion des alarmes incendie en centre commercial.",
+    "cityName": "Quimper",
+    "streetNumber": 54,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 29000,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Assistant(e) de direction",
+    "description": "Gestion d'agenda, préparation de dossiers et organisation de déplacements pour deux dirigeants.",
+    "cityName": "Nîmes",
+    "streetNumber": 41,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 30001,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Toulouse",
+    "streetNumber": 3,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 31001,
+    "companyName": "Armorik Ingénierie Toulouse"
+  },
+  {
+    "title": "Conseiller(ère) bancaire particuliers",
+    "description": "Gestion d'un portefeuille de clients particuliers, ouverture de compte et conseil en épargne.",
+    "cityName": "Bordeaux",
+    "streetNumber": 57,
+    "streetName": "Rue de la République",
+    "zipCode": 33000,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Montpellier",
+    "streetNumber": 26,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 34002,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Rennes",
+    "streetNumber": 49,
+    "streetName": "Rue Nationale",
+    "zipCode": 35000,
+    "companyName": "Le Comptoir Rennes"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Tours",
+    "streetNumber": 56,
+    "streetName": "Rue Nationale",
+    "zipCode": 37000,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Grenoble",
+    "streetNumber": 28,
+    "streetName": "Rue Pasteur",
+    "zipCode": 38000,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Lons-le-Saunier",
+    "streetNumber": 22,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 39001,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Blois",
+    "streetNumber": 60,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 41000,
+    "companyName": "Studio Odyssée"
+  },
+  {
+    "title": "Conseiller(ère) bancaire particuliers",
+    "description": "Gestion d'un portefeuille de clients particuliers, ouverture de compte et conseil en épargne.",
+    "cityName": "Saint-Étienne",
+    "streetNumber": 47,
+    "streetName": "Rue des Écoles",
+    "zipCode": 42000,
+    "companyName": "Atlantide Conseil Saint-Étienne"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Nantes",
+    "streetNumber": 35,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 44000,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Orléans",
+    "streetNumber": 43,
+    "streetName": "Rue du Général de Gaulle",
+    "zipCode": 45000,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Angers",
+    "streetNumber": 11,
+    "streetName": "Rue de l'Église",
+    "zipCode": 49001,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Saint-Lô",
+    "streetNumber": 47,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 50000,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Châlons-en-Champagne",
+    "streetNumber": 18,
+    "streetName": "Rue Nationale",
+    "zipCode": 51001,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Nancy",
+    "streetNumber": 43,
+    "streetName": "Rue Nationale",
+    "zipCode": 54000,
+    "companyName": "Clinique Saint-Joseph"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Vannes",
+    "streetNumber": 2,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 56000,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Metz",
+    "streetNumber": 3,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 57001,
+    "companyName": "Bretagne Verte Paysage Metz"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Lille",
+    "streetNumber": 24,
+    "streetName": "Rue des Écoles",
+    "zipCode": 59000,
+    "companyName": "Menuiserie Artisanale"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Beauvais",
+    "streetNumber": 10,
+    "streetName": "Rue Nationale",
+    "zipCode": 60002,
+    "companyName": "Clinique Saint-Joseph"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Arras",
+    "streetNumber": 29,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 62000,
+    "companyName": "Ouest Services RH Arras"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Clermont-Ferrand",
+    "streetNumber": 24,
+    "streetName": "Rue des Écoles",
+    "zipCode": 63002,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Pau",
+    "streetNumber": 8,
+    "streetName": "Rue de la République",
+    "zipCode": 64000,
+    "companyName": "Le Comptoir"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Strasbourg",
+    "streetNumber": 25,
+    "streetName": "Rue Pasteur",
+    "zipCode": 67002,
+    "companyName": "Studio Odyssée"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Colmar",
+    "streetNumber": 46,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 68000,
+    "companyName": "Le Comptoir Colmar"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Lyon",
+    "streetNumber": 45,
+    "streetName": "Rue Pasteur",
+    "zipCode": 69000,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Aide-soignant(e)",
+    "description": "Établissement médicalisé recherche un(e) aide-soignant(e) pour son équipe de nuit, matériel récent.",
+    "cityName": "Le Mans",
+    "streetNumber": 9,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 72000,
+    "companyName": "Vilaine Santé Le Mans"
+  },
+  {
+    "title": "Data Analyst H/F",
+    "description": "Construction de tableaux de bord et fiabilisation des pipelines de données existants.",
+    "cityName": "Chambéry",
+    "streetNumber": 6,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 73001,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Éducateur(rice) de jeunes enfants",
+    "description": "Animation de temps d'éveil et accompagnement de l'équipe d'auxiliaires de puériculture.",
+    "cityName": "Rouen",
+    "streetNumber": 43,
+    "streetName": "Place du Marché",
+    "zipCode": 76000,
+    "companyName": "Crèche Les Petits Korrigans"
+  },
+  {
+    "title": "Pharmacien(ne) adjoint(e)",
+    "description": "Officine de quartier recherche un(e) pharmacien(ne) adjoint(e), logiciel LGPI en place.",
+    "cityName": "Melun",
+    "streetNumber": 19,
+    "streetName": "Rue Pasteur",
+    "zipCode": 77002,
+    "companyName": "Pharmacie Centrale Melun"
+  },
+  {
+    "title": "Data Analyst H/F",
+    "description": "Construction de tableaux de bord et fiabilisation des pipelines de données existants.",
+    "cityName": "Amiens",
+    "streetNumber": 51,
+    "streetName": "Place du Marché",
+    "zipCode": 80000,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Toulon",
+    "streetNumber": 51,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 83000,
+    "companyName": "Boulangerie du Centre Toulon"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Avignon",
+    "streetNumber": 24,
+    "streetName": "Rue de la Paix",
+    "zipCode": 84000,
+    "companyName": "Studio Odyssée"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Poitiers",
+    "streetNumber": 9,
+    "streetName": "Avenue Foch",
+    "zipCode": 86002,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Limoges",
+    "streetNumber": 26,
+    "streetName": "Rue de l'Église",
+    "zipCode": 87000,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Bourg-en-Bresse",
+    "streetNumber": 50,
+    "streetName": "Rue des Écoles",
+    "zipCode": 1001,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Laon",
+    "streetNumber": 21,
+    "streetName": "Rue Nationale",
+    "zipCode": 2000,
+    "companyName": "Armorik Ingénierie Laon"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Moulins",
+    "streetNumber": 23,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 3002,
+    "companyName": "Cristal Immobilier"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Nice",
+    "streetNumber": 41,
+    "streetName": "Avenue Foch",
+    "zipCode": 6002,
+    "companyName": "Menuiserie Artisanale Nice"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Privas",
+    "streetNumber": 33,
+    "streetName": "Rue Pasteur",
+    "zipCode": 7001,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Agent(e) de sécurité SSIAP 1",
+    "description": "Rondes de surveillance et gestion des alarmes incendie en centre commercial.",
+    "cityName": "Charleville-Mézières",
+    "streetNumber": 34,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 8000,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Data Analyst H/F",
+    "description": "Construction de tableaux de bord et fiabilisation des pipelines de données existants.",
+    "cityName": "Troyes",
+    "streetNumber": 60,
+    "streetName": "Rue de l'Église",
+    "zipCode": 10000,
+    "companyName": "Breizh Data Solutions Troyes"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Carcassonne",
+    "streetNumber": 55,
+    "streetName": "Rue Victor Hugo",
+    "zipCode": 11000,
+    "companyName": "Armorik Ingénierie Carcassonne"
+  },
+  {
+    "title": "Chargé(e) d'affaires en assurance",
+    "description": "Développement et suivi d'un portefeuille de clients professionnels.",
+    "cityName": "Marseille",
+    "streetNumber": 18,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 13002,
+    "companyName": "Atlantide Conseil"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Caen",
+    "streetNumber": 6,
+    "streetName": "Rue de la Paix",
+    "zipCode": 14002,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Angoulême",
+    "streetNumber": 10,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 16002,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "La Rochelle",
+    "streetNumber": 22,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 17002,
+    "companyName": "Clinique Vétérinaire"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Bourges",
+    "streetNumber": 6,
+    "streetName": "Rue de la République",
+    "zipCode": 18000,
+    "companyName": "Clinique Saint-Joseph"
+  },
+  {
+    "title": "Menuisier(ère) d'agencement",
+    "description": "Fabrication de mobilier et agencements intérieurs sur mesure, du plan à la pose.",
+    "cityName": "Tulle",
+    "streetNumber": 17,
+    "streetName": "Rue Nationale",
+    "zipCode": 19002,
+    "companyName": "Menuiserie Artisanale Tulle"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Dijon",
+    "streetNumber": 40,
+    "streetName": "Rue Nationale",
+    "zipCode": 21001,
+    "companyName": "Ker Logistique Dijon"
+  },
+  {
+    "title": "Développeur(euse) QA / Testeur(euse)",
+    "description": "Conception de scénarios de tests automatisés et manuels pour une application mobile grand public.",
+    "cityName": "Saint-Brieuc",
+    "streetNumber": 19,
+    "streetName": "Rue Nationale",
+    "zipCode": 22002,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Community manager H/F",
+    "description": "Animation des réseaux sociaux d'une dizaine de clients locaux, création de contenu vidéo.",
+    "cityName": "Périgueux",
+    "streetNumber": 52,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 24000,
+    "companyName": "Studio Odyssée"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Besançon",
+    "streetNumber": 5,
+    "streetName": "Rue de l'Église",
+    "zipCode": 25001,
+    "companyName": "Breizh Data Solutions Besançon"
+  },
+  {
+    "title": "Agent(e) immobilier(ère)",
+    "description": "Développement d'un portefeuille de biens résidentiels, fixe garanti puis commissions.",
+    "cityName": "Valence",
+    "streetNumber": 31,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 26001,
+    "companyName": "Cristal Immobilier Valence"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Évreux",
+    "streetNumber": 21,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 27000,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Chartres",
+    "streetNumber": 26,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 28000,
+    "companyName": "Clinique Vétérinaire"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Quimper",
+    "streetNumber": 7,
+    "streetName": "Place du Marché",
+    "zipCode": 29002,
+    "companyName": "Armorik Ingénierie Quimper"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Nîmes",
+    "streetNumber": 29,
+    "streetName": "Rue de la Gare",
+    "zipCode": 30000,
+    "companyName": "Boulangerie du Centre Nîmes"
+  },
+  {
+    "title": "Infirmier(ère) diplômé(e) d'État",
+    "description": "Poste en CDI au sein d'un service hospitalier, équipe pluridisciplinaire et plannings établis à l'avance.",
+    "cityName": "Toulouse",
+    "streetNumber": 25,
+    "streetName": "Rue de la Liberté",
+    "zipCode": 31000,
+    "companyName": "Clinique Saint-Joseph"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Bordeaux",
+    "streetNumber": 53,
+    "streetName": "Place du Marché",
+    "zipCode": 33000,
+    "companyName": "Cristal Bâtiment"
+  },
+  {
+    "title": "Vétérinaire canin et félin",
+    "description": "Médecine et chirurgie courantes des carnivores domestiques, plateau technique récent.",
+    "cityName": "Montpellier",
+    "streetNumber": 13,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 34000,
+    "companyName": "Clinique Vétérinaire Montpellier"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Rennes",
+    "streetNumber": 32,
+    "streetName": "Rue Pasteur",
+    "zipCode": 35001,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Développeur(euse) Full Stack",
+    "description": "Vous interviendrez sur une plateforme web utilisée par plusieurs centaines de clients, du backend à l'interface, au sein d'une équipe agile.",
+    "cityName": "Tours",
+    "streetNumber": 26,
+    "streetName": "Rue de la Paix",
+    "zipCode": 37000,
+    "companyName": "Nova Technologies"
+  },
+  {
+    "title": "Chef de projet BTP",
+    "description": "Pilotage de chantiers de rénovation énergétique, de la consultation à la réception des travaux.",
+    "cityName": "Grenoble",
+    "streetNumber": 38,
+    "streetName": "Place du Marché",
+    "zipCode": 38000,
+    "companyName": "Cristal Bâtiment Grenoble"
+  },
+  {
+    "title": "Ingénieur(e) réseaux et sécurité",
+    "description": "Supervision d'infrastructures réseau multi-sites, gestion des pare-feux et incidents de niveau 3.",
+    "cityName": "Lons-le-Saunier",
+    "streetNumber": 39,
+    "streetName": "Rue Pasteur",
+    "zipCode": 39001,
+    "companyName": "Breizh Data Solutions"
+  },
+  {
+    "title": "Jardinier(ère) paysagiste",
+    "description": "Entretien d'espaces verts chez des particuliers et collectivités, permis B requis.",
+    "cityName": "Blois",
+    "streetNumber": 19,
+    "streetName": "Rue de la Paix",
+    "zipCode": 41001,
+    "companyName": "Bretagne Verte Paysage Blois"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Saint-Étienne",
+    "streetNumber": 9,
+    "streetName": "Rue Pasteur",
+    "zipCode": 42001,
+    "companyName": "Boulangerie du Centre Saint-Étienne"
+  },
+  {
+    "title": "Assistant(e) ressources humaines",
+    "description": "Participation au recrutement, à l'administration du personnel et au suivi de la formation.",
+    "cityName": "Nantes",
+    "streetNumber": 24,
+    "streetName": "Rue de la République",
+    "zipCode": 44001,
+    "companyName": "Ouest Services RH"
+  },
+  {
+    "title": "Magasinier(ère) cariste",
+    "description": "Réception, stockage et préparation de commandes, CACES 1, 3 et 5 requis.",
+    "cityName": "Orléans",
+    "streetNumber": 13,
+    "streetName": "Place du Marché",
+    "zipCode": 45002,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Comptable unique H/F",
+    "description": "Gestion de la comptabilité générale, déclarations fiscales et relations avec l'expert-comptable externe.",
+    "cityName": "Angers",
+    "streetNumber": 33,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 49001,
+    "companyName": "Armorik Ingénierie"
+  },
+  {
+    "title": "Serveur(se) en restauration",
+    "description": "Restaurant traditionnel recherche un(e) serveur(se) pour les services du midi et du soir.",
+    "cityName": "Saint-Lô",
+    "streetNumber": 44,
+    "streetName": "Avenue Foch",
+    "zipCode": 50002,
+    "companyName": "Le Comptoir Saint-Lô"
+  },
+  {
+    "title": "Boulanger(ère) pâtissier(ère)",
+    "description": "Boulangerie artisanale recherche un(e) professionnel(le) pour rejoindre une équipe soudée, horaires du matin.",
+    "cityName": "Châlons-en-Champagne",
+    "streetNumber": 24,
+    "streetName": "Quai des Chartrons",
+    "zipCode": 51001,
+    "companyName": "Boulangerie du Centre"
+  },
+  {
+    "title": "Pharmacien(ne) adjoint(e)",
+    "description": "Officine de quartier recherche un(e) pharmacien(ne) adjoint(e), logiciel LGPI en place.",
+    "cityName": "Nancy",
+    "streetNumber": 49,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 54000,
+    "companyName": "Pharmacie Centrale Nancy"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Vannes",
+    "streetNumber": 33,
+    "streetName": "Rue de la République",
+    "zipCode": 56001,
+    "companyName": "Armorik Ingénierie Vannes"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Metz",
+    "streetNumber": 52,
+    "streetName": "Boulevard Gambetta",
+    "zipCode": 57000,
+    "companyName": "Ker Logistique"
+  },
+  {
+    "title": "Technicien(ne) de maintenance industrielle",
+    "description": "Maintenance préventive et curative de lignes de production automatisées, astreintes ponctuelles.",
+    "cityName": "Lille",
+    "streetNumber": 58,
+    "streetName": "Rue de la Paix",
+    "zipCode": 59002,
+    "companyName": "Ker Logistique Lille"
+  },
+  {
+    "title": "Boucher(ère) charcutier(ère)",
+    "description": "Découpe, préparation et vente en boutique, approvisionnement en circuit court.",
+    "cityName": "Beauvais",
+    "streetNumber": 21,
+    "streetName": "Avenue Jean Jaurès",
+    "zipCode": 60002,
+    "companyName": "Épicerie Fine"
+  },
+  {
+    "title": "Coiffeur(euse) mixte",
+    "description": "Salon indépendant recherche un(e) coiffeur(euse) polyvalent(e), clientèle fidélisée.",
+    "cityName": "Arras",
+    "streetNumber": 38,
+    "streetName": "Place du Marché",
+    "zipCode": 62000,
+    "companyName": "Coiffure Créative"
+  },
+  {
+    "title": "Électricien(ne) bâtiment",
+    "description": "Chantiers de rénovation chez des particuliers et petites copropriétés, véhicule fourni.",
+    "cityName": "Clermont-Ferrand",
+    "streetNumber": 32,
+    "streetName": "Rue de l'Église",
+    "zipCode": 63002,
+    "companyName": "Armorik Ingénierie"
+  }
+]

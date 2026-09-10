@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Button from "../buttons/Button";
-import LogoJeb from "../../assets/logoJEB.png";
 
 function PcTemplate() {
 
@@ -10,7 +9,6 @@ function PcTemplate() {
         <div className="flex flex-col gap-10">
             <header className="w-full z-1000 flex justify-between px-10 py-2 bg-white items-center shadow-md">
                 <div className="flex items-center gap-5">
-                    <img className="w-20 object-contain" src={LogoJeb.src} alt="Logo GéoEmploi" />
                         <h1 className="flex justify-center font-bold text-xl">
                             GéoEmploi
                         </h1>

@@ -3,6 +3,7 @@ import { Box, Modal } from "@mui/material";
 import PostulateTemplate from "../templates/PostuleTemplate";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import ReportModal from "./reportModal";
 
 const modalStyle = {
   position: "absolute",
@@ -46,6 +47,7 @@ export default function JobModal({
   description,
   cityName,
   companyName,
+  views
 }: {
   isOpen: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -54,8 +56,36 @@ export default function JobModal({
   description: string;
   cityName: string;
   companyName: string;
+  views: number;
 }) {
   const [statePostule, setOpenPostule] = useState(false);
+  const [stateReport, setOpenReport] = useState(false);
+  const [reportAccessError, setReportAccessError] = useState("");
+  const [reportNeedsLogin, setReportNeedsLogin] = useState(false);
+
+  function openReport() 
+  {
+    const currentRole = getCurrentUserRole();
+
+    setReportAccessError("");
+    setReportNeedsLogin(false);
+
+    if (!currentRole) {
+      setReportAccessError("Vous devez être connecté avec un compte candidat pour signaler une offre");
+      setReportNeedsLogin(true);
+      return;
+    }
+
+    if (currentRole !== "seeker") {
+      setReportAccessError("Seuls les demandeurs d'emploi peuvent signaler une offre");
+      return;
+    }
+    setOpenReport(true);
+  }
+
+  function closeReport() {
+    setOpenReport(false);
+  }
 
   function getCurrentUserRole() {
     const tokenCookie = Cookies.get("token");
@@ -112,7 +142,6 @@ export default function JobModal({
   function closePostule() {
     setOpenPostule(false);
   }
-
   return (
     <>
       <Modal
@@ -142,7 +171,7 @@ export default function JobModal({
                 >
                   <path
                     d="M8 7V5.5C8 4.67 8.67 4 9.5 4h5C15.33 4 16 4.67 16 5.5V7"
-                    stroke="#2C5DB3"
+                    stroke="#FFA500"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                   />
@@ -152,17 +181,17 @@ export default function JobModal({
                     width="16"
                     height="12"
                     rx="2"
-                    stroke="#2C5DB3"
+                    stroke="#FFA500"
                     strokeWidth="1.8"
                   />
                   <path
                     d="M4 11.5c2.2 1.4 4.9 2.1 8 2.1s5.8-.7 8-2.1"
-                    stroke="#2C5DB3"
+                    stroke="#FFA500"
                     strokeWidth="1.8"
                   />
                   <path
                     d="M10.8 13.3h2.4"
-                    stroke="#2C5DB3"
+                    stroke="#FFA500"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                   />
@@ -178,20 +207,20 @@ export default function JobModal({
                 </h2>
 
                 <div className="mt-4 flex flex-col gap-2 text-[15px]">
-                  <div className="flex items-center gap-2 text-[#2C5DB3]">
-                    <span className="text-lg">▦</span>
-                    <span className="font-medium">{companyName}</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg text-[#FFA500] ">▦</span>
+                    <span className="font-medium text-black">{companyName}</span>
                   </div>
 
-                  <div className="flex items-center gap-2 text-[#1B3A6B]">
-                    <span className="text-lg">⌖</span>
+                  <div className="flex items-center gap-2 text-black">
+                    <span className="text-[#FFA500] text-lg">⌖</span>
                     <span>{cityName}</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="my-6 h-px bg-[#D9DEE7]" />
+            <div className="my-6 h-px bg-[#FFA500]" />
 
             {/* Description */}
             <p
@@ -201,24 +230,33 @@ export default function JobModal({
               {description}
             </p>
 
-            <div className="my-6 h-px bg-[#D9DEE7]" />
+            <div className="my-6 h-px bg-[#FFA500]" />
 
             {/* Metadata */}
-            <div className="flex flex-col gap-3 text-[15px] text-[#17233E]">
+            <div className="flex flex-col gap-3 text-[15px] text-black">
               <div className="flex items-center gap-3">
-                <span className="text-[#2C5DB3] text-lg">⌖</span>
+                <span className="text-[#FFA500] text-lg">⌖</span>
                 <span>
                   <strong>Localisation :</strong> {cityName}
                 </span>
               </div>
 
               <div className="flex items-center gap-3">
-                <span className="text-[#2C5DB3] text-lg">▦</span>
+                <span className="text-[#FFA500] text-lg">▦</span>
                 <span>
                   <strong>Entreprise :</strong>{" "}
-                  <span className="text-[#2C5DB3]">
+                  <span className="text-black">
                     {companyName}
                   </span>
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-[#FFA500] text-lg">
+                    ◉
+                </span>
+                <span>
+                    <strong>Vues :</strong>{" "}
+                    {views}
                 </span>
               </div>
             </div>
@@ -231,24 +269,74 @@ export default function JobModal({
                 mt-7
                 w-full
                 rounded-lg
-                bg-[#2C5DB3]
+                bg-[#FFA500]
                 px-6
                 py-4
                 text-[20px]
                 font-semibold
-                text-white
+                text-black
                 transition
-                ${
-                  canApply
-                    ? "bg-[#2C5DB3] hover:bg-[#214A91] hover:cursor-pointer"
-                    : "bg-gray-400 cursor-not-allowed"
-                  }
+                hover:cursor-pointer
+                hover:bg-[#FFA500]/50
                 
               `}
 
             >
               Postuler
             </button>
+
+            <button
+              type="button"
+              onClick={openReport}
+              className={`
+                mt-7
+                w-full
+                rounded-lg
+                bg-red-600
+                px-6
+                py-4
+                text-[20px]
+                font-semibold
+                text-white
+                transition
+                hover:cursor-pointer
+                hover:bg-red-700
+              `}
+            >
+              Signaler
+            </button>
+            {reportAccessError && (
+            <div
+              className="
+                mt-3
+                rounded-lg
+                border
+                border-red-200
+                bg-red-50
+                px-4
+                py-3
+                text-sm
+                text-red-700
+              "
+            >
+              <p>{reportAccessError}</p>
+                      
+              {reportNeedsLogin && (
+                <a
+                  href="/connexion"
+                  className="
+                    mt-2
+                    inline-block
+                    font-semibold
+                    text-[#1B3A6B]
+                    underline
+                  "
+                >
+                  Se connecter
+                </a>
+              )}
+            </div>
+          )}
           </div>
         </Box>
       </Modal>
@@ -264,7 +352,7 @@ export default function JobModal({
         }}
       >
         <Box sx={postulateStyle}>
-          <h2 className="text-center text-2xl font-bold text-[#1B3A6B]">
+          <h2 className="text-center text-2xl font-bold text-[#FFA500]">
             {title}
           </h2>
 
@@ -283,6 +371,12 @@ export default function JobModal({
           </div>
         </Box>
       </Modal>
+      <ReportModal
+        isOpen={stateReport}
+        setOpen={setOpenReport}
+        jobId={jobId}
+        jobTitle={title}
+      />
     </>
   );
 }

@@ -3,6 +3,7 @@ import {IsEmail, IsString, IsNotEmpty, IsNumber, IsBoolean, IsDate, IsEnum} from
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { UserRole } from '../enum/user-role.enum';
 import { Seeker } from '../seekers/entities/seeker.entity'
+import { UserAccountStatus } from '../enum/user-account-status.enum';
 
 @Entity()
 export class User {
@@ -65,6 +66,16 @@ export class User {
       example: 'employer',
   })
   role: UserRole;
+
+  @Column({type: 'enum', enum: UserAccountStatus, default: UserAccountStatus.ACTIVE})
+  @IsNotEmpty()
+  @IsEnum(UserAccountStatus)
+  @ApiProperty({
+    description: 'User account status',
+    enum: UserAccountStatus,
+    example: UserAccountStatus.ACTIVE,
+  })
+  accountStatus: UserAccountStatus;
 
   @OneToOne(() => Seeker, (seeker) => seeker.user)
   seeker?: Seeker;

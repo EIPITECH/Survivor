@@ -1,6 +1,5 @@
 import Button from "../buttons/Button";
 import SwitchLocation from "../toggleSwitchLoc";
-import LogoJeb from "../../assets/logoJEB.png";
 import { useState } from "react";
 import Cookies from "js-cookie";
 
@@ -14,12 +13,12 @@ function HeaderMobile({role, firstName}: Props) {
     const isConnected = role !== null;
     const [isAccountMenuOpen, setAccountMenuOpen] = useState(false);
 
-    let accountLink = "/profil/";
+    let accountLink = "/seekerDashboard/";
 
     if (role === "employer")
         accountLink = "/dashboard/";
     else if (role === "admin")
-        accountLink = "/admin/";
+        accountLink = "/pannel-admin/";
     
     function logout() {
         Cookies.remove("token");
@@ -29,7 +28,6 @@ function HeaderMobile({role, firstName}: Props) {
     return (
         <header className="w-full flex justify-between items-center px-4 py-2 bg-white shadow-md">
             <div className="flex items-center gap-2 min-w-0">
-                <img className="size-12 shrink-0" src={LogoJeb.src} alt=""/>
                 {/* <h1 className="text-black font-bold truncate">
                     GéoEmploi
                 </h1> */}

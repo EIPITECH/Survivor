@@ -1,101 +1,191 @@
 import { MapContainer, TileLayer, Marker, Popup, type MapContainerProps } from 'react-leaflet';
-import '../styles/global.css';
 import LocationMarker from "./location"
-import MarkerRed from "./marker/markerRed"
 import { useEffect, useState } from 'react';
 import JobModal from './modal/jobModal';
-import BurgerMenu from './BurgerMenu';
 import { Control } from 'leaflet';
 import { Map } from 'leaflet';
+import CityMarker from "./marker/cityMarker";
+import CityJobsPanel from "./map/cityJobPanel";
+import type { Job, CityGroup } from "../types/job";
 
 export default function ContainerSetterMap() {
-  const [isOpen, setOpen] = useState(false);
-  const [selectedJob, setSelectedJob] = useState<item | null>(null);
-  const handleOpenModal = (job: item) => {
-    setSelectedJob(job);
-    setOpen(true);
-  };
+    const [isOpen, setOpen] = useState(false);
 
-  return (
-    <>
-      <JobModal
-        isOpen={isOpen}
-        setOpen={setOpen}
-        jobId={selectedJob?.id ?? 0}
-        title={selectedJob?.title || "Offre d'emploi"}
-        description={
-          selectedJob?.description ||
-          "Description non disponible"
+    const [selectedJob, setSelectedJob] =
+        useState<Job | null>(null);
+
+    const handleOpenModal = async (job: Job) => {
+        setSelectedJob(job);
+        setOpen(true);
+
+        try {
+            const response = await fetch(`http://localhost:3000/jobs/${job.id}/view`,
+                {
+                    method: "POST",
+                }
+            );
+            if (!response.ok) {
+                console.error("Impossible d'incrémenter les vues");
+                return;
+            }
+            const updatedJob = await response.json();
+            setSelectedJob((previousJob) => {
+                if (!previousJob) {
+                    return previousJob;
+                }
+                return {
+                    ...previousJob,
+                    views: updatedJob.views,
+                };
+            });
+        } catch (error) {
+            console.error("Erreur lors de l'incrémentation des vues :", error);
         }
-        cityName={selectedJob?.cityName || "Localisation non renseignée"}
-        companyName={selectedJob?.companyName || "Nom de l'entreprise non renseignée"}
-      />
-      <SurvivorMap onOpenModal={handleOpenModal} />
-    </>
-  );
+    };
+    return (
+        <>
+            <JobModal
+                isOpen={isOpen}
+                setOpen={setOpen}
+                jobId={selectedJob?.id ?? 0}
+                title={
+                    selectedJob?.title ||
+                    "Offre d'emploi"
+                }
+                description={
+                    selectedJob?.description ||
+                    "Description non disponible"
+                }
+                cityName={
+                    selectedJob?.cityName ||
+                    "Localisation non renseignée"
+                }
+                companyName={
+                    selectedJob?.companyName ||
+                    "Nom de l'entreprise non renseignée"
+                }
+                views={selectedJob?.views ?? 0}
+            />
+
+            <SurvivorMap
+                onOpenModal={handleOpenModal}
+            />
+        </>
+    );
 }
 
-interface item {
-  id: number,
-  title: string,
-  description: string,
-  latitude: number,
-  longitude: number,
-  employerId:number,
-  status: string,
-  cityName: string,
-  companyName: string,
-  createdAt: string
-}
+export function SurvivorMap({
+    onOpenModal,
+}: {
+    onOpenModal: (job: Job) => void;
+}) {
+    const [groups, setGroups] =
+        useState<CityGroup[]>([]);
 
-export function SurvivorMap({ onOpenModal }: { onOpenModal: (job: item) => void }) {
-  const [map, setMap] = useState();
-  const [items, setItems] = useState<item[]>([]);
-  const [refetch, setRefetch] = useState(false);
+    const [selectedGroup, setSelectedGroup] =
+        useState<CityGroup | null>(null);
 
-  const planIgnUrl = "http://localhost:3000/tiles/{z}/{x}/{y}";
-   useEffect(() => {
-       const fetchJobs = () => {
-           fetch("http://localhost:3000/jobs/active", { cache: 'no-store' })
-             .then((response) => {
-               if (!response.ok) throw new Error(`HTTP ${response.status}`);
-               return response.json();
-             })
-             .then((data) => {
-               console.log("jobs data:", data);
-               setItems(data);
-             })
-             .catch((err) => console.error("Failed to fetch jobs:", err));
-         };
-         fetchJobs();
-         window.addEventListener('jobCreated', fetchJobs);
-         return () => {
-            window.removeEventListener('jobCreated', fetchJobs);
-         };
+    const planIgnUrl =
+        "http://localhost:3000/tiles/{z}/{x}/{y}";
+
+    useEffect(() => {
+        const fetchJobs = () => {
+            fetch(
+                "http://localhost:3000/jobs/active/grouped",
+                {
+                    cache: "no-store",
+                }
+            )
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(
+                            `HTTP ${response.status}`
+                        );
+                    }
+
+                    return response.json();
+                })
+                .then((data: CityGroup[]) => {
+                    console.log(
+                        "Grouped jobs:",
+                        data
+                    );
+
+                    setGroups(data);
+                })
+                .catch((err) =>
+                    console.error(
+                        "Failed to fetch grouped jobs:",
+                        err
+                    )
+                );
+        };
+
+        fetchJobs();
+
+        window.addEventListener(
+            "jobCreated",
+            fetchJobs
+        );
+
+        return () => {
+            window.removeEventListener(
+                "jobCreated",
+                fetchJobs
+            );
+        };
     }, []);
 
-  return (
-    <MapContainer
-      center={[48.8566, 2.3522]}
-      zoom={13}
-      scrollWheelZoom={true}
-      style={{ zIndex: '0', height: '100vh', width: '100%', overflow: 'hidden' }}
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www.ign.fr/">IGN France</a>'
-        url={planIgnUrl}
-      />
-      {items.map((item) => (
-        <MarkerRed
-          key={item.id}
-          pos={[item.latitude, item.longitude]}
-          onClick={() => onOpenModal(item)} 
-          description={item.title}
-        />
-      ))}
-      <LocationMarker />
-    </MapContainer>
-  );
+    return (
+        <div className="relative h-screen w-full">
+
+            <MapContainer
+                center={[48.8566, 2.3522]}
+                zoom={10}
+                scrollWheelZoom={true}
+                style={{
+                    zIndex: "0",
+                    height: "100%",
+                    width: "100%",
+                    overflow: "hidden",
+                }}
+            >
+                <TileLayer
+                    attribution='&copy; <a href="https://www.ign.fr/">IGN France</a>'
+                    url={planIgnUrl}
+                />
+
+                {groups.map((group) => (
+                    <CityMarker
+                        key={group.cityName}
+                        pos={[
+                            group.latitude,
+                            group.longitude,
+                        ]}
+                        cityName={group.cityName}
+                        count={group.count}
+                        onClick={() =>
+                            setSelectedGroup(group)
+                        }
+                    />
+                ))}
+
+                <LocationMarker />
+
+            </MapContainer>
+
+            <CityJobsPanel
+                group={selectedGroup}
+                onClose={() =>
+                    setSelectedGroup(null)
+                }
+                onOpenJob={(job) => {
+                    setSelectedGroup(null);
+                    onOpenModal(job);
+                }}
+            />
+
+        </div>
+    );
 }
 
-//        {items.map((item) => (<MarkerRed key={item.id} pos={[item.latitude, item.longitude]} setOpen={setOpen} description={item.description}
