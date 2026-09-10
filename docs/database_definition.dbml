@@ -1,47 +1,96 @@
 Table users {
-  id           integer      [pk, increment, note: 'PrimaryGeneratedColumn']
-  firstName    varchar      [not null]
-  lastName     varchar      [not null]
-  email        varchar      [not null, unique, note: 'Email unique (contrainte DB)']
-  password     varchar      [not null, note: 'Hash bcrypt']
-  isConnected  boolean      [not null]
-  role         user_role    [not null, default: 'seeker']
-  createdAt    timestamp    [not null, default: `now()`]
+  id            integer            [pk, increment]
+  firstName     varchar            [not null]
+  lastName      varchar            [not null]
+  email         varchar            [not null, unique]
+  password      varchar            [not null, note: 'Hash bcrypt']
+  isConnected   boolean            [not null]
+  role          user_role          [not null, default: 'seeker']
+  accountStatus user_account_status [not null, default: 'active']
+  siret         varchar(14)        [note: 'SIRET etablissement (compte employeur)']
+  createdAt     timestamp          [not null, default: `now()`]
 
   indexes {
     email [unique, name: 'idx_users_email']
     role  [name: 'idx_users_role']
   }
-
-  Note: 'Comptes utilisateurs : tous les profils pouvant se connecter depuis le frontend.'
 }
 
 Table jobs {
-  id               integer     [pk, increment]
-  title            varchar     [not null]
-  description      text        [not null]
-  cityName         varchar     [not null]
-  streetNumber     integer     [not null]
-  streetName       varchar     [not null]
-  zipCode          integer     [not null]
-  latitude         float       [not null]
-  longitude        float       [not null]
-  employerId       integer     [not null, note: 'FK logique vers users.id (role=employer). Pas de contrainte FK declaree dans le code TypeORM actuel']
-  status           job_status  [not null, default: 'toCheck', note: 'toCheck|active|archived']
-  geocodageSource  varchar     [not null, note: 'ex: google-maps-api']
-  trustScore       float       [not null, note: 'Score entre 0 et 1']
-  obtentionDate    timestamp   [not null, note: 'Date à laquelle le poste a été pourvu (quand offre archivée)']
-  companyName      varchar     [not null]
-  createdAt        timestamp   [not null, default: `now()`]
+  id              integer     [pk, increment]
+  title           varchar     [not null]
+  description     text        [not null]
+  cityName        varchar     [not null]
+  streetNumber    integer     [not null]
+  streetName      varchar     [not null]
+  zipCode         integer     [not null]
+  latitude        float       [not null]
+  longitude       float       [not null]
+  employerId      integer     [not null, note: 'FK logique vers users.id (role=employer). Pas de contrainte FK declaree dans le code TypeORM actuel']
+  status          job_status  [not null, default: 'toCheck']
+  geocodageSource varchar     [not null]
+  trustScore      float       [not null]
+  obtentionDate   timestamp   [not null]
+  companyName     varchar     [not null]
+  views           integer     [not null, default: 0]
+  createdAt       timestamp   [not null, default: `now()`]
 
   indexes {
     employerId            [name: 'idx_jobs_employerId']
     status                [name: 'idx_jobs_status']
-    (latitude, longitude) [name: 'idx_jobs_geo', note: 'recherche geographique / tiles']
+    (latitude, longitude) [name: 'idx_jobs_geo']
     zipCode               [name: 'idx_jobs_zipCode']
   }
+}
 
-  Note: 'Offres emploi geolocalisees, liées a un employeur.'
+Table seekers {
+  id           integer   [pk, increment]
+  skills       varchar
+  experience   varchar
+  availability varchar
+  userId       integer   [not null, unique]
+}
+
+Table applications {
+  id        integer            [pk, increment]
+  status    application_status [not null, default: 'submitted']
+  createdAt timestamp          [not null, default: `now()`]
+  seekerId  integer            [not null]
+  jobId     integer            [not null]
+  message   varchar(1000)      [not null]
+
+  indexes {
+    (seekerId, jobId) [unique]
+  }
+}
+
+Table consent {
+  id            integer   [pk, increment]
+  type          varchar   [not null]
+  granted       boolean   [not null]
+  noticeVersion varchar   [not null]
+  createdAt     timestamp [not null, default: `now()`]
+  userId        integer   [not null]
+}
+
+Table reports {
+  id        integer       [pk, increment]
+  reason    report_reason [not null]
+  message   varchar(1000)
+  status    report_status [not null, default: 'pending']
+  createdAt timestamp     [not null, default: `now()`]
+  jobId     integer       [not null]
+}
+
+Table notifs {
+  id            integer    [pk, increment]
+  userId        integer    [not null, note: 'FK logique vers users.id. Pas de contrainte FK declaree dans le code TypeORM actuel']
+  type          notif_type [not null, default: 'application_received']
+  title         varchar    [not null]
+  message       varchar    [not null]
+  applicationId integer    [note: 'FK logique vers applications.id. Pas de contrainte FK declaree dans le code TypeORM actuel']
+  isRead        boolean    [not null, default: false]
+  createdAt     timestamp  [not null, default: `now()`]
 }
 
 Enum user_role {
@@ -50,10 +99,44 @@ Enum user_role {
   admin
 }
 
+Enum user_account_status {
+  active
+  suspended
+}
+
 Enum job_status {
   active
   archived
   toCheck
 }
 
+Enum application_status {
+  submitted
+  accepted
+  rejected
+}
+
+Enum report_reason {
+  fraud
+  misleading
+  inappropriate
+  expired
+  other
+}
+
+Enum report_status {
+  pending
+  resolved
+  rejected
+}
+
+Enum notif_type {
+  application_received
+}
+
 Ref: jobs.employerId > users.id // many-to-one
+Ref: seekers.userId - users.id // one-to-one
+ Ref: applications.jobId > jobs.id // many-to-one
+Ref: consent.userId > users.id // many-to-one
+Ref: reports.jobId > jobs.id // many-to-one
+ 
