@@ -1,8 +1,9 @@
 import { Controller, Get, Param, Res } from '@nestjs/common';
 import type { Response } from 'express';
-import { ApiOperation, ApiParam, ApiProduces } from '@nestjs/swagger';
+import { ApiOperation, ApiParam, ApiProduces, ApiTags } from '@nestjs/swagger';
 import { TilesService } from './tiles.service';
 
+@ApiTags('tiles')
 @Controller('tiles')
 export class TilesController {
   constructor(private readonly tilesService: TilesService) {}

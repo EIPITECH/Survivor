@@ -1,4 +1,4 @@
-import { Injectable, ConflictException } from '@nestjs/common';
+import { Injectable, ConflictException, BadRequestException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -21,9 +21,24 @@ export class UsersService {
   async create(createUserDto: CreateUserDto) {
     const userExists = await this.userRepo.findOneBy({ email: createUserDto.email });
     if (userExists) {
-      throw new ConflictException(
-        "Un utilisateur avec cette adresse email existe déjà"
-      );
+      throw new ConflictException("Un utilisateur avec cette adresse email existe déjà");
+    }
+
+    if (createUserDto.role === UserRole.EMPLOYER) {
+      const siret = createUserDto.siret;
+
+      if (!siret) {
+          throw new BadRequestException('Le SIRET est obligatoire pour créer un compte employeur');
+      }
+
+      if (!this.isValidSiretLuhn(siret)) {
+          throw new BadRequestException('Le numéro SIRET est invalide');
+      }
+
+      const siretExists = await this.verifySiretExists(siret);
+      if (!siretExists) {
+          throw new BadRequestException('Aucun entreprise correspondant à ce SIRET n’a été trouvé');
+      }
     }
 
     const user = new User();
