@@ -11,7 +11,7 @@ const GEOCODE_SOURCE = 'api-adresse.data.gouv.fr';
 const ACTIVE_SCORE_THRESHOLD = 0.5;
 const REQUEST_DELAY_MS = 22; // ~45 req/s maximum
 const MAX_RETRIES = 5;
-const MAX_CONSECUTIVE_FAILURES = 8;
+export const MAX_CONSECUTIVE_FAILURES = 8;
 
 // Thrown when the API keeps refusing us (429) even after waiting REQUEST_DELAY_MS
 class RateLimitExceededError extends Error {}
