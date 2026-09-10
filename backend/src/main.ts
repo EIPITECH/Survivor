@@ -16,6 +16,17 @@ async function bootstrap() {
     .setTitle('GéoEmploi')
     .setDescription('GéoEmploi\'s API')
     .setVersion('1.0')
+    .addTag('auth', 'Connexion et authentification')
+    .addTag('users', 'Gestion des comptes utilisateurs')
+    .addTag('seekers', 'Profils candidats')
+    .addTag('applications', "Candidatures aux offres d'emploi")
+    .addTag('jobs', "Offres d'emploi")
+    .addTag('reports', "Signalements d'offres")
+    .addTag('notifications', 'Notifications utilisateur')
+    .addTag('consents', 'Consentements RGPD')
+    .addTag('tiles', 'Tuiles cartographiques')
+    .addTag('health', "Vérification de l'état de l'API")
+    .addTag('app', 'Racine de l\'API')
     .addBearerAuth({
       type: 'http',
       scheme: 'bearer',
