@@ -13,7 +13,7 @@ env:
 
 jobs:
   check_the_repository_state:
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest, self-hosted]
 
     steps:
       - name: Get branch name
