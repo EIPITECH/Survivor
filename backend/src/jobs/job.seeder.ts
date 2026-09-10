@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm';
 import { User } from '../users/entities/user.entity';
 import { Job } from './entities/job.entity';
-import { JobsService } from './jobs.service';
+import { JobsService, MAX_CONSECUTIVE_FAILURES } from './jobs.service';
 import { CreateJobDto } from './dto/create-job.dto';
 import SEEDED_JOB_OFFERS from './data/job-offers.seed.json';
 
@@ -43,6 +43,7 @@ export default class JobSeeder {
           error instanceof Error ? error.message : error,
         );
       }
+      if (failed >= MAX_CONSECUTIVE_FAILURES) { break; }
     }
  
     console.log(`Offres créées : ${created}, échecs : ${failed}`);

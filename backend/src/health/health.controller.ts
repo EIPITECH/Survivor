@@ -5,7 +5,9 @@ import {
     TypeOrmHealthIndicator,
     HealthCheck
 } from '@nestjs/terminus';
+import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
+@ApiTags('health')
 @Controller('health')
 export class HealthController {
   constructor(
@@ -16,6 +18,9 @@ export class HealthController {
 
   @Get()
   @HealthCheck()
+  @ApiOperation({
+    summary: 'Vérifie la disponibilité de la base de données, de l\'API interne et de la Géoplateforme IGN',
+  })
   check() {
     return this.health.check([
       () => this.db.pingCheck('PostgreSQL'),

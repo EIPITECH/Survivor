@@ -86,7 +86,7 @@ export class User {
     nullable: true,
   })
   @ApiPropertyOptional({
-    description: 'SIRET de l’établissement pour un compte employeur',
+    description: 'SIRET de l\'établissement pour un compte employeur',
     example: '55210055400013',
   })
   siret: string | null;
