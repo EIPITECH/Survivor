@@ -287,7 +287,24 @@ async archiveExpiredJobs(): Promise<number>
       console.log(`Offres trouvées : ${jobs.length}\n`);
   
       for (const job of jobs) {
-     
+        const isAlreadyGeocoded =
+          job.geocodageSource === GEOCODE_SOURCE &&
+          job.trustScore !== null &&
+          job.trustScore !== undefined &&
+          job.obtentionDate !== null &&
+          job.obtentionDate !== undefined &&
+          job.latitude !== null &&
+          job.latitude !== undefined &&
+          job.longitude !== null &&
+          job.longitude !== undefined &&
+          job.status !== jobStatus.TOCHECK;
+
+        if (isAlreadyGeocoded) {
+          skipped++;
+          console.log(`[SKIP] Offre #${job.id} déjà conforme`);
+          continue;
+        }
+
         const addressToCheck = `${job.cityName} ${job.zipCode}`;
         const addressShort = addressToCheck.substring(0, 16);
         console.log(`[CHECK] Offre #${job.id} : ${addressShort}${addressShort.length < addressToCheck.length ? '...' : ''}`);
